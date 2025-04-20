@@ -11,7 +11,9 @@ const SplashScreen = (props: Props) => {
         style={styles.splashImage}
       />
       <View style={styles.logo}>
-        <Text style={{fontSize: 16, color: '#4B4B4B'}}>Technology Partner</Text>
+        <Text style={{fontSize: 16, color: '#4B4B4B', fontWeight: '400'}}>
+          Technology Partner
+        </Text>
         <Image
           source={require('../assets/image/sriyogLogo.png')}
           style={styles.logo}
@@ -28,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   splashImage: {
-    top: '26%',
+    top: '28%',
   },
   logo: {bottom: '8%', alignItems: 'center', gap: 20},
 });

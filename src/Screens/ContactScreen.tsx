@@ -38,7 +38,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
   const openWhatsApp = () => {
     Linking.openURL('https://www.whatsapp.com/');
   };
-  const onenTelegram = () => {
+  const openTelegram = () => {
     Linking.openURL('https://telegram.org/');
   };
   return (
@@ -149,7 +149,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
             </Text>
           </TouchableOpacity>
           <View style={{flexDirection: 'row', columnGap: 20}}>
-            <TouchableOpacity onPress={}>
+            <TouchableOpacity onPress={openWhatsApp}>
               <Green height={40} width={40} />
               <WhatsApp
                 height={25}
@@ -157,7 +157,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
                 style={{position: 'absolute', left: 8, top: 7}}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={openTelegram}>
               <Telegram height={40} width={40} />
             </TouchableOpacity>
           </View>

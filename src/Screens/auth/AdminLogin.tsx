@@ -46,7 +46,7 @@ const AdminLogin = ({navigation}: {navigation: any}) => {
             alignItems: 'center',
           }}>
           <TextInput
-            placeholder="Email Adress"
+            placeholder="E-mail Address"
             placeholderTextColor={'#434343'}
             style={{
               fontSize: 20,

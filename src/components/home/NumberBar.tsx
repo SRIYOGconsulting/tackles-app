@@ -8,10 +8,13 @@ const NumberBar = ({navigation}: {navigation: any}) => {
     <View
       style={{
         flexDirection: 'row',
+        height: 40,
+        width: 321,
 
-        borderRadius: 16,
+        borderRadius: 15,
         borderWidth: 1,
         borderColor: '#0E61CD',
+        justifyContent: 'space-between',
       }}>
       <View
         style={{
@@ -19,10 +22,11 @@ const NumberBar = ({navigation}: {navigation: any}) => {
           alignItems: 'center',
           paddingHorizontal: 4,
           paddingVertical: 2,
+          flex: 1,
         }}>
         <Image
           source={require('../../assets/image/header/left.png')}
-          style={{marginVertical: 2}}
+          style={{height: 30, width: 30}}
         />
         <Text
           style={{
@@ -31,6 +35,8 @@ const NumberBar = ({navigation}: {navigation: any}) => {
             letterSpacing: 2,
             color: '#4B4B4B',
             paddingHorizontal: 20,
+            flex: 1,
+            textAlign: 'center',
           }}>
           055 616 5029
         </Text>

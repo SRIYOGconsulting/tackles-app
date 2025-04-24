@@ -6,23 +6,24 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
+  Dimensions,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import DropIcon from '../assets/icons/contact/DropDown.svg';
+
+const {height} = Dimensions.get('window'); // Get the height of the screen
 
 const Dropdown = ({
   options,
   placeholder,
-  placeholderColor = '#999',
-  iconName = 'arrow-drop-down',
-  iconColor = '#333',
+  placeholderColor = '#4B4B4B',
+
   showRequired = false, // Controls whether the red * is shown
   onSelectOption,
 }: {
   options: Array<string>;
   placeholder: string;
   placeholderColor?: string;
-  iconName?: string;
-  iconColor?: string;
+
   showRequired?: boolean;
   onSelectOption: (option: string) => void;
 }) => {
@@ -40,7 +41,7 @@ const Dropdown = ({
   };
 
   return (
-    <View>
+    <View style={{marginBottom: 10}}>
       <View style={styles.inputContainer}>
         {/* Conditional Placeholder */}
         {selectedOption === '' && (
@@ -51,21 +52,23 @@ const Dropdown = ({
         )}
         <TextInput
           style={styles.input}
-          value={selectedOption}
+          value={selectedOption} // Display the selected option text here
           editable={false} // Prevent manual text input
         />
 
         <TouchableOpacity onPress={toggleDropdown}>
-          <Icon
-            name={iconName}
-            size={24}
-            color={iconColor}
-            style={styles.icon}
-          />
+          <DropIcon height={16} width={16} />
         </TouchableOpacity>
       </View>
       {showDropdown && (
-        <View style={styles.dropdown}>
+        <View
+          style={[
+            styles.dropdown,
+            {
+              maxHeight: height / 3, // Set max height for the dropdown list
+              top: 45, // Adjust dropdown position
+            },
+          ]}>
           <FlatList
             data={options}
             keyExtractor={(item, index) => index.toString()}
@@ -86,33 +89,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
+    borderColor: '#E3E3E3',
+    borderRadius: 4,
     paddingHorizontal: 10,
-    height: 40,
+    height: 34,
     position: 'relative',
   },
-  placeholder: {
-    position: 'absolute',
-    left: 10,
-    top: 10,
-    fontSize: 16,
-  },
+  placeholder: {},
   input: {
     flex: 1,
     fontSize: 16,
     color: '#000',
+    paddingVertical: 5,
   },
   icon: {
     marginLeft: 10,
   },
   dropdown: {
-    marginTop: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 8,
+    borderRadius: 4,
     backgroundColor: '#fff',
-    maxHeight: 200, // Limit dropdown height
+    position: 'absolute',
+    width: '100%',
+    zIndex: 9999,
   },
   option: {
     padding: 10,

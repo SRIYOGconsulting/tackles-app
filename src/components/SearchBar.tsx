@@ -12,7 +12,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {faqsQuestioin, questions} from '../data/Data';
 const SearchBar = () => {
   const [searchText, setSearchText] = useState('');
-
   const filteredData = faqsQuestioin
     .map(item => item.category) // Extract titles only
     .filter(category =>

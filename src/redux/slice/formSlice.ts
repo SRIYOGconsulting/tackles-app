@@ -11,6 +11,7 @@ interface FormEntry {
   selectedBudget: string;
   selectedArea: string;
   message: string;
+  date: string;
 }
 
 // Define the type for the slice state
@@ -41,7 +42,6 @@ const formSlice = createSlice({
       }
     },
     clearAllFormData(state) {
-      // Clear all entries
       state.entries = [];
     },
   },

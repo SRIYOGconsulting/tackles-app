@@ -6,7 +6,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import ServicesCard from '../components/home/ServicesCard';
 import ProfessionalCard from '../components/home/ProfessionalCard';
 import NumberBar from '../components/home/NumberBar';
-
+import UAE from '../assets/icons/UAE.svg';
 type Props = {};
 
 const HomeScreen = ({navigation}: {navigation: any}) => {
@@ -24,9 +24,9 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           width: '100%',
           paddingRight: 16,
         }}>
-        <HeaderComponent />
+        <HeaderComponent style={{paddingHorizontal: '4.5%'}} />
       </View>
-      <View style={{paddingHorizontal: '4%', paddingTop: '5%', gap: '1%'}}>
+      <View style={{paddingHorizontal: '4.5%', paddingTop: '6%', gap: '1%'}}>
         <Text style={{fontSize: 20, color: '#0E61CD', fontWeight: '700'}}>
           Tackles | Dubai
         </Text>
@@ -58,7 +58,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
             color: '#0E61CD',
             fontWeight: '700',
             fontSize: 16,
-            marginVertical: '3%',
+            marginVertical: '2%',
           }}>
           Top Professional
         </Text>
@@ -81,8 +81,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
             title="Mason"
           />
         </View>
-        <View
-          style={{alignItems: 'center', paddingHorizontal: 40, marginTop: 6}}>
+        <View style={{alignItems: 'center', marginTop: 10}}>
           <NumberBar navigation={navigation} />
         </View>
       </View>

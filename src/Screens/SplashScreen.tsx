@@ -1,4 +1,4 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, InteractionManager} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
@@ -10,7 +10,10 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
       setCounter(prev => {
         if (prev === 1) {
           clearInterval(timer);
-          navigation.replace('OnBoarding1');
+          // Use InteractionManager to avoid state update during render
+          InteractionManager.runAfterInteractions(() => {
+            navigation.replace('OnBoarding1');
+          });
         }
         return prev - 1;
       });
@@ -46,6 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
+    backgroundColor: '#fff',
   },
   counter: {
     position: 'absolute',

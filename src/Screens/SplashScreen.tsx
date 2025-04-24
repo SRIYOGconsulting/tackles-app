@@ -10,7 +10,7 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
       setCounter(prev => {
         if (prev === 1) {
           clearInterval(timer);
-          // Use InteractionManager to avoid state update during render
+
           InteractionManager.runAfterInteractions(() => {
             navigation.replace('OnBoarding1');
           });

@@ -47,21 +47,16 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
       selectedArea &&
       date
     ) {
-      const newEntry = {
-        id: Date.now(), // Use timestamp as unique ID
+      navigation.navigate('AdminOtp', {
         name,
         number,
         selectedService,
         selectedShift,
-        selectedPriority,
-        selectedBudget,
         selectedArea,
+        selectedBudget,
+        selectedPriority,
         message,
-        date: date?.toISOString() || '',
-      };
-
-      dispatch(addFormData(newEntry));
-      navigation.navigate('AdminOtp'); // Navigate to OTP screen
+      }); // Navigate to OTP screen
     } else {
       Alert.alert('Incomplete Form', 'Please fill in all required fields.');
     }

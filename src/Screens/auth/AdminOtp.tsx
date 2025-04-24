@@ -9,15 +9,28 @@ import {
 import React, {useRef, useState} from 'react';
 import HeaderComponent from '../../components/HeaderComponent';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {addFormData} from '../../redux/slice/formSlice';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../redux/store';
 
 type Props = {};
 
-const AdminOtp = (props: Props) => {
+const AdminOtp = ({route}: {route: any}) => {
   const [otp, setOtp] = useState(['', '', '', '']); // Manage OTP state
   const inputRefs = useRef<Array<TextInput | null>>([]);
-
+  const {
+    name,
+    number,
+    selectedArea,
+    selectedService,
+    selectedBudget,
+    selectedPriority,
+    selectedShift,
+    date,
+    message,
+  } = route.params;
   const navigation = useNavigation<any>();
-
+  const dispatch: AppDispatch = useDispatch();
   // Clear OTP whenever the screen is focused
   useFocusEffect(
     React.useCallback(() => {
@@ -45,6 +58,20 @@ const AdminOtp = (props: Props) => {
   const handleNavigate = () => {
     const enteredOtp = otp.join(''); // Combine the OTP into a single string
     if (enteredOtp === '11111') {
+      const newEntry = {
+        id: Date.now(), // Use timestamp as unique ID
+        name,
+        number,
+        selectedService,
+        selectedShift,
+        selectedPriority,
+        selectedBudget,
+        selectedArea,
+        message,
+        date: date?.toISOString() || '',
+      };
+
+      dispatch(addFormData(newEntry));
       navigation.navigate('AdminOtpVerify');
     } else {
       Alert.alert('Error', 'Wrong OTP! Please try again.');

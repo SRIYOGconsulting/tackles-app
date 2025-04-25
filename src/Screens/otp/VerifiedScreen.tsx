@@ -6,7 +6,7 @@ type Props = {};
 
 const VerifiedScreen = (props: Props) => {
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
       <View style={{paddingHorizontal: '4%', paddingVertical: '5%', flex: 1}}>
         <Text style={{fontSize: 24, fontWeight: '400'}}>

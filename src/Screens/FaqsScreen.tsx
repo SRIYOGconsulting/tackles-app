@@ -7,7 +7,6 @@ import {faqsQuestioin} from '../data/Data';
 const FaqsScreen = ({navigation}: {navigation: any}) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Function to filter FAQs based on the search term
   const filteredFaqs = faqsQuestioin.filter(item => {
     return (
       item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||

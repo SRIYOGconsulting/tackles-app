@@ -3,23 +3,25 @@ import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 const SplashScreen = ({navigation}: {navigation: any}) => {
-  const [counter, setCounter] = useState(10); // starts from 3
+  const [milliseconds, setMilliseconds] = useState<number>(3000);
+  const [isRunning, setIsRunning] = useState<boolean>(true);
+  const totalDuration = 3000;
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCounter(prev => {
-        if (prev === 1) {
-          clearInterval(timer);
-
-          InteractionManager.runAfterInteractions(() => {
-            navigation.replace('OnBoarding1');
-          });
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
+    setIsRunning(true);
+    setMilliseconds(totalDuration);
+    const startTime = Date.now();
+    const interval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(totalDuration - elapsed, 0);
+      setMilliseconds(Math.round(remaining));
+      if (remaining <= 0) {
+        setIsRunning(false);
+        clearInterval(interval);
+        navigation.replace('OnBoarding1');
+      }
+    }, 1); // 1ms interval for smooth display
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -28,7 +30,7 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
         source={require('../assets/image/splash.png')}
         style={styles.splashImage}
       />
-      <Text style={styles.counter}>{counter}</Text>
+      <Text style={styles.counter}>{milliseconds}</Text>
       <View style={styles.logo}>
         <Text style={{fontSize: 16, color: '#4B4B4B', fontWeight: '400'}}>
           Technology Partner

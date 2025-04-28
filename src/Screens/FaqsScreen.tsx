@@ -1,8 +1,10 @@
-import {View, Text, FlatList, TextInput, ScrollView} from 'react-native';
+import {View, Text, FlatList, TextInput, Dimensions} from 'react-native';
 import React, {useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 import FaqsCard from '../components/faqs/FaqsCard';
 import {faqsQuestioin} from '../data/Data';
+
+const {width, height} = Dimensions.get('window');
 
 const FaqsScreen = ({navigation}: {navigation: any}) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,25 +22,31 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
 
-      <View style={{paddingHorizontal: '4%', paddingTop: '5%'}}>
-        <Text style={{fontSize: 22, fontWeight: '700', marginBottom: 2}}>
+      <View
+        style={{paddingHorizontal: width * 0.04, paddingTop: height * 0.02}}>
+        <Text
+          style={{
+            fontSize: height * 0.028,
+            fontWeight: '900',
+            marginBottom: height * 0.005,
+          }}>
           Professional & Reliable Services
         </Text>
-        <Text style={{fontSize: 20, fontWeight: '500'}}>FAQs</Text>
+        <Text style={{fontSize: height * 0.025, fontWeight: '500'}}>FAQs</Text>
 
-        {/* Search Bar Component */}
+        {/* Search Bar */}
         <TextInput
           style={{
-            height: 40,
-            fontSize: 16,
-            borderRadius: 5,
-            paddingLeft: 10,
-            marginBottom: 10,
-            marginTop: 10,
+            height: height * 0.055,
+            fontSize: height * 0.02,
+            borderRadius: width * 0.02,
+            paddingLeft: width * 0.03,
+            marginBottom: height * 0.015,
+            marginTop: height * 0.015,
             backgroundColor: '#E2E2E27A',
-            fontWeight: '400',
+            fontWeight: '600',
           }}
-          placeholder="Search "
+          placeholder="Search"
           value={searchTerm}
           onChangeText={setSearchTerm}
         />
@@ -58,7 +66,10 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
           />
         )}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingHorizontal: '4%'}}
+        contentContainerStyle={{
+          paddingHorizontal: width * 0.04,
+          paddingBottom: height * 0.02,
+        }}
       />
     </View>
   );

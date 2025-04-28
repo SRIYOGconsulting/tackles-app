@@ -5,6 +5,7 @@ import {
   TextInput,
   StyleSheet,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
@@ -12,6 +13,15 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {useSelector} from 'react-redux';
 import {RootState} from '../redux/store';
 import DropIcon from '../assets/icons/contact/DropDown.svg';
+
+// Get screen dimensions
+const {width, height} = Dimensions.get('window');
+
+// Font scaling utility function
+const scaleFont = (size: number) => {
+  const guidelineBaseWidth = 375; // Base screen width to scale from
+  return (size * width) / guidelineBaseWidth;
+};
 
 const ViewBooking = ({navigation}: {navigation: any}) => {
   const entries = useSelector((state: RootState) => state.form.entries);
@@ -31,7 +41,7 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
         }}
       />
 
-      <View style={{paddingHorizontal: '5%', paddingTop: '6%'}}>
+      <View style={{paddingHorizontal: '4%', paddingTop: '5%'}}>
         <Text style={styles.title}>Booking History</Text>
 
         {/* 🔍 Search Bar */}
@@ -50,54 +60,36 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
           data={filteredEntries}
           keyExtractor={item => item.id.toString()}
           ListEmptyComponent={
-            <Text style={{textAlign: 'center', marginTop: 20, fontSize: 16}}>
+            <Text
+              style={{
+                textAlign: 'center',
+                marginTop: 20,
+                fontSize: scaleFont(16),
+              }}>
               No results found
             </Text>
           }
           renderItem={({item, index}) => (
             <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: 15,
-              }}
+              style={styles.bookingItem}
               onPress={() =>
                 navigation.navigate('SingleBooking', {entry: item})
               }>
-              <Text style={{fontSize: 18, fontWeight: '500'}}>{index + 1}</Text>
-              <View
-                style={{
-                  width: '60%',
-                  justifyContent: 'space-between',
-                }}>
-                <Text style={{fontSize: 18, fontWeight: '500'}}>
-                  {item.selectedService}
-                </Text>
-                <Text
-                  style={{fontSize: 18, fontWeight: '500', paddingBottom: 10}}>
+              <Text style={styles.bookingIndex}>{index + 1}</Text>
+              <View style={styles.bookingDetails}>
+                <Text style={styles.bookingText}>{item.selectedService}</Text>
+                <Text style={[styles.bookingText, {paddingBottom: 10}]}>
                   {item.selectedArea}
                 </Text>
               </View>
               <View>
-                <Text
-                  style={{fontSize: 18, fontWeight: '500', marginBottom: 6}}>
+                <Text style={styles.bookingDate}>
                   {item.date
                     ? new Date(item.date).toDateString()
                     : 'No date available'}
                 </Text>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: 'row',
-                    borderWidth: 1,
-                    borderColor: '#0E61CD',
-                    width: 110,
-                    height: 34,
-                    justifyContent: 'space-between',
-                    paddingHorizontal: 10,
-                    alignItems: 'center',
-                    borderRadius: 4,
-                  }}>
-                  <Text style={{fontSize: 18, fontWeight: '500'}}>Action</Text>
+                <TouchableOpacity style={styles.actionButton}>
+                  <Text style={styles.actionText}>Action</Text>
                   <DropIcon height={20} width={20} />
                 </TouchableOpacity>
               </View>
@@ -111,9 +103,9 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 24,
+    fontSize: scaleFont(24),
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: scaleFont(20),
   },
   searchContainer: {
     flexDirection: 'row',
@@ -121,13 +113,50 @@ const styles = StyleSheet.create({
     backgroundColor: '#F1F1F1',
     borderRadius: 8,
     paddingHorizontal: 12,
-    marginBottom: 20,
-    height: 40,
+    marginBottom: scaleFont(20),
+    height: scaleFont(40),
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: scaleFont(16),
     color: '#000',
+  },
+  bookingItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: scaleFont(15),
+  },
+  bookingIndex: {
+    fontSize: scaleFont(18),
+    fontWeight: '500',
+  },
+  bookingDetails: {
+    width: '54%',
+    justifyContent: 'space-between',
+  },
+  bookingText: {
+    fontSize: scaleFont(18),
+    fontWeight: '400',
+  },
+  bookingDate: {
+    fontSize: scaleFont(18),
+    fontWeight: '400',
+    marginBottom: scaleFont(6),
+  },
+  actionButton: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#0E61CD',
+    width: scaleFont(118),
+    height: scaleFont(34),
+    justifyContent: 'space-between',
+    paddingHorizontal: scaleFont(10),
+    alignItems: 'center',
+    borderRadius: 4,
+  },
+  actionText: {
+    fontSize: scaleFont(18),
+    fontWeight: '500',
   },
 });
 

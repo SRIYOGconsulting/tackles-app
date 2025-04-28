@@ -1,16 +1,16 @@
 import {
   View,
   Text,
-  Touchable,
   TouchableOpacity,
   Image,
   Linking,
-  Alert,
   StyleSheet,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import SearchBar from '../components/SearchBar';
+
 import Email from '../assets/icons/contact/Email.svg';
 import Location from '../assets/icons/contact/Location.svg';
 import Phone from '../assets/icons/contact/Phone.svg';
@@ -19,7 +19,8 @@ import ButtonIcon from '../assets/icons/contact/ButtonIcon.svg';
 import WhatsApp from '../assets/icons/contact/WhatsApp.svg';
 import Green from '../assets/icons/contact/Green.svg';
 import Telegram from '../assets/icons/contact/Telegram.svg';
-type Props = {};
+
+const {width, height} = Dimensions.get('window');
 
 const ContactScreen = ({navigation}: {navigation: any}) => {
   const openWebsite = () => {
@@ -28,7 +29,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
   const handleEmailPress = () => {
     Linking.openURL('mailto:support@tackles.pro');
   };
-  const handleCall = ({phoneNumber}: any) => {
+  const handleCall = (phoneNumber: string) => {
     Linking.openURL(`tel:${phoneNumber}`).catch(err =>
       console.error('An error occurred', err),
     );
@@ -41,140 +42,188 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
   const openTelegram = () => {
     Linking.openURL('https://telegram.org/');
   };
+
   return (
-    <View style={{backgroundColor: '#fff', flex: 1}}>
+    <ScrollView
+      style={{backgroundColor: '#fff', flex: 1}}
+      showsVerticalScrollIndicator={false}>
       <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
-      <View style={{paddingHorizontal: '4%', flex: 1, paddingTop: '5.5%'}}>
-        <Text style={{fontSize: 20, fontWeight: '700'}}>Contact Us</Text>
+      <View
+        style={{
+          paddingHorizontal: width * 0.04,
+          flex: 1,
+          paddingTop: height * 0.02,
+        }}>
+        <Text style={{fontSize: height * 0.03, fontWeight: '700'}}>
+          Contact Us
+        </Text>
         <Text
           style={{
-            fontSize: 18,
+            fontSize: height * 0.022,
             fontWeight: '500',
             width: '80%',
-            marginBottom: '4%',
+            marginBottom: height * 0.025,
           }}>
           For emergency care or to schedule an appointment & visit us.
         </Text>
+
+        {/* MAP section */}
         <View>
-          <Image source={require('../assets/image/Rectangle.png')} />
+          <Image
+            source={require('../assets/image/Rectangle.png')}
+            style={{width: '100%', height: height * 0.22, resizeMode: 'cover'}}
+          />
           <Image
             source={require('../assets/image/map.png')}
-            style={{position: 'absolute'}}
+            style={{
+              position: 'absolute',
+
+              height: height * 0.18,
+              resizeMode: 'cover',
+            }}
           />
           <Image
             source={require('../assets/image/zoom.png')}
-            style={{position: 'absolute', bottom: 10, right: 18}}
+            style={{
+              position: 'absolute',
+              bottom: 10,
+              right: 18,
+              width: 30,
+              height: 30,
+            }}
           />
         </View>
+
+        {/* Company name */}
         <Text
           style={{
-            fontSize: 18,
-            fontWeight: '500',
-            marginTop: '4%',
-            marginBottom: '0.8%',
+            fontSize: height * 0.022,
+            fontWeight: '700',
+            marginTop: height * 0.025,
+            marginBottom: height * 0.005,
           }}>
           Tackles Techinical Services L.L.C.
         </Text>
-        <Text style={{fontSize: 16, fontWeight: '400', marginBottom: '4%'}}>
+        <Text
+          style={{
+            fontSize: height * 0.02,
+            fontWeight: '400',
+            marginBottom: height * 0.02,
+          }}>
           Professional Services in Dubai
         </Text>
+
+        {/* Contact Info Cards */}
         <View style={styles.card}>
-          <Location width={30} height={30} />
+          <Location width={height * 0.04} height={height * 0.04} />
           <View style={{gap: 2}}>
-            <Text style={{fontSize: 18, fontWeight: '500'}}>Visit us</Text>
-            <Text style={{fontSize: 12, fontWeight: '400'}}>
-              Area, Dubai, U.A.E.
-            </Text>
+            <Text style={styles.cardTitle}>Visit us</Text>
+            <Text style={styles.cardSubtitle}>Area, Dubai, U.A.E.</Text>
           </View>
         </View>
+
         <View style={styles.card}>
-          <Email width={30} height={30} />
+          <Email width={height * 0.04} height={height * 0.04} />
           <View style={{gap: 2}}>
-            <Text style={{fontSize: 18, fontWeight: '500'}}>Email us</Text>
+            <Text style={styles.cardTitle}>Email us</Text>
             <TouchableOpacity onPress={handleEmailPress}>
-              <Text style={{fontSize: 12, fontWeight: '400'}}>
-                support@tackles.pro
-              </Text>
+              <Text style={styles.cardSubtitle}>support@tackles.pro</Text>
             </TouchableOpacity>
           </View>
         </View>
 
         <View style={styles.card}>
-          <Phone width={30} height={30} />
+          <Phone width={height * 0.04} height={height * 0.04} />
           <View style={{gap: 2}}>
-            <Text style={{fontSize: 18, fontWeight: '500'}}>Contact us</Text>
-
+            <Text style={styles.cardTitle}>Contact us</Text>
             <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
-              <Text style={{fontSize: 12, fontWeight: '400'}}>
-                +971-1234567890
-              </Text>
+              <Text style={styles.cardSubtitle}>+971-1234567890</Text>
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.card}>
-          <Website width={30} height={30} />
-          <View style={{gap: 2}}>
-            <Text style={{fontSize: 18, fontWeight: '500'}}>Working hours</Text>
 
+        <View style={styles.card}>
+          <Website width={height * 0.04} height={height * 0.04} />
+          <View style={{gap: 2}}>
+            <Text style={styles.cardTitle}>Working hours</Text>
             <TouchableOpacity onPress={openWebsite}>
-              <Text style={{fontSize: 12, fontWeight: '400'}}>
-                https://tackles.pro
-              </Text>
+              <Text style={styles.cardSubtitle}>https://tackles.pro</Text>
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* Buttons */}
         <View
           style={{
             width: '100%',
             flexDirection: 'row',
             justifyContent: 'space-between',
-
-            marginTop: '6%',
+            marginTop: height * 0.02,
+            marginBottom: height * 0.02,
           }}>
+          {/* Admin Login Button */}
           <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
             style={{
               flexDirection: 'row',
               borderWidth: 1,
               borderColor: '#0E61CD',
-              height: 40,
-              width: 132,
+              height: height * 0.055,
+              width: width * 0.35,
               borderRadius: 4,
               alignItems: 'center',
-              paddingHorizontal: 5,
+              paddingHorizontal: width * 0.02,
             }}>
-            <ButtonIcon height={24} width={24} />
-            <Text style={{fontSize: 16, fontWeight: '500', marginLeft: 5}}>
+            <ButtonIcon height={height * 0.03} width={height * 0.03} />
+            <Text
+              style={{
+                fontSize: height * 0.02,
+                fontWeight: '500',
+                marginLeft: width * 0.015,
+              }}>
               Admin Login
             </Text>
           </TouchableOpacity>
-          <View style={{flexDirection: 'row', columnGap: 20}}>
+
+          {/* WhatsApp and Telegram */}
+          <View style={{flexDirection: 'row', columnGap: width * 0.05}}>
             <TouchableOpacity onPress={openWhatsApp}>
-              <Green height={40} width={40} />
+              <Green height={height * 0.05} width={height * 0.05} />
               <WhatsApp
-                height={25}
-                width={25}
-                style={{position: 'absolute', left: 8, top: 7}}
+                height={height * 0.032}
+                width={height * 0.032}
+                style={{
+                  position: 'absolute',
+                  left: height * 0.01,
+                  top: height * 0.008,
+                }}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={openTelegram}>
-              <Telegram height={40} width={40} />
+              <Telegram height={height * 0.05} width={height * 0.05} />
             </TouchableOpacity>
           </View>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
-    gap: '3.8%',
     alignItems: 'center',
-
-    height: 46,
-    marginBottom: '1%',
+    gap: '3.8%',
+    height: Dimensions.get('window').height * 0.06,
+    marginBottom: Dimensions.get('window').height * 0.01,
+  },
+  cardTitle: {
+    fontSize: Dimensions.get('window').height * 0.022,
+    fontWeight: '500',
+  },
+  cardSubtitle: {
+    fontSize: Dimensions.get('window').height * 0.017,
+    fontWeight: '400',
   },
 });
 

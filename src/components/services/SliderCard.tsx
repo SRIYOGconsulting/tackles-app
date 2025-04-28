@@ -1,38 +1,56 @@
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
+
+const {width, height} = Dimensions.get('window');
 
 type Props = {name: string; image: any};
 
 const SliderCard = ({name, image}: Props) => {
   return (
-    <View
-      style={{
-        alignItems: 'center',
-
-        marginBottom: '2%',
-      }}>
-      <Image source={image} />
-      <View style={{alignItems: 'center', position: 'absolute', top: '40%'}}>
-        <Text style={{fontSize: 20, fontWeight: '700', color: '#fff'}}>
-          Tackels{'  '}| Dubai
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            fontWeight: '500',
-            marginBottom: '4%',
-            marginTop: '2%',
-            color: '#fff',
-          }}>
+    <View style={styles.container}>
+      <Image source={image} style={styles.image} resizeMode="cover" />
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Tackels | Dubai</Text>
+        <Text style={styles.subtitle}>
           Professional & Reliable Services in Dubai
         </Text>
-
-        <Text style={{fontSize: 20, fontWeight: '400', color: '#fff'}}>
-          {name}
-        </Text>
+        <Text style={styles.name}>{name}</Text>
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
+  image: {
+    width: width * 0.9,
+    height: height * 0.28, // 40% of the screen height
+  },
+  textContainer: {
+    position: 'absolute',
+    top: '35%', // Adjusted a bit to be better centered
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
+  title: {
+    fontSize: width * 0.05, // Responsive font size
+    fontWeight: '700',
+    color: '#fff',
+  },
+  subtitle: {
+    fontSize: width * 0.04,
+    fontWeight: '500',
+    marginVertical: height * 0.01,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  name: {
+    fontSize: width * 0.045,
+    fontWeight: '400',
+    color: '#fff',
+  },
+});
 
 export default SliderCard;

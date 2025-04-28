@@ -1,6 +1,15 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import {View, Text, StyleSheet, ScrollView, Dimensions} from 'react-native';
 import React from 'react';
 import HeaderComponent from './components/HeaderComponent';
+
+// Get screen dimensions for responsive layout
+const {width, height} = Dimensions.get('window');
+
+// Font scaling utility function
+const scaleFont = (size: number) => {
+  const guidelineBaseWidth = 375; // Base screen width to scale from
+  return (size * width) / guidelineBaseWidth;
+};
 
 type Props = {};
 
@@ -24,7 +33,7 @@ const FaqsSingle = ({route}: {route: any}) => {
         <Text
           style={{
             textAlign: 'center',
-            fontSize: 24,
+            fontSize: scaleFont(24),
             fontWeight: '700',
             color: '#0E61CD',
             marginBottom: '5%',
@@ -37,8 +46,12 @@ const FaqsSingle = ({route}: {route: any}) => {
             <View style={{flexDirection: 'row', gap: 8}}>
               <Text style={styles.question}>{q.num}.</Text>
               <View style={{width: '93.5%'}}>
-                <Text style={styles.question}>{q.question}</Text>
-                <Text style={styles.answer}>{q.answer}</Text>
+                <Text style={[styles.question, {fontSize: scaleFont(20)}]}>
+                  {q.question}
+                </Text>
+                <Text style={[styles.answer, {fontSize: scaleFont(18)}]}>
+                  {q.answer}
+                </Text>
               </View>
             </View>
           </View>
@@ -47,6 +60,7 @@ const FaqsSingle = ({route}: {route: any}) => {
     </ScrollView>
   );
 };
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,7 +69,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: '900',
     marginBottom: 20,
   },
   questionContainer: {
@@ -68,8 +82,7 @@ const styles = StyleSheet.create({
   },
   answer: {
     fontSize: 18,
-    fontWeight: '400',
-
+    fontWeight: '500',
     flexWrap: 'wrap',
   },
 });

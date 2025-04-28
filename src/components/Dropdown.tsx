@@ -7,23 +7,22 @@ import {
   TouchableOpacity,
   FlatList,
   Dimensions,
+  Platform,
 } from 'react-native';
 import DropIcon from '../assets/icons/contact/DropDown.svg';
 
-const {height} = Dimensions.get('window'); // Get the height of the screen
+const {width, height} = Dimensions.get('window');
 
 const Dropdown = ({
   options,
   placeholder,
   placeholderColor = '#4B4B4B',
-
-  showRequired = false, // Controls whether the red * is shown
+  showRequired = false,
   onSelectOption,
 }: {
   options: Array<string>;
   placeholder: string;
   placeholderColor?: string;
-
   showRequired?: boolean;
   onSelectOption: (option: string) => void;
 }) => {
@@ -37,13 +36,12 @@ const Dropdown = ({
   const handleSelectOption = (option: string) => {
     setSelectedOption(option);
     setShowDropdown(false);
-    onSelectOption(option); // Callback function
+    onSelectOption(option);
   };
 
   return (
-    <View style={{marginBottom: 10}}>
+    <View style={{marginBottom: height * 0.015}}>
       <View style={styles.inputContainer}>
-        {/* Conditional Placeholder */}
         {selectedOption === '' && (
           <Text style={[styles.placeholder, {color: placeholderColor}]}>
             {placeholder}
@@ -52,21 +50,22 @@ const Dropdown = ({
         )}
         <TextInput
           style={styles.input}
-          value={selectedOption} // Display the selected option text here
-          editable={false} // Prevent manual text input
+          value={selectedOption}
+          editable={false}
+          pointerEvents="none"
         />
-
         <TouchableOpacity onPress={toggleDropdown}>
-          <DropIcon height={16} width={16} />
+          <DropIcon height={height * 0.025} width={height * 0.025} />
         </TouchableOpacity>
       </View>
+
       {showDropdown && (
         <View
           style={[
             styles.dropdown,
             {
-              maxHeight: height / 3, // Set max height for the dropdown list
-              top: 45, // Adjust dropdown position
+              maxHeight: height * 0.3,
+              top: Platform.OS === 'ios' ? height * 0.06 : height * 0.055,
             },
           ]}>
           <FlatList
@@ -91,19 +90,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E3E3E3',
     borderRadius: 4,
-    paddingHorizontal: 10,
-    height: 34,
+    paddingHorizontal: width * 0.03,
+    height: height * 0.06,
     position: 'relative',
+    backgroundColor: '#fff',
   },
-  placeholder: {},
+  placeholder: {
+    position: 'absolute',
+    left: width * 0.03,
+    fontSize: height * 0.018,
+    color: '#4B4B4B',
+  },
   input: {
     flex: 1,
-    fontSize: 16,
+    fontSize: height * 0.018,
     color: '#000',
-    paddingVertical: 5,
-  },
-  icon: {
-    marginLeft: 10,
+    paddingVertical: height * 0.005,
   },
   dropdown: {
     borderWidth: 1,
@@ -113,11 +115,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     zIndex: 9999,
+    marginTop: 5,
   },
   option: {
-    padding: 10,
+    paddingVertical: height * 0.015,
+    paddingHorizontal: width * 0.03,
+    fontSize: height * 0.018,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
+    color: '#333',
   },
 });
 

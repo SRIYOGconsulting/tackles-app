@@ -9,7 +9,7 @@ const VerifiedScreen = (props: Props) => {
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
       <View style={{paddingHorizontal: '4%', paddingVertical: '5%', flex: 1}}>
-        <Text style={{fontSize: 24, fontWeight: '400'}}>
+        <Text style={{fontSize: 22, fontWeight: '400'}}>
           Thank you! OTP verified successfully. Your booking is now confirmed!
         </Text>
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>

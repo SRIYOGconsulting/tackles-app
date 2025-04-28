@@ -1,17 +1,28 @@
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import React, {useRef, useState} from 'react';
 import {
   View,
-  TextInput,
-  StyleSheet,
   Text,
-  Alert,
+  StyleSheet,
   TouchableOpacity,
+  TextInput,
+  Alert,
+  Dimensions,
 } from 'react-native';
-import Button from '../../components/ButtonComponent';
+import React, {useRef, useState} from 'react';
 import HeaderComponent from '../../components/HeaderComponent';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {addFormData} from '../../redux/slice/formSlice';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../redux/store';
 
-const OptScreen = ({route}: {route: any}) => {
+const {width, height} = Dimensions.get('window'); // Get screen dimensions
+
+// Font scaling utility function
+const scaleFont = (size: number) => {
+  const guidelineBaseWidth = 375; // Base screen width to scale from
+  return (size * width) / guidelineBaseWidth;
+};
+
+const OtpScreen = ({route}: {route: any}) => {
   const [otp, setOtp] = useState(['', '', '', '']); // Manage OTP state
   const inputRefs = useRef<Array<TextInput | null>>([]);
 
@@ -41,6 +52,7 @@ const OptScreen = ({route}: {route: any}) => {
       inputRefs.current[index - 1]?.focus();
     }
   };
+
   const handleNavigate = () => {
     const enteredOtp = otp.join(''); // Combine the OTP into a single string
     if (enteredOtp === '11111') {
@@ -55,25 +67,17 @@ const OptScreen = ({route}: {route: any}) => {
       <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
 
       <View style={styles.container}>
-        <Text style={{fontSize: 24}}>
+        <Text style={styles.thankYouText}>
           Get instant confirmation and reliable support for all your service
           requests.
         </Text>
 
-        <Text
-          style={{
-            width: '60%',
-            textAlign: 'center',
-            marginBottom: '14%',
-            fontSize: 22,
-            marginTop: '30%',
-            fontWeight: '500',
-          }}>
+        <Text style={styles.bookingText}>
           Your request has been successfully logged.
         </Text>
-        <Text style={{fontSize: 20, marginBottom: '10%', fontWeight: '500'}}>
-          Please enter your OTP to proceed.
-        </Text>
+
+        <Text style={styles.otpPromptText}>Enter your OTP to continue.</Text>
+
         <View style={styles.otpBox}>
           {otp.map((_, index) => (
             <TextInput
@@ -90,18 +94,9 @@ const OptScreen = ({route}: {route: any}) => {
             />
           ))}
         </View>
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#0E61CD',
-            height: 40,
-            width: 130,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 4,
-            marginTop: '28%',
-          }}
-          onPress={handleNavigate}>
-          <Text style={{fontSize: 24, color: '#fff'}}>Submit</Text>
+
+        <TouchableOpacity style={styles.submitButton} onPress={handleNavigate}>
+          <Text style={styles.submitButtonText}>Submit</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -111,10 +106,25 @@ const OptScreen = ({route}: {route: any}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: '4%',
-    paddingTop: '5%',
-
+    paddingHorizontal: '5%',
+    paddingTop: height * 0.025, // Adjust top padding based on screen size
     alignItems: 'center',
+  },
+  thankYouText: {
+    fontSize: scaleFont(20),
+  },
+  bookingText: {
+    width: '70%',
+    textAlign: 'center',
+    marginBottom: height * 0.08, // Adjust margin-bottom based on screen height
+    fontSize: scaleFont(20),
+    marginTop: height * 0.12, // Adjust top margin for large screens
+    fontWeight: '500',
+  },
+  otpPromptText: {
+    fontSize: scaleFont(20),
+    marginBottom: height * 0.04, // Adjust margin-bottom for larger screens
+    fontWeight: '500',
   },
   otpBox: {
     flexDirection: 'row',
@@ -123,16 +133,31 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   input: {
-    width: 50,
-    height: 50,
+    width: width * 0.12, // Dynamic width for better scalability
+    height: width * 0.12, // Dynamic height to maintain square shape
     marginHorizontal: 5,
     borderWidth: 1,
     borderColor: '#E3E3E3',
     borderRadius: 5,
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: scaleFont(18),
     backgroundColor: '#fff',
+  },
+  submitButton: {
+    borderColor: '#0E61CD',
+    height: 48,
+    width: width * 0.35, // Adjust width based on screen size
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    marginTop: height * 0.15, // Dynamic margin-top for large screens
+    borderWidth: 1,
+  },
+  submitButtonText: {
+    fontSize: scaleFont(22),
+    color: '#000',
+    fontWeight: '700',
   },
 });
 
-export default OptScreen;
+export default OtpScreen;

@@ -10,9 +10,9 @@ import {
   Dimensions,
   ScrollView, // Added ScrollView
 } from 'react-native';
-import HeaderComponent from '../components/HeaderComponent';
-import Dropdown from '../components/Dropdown';
-import {area, budget, priority, services, shifts} from '../data/Data';
+import HeaderComponent from '../../src/components/HeaderComponent';
+import Dropdown from '../../src/components/Dropdown';
+import {area, budget, priority, services, shifts} from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DropIcon from '../assets/icons/contact/DropDown.svg';
 

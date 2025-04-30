@@ -43,7 +43,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Full Name
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                {entry.name}
+                {entry.Name}
               </Text>
             </View>
             <LocationIcon width={40} height={40} style={{marginRight: 30}} />
@@ -51,7 +51,7 @@ const SingleBooking = ({route}: {route: any}) => {
 
           <Text style={[styles.label, {fontSize: getFontSize(18)}]}>Phone</Text>
           <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-            +971-{entry.number}
+            +971-{entry.Phone}
           </Text>
 
           <View style={[styles.row, {flexWrap: 'wrap'}]}>
@@ -60,7 +60,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Selected Services
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                {entry.selectedService}
+                {entry.Service}
               </Text>
             </View>
             <View style={{flex: 1, paddingLeft: 20}}>
@@ -68,7 +68,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Budget
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                AED{entry.selectedBudget}
+                AED{entry.Budget}
               </Text>
             </View>
           </View>
@@ -79,9 +79,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Booking Date
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                {entry.date
-                  ? new Date(entry.date).toDateString()
-                  : 'No date available'}
+                {entry.Date}
               </Text>
             </View>
             <View style={{flex: 1, paddingLeft: 30}}>
@@ -89,7 +87,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Selected Shift
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                {entry.selectedShift}
+                {entry.Shift}
               </Text>
             </View>
           </View>
@@ -108,7 +106,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 Selected Priority
               </Text>
               <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-                {entry.selectedPriority}
+                {entry.Priority}
               </Text>
             </View>
           </View>
@@ -123,7 +121,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 styles.value,
                 {fontSize: getFontSize(18), paddingLeft: 10, flex: 1},
               ]}>
-              {entry.selectedArea}
+              {entry.Area}
             </Text>
           </View>
 
@@ -131,7 +129,7 @@ const SingleBooking = ({route}: {route: any}) => {
             Message/ Information/ Instruction
           </Text>
           <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
-            {entry.message}
+            {entry.Message}
           </Text>
         </View>
 

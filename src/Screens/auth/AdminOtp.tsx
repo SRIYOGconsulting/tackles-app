@@ -8,11 +8,12 @@ import {
   Dimensions,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
-import HeaderComponent from '../../components/HeaderComponent';
+import HeaderComponent from '../../../src/components/HeaderComponent';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {addFormData} from '../../redux/slice/formSlice';
 import {useDispatch} from 'react-redux';
 import {AppDispatch} from '../../redux/store';
+import {createBooking} from '../../api/PostApi';
 
 const {width, height} = Dimensions.get('window'); // Get screen dimensions
 
@@ -64,7 +65,7 @@ const AdminOtp = ({route}: {route: any}) => {
     }
   };
 
-  const handleNavigate = () => {
+  const handleNavigate = async () => {
     const enteredOtp = otp.join(''); // Combine the OTP into a single string
     if (enteredOtp === '11111') {
       const newEntry = {
@@ -79,11 +80,30 @@ const AdminOtp = ({route}: {route: any}) => {
         message,
         date: date instanceof Date ? date.toISOString() : date,
       };
+      {
+        const booking = {
+          Name: name,
+          Phone: number,
+          Service: selectedService,
+          Area: selectedArea,
+          Priority: selectedPriority,
+          Shift: selectedShift,
+          Message: message,
+          Budget: selectedBudget,
+          Date: date instanceof Date ? date.toISOString() : date,
 
-      dispatch(addFormData(newEntry));
-      navigation.navigate('AdminOtpVerify');
-    } else {
-      Alert.alert('Error', 'Wrong OTP! Please try again.');
+          // You can also store date if you added that field to Airtable
+        };
+
+        try {
+          await createBooking(booking);
+
+          dispatch(addFormData(newEntry));
+          navigation.navigate('AdminOtpVerify');
+        } catch (error) {
+          Alert.alert('Error', 'Submission failed. Please try again.');
+        }
+      }
     }
   };
 

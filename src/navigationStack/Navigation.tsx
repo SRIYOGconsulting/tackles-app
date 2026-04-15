@@ -1,16 +1,7 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import HomeScreen from '../Screens/HomeScreen';
-import ContactScreen from '../Screens/ContactScreen';
 
 import Tabs from './TabNavigation';
-import OnBoarding1 from '../Screens/onBoarding/OnBoarding1';
-import OnBoarding2 from '../Screens/onBoarding/OnBoarding2';
-import OnBoarding3 from '../Screens/onBoarding/OnBoarding3';
-import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
-import OptScreen from '../Screens/otp/OptScreen';
 import SingleScreen from '../Screens/SingleScreen';
 import VerifiedScreen from '../Screens/otp/VerifiedScreen';
 
@@ -18,7 +9,7 @@ type Props = {};
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = (props: Props) => {
+const Navigation = (_props: Props) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Tab" component={Tabs} />

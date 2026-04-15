@@ -10,9 +10,6 @@ import {
 import React, {useRef, useState} from 'react';
 import HeaderComponent from '../../components/HeaderComponent';
 import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {addFormData} from '../../redux/slice/formSlice';
-import {useDispatch} from 'react-redux';
-import {AppDispatch} from '../../redux/store';
 
 const {width, height} = Dimensions.get('window'); // Get screen dimensions
 
@@ -22,7 +19,7 @@ const scaleFont = (size: number) => {
   return (size * width) / guidelineBaseWidth;
 };
 
-const OtpScreen = ({route}: {route: any}) => {
+const OtpScreen = () => {
   const [otp, setOtp] = useState(['', '', '', '']); // Manage OTP state
   const inputRefs = useRef<Array<TextInput | null>>([]);
 
@@ -63,8 +60,8 @@ const OtpScreen = ({route}: {route: any}) => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
+    <View style={styles.mainContainer}>
+      <HeaderComponent style={styles.header} />
 
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
@@ -157,6 +154,14 @@ const styles = StyleSheet.create({
     fontSize: scaleFont(22),
     color: '#000',
     fontWeight: '700',
+  },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
   },
 });
 

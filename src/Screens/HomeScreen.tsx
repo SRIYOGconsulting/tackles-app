@@ -20,7 +20,7 @@ import {
 const HomeScreen = ({navigation}: {navigation: any}) => {
   return (
     <KeyboardAvoidingView
-      style={{flex: 1}}
+      style={styles.keyboardAvoiding}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView
         contentContainerStyle={styles.scrollContainer}
@@ -52,7 +52,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
               <ServicesCard
                 title="Plumbing"
                 image={require('../assets/image/homescreen/plumbing.png')}
-                style={{width: wp('26%')}}
+                style={styles.serviceCardSpecial}
               />
               <ServicesCard
                 title="Tiling"
@@ -69,7 +69,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person5.png')}
                 title="Plumber"
-                style={{width: wp('18%'), height: wp('18%')}}
+                style={styles.professionalCardSpecial}
               />
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person3.png')}
@@ -92,6 +92,9 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
+  keyboardAvoiding: {
+    flex: 1,
+  },
   scrollContainer: {
     flexGrow: 1,
   },
@@ -136,6 +139,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: hp('0.5%'),
+  },
+  serviceCardSpecial: {
+    width: wp('26%'),
+  },
+  professionalCardSpecial: {
+    width: wp('18%'),
+    height: wp('18%'),
   },
   numberBarContainer: {
     alignItems: 'center',

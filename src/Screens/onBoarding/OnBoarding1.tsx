@@ -1,18 +1,11 @@
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import React from 'react';
 import OnboardingComponent from '../../components/OnboardingComponent';
-import {useNavigation} from '@react-navigation/native';
-
-type Props = {};
+import {StyleSheet} from 'react-native';
 
 const OnBoarding1 = ({navigation}: {navigation: any}) => {
   return (
-    <View
-      style={{
-        flex: 1,
-
-        backgroundColor: '#fff',
-      }}>
+    <View style={styles.container}>
       <OnboardingComponent
         text="Professional Service"
         title="Next"
@@ -24,5 +17,12 @@ const OnBoarding1 = ({navigation}: {navigation: any}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
 
 export default OnBoarding1;

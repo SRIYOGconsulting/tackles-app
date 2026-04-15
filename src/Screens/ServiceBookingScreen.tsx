@@ -95,7 +95,7 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
             <TouchableOpacity
               onPress={() => setShow(true)}
               style={styles.datePicker}>
-              <Text style={{color: '#4B4B4B', fontSize: width * 0.04}}>
+              <Text style={[styles.datePickerText, {fontSize: width * 0.04}]}>
                 {date ? date.toDateString() : 'Select Date'}
               </Text>
               <DropIcon height={16} width={16} />
@@ -212,6 +212,9 @@ const styles = StyleSheet.create({
     height: height * 0.05,
     justifyContent: 'space-between',
     marginBottom: 5,
+  },
+  datePickerText: {
+    color: '#4B4B4B',
   },
 
   textArea: {

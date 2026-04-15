@@ -11,12 +11,10 @@ const scaleFont = (size: number) => {
   return (size * width) / guidelineBaseWidth;
 };
 
-type Props = {};
-
-const AdminOtpVerify = (props: Props) => {
+const AdminOtpVerify = () => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
+    <View style={styles.mainContainer}>
+      <HeaderComponent style={styles.header} />
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
           Thank you! OTP verified successfully. Your booking is now confirmed!
@@ -62,6 +60,14 @@ const styles = StyleSheet.create({
     width: '50%',
     textAlign: 'center',
     fontWeight: '600',
+  },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
   },
 });
 

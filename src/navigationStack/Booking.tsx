@@ -1,9 +1,6 @@
-import {View, Text} from 'react-native';
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ServiceBookingScreen from '../Screens/ServiceBookingScreen';
-import OptScreen from '../Screens/otp/OptScreen';
-import VerifiedScreen from '../Screens/otp/VerifiedScreen';
 import AdminOtp from '../Screens/auth/AdminOtp';
 import AdminOtpVerify from '../Screens/auth/AdminOtpVerify';
 
@@ -11,7 +8,7 @@ type Props = {};
 
 const Stack = createNativeStackNavigator();
 
-const Booking = (props: Props) => {
+const Booking = (_props: Props) => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen

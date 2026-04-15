@@ -4,7 +4,6 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import React from 'react';
 import {
@@ -33,14 +32,10 @@ const truncateDescription = (description: string) => {
 };
 
 const ServicesCards = ({
-  id,
   name,
   description,
   image,
   onPress,
-  answer,
-  question,
-  navigation,
 }: Props) => {
   return (
     <TouchableOpacity style={styles.cardContainer} onPress={onPress}>

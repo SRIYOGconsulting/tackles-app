@@ -40,12 +40,12 @@ const Dropdown = ({
   };
 
   return (
-    <View style={{marginBottom: height * 0.015}}>
+    <View style={styles.container}>
       <View style={styles.inputContainer}>
         {selectedOption === '' && (
           <Text style={[styles.placeholder, {color: placeholderColor}]}>
             {placeholder}
-            {showRequired && <Text style={{color: 'red'}}> *</Text>}
+            {showRequired && <Text style={styles.required}>*</Text>}
           </Text>
         )}
         <TextInput
@@ -60,14 +60,7 @@ const Dropdown = ({
       </View>
 
       {showDropdown && (
-        <View
-          style={[
-            styles.dropdown,
-            {
-              maxHeight: height * 0.3,
-              top: Platform.OS === 'ios' ? height * 0.06 : height * 0.055,
-            },
-          ]}>
+        <View style={[styles.dropdown, styles.dropdownDynamic]}>
           <FlatList
             data={options}
             keyExtractor={(item, index) => index.toString()}
@@ -124,6 +117,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     color: '#333',
+  },
+  container: {
+    marginBottom: height * 0.015,
+  },
+  required: {
+    color: 'red',
+  },
+  dropdownDynamic: {
+    maxHeight: height * 0.3,
+    top: Platform.OS === 'ios' ? height * 0.06 : height * 0.055,
   },
 });
 

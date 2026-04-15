@@ -49,15 +49,9 @@ const AdminLogin = ({navigation}: {navigation: any}) => {
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}>
       <ScrollView
-        contentContainerStyle={{flexGrow: 1}}
+        contentContainerStyle={styles.scrollContent}
         keyboardShouldPersistTaps="handled">
-        <HeaderComponent
-          style={{
-            paddingHorizontal: '5%',
-            borderBottomWidth: 1,
-            borderColor: '#CAD2DF',
-          }}
-        />
+        <HeaderComponent style={styles.header} />
         <View style={styles.formContainer}>
           <Image
             source={require('../../assets/image/admin.png')}
@@ -109,6 +103,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  scrollContent: {
+    flexGrow: 1,
+  },
+  header: {
+    paddingHorizontal: '5%',
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
   },
   formContainer: {
     paddingHorizontal: '5%',

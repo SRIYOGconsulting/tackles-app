@@ -10,13 +10,11 @@ import {
 import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {useSelector} from 'react-redux';
-import {RootState} from '../redux/store';
 import DropIcon from '../assets/icons/contact/DropDown.svg';
 import {fetchBookings} from '../api/PostApi'; // adjust path as needed
 
 // Get screen dimensions
-const {width, height} = Dimensions.get('window');
+const {width} = Dimensions.get('window');
 type BookingEntry = {
   id: string;
   Name?: string;
@@ -56,26 +54,28 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
     loadData();
   }, []);
 
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
   const filteredEntries = entries.filter(item =>
     item.Service?.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <HeaderComponent
-        style={{
-          paddingHorizontal: '5%',
-          borderBottomWidth: 1,
-          borderColor: '#CAD2DF',
-        }}
-      />
+    <View style={styles.container}>
+      <HeaderComponent style={styles.header} />
 
-      <View style={{paddingHorizontal: '5%', paddingTop: '5%', flex: 1}}>
+      <View style={styles.content}>
         <Text style={styles.title}>Booking History</Text>
 
         {/* 🔍 Search Bar */}
         <View style={styles.searchContainer}>
-          <Icon name="search" size={20} color="#aaa" style={{marginRight: 8}} />
+          <Icon name="search" size={20} color="#aaa" style={styles.searchIcon} />
           <TextInput
             placeholder="Search service..."
             placeholderTextColor="#aaa"
@@ -86,17 +86,12 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
         </View>
 
         <FlatList
-          style={{flex: 1}} // allow it to grow
-          contentContainerStyle={{paddingBottom: 40}} // space at bottom
+          style={styles.flatList}
+          contentContainerStyle={styles.flatListContent}
           data={filteredEntries}
           keyExtractor={item => item.id.toString()}
           ListEmptyComponent={
-            <Text
-              style={{
-                textAlign: 'center',
-                marginTop: 20,
-                fontSize: scaleFont(16),
-              }}>
+            <Text style={styles.emptyText}>
               No results found
             </Text>
           }
@@ -109,11 +104,11 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
               <Text style={styles.bookingIndex}>{index + 1}</Text>
               <View style={styles.bookingDetails}>
                 <Text style={styles.bookingText}>{item.Service}</Text>
-                <Text style={[styles.bookingText, {paddingBottom: 10}]}>
+                <Text style={styles.bookingAreaText}>
                   {item.Area}
                 </Text>
               </View>
-              <View style={{alignItems: 'flex-end'}}>
+              <View style={styles.bookingEnd}>
                 <Text style={styles.bookingDate}>{item.Date}</Text>
 
                 <TouchableOpacity style={styles.actionButton}>
@@ -130,6 +125,26 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    paddingHorizontal: '5%',
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+  },
+  content: {
+    paddingHorizontal: '5%',
+    paddingTop: '5%',
+    flex: 1,
+  },
   title: {
     fontSize: scaleFont(24),
     fontWeight: 'bold',
@@ -144,9 +159,23 @@ const styles = StyleSheet.create({
     marginBottom: scaleFont(20),
     height: scaleFont(40),
   },
+  searchIcon: {
+    marginRight: 8,
+  },
   searchInput: {
     fontSize: scaleFont(16),
     color: '#000',
+  },
+  flatList: {
+    flex: 1,
+  },
+  flatListContent: {
+    paddingBottom: 40,
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: scaleFont(16),
   },
   bookingItem: {
     flexDirection: 'row',
@@ -166,6 +195,14 @@ const styles = StyleSheet.create({
   bookingText: {
     fontSize: scaleFont(18),
     fontWeight: '400',
+  },
+  bookingAreaText: {
+    fontSize: scaleFont(18),
+    fontWeight: '400',
+    paddingBottom: 10,
+  },
+  bookingEnd: {
+    alignItems: 'flex-end',
   },
   bookingDate: {
     fontSize: scaleFont(18),

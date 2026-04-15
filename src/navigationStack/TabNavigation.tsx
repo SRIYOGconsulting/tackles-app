@@ -1,19 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import HomeScreen from '../Screens/HomeScreen';
-import ContactScreen from '../Screens/ContactScreen';
-import {Image, StyleSheet} from 'react-native';
-import HeaderComponent from '../components/HeaderComponent';
-import ServiceBookingScreen from '../Screens/ServiceBookingScreen';
-import FaqsScreen from '../Screens/FaqsScreen';
-import ServicesScreen from '../Screens/ServicesScreen';
+import {StyleSheet} from 'react-native';
 import Booking from './Booking';
 import Home from './Home';
 import Services from './Services';
 import Contact from './Contact';
-import YourIcon from '../assets/icons/Vector.svg';
 import HomeIcon from '../assets/icons/Home.svg';
 import HomeActiveIcon from '../assets/icons/HomeActive.svg';
 import ServicesIcon from '../assets/icons/Service.svg';
@@ -52,7 +44,7 @@ const Tabs = () => {
             );
           } else if (route.name === 'BookingTab') {
             return (
-              <BookingIcon width={44} height={44} style={{marginTop: 16}} />
+              <BookingIcon width={44} height={44} style={styles.bookingIcon} />
             );
           } else if (route.name === 'Request') {
             return focused ? (
@@ -117,6 +109,8 @@ const Tabs = () => {
 };
 
 const styles = StyleSheet.create({
-  tab: {height: 200},
+  bookingIcon: {
+    marginTop: 16,
+  },
 });
 export default Tabs;

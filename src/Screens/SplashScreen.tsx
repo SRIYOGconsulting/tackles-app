@@ -1,14 +1,11 @@
-import {View, Text, Image, StyleSheet, InteractionManager} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
 
 const SplashScreen = ({navigation}: {navigation: any}) => {
   const [milliseconds, setMilliseconds] = useState<number>(3000);
-  const [isRunning, setIsRunning] = useState<boolean>(true);
   const totalDuration = 3000;
 
   useEffect(() => {
-    setIsRunning(true);
     setMilliseconds(totalDuration);
     const startTime = Date.now();
     const interval = setInterval(() => {
@@ -16,13 +13,12 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
       const remaining = Math.max(totalDuration - elapsed, 0);
       setMilliseconds(Math.round(remaining));
       if (remaining <= 0) {
-        setIsRunning(false);
         clearInterval(interval);
         navigation.replace('OnBoarding1');
       }
     }, 1); // 1ms interval for smooth display
     return () => clearInterval(interval);
-  }, []);
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -32,7 +28,7 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
       />
       <Text style={styles.counter}>{milliseconds}</Text>
       <View style={styles.logo}>
-        <Text style={{fontSize: 16, color: '#4B4B4B', fontWeight: '400'}}>
+        <Text style={styles.partnerText}>
           Technology Partner
         </Text>
         <Image
@@ -64,6 +60,11 @@ const styles = StyleSheet.create({
     bottom: '8%',
     alignItems: 'center',
     gap: 20,
+  },
+  partnerText: {
+    fontSize: 16,
+    color: '#4B4B4B',
+    fontWeight: '400',
   },
 });
 

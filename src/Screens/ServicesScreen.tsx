@@ -48,13 +48,13 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
 
   return (
     <FlatList
-      data={servicesData}
+      data={data}
       keyExtractor={(item, index) => index.toString()}
       renderItem={renderItem}
       numColumns={2}
       showsVerticalScrollIndicator={false}
       ListHeaderComponent={
-        <View style={{flex: 1}}>
+        <View style={styles.headerContainer}>
           {/* Header Image Background */}
           <ImageBackground
             source={require('../assets/image/services/bannerServices.png')}
@@ -101,6 +101,9 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    flex: 1,
+  },
   headerBackground: {
     width: wp('100%'),
     height: hp('30%'), // Responsive height based on screen size

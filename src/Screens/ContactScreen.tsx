@@ -45,25 +45,12 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 
   return (
     <ScrollView
-      style={{backgroundColor: '#fff', flex: 1}}
+      style={styles.scrollView}
       showsVerticalScrollIndicator={false}>
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
-      <View
-        style={{
-          paddingHorizontal: width * 0.04,
-          flex: 1,
-          paddingTop: height * 0.02,
-        }}>
-        <Text style={{fontSize: height * 0.03, fontWeight: '700'}}>
-          Contact Us
-        </Text>
-        <Text
-          style={{
-            fontSize: height * 0.022,
-            fontWeight: '500',
-            width: '80%',
-            marginBottom: height * 0.025,
-          }}>
+      <HeaderComponent style={styles.header} />
+      <View style={styles.container}>
+        <Text style={styles.title}>Contact Us</Text>
+        <Text style={styles.subtitle}>
           For emergency care or to schedule an appointment & visit us.
         </Text>
 
@@ -71,52 +58,26 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
         <View>
           <Image
             source={require('../assets/image/Rectangle.png')}
-            style={{width: '100%', height: height * 0.22, resizeMode: 'cover'}}
+            style={styles.rectangleImage}
           />
           <Image
             source={require('../assets/image/map.png')}
-            style={{
-              position: 'absolute',
-
-              height: height * 0.18,
-              resizeMode: 'cover',
-            }}
+            style={styles.mapImage}
           />
           <Image
             source={require('../assets/image/zoom.png')}
-            style={{
-              position: 'absolute',
-              bottom: 10,
-              right: 18,
-              width: 30,
-              height: 30,
-            }}
+            style={styles.zoomImage}
           />
         </View>
 
         {/* Company name */}
-        <Text
-          style={{
-            fontSize: height * 0.022,
-            fontWeight: '700',
-            marginTop: height * 0.025,
-            marginBottom: height * 0.005,
-          }}>
-          Tackles Techinical Services L.L.C.
-        </Text>
-        <Text
-          style={{
-            fontSize: height * 0.02,
-            fontWeight: '400',
-            marginBottom: height * 0.02,
-          }}>
-          Professional Services in Dubai
-        </Text>
+        <Text style={styles.companyName}>Tackles Techinical Services L.L.C.</Text>
+        <Text style={styles.companySubtitle}>Professional Services in Dubai</Text>
 
         {/* Contact Info Cards */}
         <View style={styles.card}>
           <Location width={height * 0.04} height={height * 0.04} />
-          <View style={{gap: 2}}>
+          <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Visit us</Text>
             <Text style={styles.cardSubtitle}>Area, Dubai, U.A.E.</Text>
           </View>
@@ -124,7 +85,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 
         <View style={styles.card}>
           <Email width={height * 0.04} height={height * 0.04} />
-          <View style={{gap: 2}}>
+          <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Email us</Text>
             <TouchableOpacity onPress={handleEmailPress}>
               <Text style={styles.cardSubtitle}>support@tackles.pro</Text>
@@ -134,7 +95,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 
         <View style={styles.card}>
           <Phone width={height * 0.04} height={height * 0.04} />
-          <View style={{gap: 2}}>
+          <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Contact us</Text>
             <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
               <Text style={styles.cardSubtitle}>+971-1234567890</Text>
@@ -144,7 +105,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 
         <View style={styles.card}>
           <Website width={height * 0.04} height={height * 0.04} />
-          <View style={{gap: 2}}>
+          <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Working hours</Text>
             <TouchableOpacity onPress={openWebsite}>
               <Text style={styles.cardSubtitle}>https://tackles.pro</Text>
@@ -153,50 +114,23 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
         </View>
 
         {/* Buttons */}
-        <View
-          style={{
-            width: '100%',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: height * 0.02,
-            marginBottom: height * 0.02,
-          }}>
+        <View style={styles.buttonsContainer}>
           {/* Admin Login Button */}
           <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
-            style={{
-              flexDirection: 'row',
-              borderWidth: 1,
-              borderColor: '#0E61CD',
-              height: height * 0.055,
-              width: width * 0.35,
-              borderRadius: 4,
-              alignItems: 'center',
-              paddingHorizontal: width * 0.02,
-            }}>
+            style={styles.adminButton}>
             <ButtonIcon height={height * 0.03} width={height * 0.03} />
-            <Text
-              style={{
-                fontSize: height * 0.02,
-                fontWeight: '500',
-                marginLeft: width * 0.015,
-              }}>
-              Admin Login
-            </Text>
+            <Text style={styles.adminButtonText}>Admin Login</Text>
           </TouchableOpacity>
 
           {/* WhatsApp and Telegram */}
-          <View style={{flexDirection: 'row', columnGap: width * 0.05}}>
-            <TouchableOpacity onPress={openWhatsApp}>
+          <View style={styles.socialButtons}>
+            <TouchableOpacity onPress={openWhatsApp} style={styles.socialButton}>
               <Green height={height * 0.05} width={height * 0.05} />
               <WhatsApp
                 height={height * 0.032}
                 width={height * 0.032}
-                style={{
-                  position: 'absolute',
-                  left: height * 0.01,
-                  top: height * 0.008,
-                }}
+                style={styles.whatsappIcon}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={openTelegram}>
@@ -210,12 +144,66 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: '#fff',
+    flex: 1,
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+  },
+  container: {
+    paddingHorizontal: width * 0.04,
+    flex: 1,
+    paddingTop: height * 0.02,
+  },
+  title: {
+    fontSize: height * 0.03,
+    fontWeight: '700',
+  },
+  subtitle: {
+    fontSize: height * 0.022,
+    fontWeight: '500',
+    width: '80%',
+    marginBottom: height * 0.025,
+  },
+  rectangleImage: {
+    width: '100%',
+    height: height * 0.22,
+    resizeMode: 'cover',
+  },
+  mapImage: {
+    position: 'absolute',
+    height: height * 0.18,
+    resizeMode: 'cover',
+  },
+  zoomImage: {
+    position: 'absolute',
+    bottom: 10,
+    right: 18,
+    width: 30,
+    height: 30,
+  },
+  companyName: {
+    fontSize: height * 0.022,
+    fontWeight: '700',
+    marginTop: height * 0.025,
+    marginBottom: height * 0.005,
+  },
+  companySubtitle: {
+    fontSize: height * 0.02,
+    fontWeight: '400',
+    marginBottom: height * 0.02,
+  },
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: '3.8%',
     height: Dimensions.get('window').height * 0.06,
     marginBottom: Dimensions.get('window').height * 0.01,
+  },
+  cardContent: {
+    gap: 2,
   },
   cardTitle: {
     fontSize: Dimensions.get('window').height * 0.022,
@@ -224,6 +212,40 @@ const styles = StyleSheet.create({
   cardSubtitle: {
     fontSize: Dimensions.get('window').height * 0.017,
     fontWeight: '400',
+  },
+  buttonsContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: height * 0.02,
+    marginBottom: height * 0.02,
+  },
+  adminButton: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#0E61CD',
+    height: height * 0.055,
+    width: width * 0.35,
+    borderRadius: 4,
+    alignItems: 'center',
+    paddingHorizontal: width * 0.02,
+  },
+  adminButtonText: {
+    fontSize: height * 0.02,
+    fontWeight: '500',
+    marginLeft: width * 0.015,
+  },
+  socialButtons: {
+    flexDirection: 'row',
+    columnGap: width * 0.05,
+  },
+  socialButton: {
+    // No additional style needed
+  },
+  whatsappIcon: {
+    position: 'absolute',
+    left: height * 0.01,
+    top: height * 0.008,
   },
 });
 

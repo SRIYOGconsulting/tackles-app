@@ -108,8 +108,8 @@ const AdminOtp = ({route}: {route: any}) => {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
+    <View style={styles.mainContainer}>
+      <HeaderComponent style={styles.header} />
 
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
@@ -201,6 +201,14 @@ const styles = StyleSheet.create({
     fontSize: scaleFont(22),
     color: '#000',
     fontWeight: '700',
+  },
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
   },
 });
 

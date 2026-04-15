@@ -2,7 +2,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
   Dimensions,
   StyleSheet,
   ScrollView,
@@ -44,12 +43,12 @@ const SingleScreen: React.FC<{route: any}> = ({route}) => {
   ).slice(0, 2);
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.mainContainer}>
       {/* Header is placed outside ScrollView */}
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
+      <HeaderComponent style={styles.header} />
 
       {/* Scrollable content */}
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <Image source={service.image} style={styles.image} />
           <Text style={[styles.title, {fontSize: scaleFont(20)}]}>
@@ -94,6 +93,16 @@ const SingleScreen: React.FC<{route: any}> = ({route}) => {
 };
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+  },
+  scrollView: {
+    flex: 1,
+  },
   container: {
     paddingHorizontal: '5%',
     paddingTop: '5%',

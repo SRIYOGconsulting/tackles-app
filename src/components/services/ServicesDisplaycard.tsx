@@ -1,10 +1,8 @@
 import {
-  View,
   Text,
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import React from 'react';
 import {
@@ -31,11 +29,6 @@ const ServicesDisplaycard = ({
   onPress,
   style,
   textStyle,
-  navigation,
-  question,
-  answer,
-  description,
-  id,
 }: Props) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.cardContainer, style]}>

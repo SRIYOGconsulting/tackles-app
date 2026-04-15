@@ -14,7 +14,7 @@ const SingleBooking = ({route}: {route: any}) => {
   // Get the entry data passed via navigation
   const {entry} = route.params;
 
-  const {width, height} = useWindowDimensions(); // Get screen width and height
+  const {width} = useWindowDimensions(); // Get screen width
 
   // Define a dynamic font size based on screen width
   const getFontSize = (baseSize: number) => {
@@ -23,22 +23,15 @@ const SingleBooking = ({route}: {route: any}) => {
 
   return (
     <View style={styles.container}>
-      <HeaderComponent
-        style={{
-          paddingHorizontal: '5%',
-          borderBottomWidth: 1,
-          borderColor: '#CAD2DF',
-        }}
-      />
-      <View
-        style={[styles.content, {paddingHorizontal: '5%', paddingTop: '6%'}]}>
+      <HeaderComponent style={styles.header} />
+      <View style={styles.content}>
         <Text style={[styles.title, {fontSize: getFontSize(24)}]}>
           Single Booking
         </Text>
 
         <View style={styles.details}>
-          <View style={[styles.row, {justifyContent: 'space-between'}]}>
-            <View style={{flex: 1}}>
+          <View style={styles.row}>
+            <View style={styles.flex1}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Full Name
               </Text>
@@ -46,7 +39,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 {entry.Name}
               </Text>
             </View>
-            <LocationIcon width={40} height={40} style={{marginRight: 30}} />
+            <LocationIcon width={40} height={40} style={styles.icon} />
           </View>
 
           <Text style={[styles.label, {fontSize: getFontSize(18)}]}>Phone</Text>
@@ -54,8 +47,8 @@ const SingleBooking = ({route}: {route: any}) => {
             +971-{entry.Phone}
           </Text>
 
-          <View style={[styles.row, {flexWrap: 'wrap'}]}>
-            <View style={{width: '50%', paddingRight: 10}}>
+          <View style={styles.rowWrap}>
+            <View style={styles.halfWidth}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Selected Services
               </Text>
@@ -63,7 +56,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 {entry.Service}
               </Text>
             </View>
-            <View style={{flex: 1, paddingLeft: 20}}>
+            <View style={styles.flex1Padding}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Budget
               </Text>
@@ -73,8 +66,8 @@ const SingleBooking = ({route}: {route: any}) => {
             </View>
           </View>
 
-          <View style={[styles.row, {alignItems: 'center'}]}>
-            <View style={{flex: 1}}>
+          <View style={styles.rowCenter}>
+            <View style={styles.flex1}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Booking Date
               </Text>
@@ -82,7 +75,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 {entry.Date}
               </Text>
             </View>
-            <View style={{flex: 1, paddingLeft: 30}}>
+            <View style={styles.flex1Padding}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Selected Shift
               </Text>
@@ -92,8 +85,8 @@ const SingleBooking = ({route}: {route: any}) => {
             </View>
           </View>
 
-          <View style={[styles.row, {alignItems: 'center'}]}>
-            <View style={{flex: 1}}>
+          <View style={styles.rowCenter}>
+            <View style={styles.flex1}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Service Date
               </Text>
@@ -101,7 +94,7 @@ const SingleBooking = ({route}: {route: any}) => {
                 15 April 2025
               </Text>
             </View>
-            <View style={{flex: 1, paddingLeft: 30}}>
+            <View style={styles.flex1Padding}>
               <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
                 Selected Priority
               </Text>
@@ -111,15 +104,15 @@ const SingleBooking = ({route}: {route: any}) => {
             </View>
           </View>
 
-          <View style={[styles.row, {flexWrap: 'wrap'}]}>
-            <Text
-              style={[styles.label, {fontSize: getFontSize(18), width: '50%'}]}>
+          <View style={styles.rowWrap}>
+            <Text style={[styles.label, {fontSize: getFontSize(18)}, styles.halfWidthText]}>
               Selected Location
             </Text>
             <Text
               style={[
                 styles.value,
-                {fontSize: getFontSize(18), paddingLeft: 10, flex: 1},
+                {fontSize: getFontSize(18)},
+                styles.locationValue,
               ]}>
               {entry.Area}
             </Text>
@@ -133,20 +126,17 @@ const SingleBooking = ({route}: {route: any}) => {
           </Text>
         </View>
 
-        <View
-          style={[
-            styles.row,
-            {justifyContent: 'space-between', flexWrap: 'wrap'},
-          ]}>
+        <View style={styles.buttonRow}>
           <TouchableOpacity
             style={[
               styles.button,
-              {flex: 1, marginRight: width < 350 ? 0 : 16},
+              styles.buttonFlex,
+              width < 350 ? styles.buttonMarginRight0 : styles.buttonMarginRight16,
             ]}>
             <Text style={styles.buttonText}>Update Status</Text>
             <DropIcon height={20} width={20} />
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, {flex: 1}]}>
+          <TouchableOpacity style={[styles.button, styles.buttonFlex]}>
             <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
         </View>
@@ -197,6 +187,57 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: '600',
+  },
+  header: {
+    paddingHorizontal: '5%',
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+  },
+  flex1: {
+    flex: 1,
+  },
+  icon: {
+    marginRight: 30,
+  },
+  rowWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    flexWrap: 'wrap',
+  },
+  halfWidth: {
+    width: '50%',
+    paddingRight: 10,
+  },
+  flex1Padding: {
+    flex: 1,
+    paddingLeft: 20,
+  },
+  rowCenter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
+  halfWidthText: {
+    width: '50%',
+  },
+  locationValue: {
+    paddingLeft: 10,
+    flex: 1,
+  },
+  buttonFlex: {
+    flex: 1,
+  },
+  buttonMarginRight0: {
+    marginRight: 0,
+  },
+  buttonMarginRight16: {
+    marginRight: 16,
   },
 });
 

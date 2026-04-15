@@ -1,4 +1,4 @@
-import {View, Text, FlatList, TextInput, Dimensions} from 'react-native';
+import {View, Text, FlatList, TextInput, Dimensions, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 import FaqsCard from '../components/faqs/FaqsCard';
@@ -19,33 +19,16 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
   });
 
   return (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <HeaderComponent style={{borderBottomWidth: 1, borderColor: '#CAD2DF'}} />
+    <View style={styles.container}>
+      <HeaderComponent style={styles.header} />
 
-      <View
-        style={{paddingHorizontal: width * 0.04, paddingTop: height * 0.02}}>
-        <Text
-          style={{
-            fontSize: height * 0.028,
-            fontWeight: '900',
-            marginBottom: height * 0.005,
-          }}>
-          Professional & Reliable Services
-        </Text>
-        <Text style={{fontSize: height * 0.025, fontWeight: '500'}}>FAQs</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>Professional & Reliable Services</Text>
+        <Text style={styles.subtitle}>FAQs</Text>
 
         {/* Search Bar */}
         <TextInput
-          style={{
-            height: height * 0.055,
-            fontSize: height * 0.02,
-            borderRadius: width * 0.02,
-            paddingLeft: width * 0.03,
-            marginBottom: height * 0.015,
-            marginTop: height * 0.015,
-            backgroundColor: '#E2E2E27A',
-            fontWeight: '600',
-          }}
+          style={styles.searchInput}
           placeholder="Search"
           value={searchTerm}
           onChangeText={setSearchTerm}
@@ -66,13 +49,48 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
           />
         )}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{
-          paddingHorizontal: width * 0.04,
-          paddingBottom: height * 0.02,
-        }}
+        contentContainerStyle={styles.flatListContent}
       />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+  },
+  content: {
+    paddingHorizontal: width * 0.04,
+    paddingTop: height * 0.02,
+  },
+  title: {
+    fontSize: height * 0.028,
+    fontWeight: '900',
+    marginBottom: height * 0.005,
+  },
+  subtitle: {
+    fontSize: height * 0.025,
+    fontWeight: '500',
+  },
+  searchInput: {
+    height: height * 0.055,
+    fontSize: height * 0.02,
+    borderRadius: width * 0.02,
+    paddingLeft: width * 0.03,
+    marginBottom: height * 0.015,
+    marginTop: height * 0.015,
+    backgroundColor: '#E2E2E27A',
+    fontWeight: '600',
+  },
+  flatListContent: {
+    paddingHorizontal: width * 0.04,
+    paddingBottom: height * 0.02,
+  },
+});
 
 export default FaqsScreen;

@@ -84,7 +84,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-         resValue "string", "AIRTABLE_API_KEY", project.env.get("AIRTABLE_API_KEY")
+         resValue "string", "AIRTABLE_API_KEY",
+        project.env.get("AIRTABLE_API_KEY") ?: "default_key"
     }
     signingConfigs {
          release {
@@ -103,18 +104,16 @@ android {
         }
     }
     buildTypes {
-        debug {
-            signingConfig signingConfigs.debug
-            
-        }
-        release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.release
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        }
+    debug {
+        signingConfig signingConfigs.debug
     }
+
+    release {
+        signingConfig signingConfigs.release
+        minifyEnabled enableProguardInReleaseBuilds
+        proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+    }
+}
 }
 
 dependencies {

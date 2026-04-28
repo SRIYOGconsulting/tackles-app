@@ -21,21 +21,23 @@ const ButtonComponent = ({title, onPress}: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    borderWidth: 2,
-    borderColor: '#000',
+    borderWidth: 0.4,
+    borderColor: 'hsl(180, 100%, 28%)',
     backgroundColor: '#fff',
 
-    borderRadius: 12,
-
+    borderRadius: 30,
     justifyContent: 'center',
-    paddingTop: 6,
-    paddingBottom: 10,
-    width: 140,
+
+    paddingTop: 1,
+    width: 100,
+
+    boxShadow: '0 4px 0 hsl(180, 100%, 28%)',
   },
   buttonText: {
     textAlign: 'center',
-    fontWeight: '700',
+    fontFamily: 'Poppins-Medium',
     fontSize: 20,
+    color:"hsl(180, 100%, 28%)"
   },
 });
 

@@ -1,116 +1,105 @@
 import React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
 
-import {StyleSheet} from 'react-native';
-import Booking from './Booking';
 import Home from './Home';
 import Services from './Services';
-import Contact from './Contact';
-import HomeIcon from '../assets/icons/Home.svg';
-import HomeActiveIcon from '../assets/icons/HomeActive.svg';
-import ServicesIcon from '../assets/icons/Service.svg';
-import BookingIcon from '../assets/icons/Book.svg';
-import FaqsIcon from '../assets/icons/Faq.svg';
-import ContactIcon from '../assets/icons/Contact.svg';
-import ServiceActiveIcon from '../assets/icons/ServiceActive.svg';
-import FaqsActiveIcon from '../assets/icons/FaqActive.svg';
-import ContactActiveIcon from '../assets/icons/ContactActive.svg';
+import Booking from './Booking';
 import Faqs from './Faqs';
+import Contact from './Contact';
+
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
   return (
     <Tab.Navigator
-      screenOptions={({route}) => ({
-        tabBarStyle: {
-          backgroundColor: '#D9D9D9',
-          justifyContent: 'center', // Center tab items vertically
-          alignItems: 'center',
-          height: 54,
-        },
-        tabBarIcon: ({focused}) => {
-          if (route.name === 'Home') {
-            return focused ? (
-              <HomeActiveIcon width={28} height={28} />
-            ) : (
-              <HomeIcon width={18} height={18} />
-            );
-          } else if (route.name === 'Services') {
-            return focused ? (
-              <ServiceActiveIcon width={18} height={18} />
-            ) : (
-              <ServicesIcon width={24} height={24} />
-            );
-          } else if (route.name === 'BookingTab') {
-            return (
-              <BookingIcon width={44} height={44} style={styles.bookingIcon} />
-            );
-          } else if (route.name === 'Request') {
-            return focused ? (
-              <FaqsActiveIcon width={20} height={20} />
-            ) : (
-              <FaqsIcon width={24} height={24} />
-            );
-          } else if (route.name === 'Contact') {
-            return focused ? (
-              <ContactActiveIcon width={20} height={20} />
-            ) : (
-              <ContactIcon width={18} height={18} />
-            );
-          }
-        },
-        tabBarActiveTintColor: 'black',
-        tabBarInactiveTintColor: '#4B4B4B',
+      screenOptions={({ route }) => ({
         headerShown: false,
+
+        tabBarStyle: {
+          backgroundColor: '#e4e4e4',
+          height: 70,
+          paddingBottom: 5,
+
+          borderRadius: 50,          
+          marginHorizontal: 10,      
+
+          position: 'absolute',      
+          marginBottom:15,
+          paddingTop:7,
+
+          boxShadow: '0 -6px 18px rgba(0, 0, 0, 0.12)',
+        },
+
+        tabBarActiveTintColor: '#008080',
+        tabBarInactiveTintColor: '#000',
+
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '500',
+          fontFamily:"Poppins-Medium"
         },
-      })}>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarLabel: 'Home',
-        }}
-      />
-      <Tab.Screen
-        name="Services"
-        component={Services}
-        options={{
-          tabBarLabel: 'Services',
-        }}
-      />
+
+        tabBarIcon: ({ focused, color }) => {
+          let iconName = 'questioncircle0';
+          let size = 22;
+
+          if (route.name === 'Home') {
+            iconName = 'home';
+            size = focused ? 26 : 22;
+          }
+
+          else if (route.name === 'Services') {
+            iconName = focused ? 'appstore1' : 'appstore-o';
+            size = focused ? 26 : 22;
+          }
+
+          else if (route.name === 'BookingTab') {
+            iconName = 'pluscircleo';
+            size = 26;
+          }
+
+          else if (route.name === 'Request') {
+            iconName = focused ? 'customerservice' : 'customerservice';
+            size = focused ? 26 : 22;
+          }
+
+          else if (route.name === 'Contact') {
+            iconName = 'phone';
+            size = focused ? 26 : 22;
+          }
+
+          return (
+            <AntDesign
+              name={iconName}
+              size={size}
+              color={color}
+            />
+          );
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Services" component={Services} />
 
       <Tab.Screen
         name="BookingTab"
         component={Booking}
-        options={{
-          tabBarLabel: '',
-        }}
+        options={{ tabBarLabel: 'Book' }}
       />
-      <Tab.Screen
-        name="Request"
-        component={Faqs}
-        options={{
-          tabBarLabel: 'Request',
-        }}
-      />
-      <Tab.Screen
-        name="Contact"
-        component={Contact}
-        options={{
-          tabBarLabel: 'Contact',
-        }}
-      />
+
+      <Tab.Screen name="Request" component={Faqs} />
+      <Tab.Screen name="Contact" component={Contact} />
     </Tab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
   bookingIcon: {
-    marginTop: 16,
+    marginTop: -20,
   },
 });
+
 export default Tabs;

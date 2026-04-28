@@ -17,7 +17,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const HomeScreen = ({navigation}: {navigation: any}) => {
+const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <KeyboardAvoidingView
       style={styles.keyboardAvoiding}
@@ -61,7 +61,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
             </View>
 
             <Text style={styles.sectionTitle}>Top Professional</Text>
-            <View style={styles.row}>
+            <View style={styles.row2}>
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person1.png')}
                 title="Painter"
@@ -94,63 +94,104 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
 const styles = StyleSheet.create({
   keyboardAvoiding: {
     flex: 1,
+    backgroundColor: '#fff',
   },
+
   scrollContainer: {
     flexGrow: 1,
   },
+
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
+
   banner: {
     width: '100%',
-    height: hp('36%'),
+    height: hp('34%'),
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
+
   headerWrapper: {
     position: 'absolute',
     width: '100%',
     paddingHorizontal: wp('4%'),
+    paddingTop: hp('2%'),
   },
+
   headerPadding: {
     paddingHorizontal: wp('4%'),
   },
+
   content: {
-    paddingHorizontal: wp('4%'),
-    paddingTop: hp('2.5%'),
+    paddingHorizontal: wp('5%'),
+    paddingTop: hp('3%'),
+    alignItems: "center"
   },
+
   title: {
-    fontSize: wp('6%'),
-    color: '#0E61CD',
-    fontWeight: '900',
-    marginBottom: hp('0.2%'),
+    fontSize: wp('6.5%'),
+    color: 'hsl(0, 0%, 30%)',
+    fontFamily: 'Poppins-Bold',
+    letterSpacing: 0.5,
   },
+
   subtitle: {
-    fontSize: wp('4%'),
-    color: '#0E61CD',
-    fontWeight: '400',
+    fontSize: wp('3.8%'),
+    color: 'hsl(0, 0%, 35%)',
+    fontFamily: 'AnticSlab-Regular',
+    marginTop: hp('0.5%'),
+    marginBottom: hp('2%'),
+    lineHeight: hp('2.2%'),
   },
+
   sectionTitle: {
-    fontSize: wp('5%'),
-    color: '#0E61CD',
-    fontWeight: '900',
-    marginVertical: hp('0.5%'),
+    fontSize: wp('5.0%'),
+    color: 'hsl(0, 0%, 30%)',
+    fontFamily: 'Poppins-SemiBold',
+    marginTop: hp('2%'),
+    marginBottom: hp('1%'),
   },
+
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: hp('0.5%'),
+    marginBottom: hp('1.5%'),
+    gap: 15,
+    backgroundColor: '#008080', 
+    padding: wp('3%'), 
+    paddingRight:wp('5%'),
+    paddingLeft:wp('5%'),    
+            
   },
+
+  row2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: hp('1.5%'),
+    gap: 15,
+    backgroundColor: '#008080', 
+    padding: wp('3%'), 
+    paddingRight:wp('5%'),
+    paddingLeft:wp('5%'),   
+    borderRadius: 10,           
+  },
+
   serviceCardSpecial: {
     width: wp('26%'),
   },
+
   professionalCardSpecial: {
     width: wp('18%'),
     height: wp('18%'),
   },
+
   numberBarContainer: {
     alignItems: 'center',
-    marginTop: hp('1%'),
-    marginBottom: hp('5%'), // Prevent cutoff
+    marginTop: hp('2%'),
+    marginBottom: hp('10%'),
+    paddingBottom: hp('8%'),
   },
 });
 

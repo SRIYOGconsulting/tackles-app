@@ -1,4 +1,4 @@
-import {View, Text, Image, GestureResponderEvent, StyleSheet} from 'react-native';
+import {View, Text, Image, GestureResponderEvent,Platform , StyleSheet} from 'react-native';
 import React from 'react';
 import ButtonComponent from './ButtonComponent';
 
@@ -31,14 +31,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
-    top: '16%',
+    top: '22%',
     alignItems: 'center',
     gap: 40,
   },
   text: {
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: '400',
+  fontFamily: 'KaushanScript-Regular',
+    
   },
+  title: {
+  fontFamily: 'KaushanScript-Regular',
+}
 });
 
 export default OnboardingComponent;

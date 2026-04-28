@@ -1,7 +1,7 @@
 import {View} from 'react-native';
 import React from 'react';
 import OnboardingComponent from '../../components/OnboardingComponent';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 
 const OnBoarding1 = ({navigation}: {navigation: any}) => {
   return (
@@ -21,7 +21,8 @@ const OnBoarding1 = ({navigation}: {navigation: any}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
+
   },
 });
 

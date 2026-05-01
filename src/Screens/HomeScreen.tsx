@@ -38,9 +38,9 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.title}>Tackles | Dubai</Text>
+            <Text style={styles.title}>Tackles | San Francisco</Text>
             <Text style={styles.subtitle}>
-              Professional & Reliable Services in Dubai
+              Professional & Reliable Services in San Francisco
             </Text>
 
             <Text style={styles.sectionTitle}>Top Services</Text>

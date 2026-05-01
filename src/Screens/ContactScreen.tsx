@@ -72,14 +72,14 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
 
         {/* Company name */}
         <Text style={styles.companyName}>Tackles Techinical Services L.L.C.</Text>
-        <Text style={styles.companySubtitle}>Professional Services in Dubai</Text>
+        <Text style={styles.companySubtitle}>Professional Services in San Francisco</Text>
 
         {/* Contact Info Cards */}
         <View style={styles.card}>
           <Image source={Location} style={{ width: height * 0.03, height: height * 0.04 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Visit us</Text>
-            <Text style={styles.cardSubtitle}>Area, Dubai, U.A.E.</Text>
+            <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
           </View>
         </View>
 

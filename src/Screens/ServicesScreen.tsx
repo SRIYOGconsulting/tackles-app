@@ -64,7 +64,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
             <View style={styles.headerTextContainer}>
               <Text style={styles.headerTitle}>Painting</Text>
               <Text style={styles.headerSubtitle}>
-                Professional & Reliable Services in Dubai
+                Professional & Reliable Services {`\n`}in San Francisco
               </Text>
             </View>
           </ImageBackground>

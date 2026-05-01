@@ -49,7 +49,7 @@ export const topServices = [
     question: 'What plumbing services do you offer?',
     answer:
       'We provide installations, routine maintenance, and emergency plumbing solutions for residential and commercial spaces.',
-    image: require('../assets/image/services/s5.png'),
+    image: require('../assets/image/services/pumbling/1.png'),
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ export const topServices = [
     answer:
       'Yes, our team specializes in both residential and commercial window cleaning, including high-rise buildings.',
 
-    image: require('../assets/image/services/s6.png'),
+    image: require('../assets/image/services/windowCleaning/1.png'),
   },
 ];
 
@@ -75,7 +75,7 @@ export const servicesData = [
     question: 'Can you help with replacing old wallpaper?',
     answer:
       'Yes, we specialize in replacing old wallpaper and installing new designs to give your walls a fresh and elegant look.',
-    image: require('../assets/image/services/s3.png'),
+    image: require('../assets/image/services/wallpaperFixing/1.png'),
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ export const servicesData = [
     question: 'What flooring options are available for homes and offices?',
     answer:
       'We offer a variety of flooring options including tiles, hardwood, vinyl, and carpet, designed for both residential and commercial spaces.',
-    image: require('../assets/image/services/s4.png'),
+    image: require('../assets/image/services/flooring/1.png'),
   },
   {
     id: 3,
@@ -97,7 +97,7 @@ export const servicesData = [
     question: 'What plumbing services do you offer?',
     answer:
       'We provide installations, routine maintenance, and emergency plumbing solutions for residential and commercial spaces.',
-    image: require('../assets/image/services/s5.png'),
+    image: require('../assets/image/services/pumbling/1.png'),
   },
   {
     id: 4,
@@ -109,7 +109,7 @@ export const servicesData = [
     answer:
       'Yes, our team specializes in both residential and commercial window cleaning, including high-rise buildings.',
 
-    image: require('../assets/image/services/s6.png'),
+    image: require('../assets/image/services/windowCleaning/1.png'),
   },
   {
     id: 5,
@@ -120,7 +120,7 @@ export const servicesData = [
     question: 'Can you help install new carpets in my home?',
     answer:
       'Absolutely, we offer installation services for all kinds of carpets, ensuring comfort and aesthetic appeal for your space.',
-    image: require('../assets/image/services/s7.png'),
+    image: require('../assets/image/services/carpeting/1.png'),
   },
   {
     id: 6,
@@ -131,7 +131,7 @@ export const servicesData = [
     question: 'Do you provide repair services for air conditioning systems?',
     answer:
       'Yes, we specialize in repairing, installing, and maintaining air conditioning systems to ensure optimal performance.',
-    image: require('../assets/image/services/s8.png'),
+    image: require('../assets/image/services/airConditioning/1.png'),
   },
   {
     id: 7,
@@ -142,7 +142,7 @@ export const servicesData = [
     question: 'Can you help with rewiring my home?',
     answer:
       'Yes, we offer professional rewiring services along with installations and system upgrades for homes and offices.',
-    image: require('../assets/image/services/s9.png'),
+    image: require('../assets/image/services/ElectricalWorks/1.png'),
   },
   {
     id: 8,
@@ -153,7 +153,7 @@ export const servicesData = [
     question: 'Do you handle emergency plumbing repairs?',
     answer:
       'Yes, we provide 24/7 emergency repair services for plumbing systems in both residential and commercial spaces.',
-    image: require('../assets/image/services/s10.png'),
+    image: require('../assets/image/services/pumbling/2.png'),
   },
   {
     id: 9,
@@ -164,7 +164,7 @@ export const servicesData = [
     question: 'What does deep cleaning include?',
     answer:
       'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
-    image: require('../assets/image/services/s11.png'),
+    image: require('../assets/image/services/deepCleaning/1.png'),
   },
   {
     id: 10,
@@ -175,7 +175,7 @@ export const servicesData = [
     question: 'Do you repair both residential and commercial AC systems?',
     answer:
       'Yes, we handle repairs for both residential and commercial air conditioning systems, ensuring consistent cooling.',
-    image: require('../assets/image/services/s12.png'),
+    image: require('../assets/image/services/acRepair/1.png'),
   },
   {
     id: 11,
@@ -187,7 +187,7 @@ export const servicesData = [
       'Can you install air filtration systems to improve indoor air quality?',
     answer:
       'Yes, we provide installation of advanced air filtration systems along with regular maintenance to ensure the highest indoor air quality.',
-    image: require('../assets/image/services/s13.png'),
+    image: require('../assets/image/services/airFilteration/1.png'),
   },
   {
     id: 12,
@@ -198,7 +198,7 @@ export const servicesData = [
     question: 'What types of cladding materials do you provide?',
     answer:
       'We offer a wide range of cladding materials, including wood, metal, vinyl, and composite, to suit your design preferences and structural needs.',
-    image: require('../assets/image/services/s14.png'),
+    image: require('../assets/image/services/cladding/1.png'),
   },
   {
     id: 13,
@@ -209,7 +209,7 @@ export const servicesData = [
     question: 'Can you install false ceilings for offices and homes?',
     answer:
       'Yes, we specialize in designing and installing false ceilings to meet both residential and commercial requirements.',
-    image: require('../assets/image/services/s15.png'),
+    image: require('../assets/image/services/flaseCeiling/1.png'),
   },
   {
     id: 14,
@@ -220,7 +220,7 @@ export const servicesData = [
     question: 'Do you provide roofing installation and repair services?',
     answer:
       'Yes, we specialize in both roofing installations and repairs, ensuring durability and weather resistance for all roof types.',
-    image: require('../assets/image/services/s16.png'),
+    image: require('../assets/image/services/roofing/1.png'),
   },
 ];
 

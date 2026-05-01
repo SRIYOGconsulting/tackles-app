@@ -11,18 +11,18 @@ import {
 import React from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 
-import Email from '../assets/icons/contact/Email.svg';
-import Location from '../assets/icons/contact/Location.svg';
-import Phone from '../assets/icons/contact/Phone.svg';
-import Website from '../assets/icons/contact/Url.svg';
-import ButtonIcon from '../assets/icons/contact/ButtonIcon.svg';
-import WhatsApp from '../assets/icons/contact/WhatsApp.svg';
-import Green from '../assets/icons/contact/Green.svg';
-import Telegram from '../assets/icons/contact/Telegram.svg';
+import Email from '../assets/icons/contact/Email.png';
+import Location from '../assets/icons/contact/Location.png';
+import Phone from '../assets/icons/contact/Phone.png';
+import Website from '../assets/icons/contact/Url.png';
+import ButtonIcon from '../assets/icons/contact/ButtonIcon.png';
+import WhatsApp from '../assets/icons/contact/WhatsApp.png';
+import Green from '../assets/icons/contact/Green.png';
+import Telegram from '../assets/icons/contact/Telegram.png';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const ContactScreen = ({navigation}: {navigation: any}) => {
+const ContactScreen = ({ navigation }: { navigation: any }) => {
   const openWebsite = () => {
     Linking.openURL('https://tackles.pro/');
   };
@@ -76,7 +76,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
 
         {/* Contact Info Cards */}
         <View style={styles.card}>
-          <Location width={height * 0.04} height={height * 0.04} />
+          <Image source={Location} style={{ width: height * 0.04, height: height * 0.04 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Visit us</Text>
             <Text style={styles.cardSubtitle}>Area, Dubai, U.A.E.</Text>
@@ -84,7 +84,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
         </View>
 
         <View style={styles.card}>
-          <Email width={height * 0.04} height={height * 0.04} />
+          <Image source={Email} style={{ width: height * 0.04, height: height * 0.03 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Email us</Text>
             <TouchableOpacity onPress={handleEmailPress}>
@@ -94,7 +94,7 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
         </View>
 
         <View style={styles.card}>
-          <Phone width={height * 0.04} height={height * 0.04} />
+          <Image source={Phone} style={{ width: height * 0.04, height: height * 0.04 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Contact us</Text>
             <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
@@ -104,7 +104,8 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
         </View>
 
         <View style={styles.card}>
-          <Website width={height * 0.04} height={height * 0.04} />
+          <Image source={Website} style={{ width: height * 0.04, height: height * 0.04 }} />
+
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Working hours</Text>
             <TouchableOpacity onPress={openWebsite}>
@@ -119,22 +120,22 @@ const ContactScreen = ({navigation}: {navigation: any}) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
             style={styles.adminButton}>
-            <ButtonIcon height={height * 0.03} width={height * 0.03} />
+            <Image source={ButtonIcon} style={{ width: height * 0.03, height: height * 0.03 }} />
+
             <Text style={styles.adminButtonText}>Admin Login</Text>
           </TouchableOpacity>
 
           {/* WhatsApp and Telegram */}
           <View style={styles.socialButtons}>
             <TouchableOpacity onPress={openWhatsApp} style={styles.socialButton}>
-              <Green height={height * 0.05} width={height * 0.05} />
-              <WhatsApp
-                height={height * 0.032}
-                width={height * 0.032}
-                style={styles.whatsappIcon}
+              <Image
+                source={WhatsApp}
+                style={{width: height * 0.05, height: height * 0.05 }}
               />
             </TouchableOpacity>
             <TouchableOpacity onPress={openTelegram}>
-              <Telegram height={height * 0.05} width={height * 0.05} />
+
+              <Image source={Telegram} style={{width: height * 0.05, height: height * 0.05 }} />
             </TouchableOpacity>
           </View>
         </View>

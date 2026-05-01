@@ -5,11 +5,12 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Image,
   FlatList,
   Dimensions,
   Platform,
 } from 'react-native';
-import DropIcon from '../assets/icons/contact/DropDown.svg';
+import DropIcon from '../assets/icons/contact/DropDown.png';
 
 const {width, height} = Dimensions.get('window');
 
@@ -55,7 +56,7 @@ const Dropdown = ({
           pointerEvents="none"
         />
         <TouchableOpacity onPress={toggleDropdown}>
-          <DropIcon height={height * 0.025} width={height * 0.025} />
+          <Image source={DropIcon} style={{width:height* 0.025, height:height* 0.025}}/>
         </TouchableOpacity>
       </View>
 

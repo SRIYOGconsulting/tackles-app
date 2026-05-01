@@ -76,7 +76,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
 
         {/* Contact Info Cards */}
         <View style={styles.card}>
-          <Image source={Location} style={{ width: height * 0.04, height: height * 0.04 }} />
+          <Image source={Location} style={{ width: height * 0.03, height: height * 0.04 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Visit us</Text>
             <Text style={styles.cardSubtitle}>Area, Dubai, U.A.E.</Text>

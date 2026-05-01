@@ -63,10 +63,10 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
         <View style={styles.container}>
           <Image source={service.image} style={styles.image} />
           <Text style={[styles.title, { fontSize: scaleFont(20) }]}>
-            Wallpaper Fixing
+            {service.name}
           </Text>
           <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
-            Professional Wallpaper Fixing
+            {`Professional ${service.name}`}
           </Text>
           <Text style={[styles.description, { fontSize: scaleFont(17) }]}>
             {service.description}

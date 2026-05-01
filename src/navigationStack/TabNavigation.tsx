@@ -13,6 +13,7 @@ import BookingIcon from '../assets/icons/Book.svg';
 import FaqsIcon from '../assets/icons/Faq.svg';
 import ContactIcon from '../assets/icons/Contact.svg';
 import ServiceActiveIcon from '../assets/icons/ServiceActive.svg';
+import BookActiveIcon from '../assets/icons/BookActive.svg'
 import FaqsActiveIcon from '../assets/icons/FaqActive.svg';
 import ContactActiveIcon from '../assets/icons/ContactActive.svg';
 import Faqs from './Faqs';
@@ -24,39 +25,43 @@ const Tabs = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
         tabBarStyle: {
-          backgroundColor: '#D9D9D9',
+          backgroundColor: '	hsl(0, 0%, 90%)',
           justifyContent: 'center', // Center tab items vertically
           alignItems: 'center',
-          height: 54,
+          height: 65,
+          borderRadius:25,
+          boxShadow: "0 -3px 30px rgba(0, 0, 0, 0.4)"
         },
         tabBarIcon: ({focused}) => {
           if (route.name === 'Home') {
             return focused ? (
-              <HomeActiveIcon width={28} height={28} />
+              <HomeActiveIcon width={39} height={39} style={styles.ActiveIcon}/>
             ) : (
-              <HomeIcon width={18} height={18} />
+              <HomeIcon width={35} height={35} style={styles.NIcon}/>
             );
           } else if (route.name === 'Services') {
             return focused ? (
-              <ServiceActiveIcon width={18} height={18} />
+              <ServiceActiveIcon width={42} height={42} style={styles.ActiveIcon}/>
             ) : (
-              <ServicesIcon width={24} height={24} />
+              <ServicesIcon width={38} height={38} style={styles.NIcon}/>
             );
           } else if (route.name === 'BookingTab') {
-            return (
-              <BookingIcon width={44} height={44} style={styles.bookingIcon} />
+            return focused ? (
+              <BookActiveIcon width={50} height={50} style={styles.bookingIcon} />
+            ) : (
+              <BookingIcon width={50} height={50} style={styles.bookingIcon} />
             );
           } else if (route.name === 'Request') {
             return focused ? (
-              <FaqsActiveIcon width={20} height={20} />
+              <FaqsActiveIcon width={42} height={42} style={styles.ActiveIcon}/>
             ) : (
-              <FaqsIcon width={24} height={24} />
+              <FaqsIcon width={38} height={38} style={styles.NIcon}/>
             );
           } else if (route.name === 'Contact') {
             return focused ? (
-              <ContactActiveIcon width={20} height={20} />
+              <ContactActiveIcon width={35} height={35} style={styles.ActiveIcon}/>
             ) : (
-              <ContactIcon width={18} height={18} />
+              <ContactIcon width={31} height={31} style={styles.NIcon}/>
             );
           }
         },
@@ -72,14 +77,14 @@ const Tabs = () => {
         name="Home"
         component={Home}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: '',
         }}
       />
       <Tab.Screen
         name="Services"
         component={Services}
         options={{
-          tabBarLabel: 'Services',
+          tabBarLabel: '',
         }}
       />
 
@@ -94,14 +99,14 @@ const Tabs = () => {
         name="Request"
         component={Faqs}
         options={{
-          tabBarLabel: 'Request',
+          tabBarLabel: '',
         }}
       />
       <Tab.Screen
         name="Contact"
         component={Contact}
         options={{
-          tabBarLabel: 'Contact',
+          tabBarLabel: '',
         }}
       />
     </Tab.Navigator>
@@ -111,6 +116,13 @@ const Tabs = () => {
 const styles = StyleSheet.create({
   bookingIcon: {
     marginTop: 16,
+  },
+  NIcon:{
+    marginTop:14,
+  
+  },
+  ActiveIcon:{
+    marginTop:8,
   },
 });
 export default Tabs;

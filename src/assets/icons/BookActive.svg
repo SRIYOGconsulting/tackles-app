@@ -6,15 +6,15 @@
     cx="12"
     cy="12"
     r="10"
-    stroke="grey"
+    stroke="#008080"
     stroke-width="1"
-    fill="none"
+    fill="#008080"
   />
 
   <!-- Vertical line (long plus) -->
   <path
     d="M12 5V19"
-    stroke="black"
+    stroke="white"
     stroke-width="2.5"
     stroke-linecap="round"
   />
@@ -22,7 +22,7 @@
   <!-- Horizontal line (long plus) -->
   <path
     d="M5 12H19"
-    stroke="black"
+    stroke="white"
     stroke-width="2.5"
     stroke-linecap="round"
   />

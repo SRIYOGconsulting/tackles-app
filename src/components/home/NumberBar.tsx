@@ -14,7 +14,7 @@ const NumberBar = ({navigation}: {navigation: any}) => {
     <View style={[styles.container, {width: dynamicWidth}]}>
       <View style={styles.phoneContainer}>
         <Image
-          source={require('../../assets/image/header/left.png')}
+          source={require('../../assets/image/header/right.png')}
           style={styles.icon}
           resizeMode="contain"
         />

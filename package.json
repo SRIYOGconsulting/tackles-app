@@ -19,7 +19,6 @@
     "@reduxjs/toolkit": "^2.7.0",
     "airtable": "^0.12.2",
     "axios": "^1.9.0",
-    "lucide-react-native": "^1.14.0",
     "react": "19.0.0",
     "react-native": "0.79.1",
     "react-native-config": "^1.5.5",

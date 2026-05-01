@@ -52,10 +52,10 @@ const SingleScreen: React.FC<{route: any}> = ({route}) => {
         <View style={styles.container}>
           <Image source={service.image} style={styles.image} />
           <Text style={[styles.title, {fontSize: scaleFont(20)}]}>
-            Tackles | Dubai
+            Wallpaper Fixing
           </Text>
           <Text style={[styles.subtitle, {fontSize: scaleFont(19)}]}>
-            Professional & Reliable Services in Dubai
+            Professional Wallpaper Fixing 
           </Text>
           <Text style={[styles.description, {fontSize: scaleFont(17)}]}>
             {service.description}
@@ -66,9 +66,9 @@ const SingleScreen: React.FC<{route: any}> = ({route}) => {
           <Text style={[styles.answer, {fontSize: scaleFont(17)}]}>
             {service.answer}
           </Text>
-
+          
           <Text style={[styles.otherServicesTitle, {fontSize: scaleFont(20)}]}>
-            Other Services
+            Related Services
           </Text>
           <View style={styles.servicesContainer}>
             {otherServices.map(item => (

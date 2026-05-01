@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     height: width * 0.1, // making it square
   },
   rightIcon: {
-    width: width * 0.3,
+    width: width * 0.1,
     height: width * 0.1,
   },
 });

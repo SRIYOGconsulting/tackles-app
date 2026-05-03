@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -8,23 +8,24 @@ import {
   Alert,
   Platform,
   Dimensions,
-  ScrollView, // Added ScrollView
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import {area, budget, priority, services, shifts} from '../../src/data/Data';
+import { area, services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import DropIcon from '../assets/icons/contact/DropDown.svg';
+import TextArea from '../components/TextArea';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
+const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedShift, setSelectedShift] = useState('');
-  const [selectedPriority, setSelectedPriority] = useState('');
-  const [selectedBudget, setSelectedBudget] = useState('');
+  // const [selectedPriority, setSelectedPriority] = useState('');
+  // const [selectedBudget, setSelectedBudget] = useState('');
   const [selectedArea, setSelectedArea] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState<Date | null>(null);
@@ -36,8 +37,8 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
       number &&
       selectedService &&
       selectedShift &&
-      selectedPriority &&
-      selectedBudget &&
+      // selectedPriority &&
+      // selectedBudget &&
       selectedArea &&
       date
     ) {
@@ -47,8 +48,8 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
         selectedService,
         selectedShift,
         selectedArea,
-        selectedBudget,
-        selectedPriority,
+        // selectedBudget,
+        // selectedPriority,
         message,
         date: new Date().toISOString(),
       });
@@ -58,11 +59,12 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
   };
 
   return (
-    <ScrollView
+    <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}>
+      showsVerticalScrollIndicator={false}
+    >
       <HeaderComponent style={styles.header} />
-      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:16}}/>
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <View style={styles.formContainer}>
         <Text style={styles.title}>Professional & Reliable Services</Text>
         <Text style={styles.subTitle}>Request a Services</Text>
@@ -92,14 +94,14 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
             showRequired
           />
 
-          <View style={{marginBottom: height * 0.015}}>
+          <View style={{ marginBottom: height * 0.025, }}>
             <TouchableOpacity
               onPress={() => setShow(true)}
               style={styles.datePicker}>
-              <Text style={[styles.datePickerText, {fontSize: width * 0.04}]}>
+              <Text style={[styles.datePickerText, { fontSize: width * 0.04 }]}>
                 {date ? date.toDateString() : 'Select Date'}
               </Text>
-              <DropIcon height={16} width={16} />
+              <DropIcon height={21} width={21} />
             </TouchableOpacity>
 
             {show && (
@@ -130,7 +132,7 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
             onSelectOption={setSelectedShift}
             showRequired
           />
-          <Dropdown
+          {/* <Dropdown
             options={priority}
             placeholder="Select Priority"
             placeholderColor="#4B4B4B"
@@ -143,16 +145,14 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedBudget}
             showRequired
-          />
+          /> */}
 
-          <TextInput
-            placeholder="Message"
+          <TextArea
             value={message}
             onChangeText={setMessage}
-            style={styles.textArea}
-            editable
-            multiline
-            placeholderTextColor={'#4B4B4B'}
+            placeholder="Message"
+            placeholderTextColor="#4B4B4B"
+            maxHeight={160}
           />
         </View>
       </View>
@@ -163,7 +163,7 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
           <Text style={styles.buttonText}>Book Now</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </KeyboardAwareScrollView>
   );
 };
 
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Ensures the container expands to take full height
   },
   header: {
-    paddingTop:20.7
+    paddingTop: 20.7
   },
   formContainer: {
     paddingHorizontal: width * 0.05,
@@ -183,8 +183,8 @@ const styles = StyleSheet.create({
     fontSize: width * 0.05,
     fontWeight: '700',
     marginBottom: height * 0.001,
-    paddingTop:5,
-    paddingBottom:3
+    paddingTop: 5,
+    paddingBottom: 3
   },
   subTitle: {
     fontSize: width * 0.043,
@@ -192,61 +192,64 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.032,
   },
   inputGroup: {
-    marginTop: height * 0.0,
+    marginTop: height * 0.01,
   },
   input: {
     borderWidth: 1,
     borderRadius: 4,
     paddingHorizontal: width * 0.03,
     height: height * 0.045,
-    marginBottom: height * 0.018,
-    fontSize: width * 0.037,
+    marginBottom: height * 0.025,
+    fontSize: width * 0.04,
     fontWeight: '500',
     borderColor: '#E3E3E3',
     textAlignVertical: 'center',
+    paddingBottom: 8.5,
+
   },
   datePicker: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#E3E3E3',
     borderRadius: 4,
     paddingHorizontal: width * 0.03,
-    height: height * 0.05,
+    height: height * 0.045,
     justifyContent: 'space-between',
     marginBottom: 5,
   },
   datePickerText: {
-    color: '#4B4B4B',
+    fontSize: width * 0.04,
+    fontWeight: '500',
+    color: '#4B4B4B'
   },
 
   textArea: {
-    height: height * 0.13,
+    height: height * 0.10,
     borderWidth: 1,
-    padding: width * 0.03,
+    paddingLeft: width * 0.035,
     borderRadius: 4,
     borderColor: '#E3E3E3',
     fontSize: width * 0.04,
     fontWeight: '500',
-    marginTop: height * 0.005,
-    paddingBottom: height * 0.08,
+    marginTop: height * 0.001,
+    paddingBottom: height * 0.065,
   },
   buttonContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 120,
+    height: 145,
   },
   submitButton: {
-    borderWidth: 1,
-    borderColor: '#0E61CD',
+    backgroundColor:'#0E61CD',
     borderRadius: 4,
-    height: height * 0.06,
-    width: width * 0.3,
+    height: height * 0.05,
+    width: width * 0.28,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
-    color: '#000',
+    color: '#fff',
     fontSize: width * 0.045,
     fontWeight: '700',
   },

@@ -51,11 +51,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center', // Center the image horizontally
   },
   title: {
-    fontSize: wp(4.2), // Responsive font size for title
+    fontSize: wp(3.5), // Responsive font size for title
     fontWeight: '600',
     marginTop: hp(1), // Responsive margin-top
-    textAlign: 'center',
+    textAlign: 'left',
     color: '#000',
+    paddingLeft:7
   },
 });
 

@@ -76,17 +76,22 @@ const styles = StyleSheet.create({
   textContainer: {
     marginLeft: wp(3), // Add some space between the image and text
     width: wp(42), // Text container width set to a percentage of screen width
+    
   },
   title: {
-    fontSize: wp(5), // Responsive font size based on screen width
-    fontWeight: '700',
+    fontSize: wp(4.1), // Responsive font size based on screen width
+    fontWeight: '600',
     // Responsive margin
     color: '#000',
+    paddingBottom:3
+    
   },
   description: {
-    fontSize: wp(3.6), // Responsive description font size
+    fontSize: wp(3.5), // Responsive description font size
     fontWeight: '400',
     color: '#000000',
+    letterSpacing:-0.3,
+    lineHeight:17
   },
 });
 

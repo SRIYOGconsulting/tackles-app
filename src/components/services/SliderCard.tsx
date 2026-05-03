@@ -10,7 +10,7 @@ const SliderCard = ({name, image}: Props) => {
     <View style={styles.container}>
       <Image source={image} style={styles.image} resizeMode="cover" />
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Tackels | San Francisco</Text>
+        <Text style={styles.title}>Tackles | San Francisco</Text>
         <Text style={styles.subtitle}>
           Professional & Reliable Services in San Francisco
         </Text>
@@ -30,26 +30,28 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: '35%', // Adjusted a bit to be better centered
+    top: '30%', // Adjusted a bit to be better centered
     alignItems: 'center',
     paddingHorizontal: 10,
   },
   title: {
-    fontSize: width * 0.05, // Responsive font size
-    fontWeight: '700',
-    color: '#fff',
+    fontSize: width * 0.04, // Responsive font size
+    fontWeight: '900',
+    color: '#000',
+    paddingBottom:2
+
   },
   subtitle: {
-    fontSize: width * 0.04,
+    fontSize: width * 0.036,
     fontWeight: '500',
-    marginVertical: height * 0.01,
-    color: '#fff',
+    marginBottom: height * 0.018,
+    color: '#000',
     textAlign: 'center',
   },
   name: {
-    fontSize: width * 0.045,
-    fontWeight: '400',
-    color: '#fff',
+    fontSize: width * 0.044,
+    fontWeight: '600',
+    color: '#000',
   },
 });
 

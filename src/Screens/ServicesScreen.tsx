@@ -64,7 +64,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
             <View style={styles.headerTextContainer}>
               <Text style={styles.headerTitle}>Painting</Text>
               <Text style={styles.headerSubtitle}>
-                Professional & Reliable Services {`\n`}in San Francisco
+                Professional & Reliable Services in San Francisco
               </Text>
             </View>
           </ImageBackground>
@@ -114,26 +114,28 @@ const styles = StyleSheet.create({
   },
   headerTextContainer: {
     paddingHorizontal: wp('5%'),
-    marginBottom: hp('2%'),
+    marginBottom: hp('4%'),
   },
   headerTitle: {
-    fontSize: wp('7%'), // Responsive font size for title
-    fontWeight: '700',
+    fontSize: wp('6.0%'), // Responsive font size for title
+    fontWeight: '500',
     color: '#000',
+    paddingBottom:2
   },
   headerSubtitle: {
-    fontSize: wp('4.5%'),
-    fontWeight: '400',
+    fontSize: wp('4%'),
+    fontWeight: '500',
     color: '#000',
     marginTop: hp('0.1%'),
   },
   sectionContainer: {
     paddingHorizontal: wp('5%'),
-    paddingTop: hp('3%'),
+    paddingTop: hp('4%'),
+    width:wp('95%'),
   },
   sectionTitle: {
-    fontSize: wp('5%'),
-    fontWeight: '900',
+    fontSize: wp('4.5%'),
+    fontWeight: '500',
     color: '#0E61CD',
     marginBottom: hp('2%'),
   },

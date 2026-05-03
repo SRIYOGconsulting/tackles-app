@@ -17,7 +17,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const HomeScreen = ({navigation}: {navigation: any}) => {
+const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <KeyboardAvoidingView
       style={styles.keyboardAvoiding}
@@ -109,8 +109,10 @@ const styles = StyleSheet.create({
   },
   headerWrapper: {
     position: 'absolute',
+    top: 0,
     width: '100%',
-    paddingHorizontal: wp('4%'),
+    zIndex: 10,
+    paddingTop: hp('2%'),
   },
   headerPadding: {
     paddingHorizontal: wp('4%'),
@@ -129,7 +131,7 @@ const styles = StyleSheet.create({
     fontSize: wp('4%'),
     color: '#0E61CD',
     fontWeight: '400',
-    paddingBottom:17,
+    paddingBottom: 17,
   },
   sectionTitle: {
     fontSize: wp('5%'),
@@ -142,8 +144,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginVertical: hp('0.5%'),
   },
-  Padding1:{
-    paddingBottom:17,
+  Padding1: {
+    paddingBottom: 17,
   },
   serviceCardSpecial: {
     width: wp('26%'),

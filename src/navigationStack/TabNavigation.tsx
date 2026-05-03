@@ -27,15 +27,16 @@ const Tabs = () => {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarStyle: {
-          backgroundColor: 'hsl(0, 0%, 90%)',
+          backgroundColor: '#D9D9D9',
           justifyContent: 'center',
           alignItems: 'center',
-          height: 55,
+          height: 52,
         },
 
         tabBarIcon: ({ focused }) => {
           let icon;
           let iconStyle = focused ? styles.activeIcon : styles.icon;
+          let iconStyle1 = focused ? styles.activeIcon : styles.icon;
 
           if (route.name === 'Home') {
             icon = focused ? HomeActiveIcon : HomeIcon;
@@ -54,6 +55,7 @@ const Tabs = () => {
           }
           else if (route.name === 'Contact') {
             icon = focused ? ContactActiveIcon : ContactIcon;
+            iconStyle1 = styles.contactIconCSS;
           }
 
           return <Image source={icon} style={iconStyle} />;
@@ -81,20 +83,25 @@ const Tabs = () => {
 
 const styles = StyleSheet.create({
   icon: {
-    width: 28,
-    height: 28,
+    width: 35,
+    height: 35,
     marginTop: 14,
   },
   activeIcon: {
-    width: 28,
-    height: 28,
+    width: 37,
+    height: 37,
     marginTop: 14,
   },
   bookingiconCSS: {
-    width: 50,
-    height: 50,
+    width: 48,
+    height: 48,
     marginTop: 14,
-  }
+  },
+  contactIconCSS:{
+    width: 10,
+    height: 10,
+    marginTop: 14,
+  },
 });
 
 export default Tabs;

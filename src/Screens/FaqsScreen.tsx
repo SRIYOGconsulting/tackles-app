@@ -21,6 +21,7 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
   return (
     <View style={styles.container}>
       <HeaderComponent style={styles.header} />
+      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:6}}/>
 
       <View style={styles.content}>
         <Text style={styles.title}>Professional & Reliable Services</Text>
@@ -61,8 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
+    paddingTop:16.5
   },
   content: {
     paddingHorizontal: width * 0.04,

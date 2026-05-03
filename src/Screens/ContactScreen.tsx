@@ -48,6 +48,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
       style={styles.scrollView}
       showsVerticalScrollIndicator={false}>
       <HeaderComponent style={styles.header} />
+      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:6}}/>
       <View style={styles.container}>
         <Text style={styles.title}>Contact Us</Text>
         <Text style={styles.subtitle}>
@@ -93,7 +94,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
           </View>
         </View>
 
-        <View style={styles.card}>
+        {/* <View style={styles.card}>
           <Image source={Phone} style={{ width: height * 0.04, height: height * 0.04 }} />
           <View style={styles.cardContent}>
             <Text style={styles.cardTitle}>Contact us</Text>
@@ -101,7 +102,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
               <Text style={styles.cardSubtitle}>+971-1234567890</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </View> */}
 
         <View style={styles.card}>
           <Image source={Website} style={{ width: height * 0.04, height: height * 0.04 }} />
@@ -115,18 +116,18 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         </View>
 
         {/* Buttons */}
-        <View style={styles.buttonsContainer}>
+        {/* <View style={styles.buttonsContainer}> */}
           {/* Admin Login Button */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
             style={styles.adminButton}>
             <Image source={ButtonIcon} style={{ width: height * 0.03, height: height * 0.03 }} />
 
             <Text style={styles.adminButtonText}>Admin Login</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
 
           {/* WhatsApp and Telegram */}
-          <View style={styles.socialButtons}>
+          {/* <View style={styles.socialButtons}>
             <TouchableOpacity onPress={openWhatsApp} style={styles.socialButton}>
               <Image
                 source={WhatsApp}
@@ -137,8 +138,8 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
 
               <Image source={Telegram} style={{width: height * 0.05, height: height * 0.05 }} />
             </TouchableOpacity>
-          </View>
-        </View>
+          </View> */}
+        {/* </View> */}
       </View>
     </ScrollView>
   );
@@ -150,8 +151,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
+    paddingTop:16.5,
   },
   container: {
     paddingHorizontal: width * 0.04,

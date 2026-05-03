@@ -109,7 +109,9 @@ const styles = StyleSheet.create({
     height: hp('30%'), // Responsive height based on screen size
     justifyContent: 'space-between',
   },
-  headerPadding: {},
+  headerPadding: {
+    paddingVertical:hp('2.0%'),
+  },
   headerTextContainer: {
     paddingHorizontal: wp('5%'),
     marginBottom: hp('2%'),

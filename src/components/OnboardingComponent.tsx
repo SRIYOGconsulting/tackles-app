@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   content: {
     top: '16%',
     alignItems: 'center',
-    gap: 40,
+    gap: 30,
   },
   text: {
     fontSize: 20,

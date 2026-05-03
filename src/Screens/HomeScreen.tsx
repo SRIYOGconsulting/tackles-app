@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
         bounces={false}>
         <View style={styles.container}>
           <Image
-            source={require('../assets/image/homescreen/banner1.png')}
+            source={require('../assets/image/homescreen/sanfrancisco.jpg')}
             style={styles.banner}
             resizeMode="cover"
           />

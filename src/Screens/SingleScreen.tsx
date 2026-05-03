@@ -15,10 +15,13 @@ import { useNavigation } from '@react-navigation/native';
 import { servicesData } from '../data/Data';
 import { RootStackParamList } from '../types';
 
-const Button = ({ children, style, textStyle }: any) => {
+const Button = ({ children, style, textStyle, onPress }: any) => {
   return (
-    <TouchableOpacity style={style}>
-      <Text style={[{ fontSize: 14 }, textStyle]}>
+    <TouchableOpacity 
+    style={style}
+    onPress={onPress}
+    >
+      <Text style={[textStyle,{ fontSize: 14, color:'white' }]}>
         {children}
       </Text>
     </TouchableOpacity>
@@ -81,6 +84,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
             <Button
               style={styles.button1}
               textStyle={{ color: 'white', textAlign:'center',  }}
+              onPress={() => navigation.navigate('ViewBooking')}
             >
               Book a service
             </Button>

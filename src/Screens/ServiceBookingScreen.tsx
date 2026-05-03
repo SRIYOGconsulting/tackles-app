@@ -65,7 +65,7 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
       <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:16}}/>
       <View style={styles.formContainer}>
         <Text style={styles.title}>Professional & Reliable Services</Text>
-        <Text style={styles.subTitle}>Request Services</Text>
+        <Text style={styles.subTitle}>Request a Services</Text>
 
         <View style={styles.inputGroup}>
           <TextInput
@@ -180,14 +180,16 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: width * 0.06,
+    fontSize: width * 0.05,
     fontWeight: '700',
     marginBottom: height * 0.001,
+    paddingTop:5,
+    paddingBottom:3
   },
   subTitle: {
-    fontSize: width * 0.05,
+    fontSize: width * 0.043,
     fontWeight: '500',
-    marginBottom: height * 0.02,
+    marginBottom: height * 0.032,
   },
   inputGroup: {
     marginTop: height * 0.0,
@@ -196,11 +198,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     paddingHorizontal: width * 0.03,
-    height: height * 0.06,
+    height: height * 0.045,
     marginBottom: height * 0.018,
-    fontSize: width * 0.04,
+    fontSize: width * 0.037,
     fontWeight: '500',
     borderColor: '#E3E3E3',
+    textAlignVertical: 'center',
   },
   datePicker: {
     flexDirection: 'row',

@@ -26,18 +26,18 @@ const styles = StyleSheet.create({
   headerContainer: {
      flexDirection: 'row',
     alignItems: 'center',
-    paddingLeft:15,
-    gap:233,
-    marginTop:-8
+    paddingLeft:20,
+    gap:190,
+    paddingTop:4
 
   },
   leftIcon: {
-    width: width * 0.26,
+    width: width * 0.32,
     height: width * 0.08,
   },
   rightIcon: {
-    width: width * 0.07,
-    height: width * 0.07,
+    width: width * 0.09,
+    height: width * 0.09,
   },
 });
 

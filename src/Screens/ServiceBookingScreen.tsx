@@ -62,7 +62,7 @@ const ServiceBookingScreen = ({navigation}: {navigation: any}) => {
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}>
       <HeaderComponent style={styles.header} />
-      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:6}}/>
+      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:16}}/>
       <View style={styles.formContainer}>
         <Text style={styles.title}>Professional & Reliable Services</Text>
         <Text style={styles.subTitle}>Request Services</Text>
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Ensures the container expands to take full height
   },
   header: {
-    paddingTop:16.5
+    paddingTop:20.7
   },
   formContainer: {
     paddingHorizontal: width * 0.05,

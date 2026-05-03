@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    paddingTop:16.5,
+    paddingTop:20.7,
   },
   container: {
     paddingHorizontal: width * 0.04,

@@ -8,7 +8,7 @@ import {
 const NumberBar = ({navigation}: {navigation: any}) => {
   const dynamicWidth = wp('85%'); // Default width for smaller screens
   const fontSize = wp('5%'); // Font size for the phone number
-  const helpFontSize = wp('4%'); // Font size for help text
+  const helpFontSize = wp('3.5%'); // Font size for help text
 
   return (
     <View style={[styles.container, {width: dynamicWidth}]}>
@@ -33,12 +33,13 @@ const NumberBar = ({navigation}: {navigation: any}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: hp('6%'), // Dynamic height based on screen size
+    height: hp('4.5%'), // Dynamic height based on screen size
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#0E61CD',
     justifyContent: 'space-between',
     overflow: 'hidden',
+  
   },
   phoneContainer: {
     flexDirection: 'row',
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: hp('4%'), // Responsive icon height
-    width: wp('6%'), // Responsive icon width
+    width: wp('7.5%'), // Responsive icon width
   },
   phoneNumber: {
     fontWeight: '700',

@@ -81,7 +81,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               />
             </View>
 
-            <View style={styles.Padding1}></View>
             <View style={styles.numberBarContainer}>
               <NumberBar navigation={navigation} />
             </View>
@@ -122,22 +121,21 @@ const styles = StyleSheet.create({
     paddingTop: hp('2.5%'),
   },
   title: {
-    fontSize: wp('6%'),
+    fontSize: wp('4.5%'),
     color: '#0E61CD',
     fontWeight: '900',
     marginBottom: hp('0.2%'),
   },
   subtitle: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     color: '#0E61CD',
     fontWeight: '400',
-    paddingBottom: 17,
+    paddingBottom: 15,
   },
   sectionTitle: {
-    fontSize: wp('5%'),
+    fontSize: wp('4%'),
     color: '#0E61CD',
     fontWeight: '900',
-    marginVertical: hp('0.5%'),
   },
   row: {
     flexDirection: 'row',

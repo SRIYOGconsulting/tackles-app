@@ -5,16 +5,17 @@ import {
   StyleSheet,
   TouchableOpacity,
   useWindowDimensions,
+  Image
 } from 'react-native';
 import HeaderComponent from './components/HeaderComponent';
-import DropIcon from './assets/icons/contact/DropDown.svg';
-import LocationIcon from './assets/icons/LocationPin.svg';
+import DropIcon from './assets/icons/contact/DropDown.png';
+import LocationIcon from './assets/icons/LocationPin.png';
 
-const SingleBooking = ({route}: {route: any}) => {
+const SingleBooking = ({ route }: { route: any }) => {
   // Get the entry data passed via navigation
-  const {entry} = route.params;
+  const { entry } = route.params;
 
-  const {width} = useWindowDimensions(); // Get screen width
+  const { width } = useWindowDimensions(); // Get screen width
 
   // Define a dynamic font size based on screen width
   const getFontSize = (baseSize: number) => {
@@ -25,42 +26,42 @@ const SingleBooking = ({route}: {route: any}) => {
     <View style={styles.container}>
       <HeaderComponent style={styles.header} />
       <View style={styles.content}>
-        <Text style={[styles.title, {fontSize: getFontSize(24)}]}>
+        <Text style={[styles.title, { fontSize: getFontSize(24) }]}>
           Single Booking
         </Text>
 
         <View style={styles.details}>
           <View style={styles.row}>
             <View style={styles.flex1}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Full Name
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 {entry.Name}
               </Text>
             </View>
-            <LocationIcon width={40} height={40} style={styles.icon} />
+            <Image source={LocationIcon} style={{ width: 40, height: 40 }} />
           </View>
 
-          <Text style={[styles.label, {fontSize: getFontSize(18)}]}>Phone</Text>
-          <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+          <Text style={[styles.label, { fontSize: getFontSize(18) }]}>Phone</Text>
+          <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
             +971-{entry.Phone}
           </Text>
 
           <View style={styles.rowWrap}>
             <View style={styles.halfWidth}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Selected Services
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 {entry.Service}
               </Text>
             </View>
             <View style={styles.flex1Padding}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Budget
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 AED{entry.Budget}
               </Text>
             </View>
@@ -68,18 +69,18 @@ const SingleBooking = ({route}: {route: any}) => {
 
           <View style={styles.rowCenter}>
             <View style={styles.flex1}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Booking Date
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 {entry.Date}
               </Text>
             </View>
             <View style={styles.flex1Padding}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Selected Shift
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 {entry.Shift}
               </Text>
             </View>
@@ -87,41 +88,41 @@ const SingleBooking = ({route}: {route: any}) => {
 
           <View style={styles.rowCenter}>
             <View style={styles.flex1}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Service Date
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 15 April 2025
               </Text>
             </View>
             <View style={styles.flex1Padding}>
-              <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
                 Selected Priority
               </Text>
-              <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+              <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
                 {entry.Priority}
               </Text>
             </View>
           </View>
 
           <View style={styles.rowWrap}>
-            <Text style={[styles.label, {fontSize: getFontSize(18)}, styles.halfWidthText]}>
+            <Text style={[styles.label, { fontSize: getFontSize(18) }, styles.halfWidthText]}>
               Selected Location
             </Text>
             <Text
               style={[
                 styles.value,
-                {fontSize: getFontSize(18)},
+                { fontSize: getFontSize(18) },
                 styles.locationValue,
               ]}>
               {entry.Area}
             </Text>
           </View>
 
-          <Text style={[styles.label, {fontSize: getFontSize(18)}]}>
+          <Text style={[styles.label, { fontSize: getFontSize(18) }]}>
             Message/ Information/ Instruction
           </Text>
-          <Text style={[styles.value, {fontSize: getFontSize(18)}]}>
+          <Text style={[styles.value, { fontSize: getFontSize(18) }]}>
             {entry.Message}
           </Text>
         </View>
@@ -134,7 +135,7 @@ const SingleBooking = ({route}: {route: any}) => {
               width < 350 ? styles.buttonMarginRight0 : styles.buttonMarginRight16,
             ]}>
             <Text style={styles.buttonText}>Update Status</Text>
-            <DropIcon height={20} width={20} />
+            <Image source={DropIcon} style={{ width: 20, height: 20 }} />
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, styles.buttonFlex]}>
             <Text style={styles.buttonText}>Submit</Text>

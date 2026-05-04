@@ -13,9 +13,9 @@ import {
   StyleSheet,
 } from 'react-native';
 import HeaderComponent from '../../components/HeaderComponent';
-import EmailIcon from '../../assets/icons/Email.svg';
-import EyeOnIcon from '../../assets/icons/EyeOff.svg';
-import EyeOffIcon from 'react-native-vector-icons/Ionicons';
+import EmailIcon from '../../assets/icons/Email.png';
+import EyeOffIcon from '../../assets/icons/EyeOff.png';
+import EyeOnIcon from '../../assets/icons/EyeOn.png';
 
 // Get screen dimensions for responsive layout
 const {width, height} = Dimensions.get('window');
@@ -69,7 +69,7 @@ const AdminLogin = ({navigation}: {navigation: any}) => {
               value={email}
               onChangeText={setEmail}
             />
-            <EmailIcon width={30} height={20} />
+            <Image source={EmailIcon} style={{ width: 30, height: 20 }} />
           </View>
 
           <View style={styles.inputContainer}>
@@ -83,9 +83,10 @@ const AdminLogin = ({navigation}: {navigation: any}) => {
             />
             <TouchableOpacity onPress={togglePasswordVisibility}>
               {passwordVisible ? (
-                <EyeOffIcon name="eye" size={30} />
+                <Image source={EyeOnIcon} style={{width: 30, height: 30}} />
+                
               ) : (
-                <EyeOnIcon width={30} height={30} />
+                <Image source={EyeOffIcon} style={{ width:30, height:30}} />
               )}
             </TouchableOpacity>
           </View>

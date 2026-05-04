@@ -17,7 +17,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const HomeScreen = ({navigation}: {navigation: any}) => {
+const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <KeyboardAvoidingView
       style={styles.keyboardAvoiding}
@@ -28,7 +28,7 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
         bounces={false}>
         <View style={styles.container}>
           <Image
-            source={require('../assets/image/homescreen/banner1.png')}
+            source={require('../assets/image/homescreen/sanfrancisco.jpg')}
             style={styles.banner}
             resizeMode="cover"
           />
@@ -38,29 +38,29 @@ const HomeScreen = ({navigation}: {navigation: any}) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.title}>Tackles | Dubai</Text>
+            <Text style={styles.title}>Tackles | Fix it Today</Text>
             <Text style={styles.subtitle}>
-              Professional & Reliable Services in Dubai
+              Professional Handyman Services in San Francisco
             </Text>
 
             <Text style={styles.sectionTitle}>Top Services</Text>
             <View style={styles.row}>
               <ServicesCard
                 title="Painting"
-                image={require('../assets/image/homescreen/painting1.png')}
+                image={require('../assets/image/homescreen/Painting.png')}
               />
               <ServicesCard
                 title="Plumbing"
-                image={require('../assets/image/homescreen/plumbing.png')}
+                image={require('../assets/image/homescreen/Plumbing.png')}
                 style={styles.serviceCardSpecial}
               />
               <ServicesCard
                 title="Tiling"
-                image={require('../assets/image/homescreen/flooring.png')}
+                image={require('../assets/image/homescreen/Flooring.png')}
               />
             </View>
-
-            <Text style={styles.sectionTitle}>Top Professional</Text>
+            <View style={styles.Padding1}></View>
+            <Text style={styles.sectionTitle}>Top Professionals</Text>
             <View style={styles.row}>
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person1.png')}
@@ -108,8 +108,10 @@ const styles = StyleSheet.create({
   },
   headerWrapper: {
     position: 'absolute',
+    top: 0,
     width: '100%',
-    paddingHorizontal: wp('4%'),
+    zIndex: 10,
+    paddingTop: hp('3.02%'),
   },
   headerPadding: {
     paddingHorizontal: wp('4%'),
@@ -119,26 +121,29 @@ const styles = StyleSheet.create({
     paddingTop: hp('2.5%'),
   },
   title: {
-    fontSize: wp('6%'),
+    fontSize: wp('4.5%'),
     color: '#0E61CD',
     fontWeight: '900',
     marginBottom: hp('0.2%'),
   },
   subtitle: {
-    fontSize: wp('4%'),
+    fontSize: wp('3.5%'),
     color: '#0E61CD',
     fontWeight: '400',
+    paddingBottom: 15,
   },
   sectionTitle: {
-    fontSize: wp('5%'),
+    fontSize: wp('4%'),
     color: '#0E61CD',
     fontWeight: '900',
-    marginVertical: hp('0.5%'),
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: hp('0.5%'),
+  },
+  Padding1: {
+    paddingBottom: 17,
   },
   serviceCardSpecial: {
     width: wp('26%'),

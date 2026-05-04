@@ -5,17 +5,31 @@ import {
   Dimensions,
   StyleSheet,
   ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import React from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
-import {useNavigation} from '@react-navigation/native';
-import {servicesData} from '../data/Data';
-import {RootStackParamList} from '../types';
+import { useNavigation } from '@react-navigation/native';
+import { servicesData } from '../data/Data';
+import { RootStackParamList } from '../types';
+
+const Button = ({ children, style, textStyle, onPress }: any) => {
+  return (
+    <TouchableOpacity 
+    style={style}
+    onPress={onPress}
+    >
+      <Text style={[textStyle,{ fontSize: 14, color:'white' }]}>
+        {children}
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
 // Get screen dimensions for responsive layout
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 // Font scaling utility function
 const scaleFont = (size: number) => {
@@ -29,9 +43,9 @@ type SingleScreenNavigationProp = NativeStackNavigationProp<
   'SingleScreen'
 >;
 
-const SingleScreen: React.FC<{route: any}> = ({route}) => {
+const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
   const navigation = useNavigation<SingleScreenNavigationProp>();
-  const {service} = route.params;
+  const { service } = route.params;
 
   // Shuffle services for the "Other Services" section
   const shuffleArray = (array: any[]) => {
@@ -51,37 +65,47 @@ const SingleScreen: React.FC<{route: any}> = ({route}) => {
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
           <Image source={service.image} style={styles.image} />
-          <Text style={[styles.title, {fontSize: scaleFont(20)}]}>
-            Tackles | Dubai
+          <Text style={[styles.title, { fontSize: scaleFont(20) }]}>
+            {service.name}
           </Text>
-          <Text style={[styles.subtitle, {fontSize: scaleFont(19)}]}>
-            Professional & Reliable Services in Dubai
+          <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
+            {`Professional ${service.name}`}
           </Text>
-          <Text style={[styles.description, {fontSize: scaleFont(17)}]}>
+          <Text style={[styles.description, { fontSize: scaleFont(17) }]}>
             {service.description}
           </Text>
-          <Text style={[styles.question, {fontSize: scaleFont(17)}]}>
+          <Text style={[styles.question, { fontSize: scaleFont(17) }]}>
             {service.question}
           </Text>
-          <Text style={[styles.answer, {fontSize: scaleFont(17)}]}>
+          <Text style={[styles.answer, { fontSize: scaleFont(17) }]}>
             {service.answer}
           </Text>
+          <View style={styles.buttonPadding}>
+            <Button
+              style={styles.button1}
+              textStyle={{ color: 'white', textAlign:'center',  }}
+              onPress={() => navigation.navigate('ViewBooking')}
+            >
+              Book a service
+            </Button>
 
-          <Text style={[styles.otherServicesTitle, {fontSize: scaleFont(20)}]}>
-            Other Services
+          </View>
+
+          <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(20) }]}>
+            Related Services
           </Text>
           <View style={styles.servicesContainer}>
             {otherServices.map(item => (
               <ServicesDisplaycard
                 key={item.id}
-                textStyle={[styles.cardText, {fontSize: scaleFont(14)}]}
+                textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
                 name={item.name}
                 image={item.image}
                 question={item.question}
                 answer={item.answer}
                 description={item.description}
                 onPress={() =>
-                  navigation.navigate('SingleScreen', {service: item})
+                  navigation.navigate('SingleScreen', { service: item })
                 }
               />
             ))}
@@ -148,6 +172,21 @@ const styles = StyleSheet.create({
   cardText: {
     marginTop: 4,
     fontWeight: '600',
+  },
+  buttonPadding: {
+    paddingTop: 20,
+    paddingBottom: 20,
+    alignItems: 'center',
+    color: '#fff'
+  },
+  button1: {
+
+    width: '60%',
+    backgroundColor: 'hsl(240, 100%, 60%)',
+    justifyContent:'center',
+    alignItems: 'center',
+    paddingVertical:9,
+    borderRadius:19,
   },
 });
 

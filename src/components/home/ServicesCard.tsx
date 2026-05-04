@@ -28,15 +28,16 @@ const styles = StyleSheet.create({
     borderColor: '#D9D9D9',
     borderRadius: 16,
     alignItems: 'center',
-    height: height * 0.158, // 18% of screen height
-    width: width * 0.26, // 25% of screen width
+    height: height * 0.150, // 18% of screen height
+    width: width * 0.24, // 25% of screen width
     marginTop: height * 0.006,
-    marginHorizontal: width * 0.0,
+    marginHorizontal: width * 0.025,
     backgroundColor: '#fff',
+    justifyContent:'center'
   },
   image: {
-    height: height * 0.1,
-    width: width * 0.22,
+    height: height * 0.09,
+    width: width * 0.19,
     resizeMode: 'contain',
   },
   divider: {
@@ -46,9 +47,9 @@ const styles = StyleSheet.create({
     marginVertical: height * 0.01,
   },
   title: {
-    fontSize: width * 0.04,
+    fontSize: width * 0.035,
     fontWeight: '400',
-    color: '#4B4B4B',
+    color: 'hsl(0, 0%, 9%)',
     textAlign: 'center',
   },
 });

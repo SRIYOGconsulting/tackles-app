@@ -1,18 +1,18 @@
 import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
 
+
 const {width} = Dimensions.get('window');
 
-type Props = {style?: any};
-
-const HeaderComponent = ({style}: Props) => {
+const HeaderComponent = ({style}: any) => {
   return (
     <View style={[styles.headerContainer, style]}>
       <Image
-        source={require('../assets/image/header/left.png')}
+        source={require('../assets/image/header/logo.png')}
         style={styles.leftIcon}
         resizeMode="contain"
       />
+
       <Image
         source={require('../assets/image/header/right.png')}
         style={styles.rightIcon}
@@ -24,19 +24,20 @@ const HeaderComponent = ({style}: Props) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: '5%',
-    paddingHorizontal: '4%',
+    paddingLeft:20,
+    gap:190,
+    paddingTop:4
+
   },
   leftIcon: {
-    width: width * 0.1, // around 11% of screen width
-    height: width * 0.1, // making it square
+    width: width * 0.32,
+    height: width * 0.08,
   },
   rightIcon: {
-    width: width * 0.3,
-    height: width * 0.1,
+    width: width * 0.09,
+    height: width * 0.09,
   },
 });
 

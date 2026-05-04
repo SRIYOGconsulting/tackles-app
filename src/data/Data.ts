@@ -49,7 +49,7 @@ export const topServices = [
     question: 'What plumbing services do you offer?',
     answer:
       'We provide installations, routine maintenance, and emergency plumbing solutions for residential and commercial spaces.',
-    image: require('../assets/image/services/s5.png'),
+    image: require('../assets/image/services/pumbling/1.png'),
   },
   {
     id: 2,
@@ -61,21 +61,21 @@ export const topServices = [
     answer:
       'Yes, our team specializes in both residential and commercial window cleaning, including high-rise buildings.',
 
-    image: require('../assets/image/services/s6.png'),
+    image: require('../assets/image/services/windowCleaning/1.png'),
   },
 ];
 
 export const servicesData = [
   {
     id: 1,
-    name: 'Wall Paper Fixing',
+    name: 'Wallpaper Fixing',
     number: 11,
     description:
-      'For wallpaper fixing, our professionals handle everything from installation to repairs, ensuring a seamless and elegant finish for your walls.',
+      'For wallpaper fixing, our professionals handle everything from installation to repairs, ensuring a seamless and elegant finish for your walls. Wallpaper installation in San Francisco requires careful planning due to the city’s unique mix of historic homes, modern apartments, and varying climate conditions. \n\nFollowing proper guidelines ensures a smooth, durable, and visually appealing finish. Start by assessing the wall surface. Many homes in San Francisco, especially older Victorian or Edwardian buildings, may have uneven plaster or previous layers of paint and wallpaper. \n\nClean the wall thoroughly to remove dust, grease, or residue, and repair any cracks or holes with filler. Sand the surface lightly to create a smooth base. Applying a primer is strongly recommended, as it helps the wallpaper adhere better and makes future removal easier. \n\nChoose the right type of wallpaper based on the room and environment. Vinyl wallpapers are ideal for kitchens and bathrooms due to their moisture resistance, while fabric or paper wallpapers work well in living spaces. \n\nGiven San Francisco’s coastal humidity, it’s important to select adhesives and materials that can withstand slight moisture variations without peeling. Accurate measurement is essential. Measure the wall height and width carefully, and account for pattern repeats when purchasing wallpaper rolls. \n\nIt’s wise to buy extra material to handle mistakes or future repairs. Before applying, cut the wallpaper into strips and arrange them in order to ensure pattern consistency. When applying wallpaper, start from a straight vertical line, typically near a corner or window. \n\nUse a level to ensure alignment. Apply adhesive evenly, avoiding excess glue that could cause bubbling. Smooth the wallpaper onto the wall using a brush or smoothing tool, working from the center outward to remove air pockets. Trim excess material at the edges using a sharp utility knife for a clean finish.',
     question: 'Can you help with replacing old wallpaper?',
     answer:
       'Yes, we specialize in replacing old wallpaper and installing new designs to give your walls a fresh and elegant look.',
-    image: require('../assets/image/services/s3.png'),
+    image: require('../assets/image/services/wallpaperFixing/1.png'),
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ export const servicesData = [
     question: 'What flooring options are available for homes and offices?',
     answer:
       'We offer a variety of flooring options including tiles, hardwood, vinyl, and carpet, designed for both residential and commercial spaces.',
-    image: require('../assets/image/services/s4.png'),
+    image: require('../assets/image/services/flooring/1.png'),
   },
   {
     id: 3,
@@ -97,7 +97,7 @@ export const servicesData = [
     question: 'What plumbing services do you offer?',
     answer:
       'We provide installations, routine maintenance, and emergency plumbing solutions for residential and commercial spaces.',
-    image: require('../assets/image/services/s5.png'),
+    image: require('../assets/image/services/pumbling/1.png'),
   },
   {
     id: 4,
@@ -109,7 +109,7 @@ export const servicesData = [
     answer:
       'Yes, our team specializes in both residential and commercial window cleaning, including high-rise buildings.',
 
-    image: require('../assets/image/services/s6.png'),
+    image: require('../assets/image/services/windowCleaning/1.png'),
   },
   {
     id: 5,
@@ -120,7 +120,7 @@ export const servicesData = [
     question: 'Can you help install new carpets in my home?',
     answer:
       'Absolutely, we offer installation services for all kinds of carpets, ensuring comfort and aesthetic appeal for your space.',
-    image: require('../assets/image/services/s7.png'),
+    image: require('../assets/image/services/carpeting/1.png'),
   },
   {
     id: 6,
@@ -131,7 +131,7 @@ export const servicesData = [
     question: 'Do you provide repair services for air conditioning systems?',
     answer:
       'Yes, we specialize in repairing, installing, and maintaining air conditioning systems to ensure optimal performance.',
-    image: require('../assets/image/services/s8.png'),
+    image: require('../assets/image/services/airConditioning/1.png'),
   },
   {
     id: 7,
@@ -142,7 +142,7 @@ export const servicesData = [
     question: 'Can you help with rewiring my home?',
     answer:
       'Yes, we offer professional rewiring services along with installations and system upgrades for homes and offices.',
-    image: require('../assets/image/services/s9.png'),
+    image: require('../assets/image/services/ElectricalWorks/1.png'),
   },
   {
     id: 8,
@@ -153,7 +153,7 @@ export const servicesData = [
     question: 'Do you handle emergency plumbing repairs?',
     answer:
       'Yes, we provide 24/7 emergency repair services for plumbing systems in both residential and commercial spaces.',
-    image: require('../assets/image/services/s10.png'),
+    image: require('../assets/image/services/pumbling/2.png'),
   },
   {
     id: 9,
@@ -164,7 +164,7 @@ export const servicesData = [
     question: 'What does deep cleaning include?',
     answer:
       'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
-    image: require('../assets/image/services/s11.png'),
+    image: require('../assets/image/services/deepCleaning/1.png'),
   },
   {
     id: 10,
@@ -175,7 +175,7 @@ export const servicesData = [
     question: 'Do you repair both residential and commercial AC systems?',
     answer:
       'Yes, we handle repairs for both residential and commercial air conditioning systems, ensuring consistent cooling.',
-    image: require('../assets/image/services/s12.png'),
+    image: require('../assets/image/services/acRepair/1.png'),
   },
   {
     id: 11,
@@ -187,7 +187,7 @@ export const servicesData = [
       'Can you install air filtration systems to improve indoor air quality?',
     answer:
       'Yes, we provide installation of advanced air filtration systems along with regular maintenance to ensure the highest indoor air quality.',
-    image: require('../assets/image/services/s13.png'),
+    image: require('../assets/image/services/airFilteration/1.png'),
   },
   {
     id: 12,
@@ -198,7 +198,7 @@ export const servicesData = [
     question: 'What types of cladding materials do you provide?',
     answer:
       'We offer a wide range of cladding materials, including wood, metal, vinyl, and composite, to suit your design preferences and structural needs.',
-    image: require('../assets/image/services/s14.png'),
+    image: require('../assets/image/services/cladding/1.png'),
   },
   {
     id: 13,
@@ -209,7 +209,7 @@ export const servicesData = [
     question: 'Can you install false ceilings for offices and homes?',
     answer:
       'Yes, we specialize in designing and installing false ceilings to meet both residential and commercial requirements.',
-    image: require('../assets/image/services/s15.png'),
+    image: require('../assets/image/services/flaseCeiling/1.png'),
   },
   {
     id: 14,
@@ -220,7 +220,7 @@ export const servicesData = [
     question: 'Do you provide roofing installation and repair services?',
     answer:
       'Yes, we specialize in both roofing installations and repairs, ensuring durability and weather resistance for all roof types.',
-    image: require('../assets/image/services/s16.png'),
+    image: require('../assets/image/services/roofing/1.png'),
   },
 ];
 

@@ -4,13 +4,14 @@ import {
   TouchableOpacity,
   TextInput,
   StyleSheet,
+  Image,
   FlatList,
   Dimensions,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Icon from 'react-native-vector-icons/Ionicons';
-import DropIcon from '../assets/icons/contact/DropDown.svg';
+import DropIcon from '../assets/icons/contact/DropDown.png';
 import {fetchBookings} from '../api/PostApi'; // adjust path as needed
 
 // Get screen dimensions
@@ -114,6 +115,7 @@ const ViewBooking = ({navigation}: {navigation: any}) => {
                 <TouchableOpacity style={styles.actionButton}>
                   <Text style={styles.actionText}>Action</Text>
                   <DropIcon height={20} width={20} />
+                   <Image source={DropIcon} style={{width:20, height:20}} />
                 </TouchableOpacity>
               </View>
             </TouchableOpacity>

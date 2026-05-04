@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     borderRadius: 12,
 
     justifyContent: 'center',
-    paddingTop: 6,
-    paddingBottom: 10,
-    width: 140,
+    paddingTop: 2,
+    paddingBottom: 4,
+    width: 120,
   },
   buttonText: {
     textAlign: 'center',
     fontWeight: '700',
-    fontSize: 20,
+    fontSize: 15,
   },
 });
 

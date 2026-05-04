@@ -1,12 +1,12 @@
-import {View, Text, FlatList, TextInput, Dimensions, StyleSheet} from 'react-native';
-import React, {useState} from 'react';
+import { View, Image, Text, FlatList, TextInput, Dimensions, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 import FaqsCard from '../components/faqs/FaqsCard';
-import {faqsQuestioin} from '../data/Data';
+import { faqsQuestioin } from '../data/Data';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
-const FaqsScreen = ({navigation}: {navigation: any}) => {
+const FaqsScreen = ({ navigation }: { navigation: any }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredFaqs = faqsQuestioin.filter(item => {
@@ -21,25 +21,36 @@ const FaqsScreen = ({navigation}: {navigation: any}) => {
   return (
     <View style={styles.container}>
       <HeaderComponent style={styles.header} />
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
 
       <View style={styles.content}>
         <Text style={styles.title}>Professional & Reliable Services</Text>
         <Text style={styles.subtitle}>FAQs</Text>
 
         {/* Search Bar */}
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Search"
-          value={searchTerm}
-          onChangeText={setSearchTerm}
-        />
+
+        <View style={styles.searchContainer}>
+          <Image
+            source={require('../assets/image/TabIcon/searchbar.png')}
+            style={styles.searchIcon}
+            resizeMode="contain"
+          />
+
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search"
+            value={searchTerm}
+            onChangeText={setSearchTerm}
+            placeholderTextColor="#666"
+          />
+        </View>
       </View>
 
       {/* Render filtered FAQs */}
       <FlatList
         data={filteredFaqs}
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <FaqsCard
             category={item.category}
             number={item.number}
@@ -61,31 +72,44 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
+    paddingTop: 20.7
   },
   content: {
     paddingHorizontal: width * 0.04,
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: height * 0.028,
-    fontWeight: '900',
+    fontSize: width * 0.056,
+    fontWeight: '700',
     marginBottom: height * 0.005,
   },
   subtitle: {
     fontSize: height * 0.025,
     fontWeight: '500',
   },
-  searchInput: {
-    height: height * 0.055,
-    fontSize: height * 0.02,
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: height * 0.045,
     borderRadius: width * 0.02,
-    paddingLeft: width * 0.03,
+    paddingHorizontal: width * 0.04,
+    marginTop: height * 0.011,
     marginBottom: height * 0.015,
-    marginTop: height * 0.015,
     backgroundColor: '#E2E2E27A',
-    fontWeight: '600',
+  },
+
+  searchIcon: {
+    width: 18,
+    height: 18,
+    marginRight: 8,
+  },
+
+  searchInput: {
+    flex: 1,
+    fontSize: height * 0.02,
+    fontWeight: '400',
+    paddingVertical:9,
+    marginBottom:-2
   },
   flatListContent: {
     paddingHorizontal: width * 0.04,

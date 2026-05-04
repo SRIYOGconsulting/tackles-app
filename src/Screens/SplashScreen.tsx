@@ -1,7 +1,7 @@
-import {View, Text, Image, StyleSheet} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import React, { useEffect, useState } from 'react';
 
-const SplashScreen = ({navigation}: {navigation: any}) => {
+const SplashScreen = ({ navigation }: { navigation: any }) => {
   const [milliseconds, setMilliseconds] = useState<number>(3000);
   const totalDuration = 3000;
 
@@ -23,9 +23,10 @@ const SplashScreen = ({navigation}: {navigation: any}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/image/splash.png')}
+        source={require('../assets/tackles.png')}
         style={styles.splashImage}
       />
+
       <Text style={styles.counter}>{milliseconds}</Text>
       <View style={styles.logo}>
         <Text style={styles.partnerText}>
@@ -54,7 +55,24 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   splashImage: {
-    top: '28%',
+    top: '33%',
+    width: 100,
+    height: 100,
+
+    borderRadius: 100,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+  splashImage2: {
+    top: '13%',   // ✅ use margin instead of top
+    height: '5%',
+    width: '50%',
+    paddingHorizontal: 20,
+
+
   },
   logo: {
     bottom: '8%',

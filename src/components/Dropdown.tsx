@@ -5,11 +5,12 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  Image,
   FlatList,
   Dimensions,
   Platform,
 } from 'react-native';
-import DropIcon from '../assets/icons/contact/DropDown.svg';
+import DropIcon from '../assets/icons/contact/DropDown.png';
 
 const {width, height} = Dimensions.get('window');
 
@@ -55,7 +56,7 @@ const Dropdown = ({
           pointerEvents="none"
         />
         <TouchableOpacity onPress={toggleDropdown}>
-          <DropIcon height={height * 0.025} width={height * 0.025} />
+          <Image source={DropIcon} style={{width:height* 0.025, height:height* 0.025}}/>
         </TouchableOpacity>
       </View>
 
@@ -84,21 +85,24 @@ const styles = StyleSheet.create({
     borderColor: '#E3E3E3',
     borderRadius: 4,
     paddingHorizontal: width * 0.03,
-    height: height * 0.06,
+    height: height * 0.045,
     position: 'relative',
     backgroundColor: '#fff',
   },
   placeholder: {
     position: 'absolute',
     left: width * 0.03,
-    fontSize: height * 0.018,
     color: '#4B4B4B',
+     fontSize: width * 0.04,
+    fontWeight: '500',
+    paddingBottom:2
   },
   input: {
     flex: 1,
-    fontSize: height * 0.018,
     color: '#000',
-    paddingVertical: height * 0.005,
+    paddingVertical: height * 0.0045,
+     fontSize: width * 0.04,
+    fontWeight: '500',
   },
   dropdown: {
     borderWidth: 1,
@@ -119,7 +123,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   container: {
-    marginBottom: height * 0.015,
+    marginBottom: height * 0.025,
   },
   required: {
     color: 'red',

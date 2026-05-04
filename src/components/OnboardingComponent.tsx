@@ -6,15 +6,14 @@ type Props = {
   title: string;
   onPress?: (event: GestureResponderEvent) => void;
   image: any;
-  text: string;
 };
 
-const OnboardingComponent = ({title, onPress, image, text}: Props) => {
+const OnboardingComponent = ({title, onPress, image}: Props) => {
   return (
+    
     <View style={styles.container}>
       <View style={styles.content}>
-        <Image source={image} />
-        <Text style={styles.text}>{text}</Text>
+        <Image source={image} style={styles.bannerImg}/>
       </View>
       <ButtonComponent title={title} onPress={onPress} />
     </View>
@@ -31,14 +30,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   content: {
-    top: '16%',
+    top: '5%',
     alignItems: 'center',
     gap: 30,
   },
-  text: {
-    fontSize: 20,
-    fontWeight: '400',
-  },
+  bannerImg:{
+    height:300,
+    width:300,
+  }
 });
 
 export default OnboardingComponent;

@@ -1,13 +1,21 @@
-import {View} from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import React from 'react';
 import OnboardingComponent from '../../components/OnboardingComponent';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const OnBoarding1 = ({navigation}: {navigation: any}) => {
+const OnBoarding1 = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
+      <Text style={styles.skipbutton}>
+        Skip {'>>'}
+      </Text>
+      <Text style={styles.title} >
+        Welcome to Tackles
+      </Text>
+      <Text style={styles.subtitle}>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, distinctio nisi, iste porro
+      </Text>
       <OnboardingComponent
-        text="Professional Service"
         title="Next"
         image={require('../../assets/image/onBoarding1.png')}
         onPress={() => {
@@ -23,6 +31,28 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  skipbutton: {
+    position: 'absolute',
+    left: 315,
+    top: 55,
+    fontSize: 13,
+    fontWeight: "semibold"
+  },
+  title: {
+    paddingTop: 95,
+    paddingLeft: 21,
+    fontSize: 25,
+    fontWeight: "800",
+    paddingBottom: 12,
+    color: "green"
+  },
+  subtitle: {
+    paddingHorizontal: 21,
+    fontSize: 15,
+    lineHeight: 22,
+    color: "green"
+
+  }
 });
 
 export default OnBoarding1;

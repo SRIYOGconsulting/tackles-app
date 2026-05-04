@@ -21,21 +21,21 @@ const ButtonComponent = ({title, onPress}: Props) => {
 
 const styles = StyleSheet.create({
   button: {
-    borderWidth: 2,
     borderColor: '#000',
-    backgroundColor: '#fff',
+    backgroundColor: 'green',
 
-    borderRadius: 12,
+    borderRadius: 10,
 
     justifyContent: 'center',
-    paddingTop: 2,
-    paddingBottom: 4,
-    width: 120,
+    width: 110,
+    marginBottom:50,
+    paddingVertical:13
   },
   buttonText: {
     textAlign: 'center',
-    fontWeight: '700',
-    fontSize: 15,
+    fontWeight: '500',
+    fontSize: 17,
+    color:'#fff'
   },
 });
 

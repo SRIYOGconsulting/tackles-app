@@ -38,9 +38,9 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.title}>Tackles | San Francisco</Text>
+            <Text style={styles.title}>Tackles | Fix it Today</Text>
             <Text style={styles.subtitle}>
-              Professional & Reliable Services in San Francisco
+              Professional Handyman Services in San Francisco
             </Text>
 
             <Text style={styles.sectionTitle}>Top Services</Text>
@@ -60,7 +60,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               />
             </View>
             <View style={styles.Padding1}></View>
-            <Text style={styles.sectionTitle}>Top Professional</Text>
+            <Text style={styles.sectionTitle}>Top Professionals</Text>
             <View style={styles.row}>
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person1.png')}

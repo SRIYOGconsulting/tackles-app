@@ -18,7 +18,7 @@ const NumberBar = ({navigation}: {navigation: any}) => {
           style={styles.icon}
           resizeMode="contain"
         />
-        <Text style={[styles.phoneNumber, {fontSize}]}>055 616 5029</Text>
+        <Text style={[styles.phoneNumber, {fontSize}]}>240 345 7466</Text>
       </View>
 
       <TouchableOpacity

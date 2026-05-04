@@ -27,12 +27,6 @@ const SplashScreen = ({ navigation }: { navigation: any }) => {
         style={styles.splashImage}
       />
 
-      <Image
-        source={require('../assets/wordmark.png')}
-        style={styles.splashImage2}
-      />
-
-
       <Text style={styles.counter}>{milliseconds}</Text>
       <View style={styles.logo}>
         <Text style={styles.partnerText}>

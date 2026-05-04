@@ -15,9 +15,9 @@ import Email from '../assets/icons/contact/Email.png';
 import Location from '../assets/icons/contact/Location.png';
 import Phone from '../assets/icons/contact/Phone.png';
 import Website from '../assets/icons/contact/Url.png';
-import ButtonIcon from '../assets/icons/contact/ButtonIcon.png';
-import WhatsApp from '../assets/icons/contact/WhatsApp.png';
-import Green from '../assets/icons/contact/Green.png';
+// import ButtonIcon from '../assets/icons/contact/ButtonIcon.png';
+// import WhatsApp from '../assets/icons/contact/WhatsApp.png';
+// import Green from '../assets/icons/contact/Green.png';
 import Telegram from '../assets/icons/contact/Telegram.png';
 
 const { width, height } = Dimensions.get('window');
@@ -76,49 +76,52 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.companySubtitle}>Professional Services in San Francisco</Text>
 
         {/* Contact Info Cards */}
-        <View style={styles.card}>
-          <Image source={Location} style={{ width: height * 0.03, height: height * 0.04 }} />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Visit us</Text>
-            <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
+        <View style={styles.GridBox}>
+          <View style={styles.card}>
+            <Image source={Location} style={{ width: height * 0.03, height: height * 0.04 }} />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Visit us</Text>
+              <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
+            </View>
           </View>
-        </View>
 
-        <View style={styles.card}>
-          <Image source={Email} style={{ width: height * 0.04, height: height * 0.03 }} />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Email us</Text>
-            <TouchableOpacity onPress={handleEmailPress}>
-              <Text style={styles.cardSubtitle}>support@tackles.pro</Text>
-            </TouchableOpacity>
+          <View style={styles.card}>
+            <Image source={Email} style={{ width: height * 0.04, height: height * 0.03 }} />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Email us</Text>
+              <TouchableOpacity onPress={handleEmailPress}>
+                <Text style={styles.cardSubtitle}>support@tackles.pro</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
 
-        {/* <View style={styles.card}>
-          <Image source={Phone} style={{ width: height * 0.04, height: height * 0.04 }} />
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Contact us</Text>
-            <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
-              <Text style={styles.cardSubtitle}>+971-1234567890</Text>
-            </TouchableOpacity>
+          <View style={styles.card}>
+            <Image source={Phone} style={{ width: height * 0.04, height: height * 0.04 }} />
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Contact us</Text>
+              <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
+                <Text style={styles.cardSubtitle}>+971-1234567890</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View> */}
 
-        <View style={styles.card}>
-          <Image source={Website} style={{ width: height * 0.04, height: height * 0.04 }} />
+          <View style={styles.card}>
+            <Image source={Website} style={{ width: height * 0.04, height: height * 0.04 }} />
 
-          <View style={styles.cardContent}>
-            <Text style={styles.cardTitle}>Working hours</Text>
-            <TouchableOpacity onPress={openWebsite}>
-              <Text style={styles.cardSubtitle}>https://tackles.pro</Text>
-            </TouchableOpacity>
+            <View style={styles.cardContent}>
+              <Text style={styles.cardTitle}>Working hours</Text>
+              <TouchableOpacity onPress={openWebsite}>
+                <Text style={styles.cardSubtitle}>https://tackles.pro</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+
         </View>
 
         {/* Buttons */}
         {/* <View style={styles.buttonsContainer}> */}
-          {/* Admin Login Button */}
-          {/* <TouchableOpacity
+        {/* Admin Login Button */}
+        {/* <TouchableOpacity
             onPress={() => navigation.navigate('Login')}
             style={styles.adminButton}>
             <Image source={ButtonIcon} style={{ width: height * 0.03, height: height * 0.03 }} />
@@ -126,8 +129,8 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
             <Text style={styles.adminButtonText}>Admin Login</Text>
           </TouchableOpacity> */}
 
-          {/* WhatsApp and Telegram */}
-          {/* <View style={styles.socialButtons}>
+        {/* WhatsApp and Telegram */}
+        {/* <View style={styles.socialButtons}>
             <TouchableOpacity onPress={openWhatsApp} style={styles.socialButton}>
               <Image
                 source={WhatsApp}
@@ -151,7 +154,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    paddingTop:20.7,
+    paddingTop: 20.7,
   },
   container: {
     paddingHorizontal: width * 0.04,
@@ -159,14 +162,16 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: height * 0.03,
+    fontSize: height * 0.025,
     fontWeight: '700',
+    marginBottom: height * 0.033,
+    paddingTop: 10
   },
   subtitle: {
     fontSize: height * 0.022,
     fontWeight: '500',
     width: '80%',
-    marginBottom: height * 0.025,
+    marginBottom: height * 0.033,
   },
   rectangleImage: {
     width: '100%',
@@ -187,21 +192,26 @@ const styles = StyleSheet.create({
   },
   companyName: {
     fontSize: height * 0.022,
-    fontWeight: '700',
+    fontWeight: '600',
     marginTop: height * 0.025,
     marginBottom: height * 0.005,
   },
   companySubtitle: {
     fontSize: height * 0.02,
-    fontWeight: '400',
+    fontWeight: '500',
     marginBottom: height * 0.02,
   },
   card: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "column",
+    alignItems: "flex-start",
     gap: '3.8%',
-    height: Dimensions.get('window').height * 0.06,
+    height: Dimensions.get('window').height * 0.15,
     marginBottom: Dimensions.get('window').height * 0.01,
+    width: Dimensions.get('window').width * 0.42,
+    borderRadius:16,
+    boxShadow:"0px 3px 30px hsl(0, 0%, 80%)",
+    paddingVertical:10,
+    paddingHorizontal:10
   },
   cardContent: {
     gap: 2,
@@ -213,6 +223,11 @@ const styles = StyleSheet.create({
   cardSubtitle: {
     fontSize: Dimensions.get('window').height * 0.017,
     fontWeight: '400',
+  },
+  GridBox:{
+    flexWrap:'wrap',
+    flexDirection:'row',
+    justifyContent: 'space-between',
   },
   buttonsContainer: {
     width: '100%',

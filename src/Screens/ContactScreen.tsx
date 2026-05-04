@@ -18,7 +18,7 @@ import Website from '../assets/icons/contact/Url.png';
 // import ButtonIcon from '../assets/icons/contact/ButtonIcon.png';
 // import WhatsApp from '../assets/icons/contact/WhatsApp.png';
 // import Green from '../assets/icons/contact/Green.png';
-import Telegram from '../assets/icons/contact/Telegram.png';
+// import Telegram from '../assets/icons/contact/Telegram.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -78,7 +78,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         {/* Contact Info Cards */}
         <View style={styles.GridBox}>
           <View style={styles.card}>
-            <Image source={Location} style={{ width: height * 0.03, height: height * 0.04 }} />
+            <Image source={Location} style={{ width: height * 0.035, height: height * 0.035 ,resizeMode:'contain'}} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Visit us</Text>
               <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
@@ -86,7 +86,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.card}>
-            <Image source={Email} style={{ width: height * 0.04, height: height * 0.03 }} />
+            <Image source={Email} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Email us</Text>
               <TouchableOpacity onPress={handleEmailPress}>
@@ -96,7 +96,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.card}>
-            <Image source={Phone} style={{ width: height * 0.04, height: height * 0.04 }} />
+            <Image source={Phone} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Contact us</Text>
               <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
@@ -106,7 +106,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.card}>
-            <Image source={Website} style={{ width: height * 0.04, height: height * 0.04 }} />
+            <Image source={Website} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
 
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Working hours</Text>
@@ -164,12 +164,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: height * 0.025,
     fontWeight: '700',
-    marginBottom: height * 0.033,
+    marginBottom: height * 0.02,
     paddingTop: 10
   },
   subtitle: {
-    fontSize: height * 0.022,
-    fontWeight: '500',
+    fontSize: height * 0.02,
+    fontWeight: '400',
     width: '80%',
     marginBottom: height * 0.033,
   },
@@ -197,31 +197,35 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.005,
   },
   companySubtitle: {
-    fontSize: height * 0.02,
-    fontWeight: '500',
+    fontSize: height * 0.018,
+    fontWeight: '400',
     marginBottom: height * 0.02,
+    paddingLeft:3
   },
   card: {
     flexDirection: "column",
     alignItems: "flex-start",
     gap: '3.8%',
-    height: Dimensions.get('window').height * 0.15,
-    marginBottom: Dimensions.get('window').height * 0.01,
-    width: Dimensions.get('window').width * 0.42,
+    height: Dimensions.get('window').height * 0.13,
+    marginBottom: Dimensions.get('window').height * 0.025,
+    marginHorizontal:Dimensions.get('window').height * 0.014,
+    width: Dimensions.get('window').width * 0.4,
     borderRadius:16,
     boxShadow:"0px 3px 30px hsl(0, 0%, 80%)",
-    paddingVertical:10,
-    paddingHorizontal:10
+    paddingVertical:11,
+    paddingHorizontal:10,
+    paddingLeft:16,
+    justifyContent:'center'
   },
   cardContent: {
     gap: 2,
   },
   cardTitle: {
-    fontSize: Dimensions.get('window').height * 0.022,
+    fontSize: Dimensions.get('window').height * 0.018,
     fontWeight: '500',
   },
   cardSubtitle: {
-    fontSize: Dimensions.get('window').height * 0.017,
+    fontSize: Dimensions.get('window').height * 0.015,
     fontWeight: '400',
   },
   GridBox:{

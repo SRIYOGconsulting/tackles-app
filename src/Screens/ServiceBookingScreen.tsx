@@ -66,10 +66,12 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
       <HeaderComponent style={styles.header} />
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <View style={styles.formContainer}>
-        <Text style={styles.title}>Professional & Reliable Services</Text>
-        <Text style={styles.subTitle}>Request a Services</Text>
+        <Text style={styles.title}>Book a Service</Text>
+    
 
         <View style={styles.inputGroup}>
+
+          <Text style={styles.label}>Full Name</Text>
           <TextInput
             placeholder="Full Name"
             value={name}
@@ -77,6 +79,8 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             style={styles.input}
             placeholderTextColor={'#4B4B4B'}
           />
+
+          <Text style={styles.label}>Phone Number</Text>
           <TextInput
             placeholder="Phone Number"
             value={number}
@@ -86,14 +90,15 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderTextColor={'#4B4B4B'}
           />
 
+          <Text style={styles.label}>Select a Service<Text style={{color:'red'}}>*</Text></Text>
           <Dropdown
             options={services}
             placeholder="Select Services"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedService}
-            showRequired
           />
 
+          <Text style={styles.label}>Pick a Date</Text>
           <View style={{ marginBottom: height * 0.025, }}>
             <TouchableOpacity
               onPress={() => setShow(true)}
@@ -119,18 +124,20 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             )}
           </View>
 
+          <Text style={styles.label}>Select a Location</Text>
           <Dropdown
             options={area}
             placeholder="Select Location"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedArea}
           />
+
+          <Text style={styles.label}>Select Shift<Text style={{color:'red'}}>*</Text></Text>
           <Dropdown
             options={shifts}
             placeholder="Select Shift"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedShift}
-            showRequired
           />
           {/* <Dropdown
             options={priority}
@@ -147,10 +154,11 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             showRequired
           /> */}
 
+          <Text style={styles.label}>Requests</Text>
           <TextArea
             value={message}
             onChangeText={setMessage}
-            placeholder="Message"
+            placeholder=""
             placeholderTextColor="#4B4B4B"
             maxHeight={160}
           />
@@ -184,7 +192,8 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     marginBottom: height * 0.001,
     paddingTop: 2,
-    paddingBottom: 3
+    paddingBottom: 3,
+    color:'green'
   },
   subTitle: {
     fontSize: width * 0.043,
@@ -196,13 +205,13 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderRadius: 4,
+    borderRadius: 10,
     paddingHorizontal: width * 0.03,
     height: height * 0.045,
     marginBottom: height * 0.025,
     fontSize: width * 0.04,
     fontWeight: '500',
-    borderColor: '#E3E3E3',
+    borderColor: 'lightgreen',
     textAlignVertical: 'center',
     paddingBottom: 8.5,
 
@@ -211,29 +220,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#E3E3E3',
-    borderRadius: 4,
+    borderColor: 'lightgreen',
+    borderRadius: 10,
     paddingHorizontal: width * 0.03,
     height: height * 0.045,
     justifyContent: 'space-between',
-    marginBottom: 5,
   },
   datePickerText: {
     fontSize: width * 0.04,
     fontWeight: '500',
     color: '#4B4B4B'
-  },
-
-  textArea: {
-    height: height * 0.10,
-    borderWidth: 1,
-    paddingLeft: width * 0.035,
-    borderRadius: 4,
-    borderColor: '#E3E3E3',
-    fontSize: width * 0.04,
-    fontWeight: '500',
-    marginTop: height * 0.001,
-    paddingBottom: height * 0.065,
   },
   buttonContainer: {
     justifyContent: 'center',
@@ -253,6 +249,12 @@ const styles = StyleSheet.create({
     fontSize: width * 0.045,
     fontWeight: '700',
   },
+  label:{
+    marginBottom:5,
+    paddingLeft:4,
+    fontSize:14,
+    fontWeight:"500"
+  }
 });
 
 export default ServiceBookingScreen;

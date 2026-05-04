@@ -30,7 +30,7 @@ const SplashScreen = ({ navigation }: { navigation: any }) => {
       <Text style={styles.counter}>{milliseconds}</Text>
       <View style={styles.logo}>
         <Text style={styles.partnerText}>
-          Technology Partner
+          Powered By
         </Text>
         <Image
           source={require('../assets/image/sriyogLogo.png')}
@@ -49,15 +49,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   counter: {
-    top: '10%',
-    fontSize: 24,
-    fontWeight: 'bold',
+    top: '4.5%',
+    fontSize: 18,
     color: '#333',
   },
   splashImage: {
-    top: '33%',
-    width: 100,
-    height: 100,
+    top: '27%',
+    width: 180,
+    height: 180,
 
     borderRadius: 100,
     shadowColor: '#000',
@@ -66,23 +65,16 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 5,
   },
-  splashImage2: {
-    top: '13%',   // ✅ use margin instead of top
-    height: '5%',
-    width: '50%',
-    paddingHorizontal: 20,
-
-
-  },
   logo: {
-    bottom: '8%',
+    bottom: '9%',
     alignItems: 'center',
     gap: 20,
   },
   partnerText: {
     fontSize: 16,
     color: '#4B4B4B',
-    fontWeight: '400',
+    fontWeight: '500',
+    marginBottom:30
   },
 });
 

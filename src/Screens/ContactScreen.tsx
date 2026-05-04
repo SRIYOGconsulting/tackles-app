@@ -48,7 +48,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
       style={styles.scrollView}
       showsVerticalScrollIndicator={false}>
       <HeaderComponent style={styles.header} />
-      <View style={{borderBottomWidth:1,borderColor: '#CAD2DF',marginTop:6}}/>
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <View style={styles.container}>
         <Text style={styles.title}>Contact Us</Text>
         <Text style={styles.subtitle}>

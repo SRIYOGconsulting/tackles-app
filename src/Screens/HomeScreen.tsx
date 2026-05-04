@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     top: 0,
     width: '100%',
     zIndex: 10,
-    paddingTop: hp('2%'),
+    paddingTop: hp('3.02%'),
   },
   headerPadding: {
     paddingHorizontal: wp('4%'),

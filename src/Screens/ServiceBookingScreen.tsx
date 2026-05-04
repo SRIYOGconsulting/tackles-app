@@ -180,16 +180,16 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: width * 0.05,
+    fontSize: width * 0.055,
     fontWeight: '700',
     marginBottom: height * 0.001,
-    paddingTop: 5,
+    paddingTop: 2,
     paddingBottom: 3
   },
   subTitle: {
     fontSize: width * 0.043,
     fontWeight: '500',
-    marginBottom: height * 0.032,
+    marginBottom: height * 0.02,
   },
   inputGroup: {
     marginTop: height * 0.01,

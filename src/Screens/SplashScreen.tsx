@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   splashImage: {
-    top: '28%',
-    width: 150,
-    height: 150,
+    top: '33%',
+    width: 100,
+    height: 100,
 
     borderRadius: 100,
     shadowColor: '#000',
@@ -73,9 +73,9 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   splashImage2: {
-    top: '10%',   // ✅ use margin instead of top
-    height: '6%',
-    width: '60%',
+    top: '13%',   // ✅ use margin instead of top
+    height: '5%',
+    width: '50%',
     paddingHorizontal: 20,
 
 

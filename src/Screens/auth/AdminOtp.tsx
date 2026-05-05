@@ -7,15 +7,15 @@ import {
   Alert,
   Dimensions,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import HeaderComponent from '../../../src/components/HeaderComponent';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
-import {addFormData} from '../../redux/slice/formSlice';
-import {useDispatch} from 'react-redux';
-import {AppDispatch} from '../../redux/store';
-import {createBooking} from '../../api/PostApi';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { addFormData } from '../../redux/slice/formSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../redux/store';
+import { createBooking } from '../../api/PostApi';
 
-const {width, height} = Dimensions.get('window'); // Get screen dimensions
+const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
 // Font scaling utility function
 const scaleFont = (size: number) => {
@@ -23,7 +23,7 @@ const scaleFont = (size: number) => {
   return (size * width) / guidelineBaseWidth;
 };
 
-const AdminOtp = ({route}: {route: any}) => {
+const AdminOtp = ({ route }: { route: any }) => {
   const [otp, setOtp] = useState(['', '', '', '']); // Manage OTP state
   const inputRefs = useRef<Array<TextInput | null>>([]);
   const {
@@ -113,7 +113,7 @@ const AdminOtp = ({route}: {route: any}) => {
 
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
-          Thank you! Your booking is confirmed — details have been sent to you.
+          Phone Verification
         </Text>
 
         <Text style={styles.bookingText}>
@@ -139,8 +139,10 @@ const AdminOtp = ({route}: {route: any}) => {
           ))}
         </View>
 
+        <Text style={styles.resendcode}>Lorem ipsum dolor sit amet consectetur adipisicing elit. <Text style={{color:'blue'}}>Resend Code</Text></Text>
+
         <TouchableOpacity style={styles.submitButton} onPress={handleNavigate}>
-          <Text style={styles.submitButtonText}>Submit</Text>
+          <Text style={styles.submitButtonText}>Verify</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -151,56 +153,65 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: '5%',
-    paddingTop: height * 0.025, // Adjust top padding based on screen size
+    paddingTop: height * 0.09, // Adjust top padding based on screen size
     alignItems: 'center',
   },
   thankYouText: {
-    fontSize: scaleFont(22),
+    fontSize: scaleFont(27),
+    fontWeight:'700',
   },
   bookingText: {
     width: '70%',
     textAlign: 'center',
     marginBottom: height * 0.08, // Adjust margin-bottom based on screen height
-    fontSize: scaleFont(20),
-    marginTop: height * 0.12, // Adjust top margin for large screens
+    fontSize: scaleFont(17),
+    marginTop: height * 0.03, // Adjust top margin for large screens
     fontWeight: '500',
+    lineHeight:23
   },
   otpPromptText: {
-    fontSize: scaleFont(20),
+    fontSize: scaleFont(18.5),
     marginBottom: height * 0.04, // Adjust margin-bottom for larger screens
     fontWeight: '500',
+    color:'green'
   },
   otpBox: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    gap: 8,
   },
   input: {
     width: width * 0.12, // Dynamic width for better scalability
     height: width * 0.12, // Dynamic height to maintain square shape
     marginHorizontal: 5,
     borderWidth: 1,
-    borderColor: '#E3E3E3',
+    borderColor: 'hsl(0, 0%, 79%)',
     borderRadius: 5,
     textAlign: 'center',
     fontSize: scaleFont(18),
     backgroundColor: '#fff',
+    elevation:3
+  },
+  resendcode:{
+    marginTop:25,
+    paddingHorizontal:20,
+    textAlign:'center',
+    lineHeight:22
   },
   submitButton: {
-    borderColor: '#0E61CD',
-    height: 48,
-    width: width * 0.35, // Adjust width based on screen size
+    backgroundColor:"green",
+    height: 43,
+    width: "85%", // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4,
-    marginTop: height * 0.15, // Dynamic margin-top for large screens
-    borderWidth: 1,
+    borderRadius: 100,
+    marginTop: height * 0.08, // Dynamic margin-top for large screens
   },
   submitButtonText: {
-    fontSize: scaleFont(22),
-    color: '#000',
-    fontWeight: '700',
+    fontSize: scaleFont(18),
+    color: '#fff',
+    fontWeight: '300',
   },
   mainContainer: {
     flex: 1,
@@ -209,6 +220,8 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
+    paddingTop: 20.7,
+    paddingBottom: 16,
   },
 });
 

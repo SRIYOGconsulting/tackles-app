@@ -123,6 +123,7 @@ dependencies {
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
+          implementation project(':react-native-linear-gradient')
     } else {
         implementation jscFlavor
     }

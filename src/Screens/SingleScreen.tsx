@@ -14,16 +14,21 @@ import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import { useNavigation } from '@react-navigation/native';
 import { servicesData } from '../data/Data';
 import { RootStackParamList } from '../types';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Button = ({ children, style, textStyle, onPress }: any) => {
   return (
-    <TouchableOpacity 
-    style={style}
-    onPress={onPress}
-    >
-      <Text style={[textStyle,{ fontSize: 14, color:'white' }]}>
-        {children}
-      </Text>
+    <TouchableOpacity onPress={onPress} activeOpacity={0.85}>
+      <LinearGradient
+        colors={['#064e3b', '#065f46', '#047857']} // emerald gradient
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={[styles.button1, style]}
+      >
+        <Text style={[styles.text, textStyle]}>
+          {children}
+        </Text>
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
@@ -64,12 +69,12 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
       {/* Scrollable content */}
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
-          <Image source={service.image} style={styles.image} />
           <Text style={[styles.title, { fontSize: scaleFont(20) }]}>
             {service.name}
           </Text>
+          <Image source={service.image} style={styles.image} />
           <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
-            {`Professional ${service.name}`}
+            {`About ${service.name}`}
           </Text>
           <Text style={[styles.description, { fontSize: scaleFont(17) }]}>
             {service.description}
@@ -80,6 +85,35 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           <Text style={[styles.answer, { fontSize: scaleFont(17) }]}>
             {service.answer}
           </Text>
+
+          <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
+            {`Example of ${service.name}`}
+          </Text>
+           <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
+          </Text>
+
+          <View style={styles.servicesContainer2}>
+            {otherServices.map(item => (
+              <ServicesDisplaycard
+                key={item.id}
+                textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
+                name={item.name}
+                image={item.image}
+                question={item.question}
+                answer={item.answer}
+                description={item.description}
+                onPress={() =>
+                  navigation.navigate('SingleScreen', { service: item })
+                }
+              />
+            ))}
+          </View>
+
+            <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
+          </Text>
+
           <View style={styles.buttonPadding}>
             <Button
               style={styles.button1}
@@ -138,19 +172,25 @@ const styles = StyleSheet.create({
     width: '100%',
     height: height * 0.28, // Adjust image size relative to screen height
     borderRadius: 8,
+    marginBottom:'4%'
   },
   title: {
     color: '#0E61CD',
     fontWeight: '900',
-    marginTop: '4.5%',
+    marginTop: '2%',
+    marginBottom:"4%"
   },
   subtitle: {
     color: '#0E61CD',
-    fontWeight: '500',
+    fontWeight: '700',
+    marginBottom:'4%'
   },
   description: {
     fontWeight: '500',
-    marginTop: '2.5%',
+  },
+  description2: {
+    fontWeight: '500',
+    marginBottom:'10%'
   },
   question: {
     fontWeight: '500',
@@ -158,6 +198,7 @@ const styles = StyleSheet.create({
   },
   answer: {
     fontWeight: '500',
+    marginBottom:'4%'
   },
   otherServicesTitle: {
     color: '#0E61CD',
@@ -169,27 +210,42 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: 15, // Adjust spacing between services dynamically
+    flexWrap: 'wrap', 
+    marginBottom:'13%'
+    // Ensure responsiveness on smaller screens
+  },
+  servicesContainer2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 15, // Adjust spacing between services dynamically
     flexWrap: 'wrap', // Ensure responsiveness on smaller screens
+    marginBottom:'6%'
   },
   cardText: {
     marginTop: 4,
     fontWeight: '600',
   },
   buttonPadding: {
-    paddingTop: 20,
     paddingBottom: 20,
     alignItems: 'center',
     color: '#fff'
   },
   button1: {
-
-    width: '60%',
-    backgroundColor: 'hsl(240, 100%, 60%)',
-    justifyContent:'center',
+    width:  width * 0.56,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical:9,
-    borderRadius:19,
+    alignSelf:"center",
+    paddingVertical: 8,
+    borderRadius: 39,
+  },
+
+  text: {
+    fontSize: 18,
+    color: 'white',
+    fontWeight: 'bold',
   },
 });
+
+
 
 export default SingleScreen;

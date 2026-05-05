@@ -131,10 +131,10 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     marginTop: -36,
-    backgroundColor:'#fff',
-    boxShadow:"0px 0px 0px 6px #fff",
-    borderBottomLeftRadius:100,
-    borderBottomRightRadius:100
+    backgroundColor: '#fff',
+    boxShadow: "0px 0px 0px 6px #fff",
+    borderRadius: 100,
+    zIndex:1
   },
 });
 

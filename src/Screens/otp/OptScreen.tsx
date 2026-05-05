@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
+    
   },
 });
 

@@ -30,7 +30,7 @@ const Tabs = () => {
           backgroundColor: '#D9D9D9',
           justifyContent: 'center',
           alignItems: 'center',
-          height: 52,
+          height: 60,
         },
         tabBarIcon: ({ focused }) => {
           if (route.name === 'Home') {
@@ -65,7 +65,7 @@ const Tabs = () => {
               />
             ) : (
               <Image
-                source={BookingIcon}
+                source={BookActiveIcon}
                 style={[styles.bookingIcon, { width: 50, height: 50 }]}
               />
             );
@@ -130,9 +130,9 @@ const styles = StyleSheet.create({
   bookingIcon: {
     width: 48,
     height: 48,
-    marginTop: -36,
+    marginTop: -20,
     backgroundColor: '#fff',
-    boxShadow: "0px 0px 0px 6px #fff",
+    boxShadow: "0px 1px 10px 2px #fff",
     borderRadius: 100,
     zIndex:1
   },

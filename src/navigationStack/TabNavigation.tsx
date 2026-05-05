@@ -130,7 +130,11 @@ const styles = StyleSheet.create({
   bookingIcon: {
     width: 48,
     height: 48,
-    marginTop: 14,
+    marginTop: -36,
+    backgroundColor:'#fff',
+    boxShadow:"0px 0px 0px 6px #fff",
+    borderBottomLeftRadius:100,
+    borderBottomRightRadius:100
   },
 });
 

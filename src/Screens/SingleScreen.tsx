@@ -123,6 +123,8 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
+    paddingTop:20.7,
+    paddingBottom:16
   },
   scrollView: {
     flex: 1,

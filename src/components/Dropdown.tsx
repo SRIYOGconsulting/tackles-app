@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -6,13 +6,23 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  FlatList,
   Dimensions,
   Platform,
+  ScrollView,
 } from 'react-native';
+
 import DropIcon from '../assets/icons/contact/DropDown.png';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
+
+type Props = {
+  options: string[];
+  placeholder: string;
+  placeholderColor?: string;
+  showRequired?: boolean;
+  onSelectOption: (option: string) => void;
+  dropdownType?: string;
+};
 
 const Dropdown = ({
   options,
@@ -20,13 +30,8 @@ const Dropdown = ({
   placeholderColor = '#4B4B4B',
   showRequired = false,
   onSelectOption,
-}: {
-  options: Array<string>;
-  placeholder: string;
-  placeholderColor?: string;
-  showRequired?: boolean;
-  onSelectOption: (option: string) => void;
-}) => {
+  dropdownType,
+}: Props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -40,37 +45,47 @@ const Dropdown = ({
     onSelectOption(option);
   };
 
+  const getDropIcon = () => {
+    if (dropdownType === 'shift') {
+      return require('../assets/image/TabIcon/clock.png');
+    }
+
+    return DropIcon;
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
         {selectedOption === '' && (
-          <Text style={[styles.placeholder, {color: placeholderColor}]}>
+          <Text style={[styles.placeholder, { color: placeholderColor }]}>
             {placeholder}
             {showRequired && <Text style={styles.required}>*</Text>}
           </Text>
         )}
+
         <TextInput
           style={styles.input}
           value={selectedOption}
           editable={false}
-          pointerEvents="none"
         />
+
         <TouchableOpacity onPress={toggleDropdown}>
-          <Image source={DropIcon} style={{width:height* 0.025, height:height* 0.025}}/>
+          <Image
+            source={getDropIcon()}
+            style={{ width: height * 0.025, height: height * 0.025 }}
+          />
         </TouchableOpacity>
       </View>
 
       {showDropdown && (
         <View style={[styles.dropdown, styles.dropdownDynamic]}>
-          <FlatList
-            data={options}
-            keyExtractor={(item, index) => index.toString()}
-            renderItem={({item}) => (
-              <TouchableOpacity onPress={() => handleSelectOption(item)}>
+          <ScrollView keyboardShouldPersistTaps="handled">
+            {options.map((item, index) => (
+              <TouchableOpacity key={index} onPress={() => handleSelectOption(item)}>
                 <Text style={styles.option}>{item}</Text>
               </TouchableOpacity>
-            )}
-          />
+            ))}
+          </ScrollView>
         </View>
       )}
     </View>
@@ -85,7 +100,7 @@ const styles = StyleSheet.create({
     borderColor: 'lightgreen',
     borderRadius: 10,
     paddingHorizontal: width * 0.03,
-    height: height * 0.045,
+    height: height * 0.05,
     position: 'relative',
     backgroundColor: '#fff',
   },
@@ -93,31 +108,32 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: width * 0.03,
     color: '#4B4B4B',
-     fontSize: width * 0.04,
+    fontSize: width * 0.035,
     fontWeight: '500',
-    paddingBottom:2
+    paddingBottom: 2
   },
   input: {
     flex: 1,
-    color: '#000',
-    paddingVertical: height * 0.0045,
-     fontSize: width * 0.04,
+    color: '#4B4B4B',
+    paddingHorizontal: 1,
+    fontSize: width * 0.035,
     fontWeight: '500',
   },
   dropdown: {
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 4,
+    borderRadius: 10,
     backgroundColor: '#fff',
     position: 'absolute',
     width: '100%',
     zIndex: 9999,
     marginTop: 5,
+    elevation: 10,
   },
   option: {
-    paddingVertical: height * 0.015,
+    paddingVertical: height * 0.014,
     paddingHorizontal: width * 0.03,
-    fontSize: height * 0.018,
+    fontSize: height * 0.017,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     color: '#333',
@@ -129,7 +145,7 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   dropdownDynamic: {
-    maxHeight: height * 0.3,
+    maxHeight: height * 0.27,
     top: Platform.OS === 'ios' ? height * 0.06 : height * 0.055,
   },
 });

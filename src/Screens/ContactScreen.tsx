@@ -58,13 +58,13 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         {/* MAP section */}
         <View>
           <Image
-            source={require('../assets/image/Rectangle.png')}
+            source={require('../assets/image/sanfranciscomap.jpg')}
             style={styles.rectangleImage}
           />
-          <Image
+          {/* <Image
             source={require('../assets/image/map.png')}
             style={styles.mapImage}
-          />
+          /> */}
           <Image
             source={require('../assets/image/zoom.png')}
             style={styles.zoomImage}
@@ -100,7 +100,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Contact us</Text>
               <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
-                <Text style={styles.cardSubtitle}>+971-1234567890</Text>
+                <Text style={styles.cardSubtitle}>+1-1234567890</Text>
               </TouchableOpacity>
             </View>
           </View>

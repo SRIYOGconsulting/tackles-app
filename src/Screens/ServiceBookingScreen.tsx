@@ -8,14 +8,16 @@ import {
   Alert,
   Platform,
   Dimensions,
+  Image,
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
 import { area, services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import DropIcon from '../assets/icons/contact/DropDown.svg';
+import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+
 
 const { width, height } = Dimensions.get('window');
 
@@ -73,7 +75,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <Text style={styles.label}>Full Name</Text>
           <TextInput
-            placeholder="Full Name"
+            placeholder="Enter your full name"
             value={name}
             onChangeText={setName}
             style={styles.input}
@@ -82,7 +84,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <Text style={styles.label}>Phone Number</Text>
           <TextInput
-            placeholder="Phone Number"
+            placeholder="Enter your phone number"
             value={number}
             onChangeText={value => setNumber(value.replace(/[^0-9]/g, ''))}
             keyboardType="numeric"
@@ -90,23 +92,23 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderTextColor={'#4B4B4B'}
           />
 
-          <Text style={styles.label}>Select a Service<Text style={{color:'red'}}>*</Text></Text>
+          <Text style={styles.label}>Select Service<Text style={{color:'red'}}>*</Text></Text>
           <Dropdown
             options={services}
-            placeholder="Select Services"
+            placeholder="Select a service"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedService}
           />
 
-          <Text style={styles.label}>Pick a Date</Text>
+          <Text style={styles.label}>Choose Date</Text>
           <View style={{ marginBottom: height * 0.025, }}>
             <TouchableOpacity
               onPress={() => setShow(true)}
               style={styles.datePicker}>
-              <Text style={[styles.datePickerText, { fontSize: width * 0.04 }]}>
-                {date ? date.toDateString() : 'Select Date'}
+              <Text style={[styles.datePickerText, { fontSize: width * 0.035 }]}>
+                {date ? date.toDateString() : 'Pick a date'}
               </Text>
-              <DropIcon height={21} width={21} />
+              <Image source={CalenderIcon} style={{height:21, width:21}}/>
             </TouchableOpacity>
 
             {show && (
@@ -124,20 +126,21 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             )}
           </View>
 
-          <Text style={styles.label}>Select a Location</Text>
+          <Text style={styles.label}>Your Location</Text>
           <Dropdown
             options={area}
-            placeholder="Select Location"
+            placeholder="Select your location"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedArea}
           />
 
-          <Text style={styles.label}>Select Shift<Text style={{color:'red'}}>*</Text></Text>
+          <Text style={styles.label}>Preferred Time<Text style={{color:'red'}}>*</Text></Text>
           <Dropdown
             options={shifts}
-            placeholder="Select Shift"
+            placeholder="Choose a shift"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedShift}
+            dropdownType="shift"
           />
           {/* <Dropdown
             options={priority}
@@ -154,7 +157,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             showRequired
           /> */}
 
-          <Text style={styles.label}>Requests</Text>
+          <Text style={styles.label}>Message</Text>
           <TextArea
             value={message}
             onChangeText={setMessage}
@@ -188,32 +191,26 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: width * 0.055,
+    fontSize: width * 0.06,
     fontWeight: '700',
     marginBottom: height * 0.001,
     paddingTop: 2,
     paddingBottom: 3,
-    color:'green'
-  },
-  subTitle: {
-    fontSize: width * 0.043,
-    fontWeight: '500',
-    marginBottom: height * 0.02,
   },
   inputGroup: {
-    marginTop: height * 0.01,
+    marginTop: height * 0.015,
   },
   input: {
     borderWidth: 1,
     borderRadius: 10,
     paddingHorizontal: width * 0.03,
-    height: height * 0.045,
-    marginBottom: height * 0.025,
-    fontSize: width * 0.04,
+    height: height * 0.05,
+    marginBottom: height * 0.02,
+    fontSize: width * 0.035,
     fontWeight: '500',
     borderColor: 'lightgreen',
     textAlignVertical: 'center',
-    paddingBottom: 8.5,
+    paddingBottom: 10,
 
   },
   datePicker: {
@@ -223,11 +220,11 @@ const styles = StyleSheet.create({
     borderColor: 'lightgreen',
     borderRadius: 10,
     paddingHorizontal: width * 0.03,
-    height: height * 0.045,
+    height: height * 0.05,
     justifyContent: 'space-between',
   },
   datePickerText: {
-    fontSize: width * 0.04,
+    fontSize: width * 0.035,
     fontWeight: '500',
     color: '#4B4B4B'
   },
@@ -235,24 +232,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 145,
+    marginLeft:240,
+    paddingBottom:60
   },
   submitButton: {
     backgroundColor:'#0E61CD',
-    borderRadius: 4,
-    height: height * 0.05,
+    borderRadius: 10,
+    height: height * 0.047,
     width: width * 0.28,
     justifyContent: 'center',
     alignItems: 'center',
   },
   buttonText: {
     color: '#fff',
-    fontSize: width * 0.045,
+    fontSize: width * 0.035,
     fontWeight: '700',
   },
   label:{
     marginBottom:5,
     paddingLeft:4,
-    fontSize:14,
+    fontSize:15,
     fontWeight:"500"
   }
 });

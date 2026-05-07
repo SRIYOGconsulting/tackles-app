@@ -15,7 +15,10 @@ import { useNavigation } from '@react-navigation/native';
 import { servicesData } from '../data/Data';
 import { RootStackParamList } from '../types';
 import LinearGradient from 'react-native-linear-gradient';
-
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 const Button = ({ children, style, textStyle, onPress }: any) => {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.85}>
@@ -89,13 +92,15 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
             {`Example of ${service.name}`}
           </Text>
-           <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
           </Text>
 
           <View style={styles.servicesContainer2}>
             {otherServices.map(item => (
               <ServicesDisplaycard
+              style={{ width: '48%' }}
+                words={item.words}
                 key={item.id}
                 textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
                 name={item.name}
@@ -110,14 +115,14 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
             ))}
           </View>
 
-            <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
           </Text>
 
           <View style={styles.buttonPadding}>
             <Button
               style={styles.button1}
-              textStyle={{ color: 'white', textAlign:'center',  }}
+              textStyle={{ color: 'white', textAlign: 'center', }}
               onPress={() => navigation.navigate('ViewBooking')}
             >
               Book a service
@@ -131,6 +136,8 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           <View style={styles.servicesContainer}>
             {otherServices.map(item => (
               <ServicesDisplaycard
+              style={{ width: '48%' }}
+                words={item.words}
                 key={item.id}
                 textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
                 name={item.name}
@@ -157,8 +164,8 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
-    paddingTop:20.7,
-    paddingBottom:16
+    paddingTop: 20.7,
+    paddingBottom: 16
   },
   scrollView: {
     flex: 1,
@@ -172,25 +179,25 @@ const styles = StyleSheet.create({
     width: '100%',
     height: height * 0.28, // Adjust image size relative to screen height
     borderRadius: 8,
-    marginBottom:'4%'
+    marginBottom: '4%'
   },
   title: {
     color: '#0E61CD',
     fontWeight: '900',
     marginTop: '2%',
-    marginBottom:"4%"
+    marginBottom: "4%"
   },
   subtitle: {
     color: '#0E61CD',
     fontWeight: '700',
-    marginBottom:'4%'
+    marginBottom: '4%'
   },
   description: {
     fontWeight: '500',
   },
   description2: {
     fontWeight: '500',
-    marginBottom:'10%'
+    marginBottom: '10%'
   },
   question: {
     fontWeight: '500',
@@ -198,7 +205,7 @@ const styles = StyleSheet.create({
   },
   answer: {
     fontWeight: '500',
-    marginBottom:'4%'
+    marginBottom: '4%'
   },
   otherServicesTitle: {
     color: '#0E61CD',
@@ -206,44 +213,42 @@ const styles = StyleSheet.create({
     marginTop: '1.8%',
     marginBottom: '3%',
   },
-  servicesContainer: {
+servicesContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 15, // Adjust spacing between services dynamically
-    flexWrap: 'wrap', 
-    marginBottom:'13%'
-    // Ensure responsiveness on smaller screens
+    justifyContent: 'space-between', // Keeps even spacing between cards
+    flexWrap: 'wrap',               // Allows cards to drop to next line if they don't fit
+    width: '100%',                  // Ensures the container takes full width
   },
   servicesContainer2: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: 15, // Adjust spacing between services dynamically
-    flexWrap: 'wrap', // Ensure responsiveness on smaller screens
-    marginBottom:'6%'
+    flexWrap: 'wrap',
+    width: '100%',
+    marginBottom: '5%',             // Added some spacing for the text below it
   },
   cardText: {
     marginTop: 4,
     fontWeight: '600',
   },
   buttonPadding: {
-    paddingBottom: 20,
-    alignItems: 'center',
-    color: '#fff'
-  },
+  paddingBottom: 20,
+  alignItems: 'center',
+  color: '#fff'
+},
   button1: {
-    width:  width * 0.56,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf:"center",
-    paddingVertical: 8,
-    borderRadius: 39,
-  },
+  width: width * 0.56,
+  justifyContent: 'center',
+  alignItems: 'center',
+  alignSelf: "center",
+  paddingVertical: 8,
+  borderRadius: 39,
+},
 
   text: {
-    fontSize: 18,
-    color: 'white',
-    fontWeight: 'bold',
-  },
+  fontSize: 18,
+  color: 'white',
+  fontWeight: 'bold',
+},
 });
 
 

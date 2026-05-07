@@ -24,7 +24,7 @@ const FaqsScreen = ({ navigation }: { navigation: any }) => {
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
 
       <View style={styles.content}>
-        <Text style={styles.title}>About Us</Text>
+        <Text style={styles.title}>FAQs</Text>
 
         {/* Search Bar */}
 

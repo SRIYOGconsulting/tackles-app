@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { area, services, shifts } from '../../src/data/Data';
+import {services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
@@ -29,20 +29,18 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [selectedShift, setSelectedShift] = useState('');
   // const [selectedPriority, setSelectedPriority] = useState('');
   // const [selectedBudget, setSelectedBudget] = useState('');
-  const [selectedArea, setSelectedArea] = useState('');
+  // const [selectedArea, setSelectedArea] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState<Date | null>(null);
   const [show, setShow] = useState<boolean>(false);
 
   const handleSubmit = () => {
     if (
-      name &&
-      number &&
+      name.trim() &&
+      number.trim() &&
       selectedService &&
       selectedShift &&
-      // selectedPriority &&
-      // selectedBudget &&
-      selectedArea &&
+      location.trim() &&
       date
     ) {
       navigation.navigate('AdminOtp', {
@@ -50,11 +48,9 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
         number,
         selectedService,
         selectedShift,
-        selectedArea,
-        // selectedBudget,
-        // selectedPriority,
+        location,
         message,
-        date: new Date().toISOString(),
+        date: date.toISOString(),
       });
     } else {
       Alert.alert('Incomplete Form', 'Please fill in all required fields.');
@@ -70,7 +66,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <View style={styles.formContainer}>
         <Text style={styles.title}>Book a Service</Text>
-    
+
 
         <View style={styles.inputGroup}>
 
@@ -93,7 +89,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderTextColor={'#4B4B4B'}
           />
 
-          <Text style={styles.label}>Select Service<Text style={{color:'red'}}>*</Text></Text>
+          <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
           <Dropdown
             options={services}
             placeholder="Select Services"
@@ -109,7 +105,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
               <Text style={[styles.datePickerText, { fontSize: width * 0.035 }]}>
                 {date ? date.toDateString() : 'Pick a Date'}
               </Text>
-              <Image source={CalenderIcon} style={{height:21, width:21}}/>
+              <Image source={CalenderIcon} style={{ height: 21, width: 21 }} />
             </TouchableOpacity>
 
             {show && (
@@ -137,7 +133,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderTextColor={'#4B4B4B'}
           />
 
-          <Text style={styles.label}>Preferred Time<Text style={{color:'red'}}>*</Text></Text>
+          <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
           <Dropdown
             options={shifts}
             placeholder="Choose a shift"
@@ -235,11 +231,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 145,
-    marginLeft:240,
-    paddingBottom:60
+    marginLeft: 240,
+    paddingBottom: 60
   },
   submitButton: {
-    backgroundColor:'#0E61CD',
+    backgroundColor: '#0E61CD',
     borderRadius: 10,
     height: height * 0.047,
     width: width * 0.28,
@@ -251,11 +247,11 @@ const styles = StyleSheet.create({
     fontSize: width * 0.035,
     fontWeight: '700',
   },
-  label:{
-    marginBottom:5,
-    paddingLeft:4,
-    fontSize:15,
-    fontWeight:"500"
+  label: {
+    marginBottom: 5,
+    paddingLeft: 4,
+    fontSize: 15,
+    fontWeight: "500"
   }
 });
 

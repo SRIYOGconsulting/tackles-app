@@ -5,13 +5,13 @@ import { Image, StyleSheet } from 'react-native';
 import Booking from './Booking';
 import Home from './Home';
 import Services from './Services';
+import About from './About';
 import Contact from './Contact';
-import Faqs from './Faqs';
 
 import HomeIcon from '../assets/icons/Home.png';
 import HomeActiveIcon from '../assets/icons/HomeActive.png';
 import ServicesIcon from '../assets/icons/Service.png';
-import BookingIcon from '../assets/icons/Book.png';
+// import BookingIcon from '../assets/icons/Book.png';
 import FaqsIcon from '../assets/icons/Faq.png';
 import ContactIcon from '../assets/icons/Contact.png';
 
@@ -19,6 +19,7 @@ import ServiceActiveIcon from '../assets/icons/ServiceActive.png';
 import BookActiveIcon from '../assets/icons/BookActive.png';
 import FaqsActiveIcon from '../assets/icons/FaqActive.png';
 import ContactActiveIcon from '../assets/icons/ContactActive.png';
+
 
 const Tab = createBottomTabNavigator();
 
@@ -109,7 +110,7 @@ const Tabs = () => {
       <Tab.Screen name="Home" component={Home} options={{ tabBarLabel: '' }} />
       <Tab.Screen name="Services" component={Services} options={{ tabBarLabel: '' }} />
       <Tab.Screen name="BookingTab" component={Booking} options={{ tabBarLabel: '' }} />
-      <Tab.Screen name="Request" component={Faqs} options={{ tabBarLabel: '' }} />
+      <Tab.Screen name="Request" component={About} options={{ tabBarLabel: '' }} />
       <Tab.Screen name="Contact" component={Contact} options={{ tabBarLabel: '' }} />
 
     </Tab.Navigator>

@@ -7,11 +7,11 @@ import {
   Alert,
   Dimensions,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import HeaderComponent from '../../components/HeaderComponent';
-import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 
-const {width, height} = Dimensions.get('window'); // Get screen dimensions
+const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
 // Font scaling utility function
 const scaleFont = (size: number) => {
@@ -92,6 +92,8 @@ const OtpScreen = () => {
           ))}
         </View>
 
+        <Text style={styles.resendcode}>Lorem ipsum dolor sit amet consectetur adipisicing elit. <Text style={{ color: 'blue' }}>Resend Code</Text></Text>
+
         <TouchableOpacity style={styles.submitButton} onPress={handleNavigate}>
           <Text style={styles.submitButtonText}>Submit</Text>
         </TouchableOpacity>
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: '5%',
-    paddingTop: height * 0.025, // Adjust top padding based on screen size
+    paddingTop: height * 0.09, // Adjust top padding based on screen size
     alignItems: 'center',
   },
   thankYouText: {
@@ -114,12 +116,13 @@ const styles = StyleSheet.create({
     width: '70%',
     textAlign: 'center',
     marginBottom: height * 0.08, // Adjust margin-bottom based on screen height
-    fontSize: scaleFont(20),
-    marginTop: height * 0.12, // Adjust top margin for large screens
+    fontSize: scaleFont(17),
+    marginTop: height * 0.03, // Adjust top margin for large screens
     fontWeight: '500',
+    lineHeight: 23
   },
   otpPromptText: {
-    fontSize: scaleFont(20),
+    fontSize: scaleFont(18.5),
     marginBottom: height * 0.04, // Adjust margin-bottom for larger screens
     fontWeight: '500',
   },
@@ -134,26 +137,32 @@ const styles = StyleSheet.create({
     height: width * 0.12, // Dynamic height to maintain square shape
     marginHorizontal: 5,
     borderWidth: 1,
-    borderColor: '#E3E3E3',
+    borderColor: 'hsl(0, 0%, 79%)',
     borderRadius: 5,
     textAlign: 'center',
     fontSize: scaleFont(18),
     backgroundColor: '#fff',
+    elevation: 3
+  },
+  resendcode: {
+    marginTop: 25,
+    paddingHorizontal: 20,
+    textAlign: 'center',
+    lineHeight: 22
   },
   submitButton: {
-    borderColor: '#0E61CD',
-    height: 48,
-    width: width * 0.35, // Adjust width based on screen size
+    backgroundColor: "green",
+    height: 43,
+    width: "85%", // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4,
-    marginTop: height * 0.15, // Dynamic margin-top for large screens
-    borderWidth: 1,
+    borderRadius: 100,
+    marginTop: height * 0.08, // Dynamic margin-top for large screens
   },
   submitButtonText: {
-    fontSize: scaleFont(22),
-    color: '#000',
-    fontWeight: '700',
+  fontSize: scaleFont(18),
+    color: '#fff',
+    fontWeight: '300',
   },
   mainContainer: {
     flex: 1,
@@ -162,7 +171,8 @@ const styles = StyleSheet.create({
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
-    
+    paddingBottom: 16,
+    paddingTop: 20.7
   },
 });
 

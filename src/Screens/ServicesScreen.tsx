@@ -4,7 +4,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import ServicesCards from '../components/services/ServicesCards';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import SliderCard from '../components/services/SliderCard';
-import {servicesData, topServices} from '../data/Data';
+import {servicesData2, topServices} from '../data/Data';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -12,7 +12,7 @@ import {
 
 const ServicesScreen = ({navigation}: {navigation: any}) => {
   const numberOfItemsBeforeFooter = 6;
-  const [data] = React.useState(servicesData);
+  const [data] = React.useState(servicesData2);
 
   const renderItem = ({item, index}: {item: any; index: number}) => {
     if (index === numberOfItemsBeforeFooter) {
@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
   sliderCardContainer: {
     paddingHorizontal: wp('5%'),
     marginBottom: hp('3%'),
+  
   },
 });
 

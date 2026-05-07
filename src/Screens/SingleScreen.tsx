@@ -15,10 +15,7 @@ import { useNavigation } from '@react-navigation/native';
 import { servicesData } from '../data/Data';
 import { RootStackParamList } from '../types';
 import LinearGradient from 'react-native-linear-gradient';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+
 const Button = ({ children, style, textStyle, onPress }: any) => {
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.85}>

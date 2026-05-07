@@ -238,6 +238,370 @@ export const servicesData = [
   },
 ];
 
+export const servicesData2 = [
+  {
+   id: 1,
+    name: 'Deep Cleaning',
+    words:'Complete home cleaning.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/cleaningANDexteriorMaintenance/deep-cleaning.jpg'),
+  },
+   {
+   id: 2,
+    name: 'Pressure Washing',
+    words:'Outdoor surface cleaning.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/cleaningANDexteriorMaintenance/pressure-washing.jpg'),
+  },
+  {
+   id: 3,
+    name: 'Roof & Gutter Cleaning',
+    words:'Roof and drainage cleaning.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/cleaningANDexteriorMaintenance/roof-gutter-cleaning.jpg'),
+  },
+   {
+   id: 4,
+    name: 'Handyman',
+    words:'Small repair works.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/handyman.jpg'),
+  },
+  {
+   id: 5,
+    name: 'Carpentry',
+    words:'Wood and furniture work.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/handyman.jpg'),
+  },
+  {
+   id: 6,
+    name: 'Pumbling',
+    words:'Pipe and leak fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
+  },
+   {
+   id: 7,
+    name: 'Electrical Repairs',
+    words:'Wiring and power fixes.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/electrical.jpg'),
+  },
+  {
+   id: 8,
+    name: 'Flooring Fixes',
+    words:'Tile and surface repair.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/flooring.jpg'),
+  },
+  {
+   id: 9,
+    name: 'Washing Machine Repair',
+    words:'Appliance maintenance.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/washing-machine-repair.jpg'),
+  },
+  {
+   id: 10,
+    name: 'Smart Home Setup',
+    words:'CCTV & automation.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/installationANDsmartHome/smart-home.jpg'),
+  },
+  {
+   id: 11,
+    name: 'EV Charger',
+    words:'EV charging install.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/installationANDsmartHome/electric-charger-installation.jpg'),
+  },
+  {
+   id: 12,
+    name: 'AC Servicing',
+    words:'Cooling system maintenance.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/installationANDsmartHome/ac-service.jpg'),
+  },
+   {
+   id: 13,
+    name: 'Painting',
+    words:'Interior & exterior paint.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/painting.jpg'),
+  },
+  {
+   id: 14,
+    name: 'Wallpaper',
+    words:'Wall decoration.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/wall-decoration.jpg'),
+  },
+  {
+   id: 15,
+    name: 'Drywall Repair',
+    words:'Wall fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/drywall-repair.jpg'),
+  },
+  {
+   id: 16,
+    name: 'Tile Work',
+    words:'Tile install & repair.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/tiling-work.jpg'),
+  },
+  {
+   id: 17,
+    name: 'Window Repair',
+    words:'Window fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/window-repair.jpg'),
+  },
+  {
+   id: 18,
+    name: 'Floor Repair',
+    words:'Floor fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/homeImprovement/floor-repair.jpg'),
+  },
+  {
+   id: 19,
+    name: 'Lawn Care',
+    words:'Grass & landscaping.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/lawn-care.jpg'),
+  },
+  {
+   id: 20,
+    name: 'Tree Cutting',
+    words:'Tree trimming.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/tree-cutting.jpg'),
+  },
+  {
+   id: 21,
+    name: 'Garden Care',
+    words:'Garden maintenance.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/garden-care.jpg'),
+  },
+  {
+   id: 22,
+    name: 'Irrigation',
+    words:'Water system setup.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/smart-irrigation.jpg'),
+  },
+  {
+   id: 23,
+    name: 'Fence Repair',
+    words:'Outdoor fixes.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/fence-repair.jpg'),
+  },
+  {
+   id: 24,
+    name: 'Outdoor Lighting',
+    words:'Lighting setup.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/outdoorServices/outdoor-lightning.jpg'),
+  },
+  {
+   id: 25,
+    name: 'Moving',
+    words:'Relocation help.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/movingANDproperty/relocation-assistance.jpg'),
+  },
+   {
+   id: 26,
+    name: 'Airbnb Maintenance',
+    words:'Property care.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/movingANDproperty/airbnb-maintenance.jpg'),
+  },
+   {
+   id: 27,
+    name: 'Packing',
+    words:'Packing service.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/movingANDproperty/packing.jpg'),
+  },
+   {
+   id: 28,
+    name: 'Home Concierge',
+    words:'Home management.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/subscriptionServices/home-concierge.jpg'),
+  },
+   {
+   id: 29,
+    name: 'Cleaning Plan',
+    words:'Regular cleaning.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/subscriptionServices/cleaning-plan.jpg'),
+  },
+   {
+   id: 30,
+    name: 'Maintenance Plan',
+    words:'Seasonal care.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/subscriptionServices/maintenance-plan.jpg'),
+  },
+
+]
+
 export const faqsQuestioin = [
   {
     id: 1,

@@ -38,7 +38,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.content}>
-            <Text style={styles.title}>Tackles | Fix it Today</Text>
+            <Text style={styles.title}>TACKLES | Fix it Today</Text>
             <Text style={styles.subtitle}>
               Professional Handyman Services in San Francisco
             </Text>

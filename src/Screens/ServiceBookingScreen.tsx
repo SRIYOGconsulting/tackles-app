@@ -23,6 +23,7 @@ const { width, height } = Dimensions.get('window');
 
 const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
+  const [location, setLocation] = useState('');
   const [number, setNumber] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedShift, setSelectedShift] = useState('');
@@ -75,7 +76,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <Text style={styles.label}>Full Name</Text>
           <TextInput
-            placeholder="Enter your full name"
+            placeholder="Enter Your Full Name"
             value={name}
             onChangeText={setName}
             style={styles.input}
@@ -84,7 +85,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <Text style={styles.label}>Phone Number</Text>
           <TextInput
-            placeholder="Enter your phone number"
+            placeholder="Enter Your Phone Number"
             value={number}
             onChangeText={value => setNumber(value.replace(/[^0-9]/g, ''))}
             keyboardType="numeric"
@@ -95,7 +96,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           <Text style={styles.label}>Select Service<Text style={{color:'red'}}>*</Text></Text>
           <Dropdown
             options={services}
-            placeholder="Select a service"
+            placeholder="Select Services"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedService}
           />
@@ -106,7 +107,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
               onPress={() => setShow(true)}
               style={styles.datePicker}>
               <Text style={[styles.datePickerText, { fontSize: width * 0.035 }]}>
-                {date ? date.toDateString() : 'Pick a date'}
+                {date ? date.toDateString() : 'Pick a Date'}
               </Text>
               <Image source={CalenderIcon} style={{height:21, width:21}}/>
             </TouchableOpacity>
@@ -116,6 +117,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
                 value={date || new Date()}
                 mode="date"
                 display="default"
+                minimumDate={new Date()}
                 onChange={(event, selectedDate) => {
                   if (event.type === 'set' && selectedDate) {
                     setDate(selectedDate);
@@ -127,11 +129,12 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <Text style={styles.label}>Your Location</Text>
-          <Dropdown
-            options={area}
-            placeholder="Select your location"
-            placeholderColor="#4B4B4B"
-            onSelectOption={setSelectedArea}
+          <TextInput
+            placeholder="Select Your Location"
+            value={location}
+            onChangeText={setLocation}
+            style={styles.input}
+            placeholderTextColor={'#4B4B4B'}
           />
 
           <Text style={styles.label}>Preferred Time<Text style={{color:'red'}}>*</Text></Text>

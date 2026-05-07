@@ -49,7 +49,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: hp('4%'), // Responsive icon height
-    width: wp('7.5%'), // Responsive icon width
+    width: wp('7.5%'), // Responsive icon width,
+    marginLeft:-4
+
   },
   phoneNumber: {
     fontWeight: '700',
@@ -64,8 +66,8 @@ const styles = StyleSheet.create({
     width: wp('20%'), // Adjust width for help button
     alignItems: 'center',
     justifyContent: 'center',
-    borderTopRightRadius: 15,
-    borderBottomRightRadius: 15,
+    borderTopRightRadius: 14,
+    borderBottomRightRadius: 14,
   },
   helpText: {
     color: '#fff',

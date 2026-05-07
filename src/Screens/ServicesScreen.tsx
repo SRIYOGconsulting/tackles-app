@@ -25,16 +25,13 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
         </View>
       );
     }
-
+  
     return (
       <View style={styles.serviceItemContainer}>
         <ServicesDisplaycard
           id={item.id}
           name={item.name}
-          description={item.description}
-          navigation={navigation}
-          question={item.question}
-          answer={item.answer}
+          words={item.words}
           image={item.image}
           onPress={() =>
             navigation.navigate('SingleScreen', {
@@ -92,7 +89,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
               )}
               showsVerticalScrollIndicator={false}
             />
-            <Text style={styles.sectionTitle}>Our Services</Text>
+            <Text style={styles.sectionTitle}>More Services</Text>
           </View>
         </View>
       }
@@ -142,7 +139,7 @@ const styles = StyleSheet.create({
   serviceItemContainer: {
     paddingLeft: wp('5%'),
     marginBottom: hp('3%'),
-    width: wp('48%'), // Adjust width to be responsive and fit in 2 columns
+    width: wp('48%'), 
   },
   sliderCardContainer: {
     paddingHorizontal: wp('5%'),

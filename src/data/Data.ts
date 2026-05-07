@@ -69,6 +69,7 @@ export const servicesData = [
   {
     id: 1,
     name: 'Wallpaper Fixing',
+    words:'Wall decoration',
     number: 11,
     description:
       'For wallpaper fixing, our professionals handle everything from installation to repairs, ensuring a seamless and elegant finish for your walls. Wallpaper installation in San Francisco requires careful planning due to the city’s unique mix of historic homes, modern apartments, and varying climate conditions. \n\nFollowing proper guidelines ensures a smooth, durable, and visually appealing finish. Start by assessing the wall surface. Many homes in San Francisco, especially older Victorian or Edwardian buildings, may have uneven plaster or previous layers of paint and wallpaper. \n\nClean the wall thoroughly to remove dust, grease, or residue, and repair any cracks or holes with filler. Sand the surface lightly to create a smooth base. Applying a primer is strongly recommended, as it helps the wallpaper adhere better and makes future removal easier. \n\nChoose the right type of wallpaper based on the room and environment. Vinyl wallpapers are ideal for kitchens and bathrooms due to their moisture resistance, while fabric or paper wallpapers work well in living spaces. \n\nGiven San Francisco’s coastal humidity, it’s important to select adhesives and materials that can withstand slight moisture variations without peeling. Accurate measurement is essential. Measure the wall height and width carefully, and account for pattern repeats when purchasing wallpaper rolls. \n\nIt’s wise to buy extra material to handle mistakes or future repairs. Before applying, cut the wallpaper into strips and arrange them in order to ensure pattern consistency. When applying wallpaper, start from a straight vertical line, typically near a corner or window. \n\nUse a level to ensure alignment. Apply adhesive evenly, avoiding excess glue that could cause bubbling. Smooth the wallpaper onto the wall using a brush or smoothing tool, working from the center outward to remove air pockets. Trim excess material at the edges using a sharp utility knife for a clean finish.',
@@ -80,6 +81,7 @@ export const servicesData = [
   {
     id: 2,
     name: 'Flooring',
+    words:'Floor fixing',
     number: 7,
     description:
       'Need flooring solutions? We provide expert services for tile laying, hardwood installation, and more, tailored to match your style and functionality needs.',
@@ -91,6 +93,7 @@ export const servicesData = [
   {
     id: 3,
     name: 'Plumbing',
+    words:'Pipe and leak fixing',
     number: 5,
     description:
       'If you need plumbing services, we offer expert assistance for installations and maintenance to keep your system running smoothly.',
@@ -102,6 +105,7 @@ export const servicesData = [
   {
     id: 4,
     name: 'Window Cleaning',
+    words:'Home care',
     number: 6,
     description:
       'Professional window cleaning services to ensure sparkling and streak-free windows for homes and offices.',
@@ -114,6 +118,7 @@ export const servicesData = [
   {
     id: 5,
     name: 'Carpeting',
+    words:'Wood and furniture work',
     number: 4,
     description:
       'If carpeting is what you need, we provide expert installation and maintenance services for all types of carpets.',
@@ -124,7 +129,8 @@ export const servicesData = [
   },
   {
     id: 6,
-    name: 'Air Conditioning',
+    name: 'Air Servicing',
+    words:'Cooling system maintenance',
     number: 10,
     description:
       'Reliable air conditioning services including installations, repairs, and maintenance for efficient cooling.',
@@ -135,7 +141,8 @@ export const servicesData = [
   },
   {
     id: 7,
-    name: 'Electrical Works',
+    name: 'Electrical Repairs',
+    words:'Wiring and power fixes',
     number: 8,
     description:
       'Our electrical works include expert wiring, fixture installations, and system upgrades for your property.',
@@ -147,6 +154,7 @@ export const servicesData = [
   {
     id: 8,
     name: 'Plumbing Repair',
+    words:'pipe and leak fixing',
     number: 9,
     description:
       'Quick and efficient plumbing repair services to fix leaks, clogs, and other issues in your system.',
@@ -158,6 +166,7 @@ export const servicesData = [
   {
     id: 9,
     name: 'Deep Cleaning',
+    words:'Complete home cleaning',
     number: 12,
     description:
       'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
@@ -169,6 +178,7 @@ export const servicesData = [
   {
     id: 10,
     name: 'Ac Repair',
+    words:'Cooling system maintenance ',
     number: 6,
     description:
       'Expert AC repair services to resolve cooling issues and restore your air conditioning system’s efficiency.',
@@ -180,6 +190,7 @@ export const servicesData = [
   {
     id: 11,
     name: 'Air Filtration',
+    words:'Cooling system maintenance',
     number: 10,
     description:
       'Concerned about air quality? We offer advanced air filtration services to help you create a cleaner and healthier indoor environment.',
@@ -192,6 +203,7 @@ export const servicesData = [
   {
     id: 12,
     name: 'Cladding',
+    words:'Professional Cladding',
     number: 8,
     description:
       'For cladding solutions, we provide a variety of materials and designs to improve your property’s aesthetics and structural durability.',
@@ -203,6 +215,7 @@ export const servicesData = [
   {
     id: 13,
     name: 'False Ceiling',
+    words:'Professional False Ceiling',
     number: 11,
     description:
       'Professional false ceiling installation services to enhance your interiors with elegant designs and practical features.',
@@ -214,6 +227,7 @@ export const servicesData = [
   {
     id: 14,
     name: 'Roofing',
+    words:'Specialized roofing assistance',
     number: 7,
     description:
       'Need roofing assistance? Our team specializes in installations, repairs, and maintenance to ensure your roof is built to last.',

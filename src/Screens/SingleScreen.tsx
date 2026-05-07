@@ -12,7 +12,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import { useNavigation } from '@react-navigation/native';
-import { servicesData } from '../data/Data';
+import { servicesData2 } from '../data/Data';
 import { RootStackParamList } from '../types';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -57,8 +57,11 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
     return array.sort(() => Math.random() - 0.5);
   };
 
+  // this is for dummy data in the Data.ts
+  const excludedIds = [6.1, 6.2];
+
   const otherServices = shuffleArray(
-    servicesData.filter(item => item.id !== service.id),
+    servicesData2.filter(item => !excludedIds.includes(item.id)),
   ).slice(0, 2);
 
   return (
@@ -96,7 +99,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           <View style={styles.servicesContainer2}>
             {otherServices.map(item => (
               <ServicesDisplaycard
-              style={{ width: '48%' }}
+                style={{ width: '48%' }}
                 words={item.words}
                 key={item.id}
                 textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
@@ -133,7 +136,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           <View style={styles.servicesContainer}>
             {otherServices.map(item => (
               <ServicesDisplaycard
-              style={{ width: '48%' }}
+                style={{ width: '48%' }}
                 words={item.words}
                 key={item.id}
                 textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
@@ -176,7 +179,8 @@ const styles = StyleSheet.create({
     width: '100%',
     height: height * 0.28, // Adjust image size relative to screen height
     borderRadius: 8,
-    marginBottom: '4%'
+    marginBottom: '4%',
+    resizeMode:'contain'
   },
   title: {
     color: '#0E61CD',
@@ -210,7 +214,7 @@ const styles = StyleSheet.create({
     marginTop: '1.8%',
     marginBottom: '3%',
   },
-servicesContainer: {
+  servicesContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between', // Keeps even spacing between cards
     flexWrap: 'wrap',               // Allows cards to drop to next line if they don't fit
@@ -228,24 +232,24 @@ servicesContainer: {
     fontWeight: '600',
   },
   buttonPadding: {
-  paddingBottom: 20,
-  alignItems: 'center',
-  color: '#fff'
-},
+    paddingBottom: 20,
+    alignItems: 'center',
+    color: '#fff'
+  },
   button1: {
-  width: width * 0.56,
-  justifyContent: 'center',
-  alignItems: 'center',
-  alignSelf: "center",
-  paddingVertical: 8,
-  borderRadius: 39,
-},
+    width: width * 0.56,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: "center",
+    paddingVertical: 8,
+    borderRadius: 39,
+  },
 
   text: {
-  fontSize: 18,
-  color: 'white',
-  fontWeight: 'bold',
-},
+    fontSize: 18,
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });
 
 

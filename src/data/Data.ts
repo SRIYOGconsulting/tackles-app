@@ -311,6 +311,32 @@ export const servicesData2 = [
       'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
     image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
   },
+  // for behind the slider page only-this below
+  {
+   id: 6.1,
+    name: 'Pumbling',
+    words:'Pipe and leak fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
+  },
+  {
+   id: 6.2,
+    name: 'Pumbling',
+    words:'Pipe and leak fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
+  },
+   // for behind the slider page only-this above
    {
    id: 7,
     name: 'Electrical Repairs',

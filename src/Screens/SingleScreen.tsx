@@ -102,7 +102,6 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
                 style={{ width: '48%' }}
                 words={item.words}
                 key={item.id}
-                textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
                 name={item.name}
                 image={item.image}
                 question={item.question}
@@ -139,7 +138,6 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
                 style={{ width: '48%' }}
                 words={item.words}
                 key={item.id}
-                textStyle={[styles.cardText, { fontSize: scaleFont(14) }]}
                 name={item.name}
                 image={item.image}
                 question={item.question}
@@ -218,7 +216,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between', // Keeps even spacing between cards
     flexWrap: 'wrap',               // Allows cards to drop to next line if they don't fit
-    width: '100%',                  // Ensures the container takes full width
+    width: '100%',     
+    marginBottom: '25%',               // Ensures the container takes full width
   },
   servicesContainer2: {
     flexDirection: 'row',
@@ -227,10 +226,7 @@ const styles = StyleSheet.create({
     width: '100%',
     marginBottom: '5%',             // Added some spacing for the text below it
   },
-  cardText: {
-    marginTop: 4,
-    fontWeight: '600',
-  },
+
   buttonPadding: {
     paddingBottom: 20,
     alignItems: 'center',

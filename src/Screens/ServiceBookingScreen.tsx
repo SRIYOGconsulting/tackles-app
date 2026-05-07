@@ -12,12 +12,16 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import {services, shifts } from '../../src/data/Data';
+import { services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import countryLogo from '../assets/image/header/right.png'
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const { width, height } = Dimensions.get('window');
 
@@ -80,13 +84,19 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           />
 
           <Text style={styles.label}>Phone Number</Text>
+          <Image
+            source={countryLogo}
+            style={styles.icon}
+            resizeMode="contain"
+          />
           <TextInput
             placeholder="Enter Your Phone Number"
             value={number}
             onChangeText={value => setNumber(value.replace(/[^0-9]/g, ''))}
             keyboardType="numeric"
-            style={styles.input}
+            style={styles.inputPhone}
             placeholderTextColor={'#4B4B4B'}
+            
           />
 
           <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
@@ -210,6 +220,29 @@ const styles = StyleSheet.create({
     borderColor: 'lightgreen',
     textAlignVertical: 'center',
     paddingBottom: 10,
+
+  },
+    inputPhone: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: width * 0.13,
+    height: height * 0.05,
+    marginBottom: height * 0.02,
+    fontSize: width * 0.035,
+    fontWeight: '500',
+    borderColor: 'lightgreen',
+    textAlignVertical: 'center',
+    paddingBottom: 10,
+
+  },
+  icon: {
+    height: hp('4%'), // Responsive icon height
+    width: wp('7.5%'), // Responsive icon width,
+    marginLeft: -4,
+    position:'absolute',
+    top:114,
+    left:10,
+    zIndex:2
 
   },
   datePicker: {

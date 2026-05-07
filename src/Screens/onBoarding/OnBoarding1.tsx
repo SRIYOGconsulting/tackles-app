@@ -1,4 +1,4 @@
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import OnboardingComponent from '../../components/OnboardingComponent';
 import { StyleSheet } from 'react-native';
@@ -6,15 +6,23 @@ import { StyleSheet } from 'react-native';
 const OnBoarding1 = ({ navigation }: { navigation: any }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.skipbutton}>
-        Skip {'>>'}
-      </Text>
-      <Text style={styles.title} >
+
+      {/* Skip Button */}
+      <Pressable
+        style={styles.skipContainer}
+        onPress={() => navigation.navigate('Main')}>
+        <Text style={styles.skipbutton}>Skip {'>>'}</Text>
+      </Pressable>
+      
+      <Text style={styles.title}>
         Welcome to Tackles
       </Text>
+
       <Text style={styles.subtitle}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, distinctio nisi, iste porro
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Neque, distinctio nisi, iste porro
       </Text>
+
       <OnboardingComponent
         title="Next"
         image={require('../../assets/image/onBoarding1.png')}
@@ -31,28 +39,32 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  skipbutton: {
+  skipContainer: {
     position: 'absolute',
-    left: 315,
+    right: 20,
     top: 55,
+    zIndex: 10,
+  },
+
+  skipbutton: {
     fontSize: 13,
-    fontWeight: "semibold"
+    fontWeight: '600',
   },
   title: {
     paddingTop: 95,
     paddingLeft: 21,
     fontSize: 25,
-    fontWeight: "800",
+    fontWeight: '800',
     paddingBottom: 12,
-    color: "green"
+    color: 'green',
   },
+
   subtitle: {
     paddingHorizontal: 21,
     fontSize: 15,
     lineHeight: 22,
-    color: "green"
-
-  }
+    color: 'green',
+  },
 });
 
 export default OnBoarding1;

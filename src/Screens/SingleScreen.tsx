@@ -122,7 +122,12 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
             <Button
               style={styles.button1}
               textStyle={{ color: 'white', textAlign: 'center', }}
-              onPress={() => navigation.navigate('ViewBooking')}
+              onPress={() =>
+                navigation.navigate('Booking', {
+                  screen: 'ServiceBookingScreen',
+                  params: { service},
+                })
+              }
             >
               Book a service
             </Button>
@@ -150,8 +155,8 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
             ))}
           </View>
         </View>
-      </ScrollView>
-    </View>
+      </ScrollView >
+    </View >
   );
 };
 
@@ -178,7 +183,7 @@ const styles = StyleSheet.create({
     height: height * 0.28, // Adjust image size relative to screen height
     borderRadius: 8,
     marginBottom: '4%',
-    resizeMode:'contain'
+    resizeMode: 'contain'
   },
   title: {
     color: '#0E61CD',
@@ -216,7 +221,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between', // Keeps even spacing between cards
     flexWrap: 'wrap',               // Allows cards to drop to next line if they don't fit
-    width: '100%',     
+    width: '100%',
     marginBottom: '25%',               // Ensures the container takes full width
   },
   servicesContainer2: {

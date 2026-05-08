@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: hp('1%'),
-    fontWeight: '400',
+    fontWeight: '600',
     fontSize: wp('4%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: hp('0.1%'),
     fontWeight: '400',
     fontSize: wp('3.5%'), // Responsive font size
-    color: '#000',
+    color: 'hsl(0, 0%, 25%)',
     textAlign: 'center',
   },
 });

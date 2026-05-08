@@ -11,14 +11,9 @@ import {
 import React from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 
-import Email from '../assets/icons/contact/Email.png';
-import Location from '../assets/icons/contact/Location.png';
-import Phone from '../assets/icons/contact/Phone.png';
-import Website from '../assets/icons/contact/Url.png';
-// import ButtonIcon from '../assets/icons/contact/ButtonIcon.png';
-// import WhatsApp from '../assets/icons/contact/WhatsApp.png';
-// import Green from '../assets/icons/contact/Green.png';
-// import Telegram from '../assets/icons/contact/Telegram.png';
+import Email from '../assets/icons/contact/email_1.png';
+import Location from '../assets/icons/contact/location-pin.png';
+import Website from '../assets/icons/contact/globe.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -52,22 +47,14 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Contact Us</Text>
         <Text style={styles.subtitle}>
-          For emergency care or to schedule an appointment & visit us.
+          Contact us, we're always here to help you out.
         </Text>
 
         {/* MAP section */}
-        <View>
+        <View style={styles.imageContainer}>
           <Image
-            source={require('../assets/image/sanfranciscomap.jpg')}
+            source={require('../assets/image/sanfranciscomap.png')}
             style={styles.rectangleImage}
-          />
-          {/* <Image
-            source={require('../assets/image/map.png')}
-            style={styles.mapImage}
-          /> */}
-          <Image
-            source={require('../assets/image/zoom.png')}
-            style={styles.zoomImage}
           />
         </View>
 
@@ -78,7 +65,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         {/* Contact Info Cards */}
         <View style={styles.GridBox}>
           <View style={styles.card}>
-            <Image source={Location} style={{ width: height * 0.035, height: height * 0.035 ,resizeMode:'contain'}} />
+            <Image source={Location} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain' }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Visit us</Text>
               <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
@@ -86,7 +73,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <View style={styles.card}>
-            <Image source={Email} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
+            <Image source={Email} style={{ width: height * 0.033, height: height * 0.033, resizeMode: 'contain',bottom:3 }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Email us</Text>
               <TouchableOpacity onPress={handleEmailPress}>
@@ -95,18 +82,18 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
             </View>
           </View>
 
-          <View style={styles.card}>
-            <Image source={Phone} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
+          {/* <View style={styles.card}>
+            <Image source={Phone} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain' }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Contact us</Text>
               <TouchableOpacity onPress={() => handleCall(phoneNumber)}>
                 <Text style={styles.cardSubtitle}>+1-1234567890</Text>
               </TouchableOpacity>
             </View>
-          </View>
+          </View> */}
 
-          <View style={styles.card}>
-            <Image source={Website} style={{ width: height * 0.035, height: height * 0.035,resizeMode:'contain' }} />
+          <View style={[styles.card, { marginLeft: 105 }]}>
+            <Image source={Website} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain',bottom:3 }} />
 
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Working hours</Text>
@@ -164,31 +151,26 @@ const styles = StyleSheet.create({
   title: {
     fontSize: height * 0.025,
     fontWeight: '700',
-    marginBottom: height * 0.02,
+    marginBottom: height * 0.002,
     paddingTop: 10
   },
   subtitle: {
-    fontSize: height * 0.02,
+    fontSize: height * 0.017,
     fontWeight: '400',
     width: '80%',
     marginBottom: height * 0.033,
   },
+  imageContainer: {
+    width: '100%',
+    height: 220,
+    overflow: 'hidden',
+    borderRadius: 12,
+  },
+
   rectangleImage: {
     width: '100%',
-    height: height * 0.22,
-    resizeMode: 'cover',
-  },
-  mapImage: {
-    position: 'absolute',
-    height: height * 0.18,
-    resizeMode: 'cover',
-  },
-  zoomImage: {
-    position: 'absolute',
-    bottom: 10,
-    right: 18,
-    width: 30,
-    height: 30,
+    height: '100%',
+    resizeMode: 'cover', // or 'cover'
   },
   companyName: {
     fontSize: height * 0.022,
@@ -197,25 +179,25 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.005,
   },
   companySubtitle: {
-    fontSize: height * 0.018,
+    fontSize: height * 0.016,
     fontWeight: '400',
     marginBottom: height * 0.02,
-    paddingLeft:3
+    paddingLeft: 3
   },
   card: {
     flexDirection: "column",
-    alignItems: "flex-start",
+    alignItems: "center",
     gap: '3.8%',
-    height: Dimensions.get('window').height * 0.13,
+    height: Dimensions.get('window').height * 0.14,
     marginBottom: Dimensions.get('window').height * 0.025,
-    marginHorizontal:Dimensions.get('window').height * 0.014,
+    marginHorizontal: Dimensions.get('window').height * 0.014,
     width: Dimensions.get('window').width * 0.4,
-    borderRadius:16,
-    boxShadow:"0px 3px 30px hsl(0, 0%, 80%)",
-    paddingVertical:11,
-    paddingHorizontal:10,
-    paddingLeft:16,
-    justifyContent:'center'
+    borderRadius: 16,
+    paddingVertical: 11,
+    paddingHorizontal: 10,
+    paddingLeft: 16,
+    justifyContent: 'center',
+    boxShadow: '0px 0px 2px #000',
   },
   cardContent: {
     gap: 2,
@@ -223,15 +205,21 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: Dimensions.get('window').height * 0.018,
     fontWeight: '500',
+    color:"hsl(120, 100%, 20%)",
+    alignSelf:'center',
+    textAlign:'center'
   },
   cardSubtitle: {
     fontSize: Dimensions.get('window').height * 0.015,
     fontWeight: '400',
+    alignSelf:'center',
+    textAlign:'center'
   },
-  GridBox:{
-    flexWrap:'wrap',
-    flexDirection:'row',
+  GridBox: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    marginTop:10
   },
   buttonsContainer: {
     width: '100%',

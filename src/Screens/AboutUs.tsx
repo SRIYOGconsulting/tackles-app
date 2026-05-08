@@ -121,14 +121,14 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: wp('3.7%'),
-    color: '#ff1313',
+    color: 'hsl(0, 0%, 15%)',
     fontWeight: '400',
     lineHeight:19,
     marginTop:10
   },
   lineheighpara:{
     fontSize: wp('3.7%'),
-    color: '#ff1313',
+    color: 'hsl(0, 0%, 15%)',
     fontWeight: '400',
     paddingTop:8,
     lineHeight:19,

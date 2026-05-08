@@ -22,8 +22,26 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import LinearGradient from 'react-native-linear-gradient';
 
 const { width, height } = Dimensions.get('window');
+
+const Button = ({ children, style, textStyle, onPress }: any) => {
+  return (
+    <TouchableOpacity onPress={onPress} activeOpacity={0.85}>
+      <LinearGradient
+        colors={['#047857', '#15803d', '#65a30d']} // emerald gradient
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={[styles.button1, style]}
+      >
+        <Text style={[styles.text, textStyle]}>
+          {children}
+        </Text>
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
 
 const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
@@ -96,7 +114,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             keyboardType="numeric"
             style={styles.inputPhone}
             placeholderTextColor={'#4B4B4B'}
-            
+
           />
 
           <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
@@ -174,15 +192,24 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderTextColor="#4B4B4B"
             maxHeight={160}
           />
+          {/* Submit Button */}
+          <View style={styles.buttonPadding}>
+            <Button
+              style={styles.button1}
+              textStyle={{ color: 'white', textAlign: 'center', }}
+              onPress={handleSubmit}
+            >
+              Submit Booking
+            </Button>
+
+          </View>
         </View>
+
+
+
+
       </View>
 
-      {/* Submit Button */}
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.buttonText}>Book Now</Text>
-        </TouchableOpacity>
-      </View>
     </KeyboardAwareScrollView>
   );
 };
@@ -198,6 +225,8 @@ const styles = StyleSheet.create({
   formContainer: {
     paddingHorizontal: width * 0.05,
     paddingTop: height * 0.02,
+    backgroundColor: 'teal'
+
   },
   title: {
     fontSize: width * 0.06,
@@ -205,9 +234,17 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.001,
     paddingTop: 2,
     paddingBottom: 3,
+    color: 'white',
+    paddingLeft: 8
   },
   inputGroup: {
     marginTop: height * 0.015,
+    padding: 20,
+    borderRadius: 20,
+    backgroundColor: '#fff',
+    maxHeight: '90%',
+    elevation: 10,
+
   },
   input: {
     borderWidth: 1,
@@ -222,10 +259,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
 
   },
-    inputPhone: {
+  inputPhone: {
     borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: width * 0.13,
+    paddingHorizontal: width * 0.113,
     height: height * 0.05,
     marginBottom: height * 0.02,
     fontSize: width * 0.035,
@@ -239,10 +276,10 @@ const styles = StyleSheet.create({
     height: hp('4%'), // Responsive icon height
     width: wp('7.5%'), // Responsive icon width,
     marginLeft: -4,
-    position:'absolute',
-    top:114,
-    left:10,
-    zIndex:2
+    position: 'absolute',
+    top: 133,
+    left: 30,
+    zIndex: 2
 
   },
   datePicker: {
@@ -260,32 +297,41 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#4B4B4B'
   },
-  buttonContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 145,
-    marginLeft: 240,
-    paddingBottom: 60
-  },
   submitButton: {
     backgroundColor: '#0E61CD',
     borderRadius: 10,
-    height: height * 0.047,
-    width: width * 0.28,
+    height: height * 0.055,
+    width: width * 0.35,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: width * 0.035,
-    fontWeight: '700',
   },
   label: {
     marginBottom: 5,
     paddingLeft: 4,
     fontSize: 15,
-    fontWeight: "500"
-  }
+    fontWeight: "500",
+
+  },
+  buttonPadding: {
+    paddingBottom: 41,
+    alignItems: 'center',
+    color: '#fff'
+  },
+  button1: {
+    width: width * 0.45,
+    height:height *0.06,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: "center",
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginTop:40
+  },
+  text: {
+    color: '#fff',
+    fontSize: width * 0.04,
+    fontWeight: '600',
+  },
 });
 
 export default ServiceBookingScreen;

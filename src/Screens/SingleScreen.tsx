@@ -72,27 +72,27 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
       {/* Scrollable content */}
       <ScrollView style={styles.scrollView}>
         <View style={styles.container}>
-          <Text style={[styles.title, { fontSize: scaleFont(20) }]}>
+          <Text style={[styles.title, { fontSize: scaleFont(21) }]}>
             {service.name}
           </Text>
           <Image source={service.image} style={styles.image} />
-          <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
+          <Text style={[styles.subtitle, { fontSize: scaleFont(18) }]}>
             {`About ${service.name}`}
           </Text>
-          <Text style={[styles.description, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.description, { fontSize: scaleFont(15) }]}>
             {service.description}
           </Text>
-          <Text style={[styles.question, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.question, { fontSize: scaleFont(15) }]}>
             {service.question}
           </Text>
-          <Text style={[styles.answer, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.answer, { fontSize: scaleFont(15) }]}>
             {service.answer}
           </Text>
 
-          <Text style={[styles.subtitle, { fontSize: scaleFont(19) }]}>
+          <Text style={[styles.subtitle, { fontSize: scaleFont(18) }]}>
             {`Example of ${service.name}`}
           </Text>
-          <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.description2, { fontSize: scaleFont(15) }]}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
           </Text>
 
@@ -114,7 +114,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
             ))}
           </View>
 
-          <Text style={[styles.description2, { fontSize: scaleFont(17) }]}>
+          <Text style={[styles.description2, { fontSize: scaleFont(15) }]}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
           </Text>
 
@@ -134,7 +134,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
 
           </View>
 
-          <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(20) }]}>
+          <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(18) }]}>
             Related Services
           </Text>
           <View style={styles.servicesContainer}>
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   description2: {
     fontWeight: '500',
-    marginBottom: '10%'
+    marginBottom: '10%',
   },
   question: {
     fontWeight: '500',

@@ -60,9 +60,13 @@ const ServicesCards = ({
 const styles = StyleSheet.create({
   cardContainer: {
     flexDirection: 'row',
-
+    width:wp(90),
     height: wp(26),
-    marginBottom: hp(2), // Responsive bottom margin
+    marginBottom: hp(3.5), 
+    alignItems:'center',
+    borderRadius:12,
+    boxShadow:'0px 0px 4px #7cbc7a',
+    
   },
   imageContainer: {
     flex: 1,
@@ -70,8 +74,12 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%', // Use full width of the container for responsiveness
-    height: wp(25), // Height based on screen width (adjustable)
+    height: wp(25.8), // Height based on screen width (adjustable)
     borderRadius: 8, // Rounded corners
+    marginTop:-20,
+    marginLeft:3,
+    boxShadow:'0px 0px 4px #000',
+
   },
   textContainer: {
     marginLeft: wp(3), // Add some space between the image and text
@@ -82,14 +90,14 @@ const styles = StyleSheet.create({
     fontSize: wp(4.1), // Responsive font size based on screen width
     fontWeight: '600',
     // Responsive margin
-    color: '#000',
+    color: 'hsl(120, 100%, 15%)',
     paddingBottom:3
     
   },
   description: {
-    fontSize: wp(3.5), // Responsive description font size
+    fontSize: wp(3.1), // Responsive description font size
     fontWeight: '400',
-    color: '#000000',
+    color: 'hsl(0, 0%, 25%)',
     letterSpacing:-0.3,
     lineHeight:17
   },

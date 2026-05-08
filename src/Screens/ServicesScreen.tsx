@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: hp('4%'),
   },
   headerTitle: {
-    fontSize: wp('6.0%'), // Responsive font size for title
+    fontSize: wp('7.0%'), // Responsive font size for title
     fontWeight: '500',
     color: '#000',
     paddingBottom:2

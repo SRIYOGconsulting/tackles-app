@@ -11,7 +11,7 @@ const OnBoarding1 = ({ navigation }: { navigation: any }) => {
       <Pressable
         style={styles.skipContainer}
         onPress={() => navigation.navigate('Main')}>
-        <Text style={styles.skipbutton}>Skip {'>>'}</Text>
+        <Text style={styles.skipbutton}>SKIP</Text>
       </Pressable>
       
       <Text style={styles.title}>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   skipContainer: {
     position: 'absolute',
-    right: 20,
+    right: 21,
     top: 55,
     zIndex: 10,
   },
@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   skipbutton: {
     fontSize: 13,
     fontWeight: '600',
+    color:"purple"
   },
   title: {
     paddingTop: 95,

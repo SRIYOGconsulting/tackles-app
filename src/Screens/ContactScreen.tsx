@@ -159,12 +159,12 @@ const styles = StyleSheet.create({
     fontSize: height * 0.017,
     fontWeight: '400',
     width: '80%',
-    marginBottom: height * 0.033,
+    marginBottom: height * 0.02,
     
   },
   imageContainer: {
     width: '100%',
-    height: 220,
+    height: 230,
     overflow: 'hidden',
     borderRadius: 12,
   },

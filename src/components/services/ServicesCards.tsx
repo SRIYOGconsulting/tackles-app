@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     marginBottom: hp(3.5), 
     alignItems:'center',
     borderRadius:12,
-    boxShadow:'0px 0px 4px #7cbc7a',
+    boxShadow:'0px 0px 1px #7cbc7a',
     
   },
   imageContainer: {
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 8, // Rounded corners
     marginTop:-20,
     marginLeft:3,
-    boxShadow:'0px 0px 4px #000',
+    boxShadow:'-10px 10px 2px rgba(0, 0, 0,0.15)',
 
   },
   textContainer: {

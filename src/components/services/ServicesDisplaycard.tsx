@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius:13,
     paddingBottom:30,
     maxHeight:195,
-    boxShadow:'0px 0px 4px #7cbc7a',
+    boxShadow:'0px 0px 3px #7cbc7a',
     overflow:'hidden'
   },
   image: {

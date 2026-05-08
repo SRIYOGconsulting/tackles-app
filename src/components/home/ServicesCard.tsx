@@ -23,7 +23,7 @@ const ServicesCard = ({title, image, style}: Props) => {
 
 const styles = StyleSheet.create({
   card: {
-    borderRadius: 16,
+    borderRadius: 8,
     alignItems: 'center',
     height: height * 0.142, // 18% of screen height
     width: width * 0.27, // 25% of screen width
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent:'center',
     overflow:'hidden',
-      boxShadow:'0px 0px 4px #7cbc7a',
+      boxShadow:'0px 0px 2px #7cbc7a',
   },
   image: {
     height: height * 0.09,

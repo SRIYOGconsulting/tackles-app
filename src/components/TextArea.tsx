@@ -53,7 +53,7 @@ const TextArea: React.FC<TextAreaProps> = ({
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: 'lightgreen',
+    borderColor: '#3CB371',
     borderRadius: 10,
     padding: 10,
     fontSize: 16,

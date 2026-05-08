@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     fontSize: width * 0.035,
     fontWeight: '500',
-    borderColor: 'lightgreen',
+    borderColor: '#3CB371',
     textAlignVertical: 'center',
     paddingBottom: 10,
 
@@ -267,7 +267,7 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     fontSize: width * 0.035,
     fontWeight: '500',
-    borderColor: 'lightgreen',
+    borderColor: '#3CB371',
     textAlignVertical: 'center',
     paddingBottom: 10,
 
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'lightgreen',
+    borderColor: '#3CB371',
     borderRadius: 10,
     paddingHorizontal: width * 0.03,
     height: height * 0.05,
@@ -296,14 +296,6 @@ const styles = StyleSheet.create({
     fontSize: width * 0.035,
     fontWeight: '500',
     color: '#4B4B4B'
-  },
-  submitButton: {
-    backgroundColor: '#0E61CD',
-    borderRadius: 10,
-    height: height * 0.055,
-    width: width * 0.35,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   label: {
     marginBottom: 5,

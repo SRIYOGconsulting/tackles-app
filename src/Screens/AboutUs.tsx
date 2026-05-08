@@ -26,6 +26,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         showsVerticalScrollIndicator={false}
         bounces={false}>
         <View style={styles.container}>
+          <Text style={styles.maintitle}>About Us</Text>
           <View style={styles.banner}>
             <Image
               source={require('../assets/aboutUs/aboutUsBanner.jpg')}
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
     height: hp('30%'),
     alignSelf: 'center',
     borderRadius: 10,
-    marginTop: 100,
+    marginTop: 91,
     overflow: 'hidden',
   },
   bannerImage: {
@@ -113,9 +114,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp('5%'),
     paddingTop: hp('2.5%'),
   },
+   maintitle: {
+    fontSize: wp('6.2%'),
+    color: '#064E3B',
+    fontWeight: '900',
+    top:82,
+    left:128
+  },
   title: {
     fontSize: wp('5.2%'),
-    color: '#0E61CD',
+    color: '#064E3B',
     fontWeight: '900',
     marginBottom: hp('0.2%'),
   },

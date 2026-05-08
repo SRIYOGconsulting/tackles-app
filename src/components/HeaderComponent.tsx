@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingLeft:20,
     gap:190,
-    paddingTop:4
+    paddingTop:4,
+    position:'static'
 
   },
   leftIcon: {

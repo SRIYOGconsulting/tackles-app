@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
     paddingTop: 2,
     paddingBottom: 3,
     color: 'white',
-    paddingLeft: 8
+    paddingLeft: 8,
   },
   inputGroup: {
     marginTop: height * 0.015,

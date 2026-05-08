@@ -114,15 +114,15 @@ const styles = StyleSheet.create({
     marginBottom: hp('4%'),
   },
   headerTitle: {
-    fontSize: wp('7.0%'), // Responsive font size for title
-    fontWeight: '500',
-    color: '#000',
+    fontSize: wp('7.5%'), // Responsive font size for title
+    fontWeight: '800',
+    color: '#fff',
     paddingBottom:2
   },
   headerSubtitle: {
     fontSize: wp('4%'),
-    fontWeight: '500',
-    color: '#000',
+    fontWeight: '800',
+    color: '#fff',
     marginTop: hp('0.1%'),
   },
   sectionContainer: {
@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: wp('4.5%'),
-    fontWeight: '500',
-    color: '#0E61CD',
+    fontWeight: '800',
+    color: '#064E3B',
     marginBottom: hp('2%'),
   },
   serviceItemContainer: {

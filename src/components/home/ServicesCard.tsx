@@ -16,7 +16,6 @@ const ServicesCard = ({title, image, style}: Props) => {
   return (
     <TouchableOpacity style={styles.card}>
       <Image source={image} style={[styles.image, style]} />
-      <View style={styles.divider} />
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
@@ -24,33 +23,30 @@ const ServicesCard = ({title, image, style}: Props) => {
 
 const styles = StyleSheet.create({
   card: {
-    borderWidth: 1,
-    borderColor: '#D9D9D9',
     borderRadius: 16,
     alignItems: 'center',
-    height: height * 0.150, // 18% of screen height
-    width: width * 0.24, // 25% of screen width
-    marginTop: height * 0.006,
-    marginHorizontal: width * 0.025,
+    height: height * 0.142, // 18% of screen height
+    width: width * 0.27, // 25% of screen width
+    marginTop: height * 0.012,
+    marginHorizontal: width * 0.014,
     backgroundColor: '#fff',
-    justifyContent:'center'
+    justifyContent:'center',
+    overflow:'hidden',
+      boxShadow:'0px 0px 4px #7cbc7a',
   },
   image: {
     height: height * 0.09,
-    width: width * 0.19,
-    resizeMode: 'contain',
+    width: '100%',
+    resizeMode: 'cover',
+    marginTop:-13,
   },
-  divider: {
-    borderBottomWidth: 1,
-    borderColor: '#4B4B4B',
-    width: '75%',
-    marginVertical: height * 0.01,
-  },
+
   title: {
     fontSize: width * 0.035,
-    fontWeight: '400',
+    fontWeight: '700',
     color: 'hsl(0, 0%, 9%)',
     textAlign: 'center',
+    marginTop:12
   },
 });
 

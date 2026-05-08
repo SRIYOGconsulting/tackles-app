@@ -65,105 +65,101 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
   ).slice(0, 2);
 
   return (
-    <View style={styles.mainContainer}>
-      {/* Header is placed outside ScrollView */}
+
+    <ScrollView style={styles.scrollView}>
       <HeaderComponent style={styles.header} />
-
-      {/* Scrollable content */}
-      <ScrollView style={styles.scrollView}>
-        <View style={styles.container}>
-          <Text style={[styles.title, { fontSize: scaleFont(21) }]}>
-            {service.name}
-          </Text>
+      <View style={styles.container}>
+        <Text style={[styles.title, { fontSize: scaleFont(21) }]}>
+          {service.name}
+        </Text>
+        <View style={styles.imageContainer}>
           <Image source={service.image} style={styles.image} />
-          <Text style={[styles.subtitle, { fontSize: scaleFont(18) }]}>
-            {`About ${service.name}`}
-          </Text>
-          <Text style={[styles.description, { fontSize: scaleFont(15) }]}>
-            {service.description}
-          </Text>
-          <Text style={[styles.question, { fontSize: scaleFont(15) }]}>
-            {service.question}
-          </Text>
-          <Text style={[styles.answer, { fontSize: scaleFont(15) }]}>
-            {service.answer}
-          </Text>
-
-          <Text style={[styles.subtitle, { fontSize: scaleFont(18) }]}>
-            {`Example of ${service.name}`}
-          </Text>
-          <Text style={[styles.description2, { fontSize: scaleFont(15) }]}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
-          </Text>
-
-          <View style={styles.servicesContainer2}>
-            {otherServices.map(item => (
-              <ServicesDisplaycard
-                style={{ width: '48%' }}
-                words={item.words}
-                key={item.id}
-                name={item.name}
-                image={item.image}
-                question={item.question}
-                answer={item.answer}
-                description={item.description}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', { service: item })
-                }
-              />
-            ))}
-          </View>
-
-          <Text style={[styles.description2, { fontSize: scaleFont(15) }]}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
-          </Text>
-
-          <View style={styles.buttonPadding}>
-            <Button
-              style={styles.button1}
-              textStyle={{ color: 'white', textAlign: 'center', }}
-              onPress={() =>
-                navigation.navigate('Booking', {
-                  screen: 'ServiceBookingScreen',
-                  params: { service},
-                })
-              }
-            >
-              Book a service
-            </Button>
-
-          </View>
-
-          <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(18) }]}>
-            Related Services
-          </Text>
-          <View style={styles.servicesContainer}>
-            {otherServices.map(item => (
-              <ServicesDisplaycard
-                style={{ width: '48%' }}
-                words={item.words}
-                key={item.id}
-                name={item.name}
-                image={item.image}
-                question={item.question}
-                answer={item.answer}
-                description={item.description}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', { service: item })
-                }
-              />
-            ))}
-          </View>
         </View>
-      </ScrollView >
-    </View >
+        <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
+          {`About ${service.name}`}
+        </Text>
+        <Text style={[styles.description, { fontSize: scaleFont(14) }]}>
+          {service.description}
+        </Text>
+        <Text style={[styles.question, { fontSize: scaleFont(14) }]}>
+          {service.question}
+        </Text>
+        <Text style={[styles.answer, { fontSize: scaleFont(14) }]}>
+          {service.answer}
+        </Text>
+
+        <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
+          {`Example of ${service.name}`}
+        </Text>
+        <Text style={[styles.description2, { fontSize: scaleFont(14) }]}>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
+        </Text>
+
+        <View style={styles.servicesContainer2}>
+          {otherServices.map(item => (
+            <ServicesDisplaycard
+              style={{ width: '48%' }}
+              words={item.words}
+              key={item.id}
+              name={item.name}
+              image={item.image}
+              question={item.question}
+              answer={item.answer}
+              description={item.description}
+              onPress={() =>
+                navigation.navigate('SingleScreen', { service: item })
+              }
+            />
+          ))}
+        </View>
+
+        <Text style={[styles.description2, { fontSize: scaleFont(14) }]}>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
+        </Text>
+
+        <View style={styles.buttonPadding}>
+          <Button
+            style={styles.button1}
+            textStyle={{ color: 'white', textAlign: 'center', }}
+            onPress={() =>
+              navigation.navigate('Booking', {
+                screen: 'ServiceBookingScreen',
+                params: { service },
+              })
+            }
+          >
+            Book a service
+          </Button>
+
+        </View>
+
+        <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(18) }]}>
+          Related Services
+        </Text>
+        <View style={styles.servicesContainer}>
+          {otherServices.map(item => (
+            <ServicesDisplaycard
+              style={{ width: '48%' }}
+              words={item.words}
+              key={item.id}
+              name={item.name}
+              image={item.image}
+              question={item.question}
+              answer={item.answer}
+              description={item.description}
+              onPress={() =>
+                navigation.navigate('SingleScreen', { service: item })
+              }
+            />
+          ))}
+        </View>
+      </View>
+    </ScrollView >
+
   );
 };
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
   header: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
@@ -178,21 +174,30 @@ const styles = StyleSheet.create({
     paddingTop: '5%',
     flex: 1,
   },
+  imageContainer: {
+    width: '100%',
+    height: height * 0.27,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
+    borderRadius: 8,
+    elevation:5,
+    marginBottom:15
+  },
+
   image: {
     width: '100%',
-    height: height * 0.28, // Adjust image size relative to screen height
-    borderRadius: 8,
-    marginBottom: '4%',
-    resizeMode: 'contain'
+    height: '100%',
+    resizeMode: 'cover', // fills perfectly
   },
   title: {
-    color: '#0E61CD',
+    color: '#064E3B',
     fontWeight: '900',
     marginTop: '2%',
     marginBottom: "4%"
   },
   subtitle: {
-    color: '#0E61CD',
+    color: '#064E3B',
     fontWeight: '700',
     marginBottom: '4%'
   },
@@ -212,7 +217,7 @@ const styles = StyleSheet.create({
     marginBottom: '4%'
   },
   otherServicesTitle: {
-    color: '#0E61CD',
+    color: '#064E3B',
     fontWeight: '900',
     marginTop: '1.8%',
     marginBottom: '3%',

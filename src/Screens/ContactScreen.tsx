@@ -149,16 +149,18 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.02,
   },
   title: {
-    fontSize: height * 0.025,
+    fontSize: height * 0.029,
     fontWeight: '700',
-    marginBottom: height * 0.002,
-    paddingTop: 10
+    marginBottom: height * 0.001,
+    paddingTop: 10,
+    color:'#064E3B'
   },
   subtitle: {
     fontSize: height * 0.017,
     fontWeight: '400',
     width: '80%',
     marginBottom: height * 0.033,
+    
   },
   imageContainer: {
     width: '100%',
@@ -176,7 +178,9 @@ const styles = StyleSheet.create({
     fontSize: height * 0.022,
     fontWeight: '600',
     marginTop: height * 0.025,
-    marginBottom: height * 0.005,
+    marginBottom: height * 0.003,
+    color:'#064E3B'
+
   },
   companySubtitle: {
     fontSize: height * 0.016,
@@ -198,6 +202,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     justifyContent: 'center',
     boxShadow: '0px 0px 2px #000',
+
   },
   cardContent: {
     gap: 2,

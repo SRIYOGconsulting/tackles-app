@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: width * 0.04, // Responsive font size
     fontWeight: '900',
-    color: '#000',
+    color: '#fff',
     paddingBottom:2
 
   },
@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
     fontSize: width * 0.036,
     fontWeight: '500',
     marginBottom: height * 0.018,
-    color: '#000',
+    color: '#fff',
     textAlign: 'center',
   },
   name: {
     fontSize: width * 0.044,
     fontWeight: '600',
-    color: '#000',
+    color: '#fff',
   },
 });
 

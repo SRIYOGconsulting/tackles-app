@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: hp(1.4), // Responsive margin-top
     textAlign: 'left',
-    color: 'hsl(120, 100%, 15%)',
+    color: '#000',
     paddingLeft:11
   },
   words:{

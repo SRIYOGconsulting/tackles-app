@@ -19,17 +19,21 @@ const ProfessionalCard = ({title, image, style}: Props) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginVertical: hp('1%'), // Responsive vertical margin
+    marginVertical: hp('1%'),
   },
   image: {
     width: wp('18%'), // Default image width (can be overridden with prop)
     height: wp('18%'), // Square image
     resizeMode: 'contain',
+    borderRadius:100,
+    elevation:3,
+    borderWidth:1,
+    borderColor:'hsl(0, 0%, 50%)'
   },
   title: {
     marginTop: hp('1%'),
-    fontWeight: '400',
-    fontSize: wp('3.5%'), // Responsive font size
+    fontWeight: '600',
+    fontSize: wp('3.1%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
   },

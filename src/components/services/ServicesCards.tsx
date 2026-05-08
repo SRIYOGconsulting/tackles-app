@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontSize: wp(4.1), // Responsive font size based on screen width
     fontWeight: '600',
     // Responsive margin
-    color: 'hsl(120, 100%, 15%)',
+    color: '#000',
     paddingBottom:3
     
   },

@@ -47,16 +47,16 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <View style={styles.row}>
               <ServicesCard
                 title="Painting"
-                image={require('../assets/image/homescreen/Painting.png')}
+                image={require('../assets/services/homeImprovement/painting.jpg')}
               />
               <ServicesCard
                 title="Plumbing"
-                image={require('../assets/image/homescreen/Plumbing.png')}
-                style={styles.serviceCardSpecial}
+                image={require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg')}
+                // style={styles.serviceCardSpecial}
               />
               <ServicesCard
                 title="Tiling"
-                image={require('../assets/image/homescreen/Flooring.png')}
+                image={require('../assets/services/homeImprovement/tiling-work.jpg')}
               />
             </View>
             <View style={styles.Padding1}></View>
@@ -69,7 +69,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person5.png')}
                 title="Plumber"
-                style={styles.professionalCardSpecial}
+                // style={styles.professionalCardSpecial}
               />
               <ProfessionalCard
                 image={require('../assets/image/homescreen/person3.png')}
@@ -121,21 +121,27 @@ const styles = StyleSheet.create({
     paddingTop: hp('2.5%'),
   },
   title: {
-    fontSize: wp('4.5%'),
-    color: '#0E61CD',
+    fontSize: wp('5%'),
+    color: '#064E3B',
     fontWeight: '900',
     marginBottom: hp('0.2%'),
+    paddingLeft:77
   },
   subtitle: {
     fontSize: wp('3.5%'),
-    color: '#0E61CD',
+    color: '#111827',
     fontWeight: '400',
     paddingBottom: 15,
+    paddingLeft:26,
+    borderBottomWidth:1,
+    borderStyle:'dashed'
   },
   sectionTitle: {
-    fontSize: wp('4%'),
-    color: '#0E61CD',
+    fontSize: wp('4.2%'),
+    color: '#064E3B',
     fontWeight: '900',
+    marginTop:10,
+    marginBottom:2
   },
   row: {
     flexDirection: 'row',
@@ -143,7 +149,7 @@ const styles = StyleSheet.create({
     marginVertical: hp('0.5%'),
   },
   Padding1: {
-    paddingBottom: 17,
+    paddingBottom: 5,
   },
   serviceCardSpecial: {
     width: wp('26%'),

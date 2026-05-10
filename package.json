@@ -18,7 +18,7 @@
     "@react-navigation/native-stack": "^7.3.10",
     "@reduxjs/toolkit": "^2.7.0",
     "airtable": "^0.12.2",
-    "axios": "^1.9.0",
+    "axios": "^1.15.2",
     "react": "19.0.0",
     "react-native": "0.79.1",
     "react-native-config": "^1.5.5",

@@ -29,7 +29,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           <Text style={styles.maintitle}>About Us</Text>
           <View style={styles.banner}>
             <Image
-              source={require('../assets/aboutUs/aboutUsBanner.jpg')}
+              source={require('../assets/aboutUs/aboutUS.jpeg')}
               style={styles.bannerImage}
             />
           </View>
@@ -43,10 +43,16 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
             <Text style={styles.title}>Our Story</Text>
             <Text style={styles.subtitle}>
-              Established on June 14, 2018, SRIYOG Consulting Pvt. Ltd., based in Kamalpokhari, Kathmandu, Nepal, is a leading provider of digital solutions dedicated to driving digital transformation in the healthcare, employment, and tourism sectors. 
+              Tackles is an A-grade handyman service company delivering professional solutions for plumbing, painting, air conditioning, flooring, and wall repairs with consistent quality and dependable service standards.
             </Text>
             <Text style={styles.lineheighpara}>
-             Our mission is to empower organizations in these vital industries with innovative, scalable, technology-driven services that enhance operational efficiency and support long-term growth.
+             Our mission is to offer complete repair and maintenance services under one trusted platform, eliminating the need to search multiple providers for different household and commercial requirements.
+            </Text>
+            <Text style={styles.lineheighpara}>
+             We aim to simplify everyday maintenance by delivering efficient plumbing, painting, plastering, and AC services that enhance comfort, reliability, and long-term value for every client.
+            </Text>
+            <Text style={styles.lineheighpara}>
+             Our vision is to build a trusted handyman brand recognized for professionalism, accessibility, and service excellence through long-term client relationships and consistent work quality.
             </Text>
 
             <View style={styles.Padding1}></View>
@@ -68,8 +74,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 suBTitle="asdasd"
               />
             </View>
-
           </View>
+          
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -119,7 +125,8 @@ const styles = StyleSheet.create({
     color: '#064E3B',
     fontWeight: '900',
     top:82,
-    left:128
+    left:148,
+    marginTop:hp('1.9%')
   },
   title: {
     fontSize: wp('5.2%'),
@@ -150,16 +157,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: hp('0.5%'),
-    paddingHorizontal:20,
-    paddingBottom:50
+    paddingHorizontal:10,
   },
   Padding1: {
     paddingBottom: 17,
-  },
-
-  professionalCardSpecial: {
-    width: wp('18%'),
-    height: wp('18%'),
   },
 });
 

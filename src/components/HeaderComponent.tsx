@@ -1,8 +1,11 @@
 import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-
-const {width} = Dimensions.get('window');
+const {width,height} = Dimensions.get('window');
 
 const HeaderComponent = ({style}: any) => {
   return (
@@ -24,21 +27,24 @@ const HeaderComponent = ({style}: any) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-     flexDirection: 'row',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingLeft:20,
-    gap:190,
-    paddingTop:4,
-    position:'static'
-
+    width: '100%',
+    paddingHorizontal: 15,
+    paddingTop: height * 0.015,
+    height: height * 0.06,
+     overflow: 'hidden',
   },
+
   leftIcon: {
     width: width * 0.32,
     height: width * 0.08,
   },
+
   rightIcon: {
-    width: width * 0.09,
-    height: width * 0.09,
+    width: width * 0.085,
+    height: width * 0.085,
   },
 });
 

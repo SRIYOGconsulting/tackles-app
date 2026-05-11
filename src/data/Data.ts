@@ -42,7 +42,7 @@ export const questions = [
 export const topServices = [
     {
     id: 1,
-    name: 'Pumbling',
+    name: 'Plumbing',
     words: 'Pipe and leak fixing.',
     number: 5,
     description:
@@ -238,6 +238,15 @@ export const servicesData = [
   },
 ];
 
+export const exampledata = [
+    {
+    id: 1,
+    images: [
+      require('../assets/services/cleaningANDexteriorMaintenance/deep-cleaning.jpg'),
+      require('../assets/services/cleaningANDexteriorMaintenance/deep-cleaning.jpg'),
+    ],
+  },
+]
 
 export const servicesData2 = [
   {
@@ -298,7 +307,7 @@ export const servicesData2 = [
   },
   {
     id: 6,
-    name: 'Pumbling',
+    name: 'Plumbing',
     words: 'Pipe and leak fixing.',
     number: 12,
     description:
@@ -1380,15 +1389,26 @@ export const faqsQuestioin = [
 ];
 
 export const services = [
-  'Painting',
-  'Plumbing',
-  'Plastering',
-  'Wall Paper Fixing',
-  'Floor & Wall Tiling',
-  'Carpentring',
-  'Air Conditioning',
-  'Air Filtration',
-  ' Cladding',
+ 'Deep Cleaning',
+ "Pressure Washing",
+ 'Roof & Gutter Cleaning',
+ 'Handyman',
+ 'Carpentry',
+ 'Plumbing',
+ 'Electrical Repairs',
+ 'Flooring Fixes',
+ 'Washing Machine Repair',
+ 'Smart Home Setup',
+ 'EV Charger',
+ 'AC Servicing',
+ 'Painting',
+ 'Wallpaper',
+ 'Drywall Repair',
+ 'Tile Work',
+ 'Window Repair',
+ 'Floor Repair',
+ 'Lawn Care',
+ 'Tree Cutting','Garden Care','Irrigation','Fence Repair','Outdoor Lighting','Moving','Airbnb Maintenance','Packing','Home Concierge','Cleaning Plan','Maintenance Plan'
 ];
 
 export const shifts = ['Morning', 'Afternoon', 'Evening', 'Night'];
@@ -1397,4 +1417,11 @@ export const budget = ['1000', '2000', '3000', '4000'];
 
 export const priority = ['urgent', 'not urgent'];
 
-export const area = ['Discovery Garden', 'Garden Discovery'];
+export const area =[
+  'Downtown San Francisco', 'Financial District', 'Union Square', 'SoMa',
+  'Chinatown', 'North Beach', "Fisherman's Wharf", 'Pier 39',
+  'Mission District', 'Haight-Ashbury', 'Castro District', 'Japantown',
+  'Pacific Heights', 'Marina District', 'Nob Hill', 'Russian Hill',
+  'Golden Gate Park', 'Golden Gate Bridge', 'Presidio of San Francisco',
+  'Twin Peaks', 'Sunset District', 'Richmond District'
+];

@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { services, shifts } from '../../src/data/Data';
+import {area, services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
@@ -51,7 +51,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [selectedShift, setSelectedShift] = useState('');
   // const [selectedPriority, setSelectedPriority] = useState('');
   // const [selectedBudget, setSelectedBudget] = useState('');
-  // const [selectedArea, setSelectedArea] = useState('');
+  const [selectedArea, setSelectedArea] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState<Date | null>(null);
   const [show, setShow] = useState<boolean>(false);
@@ -94,7 +94,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <Text style={styles.label}>Full Name</Text>
           <TextInput
-            placeholder="Enter Your Full Name"
+            placeholder="Enter your Full Name"
             value={name}
             onChangeText={setName}
             style={styles.input}
@@ -108,7 +108,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             resizeMode="contain"
           />
           <TextInput
-            placeholder="Enter Your Phone Number"
+            placeholder="Enter your Phone Number"
             value={number}
             onChangeText={value => setNumber(value.replace(/[^0-9]/g, ''))}
             keyboardType="numeric"
@@ -153,12 +153,12 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           </View>
 
           <Text style={styles.label}>Your Location</Text>
-          <TextInput
-            placeholder="Select Your Location"
-            value={location}
-            onChangeText={setLocation}
-            style={styles.input}
-            placeholderTextColor={'#4B4B4B'}
+          <Dropdown
+            options={area}
+            placeholder="Select your location"
+            placeholderColor="#4B4B4B"
+            onSelectOption={setSelectedArea}
+
           />
 
           <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
@@ -220,7 +220,8 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Ensures the container expands to take full height
   },
   header: {
-    paddingTop: 20.7
+      marginTop:hp('2%'),
+    paddingHorizontal:18
   },
   formContainer: {
     paddingHorizontal: width * 0.05,
@@ -277,8 +278,8 @@ const styles = StyleSheet.create({
     width: wp('7.5%'), // Responsive icon width,
     marginLeft: -4,
     position: 'absolute',
-    top: 133,
-    left: 30,
+    top: 145,
+    left: 32,
     zIndex: 2
 
   },

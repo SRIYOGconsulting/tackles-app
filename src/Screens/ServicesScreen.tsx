@@ -107,7 +107,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   headerPadding: {
-    paddingTop:20.7
+    marginTop:hp('2%'),
+    paddingHorizontal:18
   },
   headerTextContainer: {
     paddingHorizontal: wp('5%'),

@@ -19,8 +19,7 @@ const OnBoarding1 = ({ navigation }: { navigation: any }) => {
       </Text>
 
       <Text style={styles.subtitle}>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Neque, distinctio nisi, iste porro
+        From Repairs to Refresh – We’ve Got Your Home Covered.
       </Text>
 
       <OnboardingComponent
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
 
   subtitle: {
     paddingHorizontal: 21,
-    fontSize: 15,
+    fontSize: 16,
     lineHeight: 22,
     color: 'green',
   },

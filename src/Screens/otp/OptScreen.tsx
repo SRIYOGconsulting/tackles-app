@@ -10,7 +10,10 @@ import {
 import React, { useRef, useState } from 'react';
 import HeaderComponent from '../../components/HeaderComponent';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
 // Font scaling utility function
@@ -62,7 +65,7 @@ const OtpScreen = () => {
   return (
     <View style={styles.mainContainer}>
       <HeaderComponent style={styles.header} />
-
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
           Get instant confirmation and reliable support for all your service
@@ -169,10 +172,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
-    paddingBottom: 16,
-    paddingTop: 20.7
+    marginTop:hp('2.0%'),
+    paddingHorizontal:17,
   },
 });
 

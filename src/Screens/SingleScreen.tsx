@@ -15,6 +15,11 @@ import { useNavigation } from '@react-navigation/native';
 import { servicesData2 } from '../data/Data';
 import { RootStackParamList } from '../types';
 import LinearGradient from 'react-native-linear-gradient';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 
 const Button = ({ children, style, textStyle, onPress }: any) => {
   return (
@@ -51,6 +56,7 @@ type SingleScreenNavigationProp = NativeStackNavigationProp<
 const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
   const navigation = useNavigation<SingleScreenNavigationProp>();
   const { service } = route.params;
+  console.log(service); // ✅ correct
 
   // Shuffle services for the "Other Services" section
   const shuffleArray = (array: any[]) => {
@@ -97,6 +103,7 @@ const formatDescription = (text:any) => {
 
     <ScrollView style={styles.scrollView}>
       <HeaderComponent style={styles.header} />
+      <View style={styles.headerline}/>
       <View style={styles.container}>
         <Text style={[styles.title, { fontSize: scaleFont(21) }]}>
           {service.name}
@@ -105,45 +112,16 @@ const formatDescription = (text:any) => {
           <Image source={service.image} style={styles.image} />
         </View>
         <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
-          {`About ${service.name}`}
+           {service.name} services in San Francisco
         </Text>
         <Text style={[styles.description, { fontSize: scaleFont(14) }]}>
           {formatDescription(service.description)}
         </Text>
-        <Text style={[styles.question, { fontSize: scaleFont(14) }]}>
+        <Text style={[styles.question, { fontSize: scaleFont(15) }]}>
           {service.question}
         </Text>
         <Text style={[styles.answer, { fontSize: scaleFont(14) }]}>
           {service.answer}
-        </Text>
-
-        <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
-          {`Example of ${service.name}`}
-        </Text>
-        <Text style={[styles.description2, { fontSize: scaleFont(14) }]}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
-        </Text>
-
-        <View style={styles.servicesContainer2}>
-          {otherServices.map(item => (
-            <ServicesDisplaycard
-              style={{ width: '48%' }}
-              words={item.words}
-              key={item.id}
-              name={item.name}
-              image={item.image}
-              question={item.question}
-              answer={item.answer}
-              description={item.description}
-              onPress={() =>
-                navigation.navigate('SingleScreen', { service: item })
-              }
-            />
-          ))}
-        </View>
-
-        <Text style={[styles.description2, { fontSize: scaleFont(14) }]}>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro harum architecto sequi nobis mollitia facere dolorum odio laborum ipsam qui.
         </Text>
 
         <View style={styles.buttonPadding}>
@@ -157,7 +135,7 @@ const formatDescription = (text:any) => {
               })
             }
           >
-            Book a service
+            Book a Service
           </Button>
 
         </View>
@@ -190,10 +168,13 @@ const formatDescription = (text:any) => {
 
 const styles = StyleSheet.create({
   header: {
-    borderBottomWidth: 1,
+   marginTop:hp('2.01%'),
+    paddingHorizontal:17
+  },
+  headerline:{
+    paddingTop:16,
+       borderBottomWidth: 1,
     borderColor: '#CAD2DF',
-    paddingTop: 20.7,
-    paddingBottom: 16
   },
   scrollView: {
     flex: 1,
@@ -222,7 +203,6 @@ const styles = StyleSheet.create({
   title: {
     color: '#064E3B',
     fontWeight: '900',
-    marginTop: '2%',
     marginBottom: "4%"
   },
   subtitle: {
@@ -238,8 +218,9 @@ const styles = StyleSheet.create({
     marginBottom: '10%',
   },
   question: {
-    fontWeight: '500',
+    fontWeight: '800',
     marginTop: '3%',
+    marginBottom:'2%'
   },
   answer: {
     fontWeight: '500',
@@ -269,7 +250,8 @@ const styles = StyleSheet.create({
   buttonPadding: {
     paddingBottom: 20,
     alignItems: 'center',
-    color: '#fff'
+    color: '#fff',
+    marginTop:14
   },
   button1: {
     width: width * 0.56,

@@ -14,6 +14,10 @@ import { addFormData } from '../../redux/slice/formSlice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { createBooking } from '../../api/PostApi';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const { width, height } = Dimensions.get('window'); // Get screen dimensions
 
@@ -110,6 +114,7 @@ const AdminOtp = ({ route }: { route: any }) => {
   return (
     <View style={styles.mainContainer}>
       <HeaderComponent style={styles.header} />
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
 
       <View style={styles.container}>
         <Text style={styles.thankYouText}>
@@ -218,10 +223,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
-    paddingTop: 20.7,
-    paddingBottom: 16,
+    marginTop:hp('2.0%'),
+    paddingHorizontal:17,
   },
 });
 

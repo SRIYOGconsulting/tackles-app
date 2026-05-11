@@ -10,7 +10,7 @@ const OnBoarding3 = ({navigation}: {navigation: any}) => {
                     Lets, Begin!
                   </Text>
                   <Text style={styles.subtitle}>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, distinctio nisi, iste porro 
+                    Fast, reliable, and professional services—whenever you need them.
                   </Text>
       <OnboardingComponent
         title="Home"
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     paddingHorizontal:21,
-    fontSize:15,
+    fontSize:16,
     lineHeight:22,
     color:"green"
 

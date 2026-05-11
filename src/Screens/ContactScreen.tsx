@@ -16,6 +16,10 @@ import Location from '../assets/icons/contact/location-pin.png';
 import Website from '../assets/icons/contact/globe.png';
 
 const { width, height } = Dimensions.get('window');
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const ContactScreen = ({ navigation }: { navigation: any }) => {
   const openWebsite = () => {
@@ -59,7 +63,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         </View>
 
         {/* Company name */}
-        <Text style={styles.companyName}>Tackles Techinical Services L.L.C.</Text>
+        <Text style={styles.companyName}>Tackles Pro</Text>
         <Text style={styles.companySubtitle}>Professional Services in San Francisco</Text>
 
         {/* Contact Info Cards */}
@@ -68,12 +72,13 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
             <Image source={Location} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain' }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Visit us</Text>
-              <Text style={styles.cardSubtitle}>Area, San Francisco, U.S.A.</Text>
+              <Text style={styles.cardSubtitle}>600 California St, San Francisco,
+                CA 94108.</Text>
             </View>
           </View>
 
           <View style={styles.card}>
-            <Image source={Email} style={{ width: height * 0.033, height: height * 0.033, resizeMode: 'contain',bottom:3 }} />
+            <Image source={Email} style={{ width: height * 0.033, height: height * 0.033, resizeMode: 'contain', bottom: 3 }} />
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Email us</Text>
               <TouchableOpacity onPress={handleEmailPress}>
@@ -92,8 +97,8 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
             </View>
           </View> */}
 
-          <View style={[styles.card, { marginLeft: 105 }]}>
-            <Image source={Website} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain',bottom:3 }} />
+          <View style={[styles.card]}>
+            <Image source={Website} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain', bottom: 3 }} />
 
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Working hours</Text>
@@ -141,7 +146,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    paddingTop: 20.7,
+     marginTop:hp('2.01%'),
+    paddingHorizontal:17
   },
   container: {
     paddingHorizontal: width * 0.04,
@@ -152,15 +158,14 @@ const styles = StyleSheet.create({
     fontSize: height * 0.029,
     fontWeight: '700',
     marginBottom: height * 0.001,
-    paddingTop: 10,
-    color:'#064E3B'
+    color: '#064E3B'
   },
   subtitle: {
     fontSize: height * 0.017,
     fontWeight: '400',
     width: '80%',
     marginBottom: height * 0.02,
-    
+
   },
   imageContainer: {
     width: '100%',
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginTop: height * 0.025,
     marginBottom: height * 0.003,
-    color:'#064E3B'
+    color: '#064E3B'
 
   },
   companySubtitle: {
@@ -193,8 +198,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: '3.8%',
     height: Dimensions.get('window').height * 0.14,
-    marginBottom: Dimensions.get('window').height * 0.025,
-    marginHorizontal: Dimensions.get('window').height * 0.014,
+    marginBottom: Dimensions.get('window').height * 0.02,
+    marginHorizontal: Dimensions.get('window').height * 0.01,
     width: Dimensions.get('window').width * 0.4,
     borderRadius: 16,
     paddingVertical: 11,
@@ -202,6 +207,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     justifyContent: 'center',
     boxShadow: '0px 0px 2px #000',
+    alignSelf: 'center',
 
   },
   cardContent: {
@@ -210,21 +216,22 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: Dimensions.get('window').height * 0.018,
     fontWeight: '500',
-    color:"hsl(120, 100%, 20%)",
-    alignSelf:'center',
-    textAlign:'center'
+    color: "hsl(120, 100%, 20%)",
+    alignSelf: 'center',
+    textAlign: 'center'
   },
   cardSubtitle: {
     fontSize: Dimensions.get('window').height * 0.015,
     fontWeight: '400',
-    alignSelf:'center',
-    textAlign:'center'
+    alignSelf: 'center',
+    textAlign: 'center'
   },
   GridBox: {
     flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop:10
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   },
   buttonsContainer: {
     width: '100%',

@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
     marginHorizontal: wp(0), // Responsive margin-left and margin-right
     borderRadius:13,
     paddingBottom:30,
-    maxHeight:195,
+    maxHeight:220,
     boxShadow:'0px 0px 3px #7cbc7a',
-    overflow:'hidden'
+    overflow:'hidden',
+
   },
   image: {
     width: '100%', // Image width as 42% of screen width
@@ -60,7 +61,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center', // Center the image horizontally,
   },
   title: {
-    fontSize: wp(3.8), // Responsive font size for title
+    fontSize: wp(3.7), // Responsive font size for title
     fontWeight: '600',
     marginTop: hp(1.4), // Responsive margin-top
     textAlign: 'left',
@@ -73,7 +74,8 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: 'grey',
     paddingLeft:11,
-    marginTop:hp(0.3)
+    marginTop:hp(0.3),
+    marginBottom:hp(10)
   }
 });
 

@@ -91,17 +91,17 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/2_michaelTurner.png')}
-                title="Michael Turner"
+                title="Michael"
                 subtitle=""
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/3_matthewKing.png')}
-                title="Matthew King"
+                title="Matthew"
                 subtitle=""
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/4_KevinBaker.png')}
-                title="Kevin Baker"
+                title="Kevin"
                 subtitle=""
               />
             </View>

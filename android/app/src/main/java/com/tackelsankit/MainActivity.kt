@@ -1,4 +1,4 @@
-package com.tacklesankit
+package com.tackles
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
@@ -14,7 +14,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
    * Returns the name of the main component registered from JavaScript. This is used to schedule
    * rendering of the component.
    */
-  override fun getMainComponentName(): String = "TacklesAnkit"
+  override fun getMainComponentName(): String = "Tackles"
 
   /**
    * Returns the instance of the [ReactActivityDelegate]. We use [DefaultReactActivityDelegate]

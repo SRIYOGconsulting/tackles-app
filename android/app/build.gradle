@@ -29,10 +29,10 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.tacklesankit"
+    namespace "com.tackles"
 
     defaultConfig {
-        applicationId "com.tacklesankit"
+        applicationId "com.tackles"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

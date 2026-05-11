@@ -5,13 +5,15 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-type Props = {title: string; image: any; style?: any};
+type Props = {title: string; subtitle: string; image: any; style?: any};
 
-const ProfessionalCard = ({title, image, style}: Props) => {
+const ProfessionalCard = ({title, subtitle, image, style}: Props) => {
   return (
     <View style={styles.container}>
       <Image source={image} style={[styles.image, style]} />
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.subtitle}>{subtitle}</Text>
+
     </View>
   );
 };
@@ -36,6 +38,14 @@ const styles = StyleSheet.create({
     fontSize: wp('3.1%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
+  },
+   subtitle: {
+    marginTop: hp('0.1%'),
+    fontWeight: '500',
+    fontSize: wp('2.3%'), // Responsive font size
+    color: '#000',
+    textAlign: 'center',
+    width:wp('20%')
   },
 });
 

@@ -63,21 +63,24 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <Text style={styles.sectionTitle}>Top Professionals</Text>
             <View style={styles.row}>
               <ProfessionalCard
-                image={require('../assets/image/homescreen/person1.png')}
-                title="Painter"
+                image={require('../assets/topProfessionals/1_jamesWalker.png')}
+                title="James Walker"
+                subtitle="Deep Cleaning Specialist"
               />
               <ProfessionalCard
-                image={require('../assets/image/homescreen/person5.png')}
-                title="Plumber"
-                // style={styles.professionalCardSpecial}
+                image={require('../assets/topProfessionals/2_michaelTurner.png')}
+                title="Michael Turner"
+                subtitle="Pressure Washing Technician"
               />
               <ProfessionalCard
-                image={require('../assets/image/homescreen/person3.png')}
-                title="Electrician"
+                image={require('../assets/topProfessionals/3_matthewKing.png')}
+                title="Matthew King"
+                subtitle="Smart Home Inst. Engineer"
               />
               <ProfessionalCard
-                image={require('../assets/image/homescreen/person4.png')}
-                title="Mason"
+                image={require('../assets/topProfessionals/4_KevinBaker.png')}
+                title="Kevin Baker"
+                subtitle="Professional Painter"
               />
             </View>
 
@@ -125,16 +128,14 @@ const styles = StyleSheet.create({
     color: '#064E3B',
     fontWeight: '900',
     marginBottom: hp('0.2%'),
-    paddingLeft:77
+
   },
   subtitle: {
     fontSize: wp('3.5%'),
     color: '#111827',
     fontWeight: '400',
     paddingBottom: 15,
-    paddingLeft:26,
-    borderBottomWidth:1,
-    borderStyle:'dashed'
+
   },
   sectionTitle: {
     fontSize: wp('4.2%'),
@@ -153,10 +154,6 @@ const styles = StyleSheet.create({
   },
   serviceCardSpecial: {
     width: wp('26%'),
-  },
-  professionalCardSpecial: {
-    width: wp('18%'),
-    height: wp('18%'),
   },
   numberBarContainer: {
     alignItems: 'center',

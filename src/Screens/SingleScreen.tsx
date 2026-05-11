@@ -64,6 +64,35 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
     servicesData2.filter(item => !excludedIds.includes(item.id)),
   ).slice(0, 2);
 
+const formatDescription = (text:any) => {
+  if (!text) return "";
+
+  const words = text.split(" ");
+  const result = [];
+  let currentSegment = [];
+  let wordCount = 0;
+  const interval = 30;
+
+  for (let i = 0; i < words.length; i++) {
+    currentSegment.push(words[i]);
+    wordCount++;
+
+    // Check if we passed the 40-word mark and found a sentence end
+    if (wordCount >= interval && words[i].endsWith(".")) {
+      result.push(currentSegment.join(" "));
+      currentSegment = []; // Reset for the next block
+      wordCount = 0;       // Reset counter
+    }
+  }
+
+  // Push any remaining words that didn't reach the last interval
+  if (currentSegment.length > 0) {
+    result.push(currentSegment.join(" "));
+  }
+
+  return result.join("\n\n");
+};
+
   return (
 
     <ScrollView style={styles.scrollView}>
@@ -79,7 +108,7 @@ const SingleScreen: React.FC<{ route: any }> = ({ route }) => {
           {`About ${service.name}`}
         </Text>
         <Text style={[styles.description, { fontSize: scaleFont(14) }]}>
-          {service.description}
+          {formatDescription(service.description)}
         </Text>
         <Text style={[styles.question, { fontSize: scaleFont(14) }]}>
           {service.question}
@@ -181,8 +210,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
     borderRadius: 8,
-    elevation:5,
-    marginBottom:15
+    elevation: 5,
+    marginBottom: 15
   },
 
   image: {

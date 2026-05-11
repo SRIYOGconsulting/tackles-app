@@ -1,4 +1,4 @@
-package com.tackelsankit
+package com.tacklesankit
 
 import android.app.Application
 import com.facebook.react.PackageList

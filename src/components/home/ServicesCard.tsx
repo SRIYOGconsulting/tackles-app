@@ -10,11 +10,16 @@ import React from 'react';
 
 const {width, height} = Dimensions.get('window');
 
-type Props = {title: string; image: any; style?: any};
+type Props = {
+  title: string;
+  image: any;
+  style?: any;
+  onPress?: () => void; // 👈 added
+};
 
-const ServicesCard = ({title, image, style}: Props) => {
+const ServicesCard = ({title, image, style, onPress}: Props) => {
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={image} style={[styles.image, style]} />
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>

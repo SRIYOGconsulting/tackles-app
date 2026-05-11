@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     marginHorizontal: wp(0), // Responsive margin-left and margin-right
     borderRadius:13,
     paddingBottom:30,
-    maxHeight:220,
+    maxHeight:195,
     boxShadow:'0px 0px 3px #7cbc7a',
     overflow:'hidden',
 

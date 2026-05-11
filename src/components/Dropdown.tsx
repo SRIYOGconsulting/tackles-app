@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
   Dimensions,
   Platform,
   ScrollView,
+  Modal,
 } from 'react-native';
 
 import DropIcon from '../assets/icons/contact/DropDown.png';
@@ -34,9 +35,20 @@ const Dropdown = ({
 }: Props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
+  
+  // States to track where to draw the dropdown
+  const [coords, setCoords] = useState({ x: 0, y: 0, width: 0 });
+  const containerRef = useRef<View>(null);
 
   const toggleDropdown = () => {
-    setShowDropdown(prev => !prev);
+    if (!showDropdown) {
+      containerRef.current?.measure((x, y, w, h, px, py) => {
+        setCoords({ x: px, y: py + h, width: w });
+        setShowDropdown(true);
+      });
+    } else {
+      setShowDropdown(false);
+    }
   };
 
   const handleSelectOption = (option: string) => {
@@ -49,104 +61,142 @@ const Dropdown = ({
     if (dropdownType === 'shift') {
       return require('../assets/image/TabIcon/clock.png');
     }
-
     return DropIcon;
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
+    <View ref={containerRef} style={styles.container}>
+      <TouchableOpacity 
+        style={styles.inputContainer} 
+        onPress={toggleDropdown}
+        activeOpacity={0.8}
+      >
         {selectedOption === '' && (
-          <Text style={[styles.placeholder, { color: placeholderColor }]}>
-            {placeholder}
+          <View style={styles.placeholderWrapper}>
+            <Text style={[styles.placeholder, { color: placeholderColor }]}>
+              {placeholder}
+            </Text>
             {showRequired && <Text style={styles.required}>*</Text>}
-          </Text>
+          </View>
         )}
 
         <TextInput
           style={styles.input}
           value={selectedOption}
           editable={false}
+          pointerEvents="none"
         />
 
-        <TouchableOpacity onPress={toggleDropdown}>
-          <Image
-            source={getDropIcon()}
-            style={{ width: height * 0.025, height: height * 0.025 }}
-          />
-        </TouchableOpacity>
-      </View>
+        {/* LOGO RESTORED HERE */}
+        <Image
+          source={getDropIcon()}
+          style={{ width: height * 0.025, height: height * 0.025 }}
+        />
+      </TouchableOpacity>
 
-      {showDropdown && (
-        <View style={[styles.dropdown, styles.dropdownDynamic]}>
-          <ScrollView keyboardShouldPersistTaps="handled">
-            {options.map((item, index) => (
-              <TouchableOpacity key={index} onPress={() => handleSelectOption(item)}>
-                <Text style={styles.option}>{item}</Text>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
-      )}
+      <Modal
+        visible={showDropdown}
+        transparent={true}
+        animationType="none"
+        onRequestClose={() => setShowDropdown(false)}
+      >
+        <TouchableOpacity 
+          style={styles.modalOverlay} 
+          activeOpacity={1} 
+          onPress={() => setShowDropdown(false)}
+        >
+          <View 
+            style={[
+              styles.dropdown, 
+              { 
+                top: coords.y + 5, // 5px gap below input
+                left: coords.x, 
+                width: coords.width,
+                maxHeight: height * 0.25 
+              }
+            ]}
+          >
+            <ScrollView 
+              bounces={false}
+              nestedScrollEnabled={true}
+              keyboardShouldPersistTaps="handled"
+            >
+              {options.map((item, index) => (
+                <TouchableOpacity 
+                  key={index} 
+                  onPress={() => handleSelectOption(item)}
+                  style={styles.optionContainer}
+                >
+                  <Text style={styles.option}>{item}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    marginBottom: height * 0.025,
+  },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#3CB371',
     borderRadius: 10,
-    paddingHorizontal: width * 0.03,
+    paddingHorizontal: width * 0.02,
     height: height * 0.05,
-    position: 'relative',
     backgroundColor: '#fff',
   },
-  placeholder: {
+  placeholderWrapper: {
+    flexDirection: 'row',
     position: 'absolute',
     left: width * 0.03,
-    color: '#4B4B4B',
+  },
+  placeholder: {
     fontSize: width * 0.035,
     fontWeight: '500',
-    paddingBottom: 2
   },
   input: {
     flex: 1,
     color: '#4B4B4B',
-    paddingHorizontal: 1,
     fontSize: width * 0.035,
     fontWeight: '500',
   },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
   dropdown: {
+    position: 'absolute',
+    backgroundColor: '#fff',
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    borderRadius: 10,
-    backgroundColor: '#fff',
-    position: 'absolute',
-    width: '100%',
-    zIndex: 9999,
-    marginTop: 5,
     elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    overflow: 'hidden',
+  },
+  optionContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee',
   },
   option: {
     paddingVertical: height * 0.014,
     paddingHorizontal: width * 0.03,
     fontSize: height * 0.017,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
     color: '#333',
-  },
-  container: {
-    marginBottom: height * 0.025,
   },
   required: {
     color: 'red',
-  },
-  dropdownDynamic: {
-    maxHeight: height * 0.27,
-    top: Platform.OS === 'ios' ? height * 0.06 : height * 0.055,
+    marginLeft: 2,
   },
 });
 

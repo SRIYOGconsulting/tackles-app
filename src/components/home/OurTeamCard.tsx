@@ -24,7 +24,8 @@ const OurTeamCard = ({title,suBTitle, image, style}: Props) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginVertical: hp('1%'), // Responsive vertical margin
+    marginVertical: hp('1%'), 
+    width:'36%',   // Responsive vertical margin
   },
   image: {
     width: wp('18%'), // Default image width (can be overridden with prop)
@@ -34,16 +35,17 @@ const styles = StyleSheet.create({
   title: {
     marginTop: hp('1%'),
     fontWeight: '600',
-    fontSize: wp('4%'), // Responsive font size
+    fontSize: wp('3.5%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
   },
   suBTitle:{
     marginTop: hp('0.1%'),
     fontWeight: '400',
-    fontSize: wp('3.5%'), // Responsive font size
+    fontSize: wp('2.8%'), // Responsive font size
     color: 'hsl(0, 0%, 25%)',
     textAlign: 'center',
+    width:'80%',
   },
 });
 

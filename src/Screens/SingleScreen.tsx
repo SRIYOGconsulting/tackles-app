@@ -77,7 +77,7 @@ const formatDescription = (text:any) => {
   const result = [];
   let currentSegment = [];
   let wordCount = 0;
-  const interval = 30;
+  const interval = 20;
 
   for (let i = 0; i < words.length; i++) {
     currentSegment.push(words[i]);

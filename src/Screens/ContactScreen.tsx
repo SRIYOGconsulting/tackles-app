@@ -198,16 +198,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: '3.8%',
     height: Dimensions.get('window').height * 0.14,
-    marginBottom: Dimensions.get('window').height * 0.02,
-    marginHorizontal: Dimensions.get('window').height * 0.01,
+    marginBottom: Dimensions.get('window').height * 0.023,
+    marginHorizontal: Dimensions.get('window').height * 0.0129,
     width: Dimensions.get('window').width * 0.4,
     borderRadius: 16,
     paddingVertical: 11,
-    paddingHorizontal: 10,
-    paddingLeft: 16,
     justifyContent: 'center',
     boxShadow: '0px 0px 2px #000',
     alignSelf: 'center',
+    alignContent:'center'
 
   },
   cardContent: {
@@ -221,7 +220,7 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   cardSubtitle: {
-    fontSize: Dimensions.get('window').height * 0.015,
+    fontSize: Dimensions.get('window').height * 0.014,
     fontWeight: '400',
     alignSelf: 'center',
     textAlign: 'center'
@@ -229,9 +228,6 @@ const styles = StyleSheet.create({
   GridBox: {
     flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
   },
   buttonsContainer: {
     width: '100%',

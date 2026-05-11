@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     width: wp('7.5%'), // Responsive icon width,
     marginLeft: -4,
     position: 'absolute',
-    top: 145,
+    top: 134,
     left: 32,
     zIndex: 2
 

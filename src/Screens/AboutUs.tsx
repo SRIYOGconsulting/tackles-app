@@ -26,7 +26,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
         showsVerticalScrollIndicator={false}
         bounces={false}>
         <View style={styles.container}>
-          <Text style={styles.maintitle}>About Us</Text>
           <View style={styles.banner}>
             <Image
               source={require('../assets/aboutUs/aboutUS.jpeg')}
@@ -49,9 +48,6 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
              Our mission is to offer complete repair and maintenance services under one trusted platform, eliminating the need to search multiple providers for different household and commercial requirements.
             </Text>
             <Text style={styles.lineheighpara}>
-             We aim to simplify everyday maintenance by delivering efficient plumbing, painting, plastering, and AC services that enhance comfort, reliability, and long-term value for every client.
-            </Text>
-            <Text style={styles.lineheighpara}>
              Our vision is to build a trusted handyman brand recognized for professionalism, accessibility, and service excellence through long-term client relationships and consistent work quality.
             </Text>
 
@@ -59,19 +55,19 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <Text style={styles.title}>Our Team</Text>
             <View style={styles.row}>
               <OurTeamCard 
-                image={require('../assets/aboutUs/ourTeam/man1.png')}
-                title="Painter"
-                suBTitle="asdasd"
+                image={require('../assets/topProfessionals/1_jamesWalker.png')}
+                title="James Walker"
+                suBTitle="Deep Cleaning Specialist"
               />
                <OurTeamCard 
-                image={require('../assets/aboutUs/ourTeam/women1.png')}
-                title="Painter"
-                suBTitle="asdasd"
+                image={require('../assets/topProfessionals/2_michaelTurner.png')}
+                title="Michael Turner"
+                suBTitle="Pressure Washing Technician"
               />
                <OurTeamCard 
-                image={require('../assets/aboutUs/ourTeam/man1.png')}
-                title="Painter"
-                suBTitle="asdasd"
+                image={require('../assets/topProfessionals/3_matthewKing.png')}
+                title="Matthew King"
+                suBTitle="Smart Home Installation Engineer"
               />
             </View>
           </View>
@@ -98,7 +94,7 @@ const styles = StyleSheet.create({
     height: hp('30%'),
     alignSelf: 'center',
     borderRadius: 10,
-    marginTop: 91,
+    marginTop: 110,
     overflow: 'hidden',
   },
   bannerImage: {
@@ -155,9 +151,8 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     marginVertical: hp('0.5%'),
-    paddingHorizontal:10,
   },
   Padding1: {
     paddingBottom: 17,

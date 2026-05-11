@@ -17,6 +17,8 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
+import { servicesData2 } from '../data/Data';
+
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
     <KeyboardAvoidingView
@@ -48,15 +50,35 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               <ServicesCard
                 title="Painting"
                 image={require('../assets/services/homeImprovement/painting.jpg')}
+                onPress={() => {
+                  const Service1 = servicesData2.find(s => s.id === 13);
+
+                  navigation.navigate('SingleScreen', {
+                    service: Service1,
+                  });
+                }}
               />
               <ServicesCard
                 title="Plumbing"
                 image={require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg')}
-                // style={styles.serviceCardSpecial}
+               onPress={() => {
+                  const Service1 = servicesData2.find(s => s.id === 6);
+
+                  navigation.navigate('SingleScreen', {
+                    service: Service1,
+                  });
+                }}
               />
               <ServicesCard
                 title="Tiling"
                 image={require('../assets/services/homeImprovement/tiling-work.jpg')}
+                onPress={() => {
+                  const Service1 = servicesData2.find(s => s.id === 16);
+
+                  navigation.navigate('SingleScreen', {
+                    service: Service1,
+                  });
+                }}
               />
             </View>
             <View style={styles.Padding1}></View>
@@ -65,22 +87,22 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
               <ProfessionalCard
                 image={require('../assets/topProfessionals/1_jamesWalker.png')}
                 title="James Walker"
-                subtitle="Deep Cleaning Specialist"
+                subtitle=""
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/2_michaelTurner.png')}
                 title="Michael Turner"
-                subtitle="Pressure Washing Technician"
+                subtitle=""
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/3_matthewKing.png')}
                 title="Matthew King"
-                subtitle="Smart Home Inst. Engineer"
+                subtitle=""
               />
               <ProfessionalCard
                 image={require('../assets/topProfessionals/4_KevinBaker.png')}
                 title="Kevin Baker"
-                subtitle="Professional Painter"
+                subtitle=""
               />
             </View>
 
@@ -141,8 +163,8 @@ const styles = StyleSheet.create({
     fontSize: wp('4.2%'),
     color: '#064E3B',
     fontWeight: '900',
-    marginTop:10,
-    marginBottom:2
+    marginTop: 10,
+    marginBottom: 2
   },
   row: {
     flexDirection: 'row',

@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 type Props = {
   title: string;
@@ -17,7 +17,7 @@ type Props = {
   onPress?: () => void; // 👈 added
 };
 
-const ServicesCard = ({title, image, style, onPress}: Props) => {
+const ServicesCard = ({ title, image, style, onPress }: Props) => {
   return (
     <TouchableOpacity style={styles.card} onPress={onPress}>
       <Image source={image} style={[styles.image, style]} />
@@ -30,20 +30,21 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 8,
     alignItems: 'center',
-    height: height * 0.142, // 18% of screen height
-    width: width * 0.27, // 25% of screen width
+
+    height: height * 0.142,
+    width: width * 0.27,
+
     marginTop: height * 0.012,
     marginHorizontal: width * 0.014,
+
     backgroundColor: '#fff',
-    justifyContent:'center',
-    overflow:'hidden',
-      boxShadow:'0px 0px 2px #7cbc7a',
+    overflow: 'hidden',
+    boxShadow: '0px 0px 2px #7cbc7a',
   },
   image: {
     height: height * 0.09,
     width: '100%',
     resizeMode: 'cover',
-    marginTop:-13,
   },
 
   title: {
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: 'hsl(0, 0%, 9%)',
     textAlign: 'center',
-    marginTop:12
+    marginTop: 13,
   },
 });
 

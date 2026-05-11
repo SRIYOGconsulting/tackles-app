@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: hp('1%'),
     fontWeight: '600',
-    fontSize: wp('3.1%'), // Responsive font size
+    fontSize: wp('3.5%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
   },

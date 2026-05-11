@@ -43,40 +43,42 @@ const ServicesDisplaycard = ({
 
 const styles = StyleSheet.create({
   cardContainer: {
-    // Margin and padding adjusted for responsiveness
-    marginBottom: hp(0.5), // Responsive margin-bottom
-    marginHorizontal: wp(0), // Responsive margin-left and margin-right
-    borderRadius:13,
-    paddingBottom:30,
-    maxHeight:195,
-    boxShadow:'0px 0px 3px #7cbc7a',
-    overflow:'hidden',
+    marginBottom: hp(1.5),
+    borderRadius: 13,
+    overflow: 'hidden',
+    backgroundColor: '#fff',
 
+    height: hp(23), 
+
+    shadowColor: '#7cbc7a',
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 3,
   },
+
   image: {
-    width: '100%', // Image width as 42% of screen width
-    height: hp(14), // Image height as 20% of screen height
-    borderTopRightRadius:13,
-    borderTopLeftRadius:13,
-    alignSelf: 'center', // Center the image horizontally,
+    width: '100%',
+    height: hp(14),
   },
+
   title: {
-    fontSize: wp(3.7), // Responsive font size for title
+    fontSize: wp(3.7),
     fontWeight: '600',
-    marginTop: hp(1.4), // Responsive margin-top
-    textAlign: 'left',
+    marginTop: hp(1.2),
     color: '#000',
-    paddingLeft:11
+    paddingHorizontal: 11,
   },
-  words:{
-    fontSize: wp(3.0), // Responsive font size for title
-    fontWeight: '600',
-    textAlign: 'left',
+
+  words: {
+    fontSize: wp(3),
+    fontWeight: '500',
     color: 'grey',
-    paddingLeft:11,
-    marginTop:hp(0.3),
-    marginBottom:hp(10)
-  }
+    paddingHorizontal: 11,
+    marginTop: hp(0.5),
+
+    flexShrink: 1, // prevents overflow
+  },
 });
 
 export default ServicesDisplaycard;

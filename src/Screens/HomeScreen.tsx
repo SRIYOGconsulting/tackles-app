@@ -86,7 +86,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <View style={styles.row}>
               <ProfessionalCard
                 image={require('../assets/topProfessionals/1_jamesWalker.png')}
-                title="James Walker"
+                title="James"
                 subtitle=""
               />
               <ProfessionalCard
@@ -100,8 +100,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
                 subtitle=""
               />
               <ProfessionalCard
-                image={require('../assets/topProfessionals/4_KevinBaker.png')}
-                title="Kevin"
+                image={require('../assets/topProfessionals/5_joshua_adams.png')}
+                title="Joshua"
                 subtitle=""
               />
             </View>

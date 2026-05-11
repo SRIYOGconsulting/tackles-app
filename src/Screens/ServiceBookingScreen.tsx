@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import {area, services, shifts } from '../../src/data/Data';
+import { area, services, shifts } from '../../src/data/Data';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
@@ -62,7 +62,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
       number.trim() &&
       selectedService &&
       selectedShift &&
-      location.trim() &&
+      selectedArea &&
       date
     ) {
       navigation.navigate('AdminOtp', {
@@ -70,12 +70,15 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
         number,
         selectedService,
         selectedShift,
-        location,
+        selectedArea,
         message,
         date: date.toISOString(),
       });
     } else {
-      Alert.alert('Incomplete Form', 'Please fill in all required fields.');
+      Alert.alert(
+        'Incomplete Form',
+        'Please fill in all required fields.'
+      );
     }
   };
 
@@ -102,20 +105,24 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           />
 
           <Text style={styles.label}>Phone Number</Text>
-          <Image
-            source={countryLogo}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-          <TextInput
-            placeholder="Enter your Phone Number"
-            value={number}
-            onChangeText={value => setNumber(value.replace(/[^0-9]/g, ''))}
-            keyboardType="numeric"
-            style={styles.inputPhone}
-            placeholderTextColor={'#4B4B4B'}
+          <View style={styles.phoneContainer}>
+            <Image
+              source={countryLogo}
+              style={styles.icon}
+              resizeMode="contain"
+            />
 
-          />
+            <TextInput
+              placeholder="Enter your Phone Number"
+              value={number}
+              onChangeText={value =>
+                setNumber(value.replace(/[^0-9]/g, ''))
+              }
+              keyboardType="numeric"
+              style={styles.phoneInput}
+              placeholderTextColor={'#4B4B4B'}
+            />
+          </View>
 
           <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
           <Dropdown
@@ -220,8 +227,8 @@ const styles = StyleSheet.create({
     flexGrow: 1, // Ensures the container expands to take full height
   },
   header: {
-      marginTop:hp('2%'),
-    paddingHorizontal:18
+    marginTop: hp('2%'),
+    paddingHorizontal: 18
   },
   formContainer: {
     paddingHorizontal: width * 0.05,
@@ -258,30 +265,37 @@ const styles = StyleSheet.create({
     borderColor: '#3CB371',
     textAlignVertical: 'center',
     paddingBottom: 10,
+    color: "#4B4B4B"
 
   },
-  inputPhone: {
+  phoneContainer: {
+    position: 'relative',
+    justifyContent: 'center',
+    marginBottom: height * 0.02,
+  },
+
+  icon: {
+    width: wp('7%'),
+    height: hp('3%'),
+
+    position: 'absolute',
+    left: 12,
+    zIndex: 2,
+  },
+
+  phoneInput: {
     borderWidth: 1,
     borderRadius: 10,
-    paddingHorizontal: width * 0.113,
+    borderColor: '#3CB371',
+
     height: height * 0.05,
-    marginBottom: height * 0.02,
+
+    paddingLeft: wp('12%'), // 🔥 important for icon space
+    paddingRight: 10,
+
     fontSize: width * 0.035,
     fontWeight: '500',
-    borderColor: '#3CB371',
-    textAlignVertical: 'center',
-    paddingBottom: 10,
-
-  },
-  icon: {
-    height: hp('4%'), // Responsive icon height
-    width: wp('7.5%'), // Responsive icon width,
-    marginLeft: -4,
-    position: 'absolute',
-    top: 134,
-    left: 32,
-    zIndex: 2
-
+    color: "#4B4B4B"
   },
   datePicker: {
     flexDirection: 'row',
@@ -312,13 +326,13 @@ const styles = StyleSheet.create({
   },
   button1: {
     width: width * 0.45,
-    height:height *0.06,
+    height: height * 0.06,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: "center",
     paddingVertical: 8,
     borderRadius: 10,
-    marginTop:40
+    marginTop: 40
   },
   text: {
     color: '#fff',

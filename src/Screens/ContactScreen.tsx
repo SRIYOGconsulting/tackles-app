@@ -51,7 +51,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
       <View style={styles.container}>
         <Text style={styles.title}>Contact Us</Text>
         <Text style={styles.subtitle}>
-          Contact us, we're always here to help you out.
+          We're always here to help you out.
         </Text>
 
         {/* MAP section */}
@@ -63,7 +63,7 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         </View>
 
         {/* Company name */}
-        <Text style={styles.companyName}>Tackles Pro</Text>
+        <Text style={styles.companyName}>TACKLES Pro</Text>
         <Text style={styles.companySubtitle}>Professional Services in San Francisco</Text>
 
         {/* Contact Info Cards */}
@@ -193,22 +193,21 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     paddingLeft: 3
   },
-  card: {
-    flexDirection: "column",
-    alignItems: "center",
-    gap: '3.8%',
-    height: Dimensions.get('window').height * 0.14,
-    marginBottom: Dimensions.get('window').height * 0.023,
-    marginHorizontal: Dimensions.get('window').height * 0.0129,
-    width: Dimensions.get('window').width * 0.4,
-    borderRadius: 16,
-    paddingVertical: 11,
-    justifyContent: 'center',
-    boxShadow: '0px 0px 2px #000',
-    alignSelf: 'center',
-    alignContent:'center'
+ card: {
+  flexDirection: "column",
+  alignItems: "center",
+  gap: '3.8%',
+  height: Dimensions.get('window').height * 0.12,
+  marginBottom: Dimensions.get('window').height * 0.023,
 
-  },
+  width: '100%',  
+  backgroundColor: '#fff',
+  borderRadius: 15,
+  overflow: 'hidden',
+  boxShadow: '0px 0px 2px #000',
+  alignContent:'center',
+  justifyContent:'center'
+},
   cardContent: {
     gap: 2,
   },
@@ -226,9 +225,10 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   GridBox: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-  },
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+},
   buttonsContainer: {
     width: '100%',
     flexDirection: 'row',

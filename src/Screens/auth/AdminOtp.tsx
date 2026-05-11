@@ -144,7 +144,7 @@ const AdminOtp = ({ route }: { route: any }) => {
           ))}
         </View>
 
-        <Text style={styles.resendcode}>Lorem ipsum dolor sit amet consectetur adipisicing elit. <Text style={{color:'blue'}}>Resend Code</Text></Text>
+        <Text style={styles.resendcode}><Text style={{color:'blue'}}>Resend Code</Text></Text>
 
         <TouchableOpacity style={styles.submitButton} onPress={handleNavigate}>
           <Text style={styles.submitButtonText}>Verify</Text>

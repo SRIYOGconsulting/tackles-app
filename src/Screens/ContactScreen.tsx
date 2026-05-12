@@ -69,7 +69,10 @@ const ContactScreen = ({ navigation }: { navigation: any }) => {
         {/* Contact Info Cards */}
         <View style={styles.GridBox}>
           <View style={styles.card}>
-            <Image source={Location} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain' }} />
+            <View style={styles.imageContainer2}>
+
+              <Image source={Location} style={{ width: height * 0.035, height: height * 0.035, resizeMode: 'contain' }} />
+            </View>
             <View style={styles.cardContent}>
               <Text style={styles.cardTitle}>Visit us</Text>
               <Text style={styles.cardSubtitle}>600 California St, San Francisco,
@@ -146,8 +149,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-     marginTop:hp('2.01%'),
-    paddingHorizontal:17
+    marginTop: hp('2.01%'),
+    paddingHorizontal: 17
   },
   container: {
     paddingHorizontal: width * 0.04,
@@ -193,42 +196,46 @@ const styles = StyleSheet.create({
     marginBottom: height * 0.02,
     paddingLeft: 3
   },
- card: {
-  flexDirection: "row",
-  alignItems: 'center',
-  gap: '3.8%',
-  height: Dimensions.get('window').height * 0.1,
-  marginBottom: Dimensions.get('window').height * 0.023,
-  width: '100%',  
-  backgroundColor: '#fff',
-  borderRadius: 15,
-  overflow: 'hidden',
-  boxShadow: '0px 0px 2px #000',
-  justifyContent:'space-around',
-  paddingRight:10
-},
+  card: {
+    flexDirection: "row",
+    alignItems: 'center',
+    height: Dimensions.get('window').height * 0.1,
+    marginBottom: Dimensions.get('window').height * 0.023,
+    width: '100%',
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    overflow: 'hidden',
+    boxShadow: '0px 0px 2px #000',
+    justifyContent: 'space-around',
+    paddingLeft: 10,
+
+  },
+  imageContainer2:{
+    borderWidth:0
+  },
   cardContent: {
     gap: 2,
-    width:'50%',
+    width: '73%',
+
   },
   cardTitle: {
-    fontSize: Dimensions.get('window').height * 0.018,
+    fontSize: Dimensions.get('window').height * 0.02,
     fontWeight: '500',
     color: "hsl(120, 100%, 20%)",
-    alignSelf: 'center',
-    textAlign: 'center'
+    alignSelf: 'flex-start',
+    textAlign: 'left'
   },
   cardSubtitle: {
-    fontSize: Dimensions.get('window').height * 0.014,
+    fontSize: Dimensions.get('window').height * 0.015,
     fontWeight: '400',
-    alignSelf: 'center',
-    textAlign: 'center',
+    alignSelf: 'flex-start',
+    textAlign: 'left',
   },
   GridBox: {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-between',
-},
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
   buttonsContainer: {
     width: '100%',
     flexDirection: 'row',
@@ -251,18 +258,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: width * 0.015,
   },
-  socialButtons: {
-    flexDirection: 'row',
-    columnGap: width * 0.05,
-  },
-  socialButton: {
-    // No additional style needed
-  },
-  whatsappIcon: {
-    position: 'absolute',
-    left: height * 0.01,
-    top: height * 0.008,
-  },
+
 });
 
 export default ContactScreen;

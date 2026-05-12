@@ -115,10 +115,30 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             <TextInput
               placeholder="Enter your Phone Number"
               value={number}
-              onChangeText={value =>
-                setNumber(value.replace(/[^0-9]/g, ''))
-              }
-              keyboardType="numeric"
+              onChangeText={(value) => {
+                // keep only numbers
+                let cleaned = value.replace(/[^0-9]/g, '');
+
+                // limit to 10 digits
+                cleaned = cleaned.slice(0, 10);
+
+                // format 3-3-4
+                let formatted = cleaned;
+
+                if (cleaned.length > 3 && cleaned.length <= 6) {
+                  formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
+                } else if (cleaned.length > 6) {
+                  formatted =
+                    cleaned.slice(0, 3) +
+                    ' ' +
+                    cleaned.slice(3, 6) +
+                    ' ' +
+                    cleaned.slice(6);
+                }
+
+                setNumber(formatted);
+              }}
+              keyboardType="number-pad"
               style={styles.phoneInput}
               placeholderTextColor={'#4B4B4B'}
             />
@@ -159,6 +179,15 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             )}
           </View>
 
+          <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
+          <Dropdown
+            options={shifts}
+            placeholder="Choose a shift"
+            placeholderColor="#4B4B4B"
+            onSelectOption={setSelectedShift}
+            dropdownType="shift"
+          />
+
           <Text style={styles.label}>Your Location</Text>
           <Dropdown
             options={area}
@@ -168,14 +197,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           />
 
-          <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
-          <Dropdown
-            options={shifts}
-            placeholder="Choose a shift"
-            placeholderColor="#4B4B4B"
-            onSelectOption={setSelectedShift}
-            dropdownType="shift"
-          />
+          
           {/* <Dropdown
             options={priority}
             placeholder="Select Priority"

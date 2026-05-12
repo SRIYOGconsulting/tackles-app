@@ -1,30 +1,74 @@
-import {View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+} from 'react-native';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const NumberBar = ({navigation}: {navigation: any}) => {
-  const dynamicWidth = wp('85%'); // Default width for smaller screens
-  const fontSize = wp('5%'); // Font size for the phone number
-  const helpFontSize = wp('3.5%'); // Font size for help text
+const NumberBar = ({ navigation }: { navigation: any }) => {
+  const [phone, setPhone] = useState('');
+
+  const dynamicWidth = wp('75%');
+  const fontSize = wp('4.5%');
+  const helpFontSize = wp('3.5%');
 
   return (
-    <View style={[styles.container, {width: dynamicWidth}]}>
+    <View style={[styles.container, { width: dynamicWidth }]}>
       <View style={styles.phoneContainer}>
         <Image
           source={require('../../assets/image/header/right.png')}
           style={styles.icon}
           resizeMode="contain"
         />
-        <Text style={[styles.phoneNumber, {fontSize}]}>240 345 7466</Text>
+
+        <View style={styles.inputContainer}>
+          <TextInput
+            value={phone}
+            onChangeText={(text) => {
+              // remove everything except numbers
+              let cleaned = text.replace(/[^0-9]/g, '');
+
+              // limit to 10 digits (optional)
+              cleaned = cleaned.slice(0, 10);
+
+              // format as 3-3-4
+              let formatted = cleaned;
+
+              if (cleaned.length > 3 && cleaned.length <= 6) {
+                formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
+              } else if (cleaned.length > 6) {
+                formatted =
+                  cleaned.slice(0, 3) +
+                  ' ' +
+                  cleaned.slice(3, 6) +
+                  ' ' +
+                  cleaned.slice(6);
+              }
+
+              setPhone(formatted);
+            }}
+            placeholder="240 345 7466"
+            placeholderTextColor="#999"
+            keyboardType="number-pad"
+            style={[styles.input, { fontSize }]}
+          />
+        </View>
       </View>
 
       <TouchableOpacity
         onPress={() => navigation.navigate('OTP')}
         style={styles.helpButton}>
-        <Text style={[styles.helpText, {fontSize: helpFontSize}]}>Help</Text>
+        <Text style={[styles.helpText, { fontSize: helpFontSize }]}>
+          Help
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -33,42 +77,51 @@ const NumberBar = ({navigation}: {navigation: any}) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: hp('4.5%'), // Dynamic height based on screen size
+    height: hp('4.5%'),
     borderRadius: 15,
     borderWidth: 1,
     borderColor: '#0E61CD',
     justifyContent: 'space-between',
     overflow: 'hidden',
-  
+    backgroundColor: '#fff',
   },
+
   phoneContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: wp('2%'), // Padding adjusted for responsiveness
+    paddingHorizontal: wp('2%'),
     flex: 1,
   },
-  icon: {
-    height: hp('4%'), // Responsive icon height
-    width: wp('7.5%'), // Responsive icon width,
-    marginLeft:-4
 
+  icon: {
+    height: hp('4%'),
+    width: wp('7.5%'),
+    marginLeft: -4,
+    marginRight: wp('2%'),
   },
-  phoneNumber: {
-    fontWeight: '700',
-    letterSpacing: 2,
-    color: '#4B4B4B',
-    paddingHorizontal: wp('5%'), // Adjust padding for responsiveness
+  inputContainer: {
     flex: 1,
-    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  input: {
+    width: '100%',
+    color: '#4B4B4B',
+    fontWeight: '700',
+    includeFontPadding: false,
+    textAlignVertical: 'center',
+    paddingVertical: 0,
+    paddingLeft: wp('5%')
   },
   helpButton: {
     backgroundColor: '#0E61CD',
-    width: wp('20%'), // Adjust width for help button
+    width: wp('20%'),
     alignItems: 'center',
     justifyContent: 'center',
     borderTopRightRadius: 14,
     borderBottomRightRadius: 14,
   },
+
   helpText: {
     color: '#fff',
     fontWeight: '700',

@@ -194,22 +194,22 @@ const styles = StyleSheet.create({
     paddingLeft: 3
   },
  card: {
-  flexDirection: "column",
-  alignItems: "center",
+  flexDirection: "row",
+  alignItems: 'center',
   gap: '3.8%',
-  height: Dimensions.get('window').height * 0.12,
+  height: Dimensions.get('window').height * 0.1,
   marginBottom: Dimensions.get('window').height * 0.023,
-
   width: '100%',  
   backgroundColor: '#fff',
   borderRadius: 15,
   overflow: 'hidden',
   boxShadow: '0px 0px 2px #000',
-  alignContent:'center',
-  justifyContent:'center'
+  justifyContent:'space-around',
+  paddingRight:10
 },
   cardContent: {
     gap: 2,
+    width:'50%',
   },
   cardTitle: {
     fontSize: Dimensions.get('window').height * 0.018,
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     fontSize: Dimensions.get('window').height * 0.014,
     fontWeight: '400',
     alignSelf: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   GridBox: {
   flexDirection: 'row',

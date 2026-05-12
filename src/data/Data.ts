@@ -1399,16 +1399,16 @@ export const services = [
   'Flooring Fixes',
   'Washing Machine Repair',
   'Smart Home Setup',
-  'EV Charger',
+  'EV Charger Installation',
   'AC Servicing',
   'Painting',
-  'Wallpaper',
+  'Wallpaper Installation or Repair',
   'Drywall Repair',
   'Tile Work',
   'Window Repair',
   'Floor Repair',
   'Lawn Care',
-  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting', 'Moving', 'Airbnb Maintenance', 'Packing', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan'
+  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting', 'Moving or Reallocating', 'Airbnb Maintenance', 'Packing Serviecs', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan'
 ];
 
 export const shifts = ['Morning', 'Afternoon', 'Evening', 'Night'];

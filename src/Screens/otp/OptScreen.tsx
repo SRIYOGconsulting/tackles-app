@@ -156,14 +156,14 @@ const styles = StyleSheet.create({
   submitButton: {
     backgroundColor: "green",
     height: 43,
-    width: "85%", // Adjust width based on screen size
+    width: "60%", // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,
     marginTop: height * 0.08, // Dynamic margin-top for large screens
   },
   submitButtonText: {
-  fontSize: scaleFont(18),
+  fontSize: scaleFont(17),
     color: '#fff',
     fontWeight: '300',
   },

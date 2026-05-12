@@ -1,23 +1,37 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashScreen = ({ navigation }: { navigation: any }) => {
-  const [milliseconds, setMilliseconds] = useState<number>(3000);
+  const [milliseconds, setMilliseconds] = useState(3000);
   const totalDuration = 3000;
 
   useEffect(() => {
-    setMilliseconds(totalDuration);
     const startTime = Date.now();
-    const interval = setInterval(() => {
+
+    const timer = setInterval(() => {
       const elapsed = Date.now() - startTime;
       const remaining = Math.max(totalDuration - elapsed, 0);
+
       setMilliseconds(Math.round(remaining));
-      if (remaining <= 0) {
-        clearInterval(interval);
+    }, 50);
+
+    const timeout = setTimeout(async () => {
+      clearInterval(timer);
+
+      const seen = await AsyncStorage.getItem('hasSeenOnboarding');
+
+      if (seen === 'true') {
+        navigation.replace('Main');
+      } else {
         navigation.replace('OnBoarding1');
       }
-    }, 1); // 1ms interval for smooth display
-    return () => clearInterval(interval);
+    }, totalDuration);
+
+    return () => {
+      clearInterval(timer);
+      clearTimeout(timeout);
+    };
   }, [navigation]);
 
   return (
@@ -28,10 +42,9 @@ const SplashScreen = ({ navigation }: { navigation: any }) => {
       />
 
       <Text style={styles.counter}>{milliseconds}</Text>
+
       <View style={styles.logo}>
-        <Text style={styles.partnerText}>
-          Powered By
-        </Text>
+        <Text style={styles.partnerText}>Powered By</Text>
         <Image
           source={require('../assets/image/sriyogLogo.png')}
           style={styles.logo}
@@ -40,7 +53,6 @@ const SplashScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,

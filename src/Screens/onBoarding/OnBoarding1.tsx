@@ -2,6 +2,7 @@ import { View, Text, Pressable } from 'react-native';
 import React from 'react';
 import OnboardingComponent from '../../components/OnboardingComponent';
 import { StyleSheet } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const OnBoarding1 = ({ navigation }: { navigation: any }) => {
   return (
@@ -10,10 +11,13 @@ const OnBoarding1 = ({ navigation }: { navigation: any }) => {
       {/* Skip Button */}
       <Pressable
         style={styles.skipContainer}
-        onPress={() => navigation.navigate('Main')}>
+        onPress={async () => {
+          await AsyncStorage.setItem('hasSeenOnboarding', 'true');
+          navigation.replace('Main');
+        }}>
         <Text style={styles.skipbutton}>SKIP</Text>
       </Pressable>
-      
+
       <Text style={styles.title}>
         Welcome to Tackles
       </Text>
@@ -48,7 +52,7 @@ const styles = StyleSheet.create({
   skipbutton: {
     fontSize: 13,
     fontWeight: '600',
-    color:"purple"
+    color: "purple"
   },
   title: {
     paddingTop: 95,

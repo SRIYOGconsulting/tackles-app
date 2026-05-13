@@ -6,15 +6,13 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  Dimensions,
-  Platform,
   ScrollView,
   Modal,
 } from 'react-native';
 
 import DropIcon from '../assets/icons/contact/DropDown.png';
 
-const { width, height } = Dimensions.get('window');
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 type Props = {
   options: string[];
@@ -35,7 +33,7 @@ const Dropdown = ({
 }: Props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
-  
+
   // States to track where to draw the dropdown
   const [coords, setCoords] = useState({ x: 0, y: 0, width: 0 });
   const containerRef = useRef<View>(null);
@@ -66,8 +64,8 @@ const Dropdown = ({
 
   return (
     <View ref={containerRef} style={styles.container}>
-      <TouchableOpacity 
-        style={styles.inputContainer} 
+      <TouchableOpacity
+        style={styles.inputContainer}
         onPress={toggleDropdown}
         activeOpacity={0.8}
       >
@@ -90,7 +88,7 @@ const Dropdown = ({
         {/* LOGO RESTORED HERE */}
         <Image
           source={getDropIcon()}
-          style={{ width: height * 0.025, height: height * 0.025 }}
+          style={{ width: hp('2.5%'), height: hp('2.5%') }}
         />
       </TouchableOpacity>
 
@@ -100,30 +98,30 @@ const Dropdown = ({
         animationType="none"
         onRequestClose={() => setShowDropdown(false)}
       >
-        <TouchableOpacity 
-          style={styles.modalOverlay} 
-          activeOpacity={1} 
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
           onPress={() => setShowDropdown(false)}
         >
-          <View 
+          <View
             style={[
-              styles.dropdown, 
-              { 
+              styles.dropdown,
+              {
                 top: coords.y + 5, // 5px gap below input
-                left: coords.x, 
+                left: coords.x,
                 width: coords.width,
-                maxHeight: height * 0.25 
+                maxHeight: hp('25%')
               }
             ]}
           >
-            <ScrollView 
+            <ScrollView
               bounces={false}
               nestedScrollEnabled={true}
               keyboardShouldPersistTaps="handled"
             >
               {options.map((item, index) => (
-                <TouchableOpacity 
-                  key={index} 
+                <TouchableOpacity
+                  key={index}
                   onPress={() => handleSelectOption(item)}
                   style={styles.optionContainer}
                 >
@@ -140,7 +138,7 @@ const Dropdown = ({
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: height * 0.025,
+    marginBottom: hp('2.5%'),
   },
   inputContainer: {
     flexDirection: 'row',
@@ -148,23 +146,23 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#3CB371',
     borderRadius: 10,
-    paddingHorizontal: width * 0.02,
-    height: height * 0.05,
+    paddingHorizontal:  wp('2%'),
+    height: hp('5%'),
     backgroundColor: '#fff',
   },
   placeholderWrapper: {
     flexDirection: 'row',
     position: 'absolute',
-    left: width * 0.03,
+    left: wp('3%'),
   },
   placeholder: {
-    fontSize: width * 0.035,
+    fontSize:  wp('3.5%'),
     fontWeight: '500',
   },
   input: {
     flex: 1,
     color: '#4B4B4B',
-    fontSize: width * 0.035,
+    fontSize: wp('3.5%'),
     fontWeight: '500',
   },
   modalOverlay: {
@@ -177,16 +175,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    boxShadow:'0px 6px 8px rgba(0, 0, 0,0.5)'
+    boxShadow: '0px 6px 8px rgba(0, 0, 0,0.5)'
   },
   optionContainer: {
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
   },
   option: {
-    paddingVertical: height * 0.014,
-    paddingHorizontal: width * 0.03,
-    fontSize: height * 0.017,
+    paddingVertical: hp('1.4%'),
+    paddingHorizontal: wp('3%'),
+    fontSize: hp('1.7%'),
     color: '#333',
   },
   required: {

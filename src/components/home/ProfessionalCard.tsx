@@ -26,11 +26,10 @@ const styles = StyleSheet.create({
   image: {
     width: wp('18%'), // Default image width (can be overridden with prop)
     height: wp('18%'), // Square image
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     borderRadius:100,
-    borderWidth:1,
     borderColor:'hsl(0, 0%, 50%)',
-    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)',
+    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.5)',
   },
   title: {
     marginTop: hp('1%'),

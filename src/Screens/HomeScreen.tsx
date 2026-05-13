@@ -85,22 +85,22 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <Text style={styles.sectionTitle}>Top Professionals</Text>
             <View style={styles.row}>
               <ProfessionalCard
-                image={require('../assets/topProfessionals/1_jamesWalker.png')}
+                image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
                 title="James"
                 subtitle=""
               />
               <ProfessionalCard
-                image={require('../assets/topProfessionals/2_michaelTurner.png')}
+                image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
                 title="Michael"
                 subtitle=""
               />
               <ProfessionalCard
-                image={require('../assets/topProfessionals/3_matthewKing.png')}
+                image={require('../assets/topProfessionals/3_matthewKing.jpg')}
                 title="Matthew"
                 subtitle=""
               />
               <ProfessionalCard
-                image={require('../assets/topProfessionals/5_joshua_adams.png')}
+                image={require('../assets/topProfessionals/5_joshua_adams.jpg')}
                 title="Joshua"
                 subtitle=""
               />

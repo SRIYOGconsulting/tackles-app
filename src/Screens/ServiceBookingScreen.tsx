@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     height: hp('3%'),
 
     position: 'absolute',
-    left: 12,
+    left: 10,
     zIndex: 2,
   },
 
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
 
     height: height * 0.05,
 
-    paddingLeft: wp('12%'), // 🔥 important for icon space
+    paddingLeft: wp('11%'), // 🔥 important for icon space
     paddingRight: 10,
 
     fontSize: width * 0.035,

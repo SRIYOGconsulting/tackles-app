@@ -55,17 +55,17 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             <Text style={styles.title}>Our Team</Text>
             <View style={styles.row}>
               <OurTeamCard 
-                image={require('../assets/topProfessionals/1_jamesWalker.png')}
+                image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
                 title="James Walker"
                 suBTitle="Deep Cleaning Specialist"
               />
                <OurTeamCard 
-                image={require('../assets/topProfessionals/2_michaelTurner.png')}
+                image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
                 title="Michael Turner"
                 suBTitle="Pressure Washing Technician"
               />
                <OurTeamCard 
-                image={require('../assets/topProfessionals/3_matthewKing.png')}
+                image={require('../assets/topProfessionals/3_matthewKing.jpg')}
                 title="Matthew King"
                 suBTitle="Smart Home Installation Engineer"
               />

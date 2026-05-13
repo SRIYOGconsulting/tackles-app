@@ -4,7 +4,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import ServicesCards from '../components/services/ServicesCards';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import SliderCard from '../components/services/SliderCard';
-import { topServices} from '../data/Data';
+import { topServices} from '../data/TopServicesData';
 import { servicesData2 } from '../data/ServiceData';
 import {
   widthPercentageToDP as wp,
@@ -21,7 +21,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
         <View style={styles.sliderCardContainer}>
           <SliderCard
             name="Interior Designing"
-            image={require('../assets/image/services/banner4.png')}
+            image={require('../assets/image/services/banner4.jpg')}
           />
         </View>
       );
@@ -55,7 +55,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
         <View style={styles.headerContainer}>
           {/* Header Image Background */}
           <ImageBackground
-            source={require('../assets/image/services/bannerServices.png')}
+            source={require('../assets/image/services/bannerServices.jpg')}
             resizeMode="cover"
             style={styles.headerBackground}>
             <HeaderComponent style={styles.headerPadding} />

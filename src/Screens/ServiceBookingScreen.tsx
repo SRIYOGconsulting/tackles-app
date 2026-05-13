@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#fff',
     maxHeight: '90%',
-    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)'
+    elevation: 10,
 
 
   },
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     height: hp('3%'),
 
     position: 'absolute',
-    left: 10,
+    left: 8,
     zIndex: 2,
   },
 
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
 
     height: height * 0.05,
 
-    paddingLeft: wp('11%'), // 🔥 important for icon space
+    paddingLeft: wp('10.5%'), //  important for icon space
     paddingRight: 10,
 
     fontSize: width * 0.035,

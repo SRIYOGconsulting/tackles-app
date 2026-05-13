@@ -70,7 +70,11 @@ const styles = StyleSheet.create({
     width: 180,
     height: 180,
     borderRadius: 100,
-    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)'
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 5,
 
   },
   logo: {
@@ -82,7 +86,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#4B4B4B',
     fontWeight: '500',
-    marginBottom:30
+    marginBottom: 30
   },
 });
 

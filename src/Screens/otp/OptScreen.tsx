@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: scaleFont(18),
     backgroundColor: '#fff',
-       boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)'
+    elevation:3
 
   },
   resendcode: {

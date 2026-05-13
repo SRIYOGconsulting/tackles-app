@@ -1,21 +1,25 @@
-import {View, ImageBackground, Text, FlatList, StyleSheet} from 'react-native';
-import React from 'react';
+import React, { useMemo } from 'react';
+import { View, ImageBackground, Text, FlatList, StyleSheet } from 'react-native';
+
 import HeaderComponent from '../components/HeaderComponent';
 import ServicesCards from '../components/services/ServicesCards';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import SliderCard from '../components/services/SliderCard';
-import { topServices} from '../data/TopServicesData';
+
+import { topServices } from '../data/TopServicesData';
 import { servicesData2 } from '../data/ServiceData';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const ServicesScreen = ({navigation}: {navigation: any}) => {
+const ServicesScreen = ({ navigation }: { navigation: any }) => {
   const numberOfItemsBeforeFooter = 6;
-  const [data] = React.useState(servicesData2);
 
-  const renderItem = ({item, index}: {item: any; index: number}) => {
+  const data = useMemo(() => servicesData2, []);
+
+  const renderItem = ({ item, index }: { item: any; index: number }) => {
     if (index === numberOfItemsBeforeFooter) {
       return (
         <View style={styles.sliderCardContainer}>
@@ -26,7 +30,7 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
         </View>
       );
     }
-  
+
     return (
       <View style={styles.serviceItemContainer}>
         <ServicesDisplaycard
@@ -47,18 +51,29 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
   return (
     <FlatList
       data={data}
-      keyExtractor={(item, index) => index.toString()}
+      keyExtractor={(item) => item.id.toString()}
       renderItem={renderItem}
       numColumns={2}
+
+      //  PERFORMANCE + LAZY LOADING SETTINGS
+      initialNumToRender={6}        // first screen only
+      maxToRenderPerBatch={10}      //  lazy load next 10 items
+      windowSize={5}                // controls visible window
+      updateCellsBatchingPeriod={50}
+      removeClippedSubviews={true}
+      getItemLayout={undefined}
+
       showsVerticalScrollIndicator={false}
-      ListHeaderComponent={
+
+      ListHeaderComponent={() => (
         <View style={styles.headerContainer}>
-          {/* Header Image Background */}
           <ImageBackground
             source={require('../assets/image/services/bannerServices.jpg')}
             resizeMode="cover"
-            style={styles.headerBackground}>
+            style={styles.headerBackground}
+          >
             <HeaderComponent style={styles.headerPadding} />
+
             <View style={styles.headerTextContainer}>
               <Text style={styles.headerTitle}>Painting</Text>
               <Text style={styles.headerSubtitle}>
@@ -67,33 +82,30 @@ const ServicesScreen = ({navigation}: {navigation: any}) => {
             </View>
           </ImageBackground>
 
-          {/* Top Services Section */}
           <View style={styles.sectionContainer}>
             <Text style={styles.sectionTitle}>Top Services</Text>
-            <FlatList
-              data={topServices}
-              keyExtractor={service => service.id.toString()}
-              renderItem={({item}) => (
-                <ServicesCards
-                  name={item.name}
-                  description={item.description}
-                  image={item.image}
-                  navigation={navigation}
-                  question={item.question}
-                  answer={item.answer}
-                  onPress={() =>
-                    navigation.navigate('SingleScreen', {
-                      service: item,
-                    })
-                  }
-                />
-              )}
-              showsVerticalScrollIndicator={false}
-            />
+
+            {topServices.map((item) => (
+              <ServicesCards
+                key={item.id}
+                name={item.name}
+                description={item.description}
+                image={item.image}
+                navigation={navigation}
+                question={item.question}
+                answer={item.answer}
+                onPress={() =>
+                  navigation.navigate('SingleScreen', {
+                    service: item,
+                  })
+                }
+              />
+            ))}
+
             <Text style={styles.sectionTitle}>More Services</Text>
           </View>
         </View>
-      }
+      )}
     />
   );
 };
@@ -102,51 +114,58 @@ const styles = StyleSheet.create({
   headerContainer: {
     flex: 1,
   },
+
   headerBackground: {
     width: wp('100%'),
-    height: hp('30%'), // Responsive height based on screen size
+    height: hp('30%'),
     justifyContent: 'space-between',
+    boxShadow: '0px 0px 2px #7cbc7a',
   },
+
   headerPadding: {
-    marginTop:hp('2%'),
-    paddingHorizontal:18
+    marginTop: hp('2%'),
+    paddingHorizontal: 18,
   },
+
   headerTextContainer: {
     paddingHorizontal: wp('5%'),
     marginBottom: hp('4%'),
   },
+
   headerTitle: {
-    fontSize: wp('7.5%'), // Responsive font size for title
+    fontSize: wp('7.5%'),
     fontWeight: '800',
     color: '#fff',
-    paddingBottom:2
   },
+
   headerSubtitle: {
     fontSize: wp('4%'),
     fontWeight: '800',
     color: '#fff',
-    marginTop: hp('0.1%'),
   },
+
   sectionContainer: {
     paddingHorizontal: wp('5%'),
     paddingTop: hp('4%'),
-    width:wp('95%'),
+    width: wp('95%'),
   },
+
   sectionTitle: {
     fontSize: wp('4.5%'),
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('2%'),
   },
+
   serviceItemContainer: {
     paddingLeft: wp('5%'),
     marginBottom: hp('3%'),
-    width: wp('48%'), 
+    width: wp('48%'),
   },
+
   sliderCardContainer: {
     paddingHorizontal: wp('5%'),
     marginBottom: hp('3%'),
-  
   },
 });
 

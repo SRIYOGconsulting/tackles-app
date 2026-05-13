@@ -48,9 +48,12 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: '#fff',
 
-    height: hp(23), 
-
-   boxShadow:'0px 0px 4px rgba(124, 188, 122,0.7)'
+    height: hp(23),
+    shadowColor: '#7cbc7a',
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 0 },
+    elevation: 3,
   },
 
   image: {

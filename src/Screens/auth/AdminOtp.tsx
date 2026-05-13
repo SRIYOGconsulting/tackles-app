@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor:"green",
-    height: 37,
+    height: 40,
     width: "60%", // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',

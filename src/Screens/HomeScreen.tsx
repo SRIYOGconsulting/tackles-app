@@ -59,7 +59,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             {/* Top Services */}
             <Text style={styles.sectionTitle}>Top Services</Text>
 
-            <View style={styles.row}>
+            <View style={styles.row1}>
               <ServicesCard
                 title="Painting"
                 image={require('../assets/services/homeImprovement/painting.jpg')}
@@ -96,7 +96,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             {/* Professionals */}
             <Text style={styles.sectionTitle}>Top Professionals</Text>
 
-            <View style={styles.row}>
+            <View style={styles.row2}>
               <ProfessionalCard
                 image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
                 title="James"
@@ -176,10 +176,17 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  row: {
+  row1: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
-    gap: 12,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+
+  row2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   numberBarContainer: {

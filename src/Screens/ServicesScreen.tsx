@@ -83,7 +83,7 @@ const ServicesScreen = ({ navigation }: { navigation: any }) => {
           </ImageBackground>
 
           <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Top Services</Text>
+            <Text style={styles.sectionTitle1}>Top Services</Text>
 
             {topServices.map((item) => (
               <ServicesCards
@@ -102,7 +102,7 @@ const ServicesScreen = ({ navigation }: { navigation: any }) => {
               />
             ))}
 
-            <Text style={styles.sectionTitle}>More Services</Text>
+            <Text style={styles.sectionTitle2}>More Services</Text>
           </View>
         </View>
       )}
@@ -150,12 +150,23 @@ const styles = StyleSheet.create({
     width: wp('95%'),
   },
 
-  sectionTitle: {
+  sectionTitle1: {
+    fontSize: wp('4.5%'),
+    fontWeight: '800',
+    color: '#064E3B',
+    marginBottom: hp('3.2%'),
+    marginTop:hp(-1)
+  },
+
+  sectionTitle2: {
     fontSize: wp('4.5%'),
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('2%'),
+    marginTop:hp(-1)
+
   },
+
 
   serviceItemContainer: {
     paddingLeft: wp('5%'),

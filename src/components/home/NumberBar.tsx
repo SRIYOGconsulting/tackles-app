@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     includeFontPadding: false,
     textAlignVertical: 'center',
     paddingVertical: 0,
-    paddingLeft: wp('5%')
+     textAlign: 'center'
   },
   helpButton: {
     backgroundColor: '#0E61CD',

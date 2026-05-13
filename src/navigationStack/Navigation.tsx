@@ -5,7 +5,6 @@ import Tabs from './TabNavigation';
 import SingleScreen from '../Screens/SingleScreen';
 import VerifiedScreen from '../Screens/otp/VerifiedScreen';
 import ViewBooking from '../screens/ViewBooking';
-import Booking from './Booking'
 
 type Props = {};
 

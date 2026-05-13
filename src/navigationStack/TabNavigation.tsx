@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet } from 'react-native';
+import { Image, StyleSheet, Platform } from 'react-native';
 
 import Booking from './Booking';
 import Home from './Home';
@@ -29,10 +29,11 @@ const Tabs = () => {
       screenOptions={({ route }) => ({
         tabBarStyle: {
           backgroundColor: '#D9D9D9',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: 60,
-          zIndex:999
+          height: Platform.OS === 'android' ? 82 : 90,
+          paddingTop: 10,
+          paddingBottom: Platform.OS === 'android' ? 12 : 25,
+          borderTopWidth: 0,
+          elevation: 12,
         },
         tabBarIcon: ({ focused }) => {
           if (route.name === 'Home') {
@@ -122,21 +123,26 @@ const styles = StyleSheet.create({
   NIcon: {
     width: 30,
     height: 30,
-    marginTop: 14,
+    marginTop: 2,
   },
+
   ActiveIcon: {
     width: 37,
     height: 37,
-    marginTop: 14,
+    marginTop: 2,
   },
+
   bookingIcon: {
-    width: 48,
-    height: 48,
-    marginBottom: 20,
+    width: 62,
+    height: 62,
+    marginBottom: 38,
     backgroundColor: '#fff',
-    boxShadow: "0px 0px 2px 2px #fff",
     borderRadius: 100,
-    zIndex:1
+
+
+    // Android shadow
+    boxShadow: "0px 0px 2px 2px #fff",
+
   },
 });
 

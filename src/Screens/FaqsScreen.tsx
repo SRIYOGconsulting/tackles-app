@@ -2,7 +2,7 @@ import { View, Image, Text, FlatList, TextInput, Dimensions, StyleSheet } from '
 import React, { useState } from 'react';
 import HeaderComponent from '../components/HeaderComponent';
 import FaqsCard from '../components/faqs/FaqsCard';
-import { faqsQuestioin } from '../data/Data';
+import { faqsQuestioin } from '../data/Questions';
 
 const { width, height } = Dimensions.get('window');
 

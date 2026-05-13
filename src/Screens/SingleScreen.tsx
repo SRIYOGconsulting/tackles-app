@@ -12,7 +12,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import { useNavigation } from '@react-navigation/native';
-import { servicesData2 } from '../data/Data';
+import { servicesData2 } from '../data/ServiceData';
 import { RootStackParamList } from '../types';
 import LinearGradient from 'react-native-linear-gradient';
 import {

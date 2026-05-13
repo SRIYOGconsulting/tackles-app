@@ -17,7 +17,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-import { servicesData2 } from '../data/Data';
+import { servicesData2 } from '../data/ServiceData';
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (

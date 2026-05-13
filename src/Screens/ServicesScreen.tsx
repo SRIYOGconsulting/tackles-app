@@ -4,7 +4,8 @@ import HeaderComponent from '../components/HeaderComponent';
 import ServicesCards from '../components/services/ServicesCards';
 import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import SliderCard from '../components/services/SliderCard';
-import {servicesData2, topServices} from '../data/Data';
+import { topServices} from '../data/Data';
+import { servicesData2 } from '../data/ServiceData';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,

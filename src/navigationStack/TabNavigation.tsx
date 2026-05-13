@@ -32,6 +32,7 @@ const Tabs = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: 60,
+          zIndex:999
         },
         tabBarIcon: ({ focused }) => {
           if (route.name === 'Home') {
@@ -131,9 +132,9 @@ const styles = StyleSheet.create({
   bookingIcon: {
     width: 48,
     height: 48,
-    marginTop: -20,
+    marginBottom: 20,
     backgroundColor: '#fff',
-    boxShadow: "0px 1px 10px 2px #fff",
+    boxShadow: "0px 0px 2px 2px #fff",
     borderRadius: 100,
     zIndex:1
   },

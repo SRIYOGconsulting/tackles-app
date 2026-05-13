@@ -105,9 +105,9 @@ const formatDescription = (text:any) => {
       <HeaderComponent style={styles.header} />
       <View style={styles.headerline}/>
       <View style={styles.container}>
-        <Text style={[styles.title, { fontSize: scaleFont(21) }]}>
-          {service.name}
-        </Text>
+       {/* <Text style={[styles.title, { fontSize: scaleFont(21) }]}> */}
+          {/* {service.name} */}
+        {/* </Text> */}
         <View style={styles.imageContainer}>
           <Image source={service.image} style={styles.image} />
         </View>
@@ -191,7 +191,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     overflow: 'hidden',
     borderRadius: 8,
-    elevation: 5,
+    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)',
+    marginTop:5,
     marginBottom: 15
   },
 

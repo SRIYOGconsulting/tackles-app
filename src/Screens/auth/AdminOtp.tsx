@@ -196,7 +196,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: scaleFont(18),
     backgroundColor: '#fff',
-    elevation:3
+        boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)'
+
   },
   resendcode:{
     marginTop:25,
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
   },
   submitButton: {
     backgroundColor:"green",
-    height: 43,
+    height: 37,
     width: "60%", // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',

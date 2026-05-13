@@ -177,12 +177,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-    elevation: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    overflow: 'hidden',
+    boxShadow:'0px 6px 8px rgba(0, 0, 0,0.5)'
   },
   optionContainer: {
     borderBottomWidth: 1,

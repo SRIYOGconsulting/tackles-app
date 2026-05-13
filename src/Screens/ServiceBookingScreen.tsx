@@ -273,7 +273,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#fff',
     maxHeight: '90%',
-    elevation: 10,
+    boxShadow:'0px 0px 3px rgba(0, 0, 0,0.4)'
+
 
   },
   input: {

@@ -109,11 +109,12 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: '#fff',
+    paddingHorizontal:'1%'
   },
 
   header: {
     marginTop: hp('2%'),
-    paddingHorizontal: 17,
+    paddingHorizontal: wp('3.1%'),
   },
 
   divider: {

@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginTop: hp('2%'),
-    paddingHorizontal: 18
+    paddingHorizontal: 15.7
   },
   formContainer: {
     paddingHorizontal: width * 0.05,

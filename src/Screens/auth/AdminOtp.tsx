@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
   },
   header: {
     marginTop:hp('2.0%'),
-    paddingHorizontal:17,
+    paddingHorizontal:15.7,
   },
 });
 

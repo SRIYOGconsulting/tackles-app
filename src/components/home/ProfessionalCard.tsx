@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: 'hsl(0, 0%, 50%)',
     elevation: 3,
+    borderWidth:1
   },
   title: {
     marginTop: hp('1%'),

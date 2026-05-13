@@ -35,7 +35,9 @@ const styles = StyleSheet.create({
     marginHorizontal: wp('1.4%'),
     backgroundColor: '#fff',
     overflow: 'hidden',
-    boxShadow: '0px 0px 2px #7cbc7a',
+    borderWidth:1,
+    borderColor: '#7cbc7a'
+
   },
   image: {
     height: hp('9%'),

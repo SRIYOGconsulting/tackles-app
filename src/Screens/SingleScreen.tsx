@@ -166,7 +166,7 @@ const SingleScreen = ({ route, navigation }: any) => {
 const styles = StyleSheet.create({
   header: {
     marginTop: hp('2%'),
-    paddingHorizontal: 17,
+    paddingHorizontal: 15.7,
   },
 
   headerline: {
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
 
   container: {
     paddingHorizontal: '5%',
-    paddingTop: '5%',
+    paddingTop: '6%',
   },
 
   imageContainer: {
@@ -191,8 +191,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
 
     elevation:5,
-
-    marginTop: 5,
     marginBottom: 15,
   },
 

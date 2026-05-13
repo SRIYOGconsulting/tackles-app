@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     height: hp('30%'),
     alignSelf: 'center',
     borderRadius: 10,
-    marginTop: 20,
+    marginTop: 25,
     overflow: 'hidden',
     backgroundColor: '#eee',
   },

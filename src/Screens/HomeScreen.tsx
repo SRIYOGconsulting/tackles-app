@@ -14,6 +14,7 @@ import NumberBar from '../components/home/NumberBar';
 
 import {
   widthPercentageToDP as wp,
+  heightPercentageToDP as hp
 } from 'react-native-responsive-screen';
 
 import { servicesData2 } from '../data/ServiceData';
@@ -42,11 +43,8 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
             resizeMode="cover"
           />
 
-          {/* Header (FIXED PADDING APPLIED PROPERLY) */}
           <View style={styles.headerWrapper}>
-            <View style={styles.headerPadding}>
-              <HeaderComponent />
-            </View>
+            <HeaderComponent />
           </View>
 
           {/* Content */}
@@ -145,15 +143,12 @@ const styles = StyleSheet.create({
 
   headerWrapper: {
     position: 'absolute',
-    top: 15,
-    width: '100%',
+    top: hp('2%'),
+    left: 0,
+    right: 0,
+    paddingHorizontal: wp('0.15%'),
     zIndex: 10,
   },
-
-  headerPadding: {
-    paddingHorizontal: wp('4%'),
-  },
-
   content: {
     paddingHorizontal: wp('4%'),
     paddingTop: 15,

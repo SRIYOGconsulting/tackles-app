@@ -182,7 +182,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
           <Dropdown
             options={shifts}
-            placeholder="Choose a shift"
+            placeholder="Choose a Shift"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedShift}
             dropdownType="shift"

@@ -60,6 +60,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color:'#4B4B4B',
+    marginTop: 10,
+    marginBottom: 20,
   },
 });
 

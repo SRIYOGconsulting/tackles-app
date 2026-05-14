@@ -151,7 +151,7 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           />
         </View>
 
-        <Text style={styles.label}>eMail</Text>
+        <Text style={styles.label}>Email</Text>
         <TextInput
           placeholder="Enter your email address"
           value={email}
@@ -201,7 +201,7 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
-        <Text style={styles.label}>Company Registratiom Certificates</Text>
+        <Text style={styles.label}>Company Registration Certificates</Text>
         <FileUploadBox />
 
         <Text style={styles.label}>How did you hear about us?</Text>
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     borderRadius: 10,
-    marginTop: 45,
+    marginTop: 30,
     marginBottom: 50,
 
     backgroundColor: '#000', // IMPORTANT
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
   },
   buttonClearFlex:{
     flexDirection: 'row',
-    marginTop: 70,
+    marginTop: 55,
     marginLeft: 10,
   },
   text: {

@@ -361,7 +361,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingVertical: 8,
     borderRadius: 10,
-    marginTop: 45,
+    marginTop: 30,
   },
   text: {
     color: '#fff',

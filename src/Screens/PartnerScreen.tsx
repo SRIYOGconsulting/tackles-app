@@ -8,10 +8,11 @@ import {
   Alert,
   Dimensions,
   Image,
+  Pressable,
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { area, services} from '../../src/data/Data';
+import { area, services } from '../../src/data/Data';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import countryLogo from '../assets/image/header/right.png';
@@ -19,6 +20,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import FileUploadBox from '../components/FileUploadBox';
+import ClearFormIcon from '../assets/icons/contact/clear.png'
 
 
 const { width, height } = Dimensions.get('window');
@@ -88,7 +91,7 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.title}>Partnership</Text>
         <Text style={styles.subTitle}>Partnership opportunity with TACKLES</Text>
 
-        <Text style={styles.borderWIDTH}/>
+        <Text style={styles.borderWIDTH} />
 
         <Text style={styles.label}>Full Name</Text>
         <TextInput
@@ -157,6 +160,9 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
+        <Text style={styles.label}>Company Photos</Text>
+        <FileUploadBox />
+
         <Text style={styles.label}>City</Text>
         <Dropdown
           options={area}
@@ -195,6 +201,9 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
+        <Text style={styles.label}>Company Registratiom Certificates</Text>
+        <FileUploadBox />
+
         <Text style={styles.label}>How did you hear about us?</Text>
         <TextInput
           placeholder="Briefly describe how you heard about us"
@@ -213,12 +222,12 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         />
 
         <View style={styles.buttonContainer}>
-          <Button
-            style={styles.buttonClear}
-            textStyle={{ color: 'black', textAlign: 'center' }}
-          >
-            Clear form
-          </Button>
+         
+          <Pressable style={styles.buttonClearFlex}>
+            <Image source={ClearFormIcon} style={styles.clearIcon} />
+             <Text style={styles.buttonClear}>Clear form</Text>
+          </Pressable>
+
           <Button
             style={styles.buttonSubmit}
             textStyle={{ color: 'white', textAlign: 'center' }}
@@ -262,11 +271,12 @@ const styles = StyleSheet.create({
     color: '#000',
     paddingLeft: 3,
   },
-    borderWIDTH: {
+  borderWIDTH: {
     borderBottomWidth: 1,
     borderColor: '#CAD2DF',
-    marginBottom: height * 0.02,
-    },
+    marginBottom: height * 0.04,
+    marginTop: height * 0.02,
+  },
   input: {
     borderWidth: 1,
     borderRadius: 10,
@@ -293,7 +303,12 @@ const styles = StyleSheet.create({
 
     position: 'absolute',
     left: 8,
-    zIndex: 2,
+  },
+  clearIcon: {
+     width: wp('7%'),
+    height: hp('2.7%'),
+    resizeMode: 'contain',
+    marginRight: 1,
   },
 
   phoneInput: {
@@ -312,7 +327,7 @@ const styles = StyleSheet.create({
   label: {
     marginBottom: 5,
     paddingLeft: 4,
-    fontSize: 15,
+    fontSize: wp('3.8%'),
     fontWeight: '500',
 
   },
@@ -330,21 +345,18 @@ const styles = StyleSheet.create({
     marginTop: 45,
     marginBottom: 50,
 
-    backgroundColor: '#000', // ✅ IMPORTANT
+    backgroundColor: '#000', // IMPORTANT
   },
-   buttonClear: {
-    width: width * 0.4,
-    height: height * 0.06,
-    justifyContent: 'center',
-    alignItems: 'center',
-    alignSelf: 'center',
-    borderRadius: 10,
-    marginTop: 45,
-    marginBottom: 50,
-    borderWidth: 2,
+  buttonClear: {
 
-    backgroundColor: '#fff', // ✅ IMPORTANT
-  },  
+    color:'#0a7de1',
+    fontSize: width * 0.04,
+  },
+  buttonClearFlex:{
+    flexDirection: 'row',
+    marginTop: 70,
+    marginLeft: 10,
+  },
   text: {
     color: '#fff',
     fontSize: width * 0.04,

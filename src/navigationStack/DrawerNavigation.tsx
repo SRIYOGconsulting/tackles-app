@@ -1,154 +1,246 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    StyleSheet,
+    Image,
+} from 'react-native';
+
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import Tabs from './TabNavigation';
 
-export default function DrawerNavigation() {
-    const [activeScreen, setActiveScreen] = useState<'Tabs' | 'Settings' | 'Help'>('Tabs');
+export default function DrawerNavigation({
+    navigation,
+}: {
+    navigation: any;
+}) {
     const [drawerOpen, setDrawerOpen] = useState(false);
-
-    const renderScreen = () => {
-        return <Tabs />;
-    };
 
     return (
         <View style={styles.container}>
 
+            {/* Bottom Tabs */}
+            <View style={styles.content}>
+                <Tabs />
+            </View>
 
+            {/* Overlay */}
+            {drawerOpen && <View style={styles.overlay} />}
 
             {/* Drawer Menu */}
             {drawerOpen && (
-
                 <View style={styles.drawer}>
+
                     <View style={styles.imageContainer}>
-                        <Image style={styles.drawerTitle} source={require('../assets/logowithwordmark.png')}/>
+                        <Image
+                            style={styles.drawerTitle}
+                            source={require('../assets/logowithwordmark.png')}
+                        />
                     </View>
+
+                    {/* Home */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Tabs');
+                            navigation.navigate('Main', {
+                                screen: 'Home',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/home.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/home.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>Home</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* Services */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Settings');
+                            navigation.navigate('Main', {
+                                screen: 'Services',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/services.png')} resizeMode="contain" style={styles.iconSize} />
-                            <Text style={styles.buttonText}>Service</Text>
+                            <Image
+                                source={require('../assets/drawer/services.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
+                            <Text style={styles.buttonText}>Services</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* Booking */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'BookingTab',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/book.png')} resizeMode="contain" style={styles.iconSize} />
-                            <Text style={styles.buttonText}>Book a Service</Text>
+                            <Image
+                                source={require('../assets/drawer/book.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
+                            <Text style={styles.buttonText}>
+                                Book a Service
+                            </Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* About */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'Request',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/about.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/about.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>About Us</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* Contact */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'Contact',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/contact.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/contact.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>Contact</Text>
                         </View>
                     </TouchableOpacity>
-                    <View style={{ borderBottomWidth: 1, borderColor: '#797979', marginVertical: 10 }} />
 
-                    {/* Below Tab Naviagtion Buttons */}
+                    <View
+                        style={{
+                            borderBottomWidth: 1,
+                            borderColor: '#797979',
+                            marginVertical: 20,
+                        }}
+                    />
 
+                    {/* Become Partner */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Settings');
+                            navigation.navigate('Main', {
+                                screen: 'Partner',
+                            });
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/becomeApartner.png')} resizeMode="contain" style={styles.iconSize} />
-                            <Text style={styles.buttonText}>Become a Partner</Text>
+                            <Image
+                                source={require('../assets/drawer/becomeApartner.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
+                            <Text style={styles.buttonText}>
+                                Become a Partner
+                            </Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* Career */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'Career',
+                            });
+
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/career.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/career.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>Career</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* FAQ */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'Faqs',
+                            });
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/faq.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/faq.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>FAQ</Text>
                         </View>
                     </TouchableOpacity>
 
+                    {/* Glossary */}
                     <TouchableOpacity
                         style={styles.item}
                         onPress={() => {
-                            setActiveScreen('Help');
+                            navigation.navigate('Main', {
+                                screen: 'Glossary',
+                            });
                             setDrawerOpen(false);
                         }}
                     >
                         <View style={styles.buttoncontainer}>
-                            <Image source={require('../assets/drawer/glossary.png')} resizeMode="contain" style={styles.iconSize} />
+                            <Image
+                                source={require('../assets/drawer/glossary.png')}
+                                resizeMode="contain"
+                                style={styles.iconSize}
+                            />
                             <Text style={styles.buttonText}>Glossary</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
             )}
 
-            {/* Screen Content */}
-            <View style={styles.content}>{renderScreen()}</View>
-
-            {/* Floating menu button (optional) */}
+            {/* Floating Menu Button */}
             <TouchableOpacity
                 style={styles.fab}
                 onPress={() => setDrawerOpen(!drawerOpen)}
@@ -166,34 +258,38 @@ const styles = StyleSheet.create({
 
     content: {
         flex: 1,
-        
     },
 
     drawer: {
         position: 'absolute',
-        top: 120,
-        bottom: 120,
-        left: 10,
-        width: 250,
-        backgroundColor: '#D9D9D9',
+        left: 12,
+        width: hp('32%'),
+
+        top: hp('15%'),
+        bottom: hp('15%'),
+
+        backgroundColor: 'hsl(0, 0%, 85%)',
         padding: 15,
         borderRadius: 17,
-        elevation: 10,
         zIndex: 10,
     },
+
     imageContainer: {
         width: '100%',
         height: 60,
         marginBottom: 20,
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
+        borderBottomWidth: 1,
+        borderColor: 'hsl(0, 0%, 82%)',
     },
+
     drawerTitle: {
- 
-        width:140,
+        width: 140,
         height: 60,
         resizeMode: 'contain',
     },
+
     buttoncontainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -203,6 +299,7 @@ const styles = StyleSheet.create({
     item: {
         paddingVertical: 12,
     },
+
     fab: {
         position: 'absolute',
         top: 70,
@@ -214,16 +311,24 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         elevation: 10,
-        
     },
+
     buttonText: {
         fontSize: 13,
-        color: '#000',
+        color: 'hsl(0, 0%, 30%)',
         fontWeight: '500',
     },
+
     iconSize: {
         width: 17,
         height: 17,
-        marginRight: 10
-    }
+        marginRight: 10,
+        tintColor: 'hsl(0, 0%, 25%)',
+    },
+
+    overlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: '#fff',
+        zIndex: 5,
+    },
 });

@@ -30,17 +30,17 @@ const styles = StyleSheet.create({
     paddingTop:95,
     paddingLeft:21,
     fontSize:25,
-    fontWeight:"800",
+    fontWeight:'800',
     paddingBottom:12,
-    color:"green"
+    color:'green',
   },
   subtitle: {
     paddingHorizontal:21,
     fontSize:16,
     lineHeight:22,
-    color:"green"
+    color:'green',
 
-  }
+  },
 });
 
 export default OnBoarding2;

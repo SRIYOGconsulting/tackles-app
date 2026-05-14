@@ -172,13 +172,13 @@ const styles = StyleSheet.create({
     fontSize: scaleFont(17),
     marginTop: height * 0.03, // Adjust top margin for large screens
     fontWeight: '500',
-    lineHeight:23
+    lineHeight:23,
   },
   otpPromptText: {
     fontSize: scaleFont(18.5),
     marginBottom: height * 0.04, // Adjust margin-bottom for larger screens
     fontWeight: '500',
-    color:'green'
+    color:'green',
   },
   otpBox: {
     flexDirection: 'row',
@@ -196,19 +196,19 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: scaleFont(18),
     backgroundColor: '#fff',
-    elevation:3
+    elevation:3,
 
   },
   resendcode:{
     marginTop:25,
     paddingHorizontal:20,
     textAlign:'center',
-    lineHeight:22
+    lineHeight:22,
   },
   submitButton: {
-    backgroundColor:"green",
+    backgroundColor:'green',
     height: 40,
-    width: "60%", // Adjust width based on screen size
+    width: '60%', // Adjust width based on screen size
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 100,

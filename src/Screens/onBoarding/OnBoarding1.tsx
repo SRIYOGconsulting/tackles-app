@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   skipbutton: {
     fontSize: 13,
     fontWeight: '600',
-    color: "purple"
+    color: 'purple',
   },
   title: {
     paddingTop: 95,

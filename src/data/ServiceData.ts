@@ -17,7 +17,7 @@ export const servicesData2 = [
     words: 'Outdoor surface cleaning.',
     number: 12,
     description:
-      "Dirt, stains, and grime can quickly make any property look worn out and unmaintained. Pressure washing removes mold, oil stains, algae, dust, and heavy buildup from driveways, patios, walls, fences, and commercial surfaces across San Francisco. Advanced equipment and safe cleaning techniques ensure deep cleaning without damaging surfaces. Soft washing is used for delicate areas, while high-pressure cleaning handles stubborn dirt and stains. It restores a fresh, clean appearance and improves overall curb appeal. Regular cleaning also helps protect surfaces from long-term damage and wear. Reliable service, flexible scheduling, and consistent results are always delivered.",
+      'Dirt, stains, and grime can quickly make any property look worn out and unmaintained. Pressure washing removes mold, oil stains, algae, dust, and heavy buildup from driveways, patios, walls, fences, and commercial surfaces across San Francisco. Advanced equipment and safe cleaning techniques ensure deep cleaning without damaging surfaces. Soft washing is used for delicate areas, while high-pressure cleaning handles stubborn dirt and stains. It restores a fresh, clean appearance and improves overall curb appeal. Regular cleaning also helps protect surfaces from long-term damage and wear. Reliable service, flexible scheduling, and consistent results are always delivered.',
     question: 'Why is pressure washing useful for properties?',
     answer: 'Pressure washing helps remove dirt, stains, mold, algae, and grime from exterior surfaces like driveways, patios, walls, and sidewalks to restore a clean appearance.',
     image: require('../assets/services/cleaningANDexteriorMaintenance/pressure-washing.jpg'),
@@ -355,6 +355,6 @@ export const servicesData2 = [
     question: 'What is included in a maintenance plan?',
     answer: 'A maintenance plan includes regular inspections, preventive repairs, system checks, and ongoing upkeep for plumbing, electrical, and general property systems.',
     image: require('../assets/services/subscriptionServices/maintenance-plan.jpg'),
-  }
+  },
 
-]
+];

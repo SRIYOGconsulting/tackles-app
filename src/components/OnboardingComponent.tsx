@@ -10,7 +10,7 @@ type Props = {
 
 const OnboardingComponent = ({title, onPress, image}: Props) => {
   return (
-    
+
     <View style={styles.container}>
       <View style={styles.content}>
         <Image source={image} style={styles.bannerImg}/>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   bannerImg:{
     height:300,
     width:300,
-  }
+  },
 });
 
 export default OnboardingComponent;

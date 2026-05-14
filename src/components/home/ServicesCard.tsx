@@ -3,7 +3,7 @@ import {
   Text,
   Image,
   StyleSheet,
-  Pressable
+  Pressable,
 } from 'react-native';
 import React from 'react';
 
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     overflow: 'hidden',
     borderWidth:1,
-    borderColor: '#7cbc7a'
+    borderColor: '#7cbc7a',
 
   },
   image: {

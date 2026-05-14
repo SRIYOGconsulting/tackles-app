@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('3.2%'),
-    marginTop:hp(-1)
+    marginTop:hp(-1),
   },
 
   sectionTitle2: {
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('2%'),
-    marginTop:hp(-1)
+    marginTop:hp(-1),
 
   },
 

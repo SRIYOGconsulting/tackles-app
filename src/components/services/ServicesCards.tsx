@@ -62,11 +62,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width:wp(90),
     height: wp(26),
-    marginBottom: hp(3.5), 
+    marginBottom: hp(3.5),
     alignItems:'center',
     borderRadius:12,
     boxShadow:'0px 0px 1px #7cbc7a',
-    
+
   },
   imageContainer: {
     flex: 1,
@@ -84,22 +84,22 @@ const styles = StyleSheet.create({
   textContainer: {
     marginLeft: wp(3), // Add some space between the image and text
     width: wp(42), // Text container width set to a percentage of screen width
-    
+
   },
   title: {
     fontSize: wp(4.1), // Responsive font size based on screen width
     fontWeight: '600',
     // Responsive margin
     color: '#000',
-    paddingBottom:3
-    
+    paddingBottom:3,
+
   },
   description: {
     fontSize: wp(3.1), // Responsive description font size
     fontWeight: '400',
     color: 'hsl(0, 0%, 25%)',
     letterSpacing:-0.3,
-    lineHeight:17
+    lineHeight:17,
   },
 });
 

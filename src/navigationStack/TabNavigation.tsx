@@ -8,6 +8,11 @@ import Services from './Services';
 import About from './About';
 import Contact from './Contact';
 
+import CareerScreen from '../Screens/CareerScreen';
+import GlossaryScreen from '../Screens/GlossaryScreen';
+import PartnerScreen from '../Screens/PartnerScreen';
+import FAQScreen from '../Screens/FaqsScreen';
+
 import HomeIcon from '../assets/icons/Home.png';
 import HomeActiveIcon from '../assets/icons/HomeActive.png';
 import ServicesIcon from '../assets/icons/Service.png';
@@ -114,6 +119,41 @@ const Tabs = () => {
       <Tab.Screen name="BookingTab" component={Booking} options={{ tabBarLabel: '' }} />
       <Tab.Screen name="Request" component={About} options={{ tabBarLabel: '' }} />
       <Tab.Screen name="Contact" component={Contact} options={{ tabBarLabel: '' }} />
+      <Tab.Screen
+        name="Partner"
+        component={PartnerScreen}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
+
+      <Tab.Screen
+        name="Faqs"
+        component={FAQScreen}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
+
+      <Tab.Screen
+        name="Career"
+        component={CareerScreen}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
+
+      <Tab.Screen
+        name="Glossary"
+        component={GlossaryScreen}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+        }}
+      />
 
     </Tab.Navigator>
   );
@@ -141,7 +181,7 @@ const styles = StyleSheet.create({
 
 
     // Android shadow
-    boxShadow: "0px 0px 2px 2px #fff",
+    boxShadow: '0px 0px 2px 2px #fff',
 
   },
 });

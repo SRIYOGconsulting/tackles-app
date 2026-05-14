@@ -17,7 +17,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import CalenderIcon from '../assets/image/TabIcon/calendar.png';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import countryLogo from '../assets/image/header/right.png'
+import countryLogo from '../assets/image/header/right.png';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -45,7 +45,7 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
 
 const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
+  // const [location, setLocation] = useState('');
   const [number, setNumber] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedShift, setSelectedShift] = useState('');
@@ -153,7 +153,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           />
 
           <Text style={styles.label}>Choose Date</Text>
-          <View style={{ marginBottom: height * 0.025, }}>
+          <View style={{ marginBottom: height * 0.025 }}>
             <TouchableOpacity
               onPress={() => setShow(true)}
               style={styles.datePicker}>
@@ -197,7 +197,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           />
 
-          
+
           {/* <Dropdown
             options={priority}
             placeholder="Select Priority"
@@ -225,7 +225,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
           <View style={styles.buttonPadding}>
             <Button
               style={styles.button1}
-              textStyle={{ color: 'white', textAlign: 'center', }}
+              textStyle={{ color: 'white', textAlign: 'center' }}
               onPress={handleSubmit}
             >
               Submit Booking
@@ -250,12 +250,12 @@ const styles = StyleSheet.create({
   },
   header: {
     marginTop: hp('2%'),
-    paddingHorizontal: 15.7
+    paddingHorizontal: 15.7,
   },
   formContainer: {
     paddingHorizontal: width * 0.05,
     paddingTop: height * 0.02,
-    backgroundColor: 'teal'
+    backgroundColor: 'teal',
 
   },
   title: {
@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     borderColor: '#3CB371',
     textAlignVertical: 'center',
     paddingBottom: 10,
-    color: "#4B4B4B"
+    color: '#4B4B4B',
 
   },
   phoneContainer: {
@@ -318,7 +318,7 @@ const styles = StyleSheet.create({
 
     fontSize: width * 0.035,
     fontWeight: '500',
-    color: "#4B4B4B"
+    color: '#4B4B4B',
   },
   datePicker: {
     flexDirection: 'row',
@@ -333,29 +333,29 @@ const styles = StyleSheet.create({
   datePickerText: {
     fontSize: width * 0.035,
     fontWeight: '500',
-    color: '#4B4B4B'
+    color: '#4B4B4B',
   },
   label: {
     marginBottom: 5,
     paddingLeft: 4,
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: '500',
 
   },
   buttonPadding: {
     paddingBottom: 41,
     alignItems: 'center',
-    color: '#fff'
+    color: '#fff',
   },
   button1: {
     width: width * 0.45,
     height: height * 0.06,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: "center",
+    alignSelf: 'center',
     paddingVertical: 8,
     borderRadius: 10,
-    marginTop: 40
+    marginTop: 40,
   },
   text: {
     color: '#fff',

@@ -8,7 +8,7 @@ import {
 type Props = {
     title: string;
     suBTitle: string;
-    image: any; 
+    image: any;
     style?: any};
 
 const OurTeamCard = ({title,suBTitle, image, style}: Props) => {
@@ -24,7 +24,7 @@ const OurTeamCard = ({title,suBTitle, image, style}: Props) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    marginVertical: hp('1%'), 
+    marginVertical: hp('1%'),
     width:'36%',   // Responsive vertical margin
   },
   image: {

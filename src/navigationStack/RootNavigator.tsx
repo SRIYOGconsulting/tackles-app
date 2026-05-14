@@ -7,7 +7,6 @@ import SplashScreen from '../Screens/SplashScreen';
 import OnBoarding1 from '../Screens/onBoarding/OnBoarding1';
 import OnBoarding2 from '../Screens/onBoarding/OnBoarding2';
 import OnBoarding3 from '../Screens/onBoarding/OnBoarding3';
-import Tabs from './TabNavigation';
 import Booking from './Booking';
 import DrawerNavigation from './DrawerNavigation';
 

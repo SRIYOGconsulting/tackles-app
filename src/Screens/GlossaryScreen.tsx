@@ -15,11 +15,11 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const AboutScreen = ({ navigation }: { navigation: any }) => {
+const GlossaryScreen = ({  }: { navigation: any }) => {
   return (
     <FlatList
       data={[]}
-      keyExtractor={() => 'about'}
+      keyExtractor={() => 'glossary'}
       renderItem={null}
       showsVerticalScrollIndicator={false}
       bounces={false}
@@ -46,7 +46,7 @@ const AboutScreen = ({ navigation }: { navigation: any }) => {
           {/* CONTENT */}
           <View style={styles.content}>
 
-            <Text style={styles.title}>Our Story</Text>
+            <Text style={styles.title}>Glossary Screen</Text>
 
             <Text style={styles.subtitle}>
               Tackles is an A-grade handyman service company delivering
@@ -171,4 +171,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AboutScreen;
+export default GlossaryScreen;

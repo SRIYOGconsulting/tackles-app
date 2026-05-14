@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: 110,
     marginBottom:50,
-    paddingVertical:13
+    paddingVertical:13,
   },
   buttonText: {
     textAlign: 'center',
     fontWeight: '500',
     fontSize: 17,
-    color:'#fff'
+    color:'#fff',
   },
 });
 

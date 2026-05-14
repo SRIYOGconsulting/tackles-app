@@ -1,6 +1,6 @@
 export const services = [
   'Deep Cleaning',
-  "Pressure Washing",
+  'Pressure Washing',
   'Roof & Gutter Cleaning',
   'Handyman',
   'Carpentry',
@@ -18,7 +18,7 @@ export const services = [
   'Window Repair',
   'Floor Repair',
   'Lawn Care',
-  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting', 'Moving or Reallocating', 'Airbnb Maintenance', 'Packing Serviecs', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan'
+  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting', 'Moving or Reallocating', 'Airbnb Maintenance', 'Packing Serviecs', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan',
 ];
 
 export const shifts = ['Morning', 'Afternoon', 'Evening', 'Night'];
@@ -33,5 +33,5 @@ export const area = [
   'Mission District', 'Haight-Ashbury', 'Castro District', 'Japantown',
   'Pacific Heights', 'Marina District', 'Nob Hill', 'Russian Hill',
   'Golden Gate Park', 'Golden Gate Bridge', 'Presidio of San Francisco',
-  'Twin Peaks', 'Sunset District', 'Richmond District'
+  'Twin Peaks', 'Sunset District', 'Richmond District',
 ];

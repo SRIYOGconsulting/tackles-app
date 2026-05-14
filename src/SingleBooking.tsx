@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   useWindowDimensions,
-  Image
+  Image,
 } from 'react-native';
 import HeaderComponent from './components/HeaderComponent';
 import DropIcon from './assets/icons/contact/DropDown.png';

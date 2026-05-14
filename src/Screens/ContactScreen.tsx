@@ -22,7 +22,7 @@ import {
 
 const ICON_SIZE = hp('3.3%');
 
-const ContactScreen = ({ navigation }: { navigation: any }) => {
+const ContactScreen = ({}: { navigation: any }) => {
   const openWebsite = useCallback(() => {
     Linking.openURL('https://tackles.pro/');
   }, []);
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal:'1%'
+    paddingHorizontal:'1%',
   },
 
   header: {

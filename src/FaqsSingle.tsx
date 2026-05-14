@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    paddingTop: 20.7
+    paddingTop: 20.7,
   },
   content: {
     marginHorizontal: '5%',
     paddingTop: '6%',
-    paddingLeft:'1.5%'
+    paddingLeft:'1.5%',
   },
   categoryTitle: {
     textAlign: 'center',

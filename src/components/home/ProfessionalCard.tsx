@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: 'hsl(0, 0%, 50%)',
     elevation: 3,
-    borderWidth:1
+    borderWidth:1,
   },
   title: {
     marginTop: hp('1%'),
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: wp('2.3%'), // Responsive font size
     color: '#000',
     textAlign: 'center',
-    width: wp('20%')
+    width: wp('20%'),
   },
 });
 

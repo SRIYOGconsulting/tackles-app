@@ -14,7 +14,6 @@ import ServicesDisplaycard from '../components/services/ServicesDisplaycard';
 import { servicesData2 } from '../data/ServiceData';
 import LinearGradient from 'react-native-linear-gradient';
 import {
-  widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
@@ -41,7 +40,7 @@ const Button = ({ children, onPress }: any) => {
 const SingleScreen = ({ route, navigation }: any) => {
   const { service } = route.params;
 
-  
+
   const otherServices = useMemo(() => {
     const excludedIds = [6.1, 6.2];
 
@@ -52,9 +51,9 @@ const SingleScreen = ({ route, navigation }: any) => {
     return [...filtered].sort(() => Math.random() - 0.5).slice(0, 2);
   }, []);
 
-  
+
   const formatDescription = (text: string) => {
-    if (!text) return '';
+    if (!text) {return '';}
 
     const words = text.split(' ');
     const result: string[] = [];
@@ -73,7 +72,7 @@ const SingleScreen = ({ route, navigation }: any) => {
       }
     }
 
-    if (segment.length) result.push(segment.join(' '));
+    if (segment.length) {result.push(segment.join(' '));}
 
     return result.join('\n\n');
   };

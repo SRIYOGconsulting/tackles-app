@@ -14,7 +14,7 @@ import NumberBar from '../components/home/NumberBar';
 
 import {
   widthPercentageToDP as wp,
-  heightPercentageToDP as hp
+  heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
 import { servicesData2 } from '../data/ServiceData';

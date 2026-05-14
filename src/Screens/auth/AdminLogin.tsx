@@ -84,7 +84,7 @@ const AdminLogin = ({navigation}: {navigation: any}) => {
             <TouchableOpacity onPress={togglePasswordVisibility}>
               {passwordVisible ? (
                 <Image source={EyeOnIcon} style={{width: 30, height: 30}} />
-                
+
               ) : (
                 <Image source={EyeOffIcon} style={{ width:30, height:30}} />
               )}

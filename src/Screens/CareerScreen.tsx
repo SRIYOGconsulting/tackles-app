@@ -15,15 +15,15 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const AboutScreen = ({ navigation }: { navigation: any }) => {
+const CareerScreen = ({ }: { navigation: any }) => {
   return (
     <FlatList
       data={[]}
-      keyExtractor={() => 'about'}
+      keyExtractor={() => 'career'}
       renderItem={null}
       showsVerticalScrollIndicator={false}
       bounces={false}
-
+ 
       ListHeaderComponent={() => (
         <View style={styles.container}>
 
@@ -46,7 +46,7 @@ const AboutScreen = ({ navigation }: { navigation: any }) => {
           {/* CONTENT */}
           <View style={styles.content}>
 
-            <Text style={styles.title}>Our Story</Text>
+            <Text style={styles.title}>Career Screen</Text>
 
             <Text style={styles.subtitle}>
               Tackles is an A-grade handyman service company delivering
@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginVertical: hp('0.5%'),
-    marginBottom:'5%',
+    marginBottom:'5%'
   },
 });
 
-export default AboutScreen;
+export default CareerScreen;

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: width * 0.04, // Responsive font size
     fontWeight: '900',
     color: '#fff',
-    paddingBottom:2
+    paddingBottom:2,
 
   },
   subtitle: {

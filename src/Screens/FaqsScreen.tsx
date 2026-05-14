@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   header: {
-    paddingTop: 20.7
+    paddingTop: 20.7,
   },
   content: {
     paddingHorizontal: width * 0.04,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     fontSize: height * 0.02,
     fontWeight: '400',
     paddingVertical:9,
-    marginBottom:-2
+    marginBottom:-2,
   },
   flatListContent: {
     paddingHorizontal: width * 0.04,

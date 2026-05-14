@@ -110,8 +110,8 @@ const Dropdown = ({
                 top: coords.y + 5, // 5px gap below input
                 left: coords.x,
                 width: coords.width,
-                maxHeight: hp('25%')
-              }
+                maxHeight: hp('25%'),
+              },
             ]}
           >
             <ScrollView

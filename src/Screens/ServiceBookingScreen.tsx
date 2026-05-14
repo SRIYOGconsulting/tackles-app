@@ -150,6 +150,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholder="Select Services"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedService}
+            borderColor='#3CB371'
           />
 
           <Text style={styles.label}>Choose Date</Text>
@@ -186,6 +187,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedShift}
             dropdownType="shift"
+            borderColor='#3CB371'
           />
 
           <Text style={styles.label}>Your Location</Text>
@@ -194,6 +196,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholder="Select your location"
             placeholderColor="#4B4B4B"
             onSelectOption={setSelectedArea}
+            borderColor='#3CB371'
 
           />
 
@@ -220,7 +223,9 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             placeholder=""
             placeholderTextColor="#4B4B4B"
             maxHeight={160}
+            borderColor='#3CB371'
           />
+          
           {/* Submit Button */}
           <View style={styles.buttonPadding}>
             <Button
@@ -274,6 +279,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     maxHeight: '90%',
     elevation: 10,
+    marginBottom: height * 0.08,
 
 
   },
@@ -343,7 +349,7 @@ const styles = StyleSheet.create({
 
   },
   buttonPadding: {
-    paddingBottom: 41,
+    paddingBottom: 30,
     alignItems: 'center',
     color: '#fff',
   },
@@ -355,7 +361,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     paddingVertical: 8,
     borderRadius: 10,
-    marginTop: 40,
+    marginTop: 45,
   },
   text: {
     color: '#fff',

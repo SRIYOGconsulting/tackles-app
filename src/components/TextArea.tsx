@@ -11,11 +11,13 @@ type TextAreaProps = {
   placeholder?: string;
   minHeight?: number;
   maxHeight?: number;
+  borderColor?: string;
 } & TextInputProps;
 
 const TextArea: React.FC<TextAreaProps> = ({
   value,
   onChangeText,
+  borderColor,
   placeholder = 'Enter text...',
   minHeight = 100,
   maxHeight = 180,
@@ -42,7 +44,7 @@ const TextArea: React.FC<TextAreaProps> = ({
       }}
       style={[
         styles.input,
-        { height },
+        { height, borderColor: borderColor || '#000' }, // 👈 override here
       ]}
       textAlignVertical="top"
       {...rest}
@@ -53,7 +55,6 @@ const TextArea: React.FC<TextAreaProps> = ({
 const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: '#3CB371',
     borderRadius: 10,
     padding: 10,
     fontSize: 16,

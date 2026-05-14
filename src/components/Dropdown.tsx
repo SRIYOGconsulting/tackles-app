@@ -21,6 +21,7 @@ type Props = {
   showRequired?: boolean;
   onSelectOption: (option: string) => void;
   dropdownType?: string;
+  borderColor?: string;
 };
 
 const Dropdown = ({
@@ -30,6 +31,7 @@ const Dropdown = ({
   showRequired = false,
   onSelectOption,
   dropdownType,
+  borderColor,
 }: Props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
@@ -65,7 +67,10 @@ const Dropdown = ({
   return (
     <View ref={containerRef} style={styles.container}>
       <TouchableOpacity
-        style={styles.inputContainer}
+        style={[
+          styles.inputContainer,
+          { borderColor: borderColor || '#000' } // 👈 override here
+        ]}
         onPress={toggleDropdown}
         activeOpacity={0.8}
       >
@@ -144,9 +149,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#3CB371',
     borderRadius: 10,
-    paddingHorizontal:  wp('2%'),
+    paddingHorizontal: wp('2%'),
     height: hp('5%'),
     backgroundColor: '#fff',
   },
@@ -156,7 +160,7 @@ const styles = StyleSheet.create({
     left: wp('3%'),
   },
   placeholder: {
-    fontSize:  wp('3.5%'),
+    fontSize: wp('3.5%'),
     fontWeight: '500',
   },
   input: {
@@ -175,7 +179,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#ccc',
-     elevation: 10,
+    elevation: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.1,

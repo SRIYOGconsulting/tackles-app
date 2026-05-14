@@ -52,12 +52,12 @@ const Tabs = () => {
             return focused ? (
               <Image
                 source={ServiceActiveIcon}
-                style={[styles.ActiveIcon, { width: 33, height: 33 }]}
+                style={[styles.ActiveIcon, { width: 35, height: 35 }]}
               />
             ) : (
               <Image
                 source={ServicesIcon}
-                style={[styles.NIcon, { width: 35, height: 33 }]}
+                style={[styles.NIcon, { width: 35, height: 35 }]}
               />
             );
           } else if (route.name === 'BookingTab') {

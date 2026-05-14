@@ -9,6 +9,7 @@ import OnBoarding2 from '../Screens/onBoarding/OnBoarding2';
 import OnBoarding3 from '../Screens/onBoarding/OnBoarding3';
 import Tabs from './TabNavigation';
 import Booking from './Booking';
+import DrawerNavigation from './DrawerNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -50,7 +51,7 @@ const RootNavigator = () => {
       <Stack.Screen name="OnBoarding2" component={OnBoarding2} />
       <Stack.Screen name="OnBoarding3" component={OnBoarding3} />
 
-      <Stack.Screen name="Main" component={Tabs} />
+      <Stack.Screen name="Main" component={DrawerNavigation} />
       <Stack.Screen name="Booking" component={Booking} />
     </Stack.Navigator>
   );

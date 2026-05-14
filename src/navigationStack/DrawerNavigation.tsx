@@ -11,13 +11,21 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 import Tabs from './TabNavigation';
 
+const MENU = {
+    PARTNER: 'PARTNER',
+    CAREER: 'CAREER',
+    FAQ: 'FAQ',
+    GLOSSARY: 'GLOSSARY',
+    NULL: 'NULL',
+};
+
 export default function DrawerNavigation({
     navigation,
 }: {
     navigation: any;
 }) {
     const [drawerOpen, setDrawerOpen] = useState(false);
-
+    const [activeItem, setActiveItem] = useState(MENU.NULL);
     return (
         <View style={styles.container}>
 
@@ -27,7 +35,13 @@ export default function DrawerNavigation({
             </View>
 
             {/* Overlay */}
-            {drawerOpen && <View style={styles.overlay} />}
+            {drawerOpen && (
+                <TouchableOpacity
+                    style={styles.overlay}
+                    activeOpacity={1}
+                    onPress={() => setDrawerOpen(false)}
+                />
+            )}
 
             {/* Drawer Menu */}
             {drawerOpen && (
@@ -157,8 +171,12 @@ export default function DrawerNavigation({
 
                     {/* Become Partner */}
                     <TouchableOpacity
-                        style={styles.item}
+                        style={[
+                            styles.item,
+                            activeItem === MENU.PARTNER && styles.activeItem,
+                        ]}
                         onPress={() => {
+                            setActiveItem(MENU.PARTNER);
                             navigation.navigate('Main', {
                                 screen: 'Partner',
                             });
@@ -169,9 +187,15 @@ export default function DrawerNavigation({
                             <Image
                                 source={require('../assets/drawer/becomeApartner.png')}
                                 resizeMode="contain"
-                                style={styles.iconSize}
+                                style={[
+                                    styles.iconSize,
+                                    activeItem === MENU.PARTNER && styles.activeIcon,
+                                ]}
                             />
-                            <Text style={styles.buttonText}>
+                            <Text style={[
+                                styles.buttonText,
+                                activeItem === MENU.PARTNER && styles.activeText,
+                            ]}>
                                 Become a Partner
                             </Text>
                         </View>
@@ -179,8 +203,12 @@ export default function DrawerNavigation({
 
                     {/* Career */}
                     <TouchableOpacity
-                        style={styles.item}
+                        style={[
+                            styles.item,
+                            activeItem === MENU.CAREER && styles.activeItem,
+                        ]}
                         onPress={() => {
+                            setActiveItem(MENU.CAREER);
                             navigation.navigate('Main', {
                                 screen: 'Career',
                             });
@@ -192,16 +220,28 @@ export default function DrawerNavigation({
                             <Image
                                 source={require('../assets/drawer/career.png')}
                                 resizeMode="contain"
-                                style={styles.iconSize}
+                                style={[
+                                    styles.iconSize,
+                                    activeItem === MENU.CAREER && styles.activeIcon,
+                                ]}
                             />
-                            <Text style={styles.buttonText}>Career</Text>
+                            <Text style={[
+                                styles.buttonText,
+                                activeItem === MENU.CAREER && styles.activeText,
+                            ]}>
+                                Career
+                            </Text>
                         </View>
                     </TouchableOpacity>
 
                     {/* FAQ */}
                     <TouchableOpacity
-                        style={styles.item}
+                        style={[
+                            styles.item,
+                            activeItem === MENU.FAQ && styles.activeItem,
+                        ]}
                         onPress={() => {
+                            setActiveItem(MENU.FAQ);
                             navigation.navigate('Main', {
                                 screen: 'Faqs',
                             });
@@ -212,16 +252,28 @@ export default function DrawerNavigation({
                             <Image
                                 source={require('../assets/drawer/faq.png')}
                                 resizeMode="contain"
-                                style={styles.iconSize}
+                                style={[
+                                    styles.iconSize,
+                                    activeItem === MENU.FAQ && styles.activeIcon,
+                                ]}
                             />
-                            <Text style={styles.buttonText}>FAQ</Text>
+                            <Text style={[
+                                styles.buttonText,
+                                activeItem === MENU.FAQ && styles.activeText,
+                            ]}>
+                                FAQ
+                            </Text>
                         </View>
                     </TouchableOpacity>
 
                     {/* Glossary */}
                     <TouchableOpacity
-                        style={styles.item}
+                        style={[
+                            styles.item,
+                            activeItem === MENU.GLOSSARY && styles.activeItem,
+                        ]}
                         onPress={() => {
+                            setActiveItem(MENU.GLOSSARY);
                             navigation.navigate('Main', {
                                 screen: 'Glossary',
                             });
@@ -232,10 +284,24 @@ export default function DrawerNavigation({
                             <Image
                                 source={require('../assets/drawer/glossary.png')}
                                 resizeMode="contain"
-                                style={styles.iconSize}
+                                style={[
+                                    styles.iconSize,
+                                    activeItem === MENU.GLOSSARY && styles.activeIcon,
+                                ]}
                             />
-                            <Text style={styles.buttonText}>Glossary</Text>
+                            <Text style={[
+                                styles.buttonText,
+                                activeItem === MENU.GLOSSARY && styles.activeText,
+                            ]}>
+                                Glossary
+                            </Text>
                         </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity>
+                            <Text style={styles.ADMINbuttoncontainer}>
+                                Admin Login
+                            </Text>
                     </TouchableOpacity>
                 </View>
             )}
@@ -296,6 +362,20 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
 
+    ADMINbuttoncontainer: {
+        fontSize: 13,
+        color: 'hsl(0, 0%, 30%)',
+        fontWeight: '500',
+        textAlign: 'center',
+        marginTop: 10,
+        borderWidth: 1,
+        borderColor: 'hsl(0, 0%, 30%)',
+        paddingVertical: 8,
+        borderRadius: 5,
+        width:'60%'
+        
+    },
+
     item: {
         paddingVertical: 12,
     },
@@ -323,12 +403,27 @@ const styles = StyleSheet.create({
         width: 17,
         height: 17,
         marginRight: 10,
-        tintColor: 'hsl(0, 0%, 25%)',
+        tintColor: '#404040',
     },
 
     overlay: {
         ...StyleSheet.absoluteFillObject,
         backgroundColor: '#fff',
         zIndex: 5,
+    },
+
+    activeItem: {
+        backgroundColor: 'rgba(0, 180, 0, 0.15)',
+        borderRadius: 10,
+        paddingHorizontal: 8,
+    },
+
+    activeText: {
+        color: 'green',
+        fontWeight: '700',
+    },
+
+    activeIcon: {
+        tintColor: 'green',
     },
 });

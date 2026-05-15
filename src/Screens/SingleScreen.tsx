@@ -44,16 +44,19 @@ const SingleScreen = ({ route, navigation }: any) => {
   const otherServices = useMemo(() => {
     const excludedIds = [6.1, 6.2];
 
-    const filtered = servicesData2.filter(
-      item => !excludedIds.includes(item.id),
-    );
-
-    return [...filtered].sort(() => Math.random() - 0.5).slice(0, 2);
-  }, []);
+    return servicesData2
+      .filter(
+        item =>
+          item.id !== service.id &&
+          !excludedIds.includes(item.id)
+      )
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
+  }, [service]);
 
 
   const formatDescription = (text: string) => {
-    if (!text) {return '';}
+    if (!text) { return ''; }
 
     const words = text.split(' ');
     const result: string[] = [];
@@ -72,7 +75,7 @@ const SingleScreen = ({ route, navigation }: any) => {
       }
     }
 
-    if (segment.length) {result.push(segment.join(' '));}
+    if (segment.length) { result.push(segment.join(' ')); }
 
     return result.join('\n\n');
   };
@@ -121,11 +124,11 @@ const SingleScreen = ({ route, navigation }: any) => {
         {/* BUTTON */}
         <View style={styles.buttonPadding}>
           <Button
-             onPress={() => {
-                            navigation.navigate('Main', {
-                                screen: 'BookingTab',
-                            });                    
-                        }}
+            onPress={() => {
+              navigation.navigate('Main', {
+                screen: 'BookingTab',
+              });
+            }}
           >
             Book a Service
           </Button>
@@ -188,7 +191,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 8,
 
-    elevation:5,
+    elevation: 5,
     marginBottom: 15,
   },
 

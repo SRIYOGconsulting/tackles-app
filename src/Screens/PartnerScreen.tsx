@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { area, businessType, services } from '../../src/data/Data';
+import { area, businessType, howduhear, partnershipInterest, services } from '../../src/data/Data';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import countryLogo from '../assets/image/header/right.png';
@@ -217,22 +217,26 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         />
 
         <Text style={styles.label}>Partnership Interest</Text>
-        <TextInput
-          placeholder="Briefly describe why you are interested"
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
+        <Dropdown
+          options={partnershipInterest}
+          placeholder="Select the services you offer"
+          placeholderColor="#4B4B4B"
+          onSelectOption={setSelectedService}
         />
+
+        placeholder="Briefly describe why you are interested"
 
         <Text style={styles.label}>Company Registration Certificates</Text>
         <FileUploadBox />
 
         <Text style={styles.label}>How did you hear about us?</Text>
-        <TextInput
+          <Dropdown
+          options={howduhear}
           placeholder="Briefly describe how you heard about us"
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
-        />
+          placeholderColor="#4B4B4B"
+          onSelectOption={setSelectedArea}
 
+        />
 
         <Text style={styles.label}>Message</Text>
         <TextArea

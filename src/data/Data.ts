@@ -86,3 +86,13 @@ export const businessType =[
   'Maintenance Partners',
   'Others'
 ]
+
+export const partnershipInterest =[
+  'Short Term',
+  'Long Term',
+  'Others'
+]
+
+export const howduhear =[
+  'Google Search','Google Maps','Yelp','Facebook','Instagram','TikTok','YouTube','Nextdoor','Referral from Friend/Family','Referral from Neighbor','Property Manager','Real Estate Agent','Previous Customer','Flyer / Door Hanger','Vehicle Signage','Local Event / Community Event','Online Advertisement','Email Newsletter','WhatsApp','Craigslist','Thumbtack','Angi (Angie\'s List)','Home Advisor','Search Engine Ads','Blog or Article','BIRATINFO','Others'
+]

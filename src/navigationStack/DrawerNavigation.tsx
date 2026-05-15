@@ -430,8 +430,8 @@ const styles = StyleSheet.create({
     fab: {
         position: 'absolute',
 
-        top: hp('4%'),
-        right: wp('6%'),
+        top: hp('3.7%'),
+        right: wp('13%'),
 
         width: wp('9%'),
         height: wp('9%'),

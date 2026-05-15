@@ -112,6 +112,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     paddingVertical: 0,
      textAlign: 'center',
+     letterSpacing:wp('0.6%')
   },
   helpButton: {
     backgroundColor: '#0E61CD',

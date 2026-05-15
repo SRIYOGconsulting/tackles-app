@@ -1,118 +1,119 @@
-import { View, Image, Text, FlatList, TextInput, Dimensions, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+
 import HeaderComponent from '../components/HeaderComponent';
-import FaqsCard from '../components/faqs/FaqsCard';
-import { faqsQuestioin } from '../data/Questions';
+import { FaqsData } from '../data/FAQsData';
 
-const { width, height } = Dimensions.get('window');
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-const FaqsScreen = ({ navigation }: { navigation: any }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+type FaqItem = {
+  id: number;
+  question: string;
+  answer: string;
+};
 
-  const filteredFaqs = faqsQuestioin.filter(item => {
-    return (
-      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.questions.some(question =>
-        question.question.toLowerCase().includes(searchTerm.toLowerCase()),
-      )
-    );
-  });
+type Props = {
+  navigation?: any;
+};
+
+const FaqsScreen: React.FC<Props> = () => {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
+  const toggleItem = (id: number) => {
+    setExpandedId(prev => (prev === id ? null : id));
+  };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
       <HeaderComponent style={styles.header} />
-      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
 
-      <View style={styles.content}>
-        <Text style={styles.title}>FAQs</Text>
+      <View style={styles.divider} />
 
-        {/* Search Bar */}
+      <View style={styles.container}>
+        <Text style={styles.title}>Frequently Asked Questions</Text>
 
-        <View style={styles.searchContainer}>
-          <Image
-            source={require('../assets/image/TabIcon/searchbar.png')}
-            style={styles.searchIcon}
-            resizeMode="contain"
-          />
+        {(FaqsData as FaqItem[]).map((item) => {
+          const isOpen = expandedId === item.id;
 
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search"
-            value={searchTerm}
-            onChangeText={setSearchTerm}
-            placeholderTextColor="#666"
-          />
-        </View>
+          return (
+            <TouchableOpacity
+              key={item.id}
+              activeOpacity={0.8}
+              onPress={() => toggleItem(item.id)}
+              style={styles.card}
+            >
+              <Text style={styles.cardTitle}>
+                {item.id}. {item.question}
+              </Text>
+
+              {isOpen && (
+                <Text style={styles.cardSubtitle}>
+                  {item.answer}
+                </Text>
+              )}
+            </TouchableOpacity>
+          );
+        })}
       </View>
-
-      {/* Render filtered FAQs */}
-      <FlatList
-        data={filteredFaqs}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => (
-          <FaqsCard
-            category={item.category}
-            number={item.number}
-            id={item.id}
-            questions={item.questions}
-            navigation={navigation}
-          />
-        )}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.flatListContent}
-      />
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
     flex: 1,
     backgroundColor: '#fff',
   },
   header: {
-    paddingTop: 20.7,
+    marginTop: hp('2%'),
+    paddingHorizontal: wp('4%'),
   },
-  content: {
-    paddingHorizontal: width * 0.04,
-    paddingTop: height * 0.02,
+
+  divider: {
+    borderBottomWidth: 1,
+    borderColor: '#CAD2DF',
+    marginTop: 16,
   },
+
+  container: {
+    paddingHorizontal: wp('6%'),
+    paddingTop: hp('2%'),
+  },
+
   title: {
-    fontSize: width * 0.056,
+    fontSize: wp('5.8%'),
+    fontWeight: '900',
+    color: '#064E3B',
+    marginBottom: hp('5%'),
+    marginTop:hp('2%')
+  },
+
+  card: {
+    width: '100%',
+    padding: 15,
+    marginBottom: hp('3%'),
+    borderRadius: 15,
+    backgroundColor: '#fff',
+    elevation: 2,
+    borderColor: 'hsl(160, 51%, 70%)',
+    borderWidth: 1,
+  },
+
+  cardTitle: {
+    fontSize: wp('4%'),
     fontWeight: '700',
-    marginBottom: height * 0.005,
+    color: 'hsl(164, 86%, 15%)',
+    marginBottom: 6,
   },
-  subtitle: {
-    fontSize: height * 0.025,
+
+  cardSubtitle: {
+    fontSize: wp('3.6%'),
+    color: '#000',
     fontWeight: '500',
-  },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: height * 0.045,
-    borderRadius: width * 0.02,
-    paddingHorizontal: width * 0.04,
-    marginTop: height * 0.011,
-    marginBottom: height * 0.015,
-    backgroundColor: '#E2E2E27A',
-  },
-
-  searchIcon: {
-    width: 18,
-    height: 18,
-    marginRight: 8,
-  },
-
-  searchInput: {
-    flex: 1,
-    fontSize: height * 0.02,
-    fontWeight: '400',
-    paddingVertical:9,
-    marginBottom:-2,
-  },
-  flatListContent: {
-    paddingHorizontal: width * 0.04,
-    paddingBottom: height * 0.02,
+    lineHeight: 20,
   },
 });
 

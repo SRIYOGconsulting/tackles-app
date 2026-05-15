@@ -121,12 +121,11 @@ const SingleScreen = ({ route, navigation }: any) => {
         {/* BUTTON */}
         <View style={styles.buttonPadding}>
           <Button
-            onPress={() =>
-              navigation.navigate('Booking', {
-                screen: 'ServiceBookingScreen',
-                params: { service },
-              })
-            }
+             onPress={() => {
+                            navigation.navigate('Main', {
+                                screen: 'BookingTab',
+                            });                    
+                        }}
           >
             Book a Service
           </Button>

@@ -51,6 +51,21 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState('');
   const [organizationName, setOrganizationName] = useState('');
 
+  // for preventing non-number character
+  const [employees, setEmployees] = useState('');
+
+  <TextInput
+    placeholder="Enter the number of employees"
+    style={styles.input}
+    placeholderTextColor={'#4B4B4B'}
+    keyboardType="numeric"
+    value={employees}
+    onChangeText={(text) => {
+      const onlyNumbers = text.replace(/[^0-9]/g, '');
+      setEmployees(onlyNumbers);
+    }}
+  />
+
   const handleSubmit = () => {
     if (
       name.trim() &&
@@ -177,6 +192,12 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           placeholder="Enter the number of employees"
           style={styles.input}
           placeholderTextColor={'#4B4B4B'}
+          keyboardType="numeric"
+          value={employees}
+          onChangeText={(text) => {
+            const onlyNumbers = text.replace(/[^0-9]/g, '');
+            setEmployees(onlyNumbers);
+          }}
         />
 
         <Text style={styles.label}>Business Type</Text>
@@ -222,10 +243,10 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         />
 
         <View style={styles.buttonContainer}>
-         
+
           <Pressable style={styles.buttonClearFlex}>
             <Image source={ClearFormIcon} style={styles.clearIcon} />
-             <Text style={styles.buttonClear}>Clear form</Text>
+            <Text style={styles.buttonClear}>Clear form</Text>
           </Pressable>
 
           <Button
@@ -305,7 +326,7 @@ const styles = StyleSheet.create({
     left: 8,
   },
   clearIcon: {
-     width: wp('7%'),
+    width: wp('7%'),
     height: hp('2.7%'),
     resizeMode: 'contain',
     marginRight: 1,
@@ -349,10 +370,10 @@ const styles = StyleSheet.create({
   },
   buttonClear: {
 
-    color:'#0a7de1',
+    color: '#0a7de1',
     fontSize: width * 0.04,
   },
-  buttonClearFlex:{
+  buttonClearFlex: {
     flexDirection: 'row',
     marginTop: 55,
     marginLeft: 10,

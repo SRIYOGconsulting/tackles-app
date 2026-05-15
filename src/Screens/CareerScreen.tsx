@@ -51,6 +51,10 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
   const [email, setEmail] = useState('');
   const [organizationName] = useState('');
 
+  const [experience, setExperience] = useState('');
+  const [policyNumber, setPolicyNumber] = useState('');
+  const [coverMessage, setCoverMessage] = useState('');
+
   const handleSubmit = () => {
     if (
       name.trim() &&
@@ -166,20 +170,24 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
           onSelectOption={setSelectedService}
         />
 
-          <Text style={styles.label}>Years of Experience<Text style={{ color: 'red' }}>*</Text></Text>
+        <Text style={styles.label}>Years of Experience<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter your years of experience in the field"
-          value={name}
-          onChangeText={setName}
+          value={experience}
+          onChangeText={(text) => {
+            const onlyNumbers = text.replace(/[^0-9]/g, '');
+            setExperience(onlyNumbers);
+          }}
           style={styles.input}
           placeholderTextColor={'#4B4B4B'}
+          keyboardType="numeric"
         />
 
-           <Text style={styles.label}>ID Proof</Text>
+        <Text style={styles.label}>ID Proof</Text>
         <FileUploadBox />
 
 
-         <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
+        <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={services}
           placeholder="Select your preferred working area"
@@ -190,8 +198,14 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.label}>Insurance Policy Number</Text>
         <TextInput
           placeholder="Enter the insurance policy number"
+          value={policyNumber}
+          onChangeText={(text) => {
+            const onlyNumbers = text.replace(/[^0-9]/g, '');
+            setPolicyNumber(onlyNumbers);
+          }}
           style={styles.input}
           placeholderTextColor={'#4B4B4B'}
+          keyboardType="numeric"
         />
 
         <Text style={styles.label}>Emergency Contact Number</Text>
@@ -239,8 +253,8 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
 
         <Text style={styles.label}>Cover Letter</Text>
         <TextArea
-          value={message}
-          onChangeText={setMessage}
+          value={coverMessage}
+          onChangeText={setCoverMessage}
           placeholder=""
           placeholderTextColor="#4B4B4B"
           maxHeight={160}

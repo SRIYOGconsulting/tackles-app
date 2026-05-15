@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     borderRadius: 13,
     overflow: 'hidden',
     backgroundColor: '#fff',
-
-    height: hp(23),
+    minHeight: hp(23), 
+    height: hp(24),
     shadowColor: '#7cbc7a',
     shadowOpacity: 0.2,
     shadowRadius: 3,

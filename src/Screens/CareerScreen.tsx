@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { services } from '../../src/data/Data';
+import { area, services } from '../../src/data/Data';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import countryLogo from '../assets/image/header/right.png';
@@ -189,7 +189,7 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
 
         <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
-          options={services}
+          options={area}
           placeholder="Select your preferred working area"
           placeholderColor="#4B4B4B"
           onSelectOption={setSelectedService}

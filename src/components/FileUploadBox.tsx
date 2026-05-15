@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
+import downarrowbtn from '../assets/icons/contact/downarrow.png';
 
 const FileUploadBox = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -29,14 +30,10 @@ const FileUploadBox = () => {
           <Image source={{ uri: image }} style={styles.image} />
         ) : (
           <>
-            <Text style={styles.icon}>📁</Text>
+            <Image source={downarrowbtn} style={styles.icon}/>
 
             <Text style={styles.title}>
               Drop file here or browse
-            </Text>
-
-            <Text style={styles.subtitle}>
-              JPG, PNG supported
             </Text>
           </>
         )}
@@ -54,18 +51,19 @@ const styles = StyleSheet.create({
   },
 
   uploadBox: {
-    height: 150,
-    borderWidth: 2,
-    borderStyle: 'dashed', // dashed border effect
+    height: 100,
+    borderWidth: 1,
     borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
   },
 
   icon: {
     fontSize: 30,
     marginBottom: 5,
+    height:'30%',
+    aspectRatio:1
   },
 
   title: {
@@ -74,16 +72,11 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 
-  subtitle: {
-    fontSize: 12,
-    color: '#777',
-    marginTop: 4,
-  },
-
   image: {
     width: '100%',
     height: '100%',
     borderRadius: 10,
+    resizeMode:'cover'
   },
 });
 

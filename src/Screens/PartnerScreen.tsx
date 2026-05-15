@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
-import { area, services } from '../../src/data/Data';
+import { area, businessType, services } from '../../src/data/Data';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import countryLogo from '../assets/image/header/right.png';
@@ -201,10 +201,11 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         />
 
         <Text style={styles.label}>Business Type</Text>
-        <TextInput
-          placeholder="Enter the type of your business"
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
+        <Dropdown
+          options={businessType}
+          placeholder="Select your Business Type"
+          placeholderColor="#4B4B4B"
+          onSelectOption={setSelectedService}
         />
 
         <Text style={styles.label}>Services Offered<Text style={{ color: 'red' }}>*</Text></Text>

@@ -18,7 +18,30 @@ export const services = [
   'Window Repair',
   'Floor Repair',
   'Lawn Care',
-  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting', 'Moving or Reallocating', 'Airbnb Maintenance', 'Packing Serviecs', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan',
+  'Tree Cutting', 'Garden Care', 'Irrigation', 'Fence Repair', 'Outdoor Lighting Installing', 'Moving', 'Airbnb Maintenance', 'Packing Services', 'Home Concierge', 'Cleaning Plan', 'Maintenance Plan',
+];
+
+export const positionAppliedFor = [
+  'Deep Cleaner',
+  'Pressure Washer',
+  'Roof & Gutter Cleaner',
+  'Handyman',
+  'Carpenter',
+  'Plumber',
+  'Electrical Repairer',
+  'Flooring Fixer',
+  'Washing Machine Repairer',
+  'Smart Home Setup',
+  'EV Charger Installer',
+  'AC Servicing',
+  'Painter',
+  'Wallpaper Installer or Repairer',
+  'Drywall Repairer',
+  'Tile Worker',
+  'Window Repairer',
+  'Floor Repairer',
+  'Lawn Care',
+  'Tree Cutter', 'Garden Care', 'Irrigation', 'Fence Repairer', 'Outdoor Lighting Installer', 'Mover', 'Airbnb Maintenance', 'Packing', 'Home Concierge', 'Cleaning Planner', 'Maintenance Planner', 'Others',
 ];
 
 export const shifts = ['Morning', 'Afternoon', 'Evening', 'Night'];
@@ -35,3 +58,31 @@ export const area = [
   'Golden Gate Park', 'Golden Gate Bridge', 'Presidio of San Francisco',
   'Twin Peaks', 'Sunset District', 'Richmond District',
 ];
+
+export const businessType =[
+  'Landscaping Company',
+  'General Handyman',
+  'Plumbing Services',
+  'Electrical Services',
+  'Painting Services',
+  'Carpentry Services',
+  'Cleaning Services',
+  'Appliance Repair',
+  'HVAC Services',
+  'Roofing Services',
+  'Flooring Services',
+  'Mansonry & Construction',
+  'Smart Home Installation',
+  'Pest Control',
+  'Landscaping & Gardening',
+  'Agency / Team Provider',
+  'Franchise Partner',
+  'Specialized Contractor',
+  'Verified Vendor',
+  'Real Estate Partners',
+  'Construction Company',
+  'Hospitality Partners',
+  'Commercial Partners',
+  'Maintenance Partners',
+  'Others'
+]

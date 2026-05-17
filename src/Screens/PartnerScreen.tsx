@@ -41,7 +41,7 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
   );
 };
 
-const PartnerScreen = ({ }: { navigation: any }) => {
+const PartnerScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -88,7 +88,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
             setSelectedArea('');
             setSelectedBusinessType('');
             setSelectedPartnership('');
-            setSelectedHowHeard('');
+            setSelectedHowHeard('Google Search');
             setSelectedServicesOffered([]);
           },
         },
@@ -96,9 +96,88 @@ const PartnerScreen = ({ }: { navigation: any }) => {
     );
   };
 
+  const handleSubmit = () => {
+    const cleanNumber = number.replace(/\s/g, '');
+
+    if (!name.trim()) {
+      return Alert.alert('Validation Error', 'Full Name is required');
+    }
+
+    if (!cleanNumber || cleanNumber.length !== 10) {
+      return Alert.alert('Validation Error', 'Enter a valid 10-digit phone number');
+    }
+
+    if (!email.trim()) {
+      return Alert.alert('Validation Error', 'Email is required');
+    }
+
+    // basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return Alert.alert('Validation Error', 'Enter a valid email address');
+    }
+
+    if (!organizationName.trim()) {
+      return Alert.alert('Validation Error', 'Organization name is required');
+    }
+
+    if (!employees.trim()) {
+      return Alert.alert('Validation Error', 'Number of employees is required');
+    }
+
+    if (!selectedArea.trim()) {
+      return Alert.alert('Validation Error', 'Please select area');
+    }
+
+    if (!selectedBusinessType.trim()) {
+      return Alert.alert('Validation Error', 'Please select business type');
+    }
+
+    if (!selectedPartnership.trim()) {
+      return Alert.alert('Validation Error', 'Please select partnership type');
+    }
+
+    if (!selectedHowHeard.trim()) {
+      return Alert.alert('Validation Error', 'Please select how you heard about us');
+    }
+
+    if (selectedServicesOffered.length === 0) {
+      return Alert.alert('Validation Error', 'Please select at least one service');
+    }
+
+    if (selectCompanyPhotos.length === 0) {
+      return Alert.alert('Validation Error', 'Please upload company photos');
+    }
+
+    if (selectCRCphotos.length === 0) {
+      return Alert.alert('Validation Error', 'Please upload CRC photos');
+    }
+
+    if (!message.trim()) {
+      return Alert.alert('Validation Error', 'Message cannot be empty');
+    }
+
+    navigation.navigate('AdminOtp', {
+      name: name.trim(),
+      number: cleanNumber,
+      email: email.trim(),
+      organizationName: organizationName.trim(),
+      message: message.trim(),
+      employees: employees.trim(),
+      selectCompanyPhotos,
+      selectCRCphotos,
+      selectedArea,
+      selectedBusinessType,
+      selectedPartnership,
+      selectedHowHeard,
+      selectedServicesOffered,
+    });
+  };
+
+
   return (
 
-    <View style={{marginBottom:hp('10%')}}>
+    <View style={{ marginBottom: hp('10%') }}>
       <HeaderComponent style={styles.header} />
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
       <KeyboardAwareScrollView
@@ -269,7 +348,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
             <Button
               style={styles.buttonSubmit}
               textStyle={{ color: 'white', textAlign: 'center' }}
-            // onPress={handleSubmit}
+              onPress={handleSubmit}
             >
               Submit
             </Button>

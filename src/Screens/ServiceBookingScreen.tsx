@@ -45,41 +45,61 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
 
 const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
-  // const [location, setLocation] = useState('');
   const [number, setNumber] = useState('');
   const [selectedService, setSelectedService] = useState('');
   const [selectedShift, setSelectedShift] = useState('');
-  // const [selectedPriority, setSelectedPriority] = useState('');
-  // const [selectedBudget, setSelectedBudget] = useState('');
   const [selectedArea, setSelectedArea] = useState('');
   const [message, setMessage] = useState('');
   const [date, setDate] = useState<Date | null>(null);
   const [show, setShow] = useState<boolean>(false);
 
   const handleSubmit = () => {
-    if (
-      name.trim() &&
-      number.trim() &&
-      selectedService &&
-      selectedShift &&
-      selectedArea &&
-      date
-    ) {
-      navigation.navigate('AdminOtp', {
-        name,
-        number,
-        selectedService,
-        selectedShift,
-        selectedArea,
-        message,
-        date: date.toISOString(),
-      });
-    } else {
-      Alert.alert(
-        'Incomplete Form',
-        'Please fill in all required fields.'
-      );
+    const cleanNumber = number.replace(/\s/g, ''); // remove spaces
+
+    if (!name.trim()) {
+      Alert.alert('Validation Error', 'Full Name is required');
+      return;
     }
+
+    if (!cleanNumber || cleanNumber.length !== 10) {
+      Alert.alert('Validation Error', 'Enter a valid 10-digit phone number');
+      return;
+    }
+
+    if (!selectedService) {
+      Alert.alert('Validation Error', 'Please select a service');
+      return;
+    }
+
+    if (!date) {
+      Alert.alert('Validation Error', 'Please select a date');
+      return;
+    }
+
+    if (!selectedShift) {
+      Alert.alert('Validation Error', 'Please choose a time shift');
+      return;
+    }
+
+    if (!selectedArea) {
+      Alert.alert('Validation Error', 'Please select your location');
+      return;
+    }
+
+    if (!message.trim()) {
+      Alert.alert('Validation Error', 'Message cannot be empty');
+      return;
+    }
+
+    navigation.navigate('AdminOtp', {
+      name: name.trim(),
+      number: cleanNumber,
+      selectedService,
+      selectedShift,
+      selectedArea,
+      message: message.trim(),
+      date: date.toISOString(),
+    });
   };
 
   return (

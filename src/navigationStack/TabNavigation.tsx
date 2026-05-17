@@ -8,10 +8,10 @@ import Services from './Services';
 import About from './About';
 import Contact from './Contact';
 
-import CareerScreen from '../Screens/CareerScreen';
-import GlossaryScreen from '../Screens/GlossaryScreen';
-import PartnerScreen from '../Screens/PartnerScreen';
-import FAQScreen from '../Screens/FaqsScreen';
+import Career from './Career';
+import Glossary from './Glossary'
+import Partner from './Partner';
+import Faqs from './Faqs';
 
 import HomeIcon from '../assets/icons/Home.png';
 import HomeActiveIcon from '../assets/icons/HomeActive.png';
@@ -121,7 +121,7 @@ const Tabs = () => {
       <Tab.Screen name="Contact" component={Contact} options={{ tabBarLabel: '' }} />
       <Tab.Screen
         name="Partner"
-        component={PartnerScreen}
+        component={Partner}
         options={{
           tabBarButton: () => null,
           tabBarItemStyle: { display: 'none' },
@@ -130,7 +130,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name="Faqs"
-        component={FAQScreen}
+        component={Faqs}
         options={{
           tabBarButton: () => null,
           tabBarItemStyle: { display: 'none' },
@@ -139,7 +139,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name="Career"
-        component={CareerScreen}
+        component={Career}
         options={{
           tabBarButton: () => null,
           tabBarItemStyle: { display: 'none' },
@@ -148,7 +148,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name="Glossary"
-        component={GlossaryScreen}
+        component={Glossary}
         options={{
           tabBarButton: () => null,
           tabBarItemStyle: { display: 'none' },

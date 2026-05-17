@@ -40,7 +40,7 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
   );
 };
 
-const CareerScreen = ({ }: { navigation: any }) => {
+const CareerScreen = ({ navigation }: { navigation: any }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const [email, setEmail] = useState('');
@@ -68,246 +68,324 @@ const CareerScreen = ({ }: { navigation: any }) => {
 
 
   const handleClearForm = () => {
-  Alert.alert(
-    'Clear Form',
-    'Are you sure you want to clear all fields?',
-    [
-      {
-        text: 'Cancel',
-        style: 'cancel',
-      },
-      {
-        text: 'Yes, Clear',
-        style: 'destructive',
-        onPress: () => {
-          setName('');
-          setNumber('');
-          setEmail('');
-          setMessage('');
-          setExperience('');
-          setPolicyNumber('');
-          setCoverMessage('');
-          setSelectedCV([]);
-          setSelectedID([]);
-          setSelectedPosition([]);
-          setSelectedExpertise([]);
-          setSelectedArea([]);
-          setEmergencyNumber('');
+    Alert.alert(
+      'Clear Form',
+      'Are you sure you want to clear all fields?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
         },
-      },
-    ]
-  );
-};
+        {
+          text: 'Yes, Clear',
+          style: 'destructive',
+          onPress: () => {
+            setName('');
+            setNumber('');
+            setEmail('');
+            setMessage('');
+            setExperience('');
+            setPolicyNumber('');
+            setCoverMessage('');
+            setSelectedCV([]);
+            setSelectedID([]);
+            setSelectedPosition([]);
+            setSelectedExpertise([]);
+            setSelectedArea([]);
+            setEmergencyNumber('');
+          },
+        },
+      ]
+    );
+  };
+
+  const handleSubmit = () => {
+    const cleanNumber = number.replace(/\s/g, '');
+    const cleanEmergencyNumber = emergencyNumber.replace(/\s/g, '');
+
+    if (!name.trim()) {
+      return Alert.alert('Validation Error', 'Full Name is required');
+    }
+
+    if (!cleanNumber || cleanNumber.length !== 10) {
+      return Alert.alert('Validation Error', 'Enter a valid 10-digit phone number');
+    }
+
+    if (!email.trim()) {
+      return Alert.alert('Validation Error', 'Email is required');
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.trim())) {
+      return Alert.alert('Validation Error', 'Enter a valid email address');
+    }
+
+    if (!selectedPosition || selectedPosition.length === 0) {
+      return Alert.alert('Validation Error', 'Please select at least one position');
+    }
+
+    if (!selectedExpertise || selectedExpertise.length === 0) {
+      return Alert.alert('Validation Error', 'Please select at least one expertise');
+    }
+
+    if (!experience.trim()) {
+      return Alert.alert('Validation Error', 'Experience is required');
+    }
+
+    if (!selectedID || selectedID.length === 0) {
+      return Alert.alert('Validation Error', 'Please upload your ID');
+    }
+
+    if (!selectedArea || selectedArea.length === 0) {
+      return Alert.alert('Validation Error', 'Please select area');
+    }
+
+    if (!policyNumber.trim()) {
+      return Alert.alert('Validation Error', 'Policy number is required');
+    }
+
+    if (!cleanEmergencyNumber || cleanEmergencyNumber.length !== 10) {
+      return Alert.alert('Validation Error', 'Enter a valid emergency contact number');
+    }
+
+    if (!selectedCV || selectedCV.length === 0) {
+      return Alert.alert('Validation Error', 'Please upload your CV');
+    }
+
+    if (!coverMessage.trim()) {
+      return Alert.alert('Validation Error', 'Cover message is required');
+    }
+
+    if (!message.trim()) {
+      return Alert.alert('Validation Error', 'Message is required');
+    }
+
+    navigation.navigate('AdminOtp', {
+      name: name.trim(),
+      number: cleanNumber,
+      email: email.trim(),
+      selectedPosition,
+      selectedExpertise,
+      experience: experience.trim(),
+      selectedID,
+      selectedArea,
+      policyNumber: policyNumber.trim(),
+      emergencyNumber: cleanEmergencyNumber,
+      selectedCV,
+      coverMessage: coverMessage.trim(),
+      message: message.trim(),
+    });
+  };
 
   return (
-    <View style={{marginBottom:hp('10%')}}>
+    <View style={{ marginBottom: hp('10%') }}>
       <HeaderComponent style={styles.header} />
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
-      
-      <View style={styles.formContainer}>
-        <Text style={styles.title}>TACKLES - Join Now</Text>
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
 
-        <Text style={styles.borderWIDTH} />
+        <View style={styles.formContainer}>
+          <Text style={styles.title}>TACKLES - Join Now</Text>
 
-        <Text style={styles.label}>Full Name<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextInput
-          placeholder="Enter your Full Name"
-          value={name}
-          onChangeText={setName}
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
-        />
+          <Text style={styles.borderWIDTH} />
 
-        <Text style={styles.label}>Phone Number<Text style={{ color: 'red' }}>*</Text></Text>
-        <View style={styles.phoneContainer}>
-          <Image
-            source={countryLogo}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-
+          <Text style={styles.label}>Full Name<Text style={{ color: 'red' }}>*</Text></Text>
           <TextInput
-            placeholder="Enter your Phone Number"
-            value={number}
-            onChangeText={(value) => {
-              // keep only numbers
-              let cleaned = value.replace(/[^0-9]/g, '');
-
-              // limit to 10 digits
-              cleaned = cleaned.slice(0, 10);
-
-              // format 3-3-4
-              let formatted = cleaned;
-
-              if (cleaned.length > 3 && cleaned.length <= 6) {
-                formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
-              } else if (cleaned.length > 6) {
-                formatted =
-                  cleaned.slice(0, 3) +
-                  ' ' +
-                  cleaned.slice(3, 6) +
-                  ' ' +
-                  cleaned.slice(6);
-              }
-
-              setNumber(formatted);
-            }}
-            keyboardType="number-pad"
-            style={styles.phoneInput}
+            placeholder="Enter your Full Name"
+            value={name}
+            onChangeText={setName}
+            style={styles.input}
             placeholderTextColor={'#4B4B4B'}
           />
-        </View>
 
-        <Text style={styles.label}>Email<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextInput
-          placeholder="Enter your email address"
-          value={email}
-          onChangeText={setEmail}
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
-        />
+          <Text style={styles.label}>Phone Number<Text style={{ color: 'red' }}>*</Text></Text>
+          <View style={styles.phoneContainer}>
+            <Image
+              source={countryLogo}
+              style={styles.icon}
+              resizeMode="contain"
+            />
 
-        <Text style={styles.label}>Position Applied For<Text style={{ color: 'red' }}>*</Text></Text>
-        <DropdownAdd
-          options={positionAppliedFor}
-          placeholder="Select the position you are applying for"
-          placeholderColor="#4B4B4B"
-          value={selectedPosition}
-          onSelectOption={setSelectedPosition}
-        />
+            <TextInput
+              placeholder="Enter your Phone Number"
+              value={number}
+              onChangeText={(value) => {
+                // keep only numbers
+                let cleaned = value.replace(/[^0-9]/g, '');
 
-        <Text style={styles.label}>Area of Expertise<Text style={{ color: 'red' }}>*</Text></Text>
-        <DropdownAdd
-          options={services}
-          placeholder="Select the area of expertise"
-          placeholderColor="#4B4B4B"
-          value={selectedExpertise}
-          onSelectOption={setSelectedExpertise}
-        />
+                // limit to 10 digits
+                cleaned = cleaned.slice(0, 10);
 
-        <Text style={styles.label}>Years of Experience<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextInput
-          placeholder="Enter your years of experience in the field"
-          value={experience}
-          onChangeText={(text) => {
-            const onlyNumbers = text.replace(/[^0-9]/g, '');
-            setExperience(onlyNumbers);
-          }}
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
-          keyboardType="numeric"
-        />
+                // format 3-3-4
+                let formatted = cleaned;
 
-        <Text style={styles.label}>ID Proof<Text style={{ color: 'red' }}>*</Text></Text>
-        <FileUploadBox 
-        value={selectedID}
-        onChange={setSelectedID}
-        />
+                if (cleaned.length > 3 && cleaned.length <= 6) {
+                  formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
+                } else if (cleaned.length > 6) {
+                  formatted =
+                    cleaned.slice(0, 3) +
+                    ' ' +
+                    cleaned.slice(3, 6) +
+                    ' ' +
+                    cleaned.slice(6);
+                }
 
+                setNumber(formatted);
+              }}
+              keyboardType="number-pad"
+              style={styles.phoneInput}
+              placeholderTextColor={'#4B4B4B'}
+            />
+          </View>
 
-        <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
-        <DropdownAdd
-          options={area}
-          placeholder="Select your preferred working area"
-          placeholderColor="#4B4B4B"
-          value={selectedArea}
-          onSelectOption={setSelectedArea}
-        />
-
-        <Text style={styles.label}>Insurance Policy Number<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextInput
-          placeholder="Enter the insurance policy number"
-          value={policyNumber}
-          onChangeText={(text) => {
-            const onlyNumbers = text.replace(/[^0-9]/g, '');
-            setPolicyNumber(onlyNumbers);
-          }}
-          style={styles.input}
-          placeholderTextColor={'#4B4B4B'}
-          keyboardType="numeric"
-        />
-
-        <Text style={styles.label}>Emergency Contact Number<Text style={{ color: 'red' }}>*</Text></Text>
-        <View style={styles.phoneContainer}>
-          <Image
-            source={countryLogo}
-            style={styles.icon}
-            resizeMode="contain"
-          />
-
+          <Text style={styles.label}>Email<Text style={{ color: 'red' }}>*</Text></Text>
           <TextInput
-            placeholder="Enter your emergency contact number"
-            value={emergencyNumber}
-            onChangeText={(value) => {
-              let cleaned = value.replace(/[^0-9]/g, '');
-              cleaned = cleaned.slice(0, 10);
-
-              let formatted = cleaned;
-
-              if (cleaned.length > 3 && cleaned.length <= 6) {
-                formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
-              } else if (cleaned.length > 6) {
-                formatted =
-                  cleaned.slice(0, 3) +
-                  ' ' +
-                  cleaned.slice(3, 6) +
-                  ' ' +
-                  cleaned.slice(6);
-              }
-
-              setEmergencyNumber(formatted);
-            }}
-            keyboardType="number-pad"
-            style={styles.phoneInput}
+            placeholder="Enter your email address"
+            value={email}
+            onChangeText={setEmail}
+            style={styles.input}
+            placeholderTextColor={'#4B4B4B'}
           />
+
+          <Text style={styles.label}>Position Applied For<Text style={{ color: 'red' }}>*</Text></Text>
+          <DropdownAdd
+            options={positionAppliedFor}
+            placeholder="Select the position you are applying for"
+            placeholderColor="#4B4B4B"
+            value={selectedPosition}
+            onSelectOption={setSelectedPosition}
+          />
+
+          <Text style={styles.label}>Area of Expertise<Text style={{ color: 'red' }}>*</Text></Text>
+          <DropdownAdd
+            options={services}
+            placeholder="Select the area of expertise"
+            placeholderColor="#4B4B4B"
+            value={selectedExpertise}
+            onSelectOption={setSelectedExpertise}
+          />
+
+          <Text style={styles.label}>Years of Experience<Text style={{ color: 'red' }}>*</Text></Text>
+          <TextInput
+            placeholder="Enter your years of experience in the field"
+            value={experience}
+            onChangeText={(text) => {
+              const onlyNumbers = text.replace(/[^0-9]/g, '');
+              setExperience(onlyNumbers);
+            }}
+            style={styles.input}
+            placeholderTextColor={'#4B4B4B'}
+            keyboardType="numeric"
+          />
+
+          <Text style={styles.label}>ID Proof<Text style={{ color: 'red' }}>*</Text></Text>
+          <FileUploadBox
+            value={selectedID}
+            onChange={setSelectedID}
+          />
+
+
+          <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
+          <DropdownAdd
+            options={area}
+            placeholder="Select your preferred working area"
+            placeholderColor="#4B4B4B"
+            value={selectedArea}
+            onSelectOption={setSelectedArea}
+          />
+
+          <Text style={styles.label}>Insurance Policy Number<Text style={{ color: 'red' }}>*</Text></Text>
+          <TextInput
+            placeholder="Enter the insurance policy number"
+            value={policyNumber}
+            onChangeText={(text) => {
+              const onlyNumbers = text.replace(/[^0-9]/g, '');
+              setPolicyNumber(onlyNumbers);
+            }}
+            style={styles.input}
+            placeholderTextColor={'#4B4B4B'}
+            keyboardType="numeric"
+          />
+
+          <Text style={styles.label}>Emergency Contact Number<Text style={{ color: 'red' }}>*</Text></Text>
+          <View style={styles.phoneContainer}>
+            <Image
+              source={countryLogo}
+              style={styles.icon}
+              resizeMode="contain"
+            />
+
+            <TextInput
+              placeholder="Enter your emergency contact number"
+              value={emergencyNumber}
+              onChangeText={(value) => {
+                let cleaned = value.replace(/[^0-9]/g, '');
+                cleaned = cleaned.slice(0, 10);
+
+                let formatted = cleaned;
+
+                if (cleaned.length > 3 && cleaned.length <= 6) {
+                  formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
+                } else if (cleaned.length > 6) {
+                  formatted =
+                    cleaned.slice(0, 3) +
+                    ' ' +
+                    cleaned.slice(3, 6) +
+                    ' ' +
+                    cleaned.slice(6);
+                }
+
+                setEmergencyNumber(formatted);
+              }}
+              keyboardType="number-pad"
+              style={styles.phoneInput}
+            />
+          </View>
+
+          <Text style={styles.label}>CV/Resume<Text style={{ color: 'red' }}>*</Text></Text>
+          <FileUploadBox
+            value={selectedCV}
+            onChange={setSelectedCV}
+          />
+
+          <Text style={styles.label}>Cover Letter<Text style={{ color: 'red' }}>*</Text></Text>
+          <TextArea
+            value={coverMessage}
+            onChangeText={setCoverMessage}
+            placeholder=""
+            placeholderTextColor="#4B4B4B"
+            maxHeight={160}
+          />
+
+          <Text style={styles.label}>Message<Text style={{ color: 'red' }}>*</Text></Text>
+          <TextArea
+            value={message}
+            onChangeText={setMessage}
+            placeholder=""
+            placeholderTextColor="#4B4B4B"
+            maxHeight={160}
+          />
+
+          <View style={styles.buttonContainer}>
+
+            <Pressable style={styles.buttonClearFlex} onPress={handleClearForm}>
+              <Image source={ClearFormIcon} style={styles.clearIcon} />
+              <Text style={styles.buttonClear}>Clear form</Text>
+            </Pressable>
+
+            <Button
+              style={styles.buttonSubmit}
+              textStyle={{ color: 'white', textAlign: 'center' }}
+              onPress={handleSubmit}
+            >
+              Submit
+            </Button>
+          </View>
         </View>
 
-        <Text style={styles.label}>CV/Resume<Text style={{ color: 'red' }}>*</Text></Text>
-        <FileUploadBox
-        value={selectedCV}
-        onChange={setSelectedCV}
-        />
-
-        <Text style={styles.label}>Cover Letter<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextArea
-          value={coverMessage}
-          onChangeText={setCoverMessage}
-          placeholder=""
-          placeholderTextColor="#4B4B4B"
-          maxHeight={160}
-        />
-
-        <Text style={styles.label}>Message<Text style={{ color: 'red' }}>*</Text></Text>
-        <TextArea
-          value={message}
-          onChangeText={setMessage}
-          placeholder=""
-          placeholderTextColor="#4B4B4B"
-          maxHeight={160}
-        />
-
-        <View style={styles.buttonContainer}>
-
-          <Pressable style={styles.buttonClearFlex} onPress={handleClearForm}>
-            <Image source={ClearFormIcon} style={styles.clearIcon} />
-            <Text style={styles.buttonClear}>Clear form</Text>
-          </Pressable>
-
-          <Button
-            style={styles.buttonSubmit}
-            textStyle={{ color: 'white', textAlign: 'center' }}
-          // onPress={handleSubmit}
-          >
-            Submit
-          </Button>
-        </View>
-      </View>
-
-    </KeyboardAwareScrollView >
+      </KeyboardAwareScrollView >
     </View>
   );
 };

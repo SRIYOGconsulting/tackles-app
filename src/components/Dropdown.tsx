@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -22,6 +22,7 @@ type Props = {
   onSelectOption: (option: string) => void;
   dropdownType?: string;
   borderColor?: string;
+  value?: string;
 };
 
 const Dropdown = ({
@@ -32,6 +33,7 @@ const Dropdown = ({
   onSelectOption,
   dropdownType,
   borderColor,
+  value
 }: Props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
@@ -63,6 +65,10 @@ const Dropdown = ({
     }
     return DropIcon;
   };
+
+  useEffect(() => {
+  setSelectedOption(value || '');
+}, [value]);
 
   return (
     <View ref={containerRef} style={styles.container}>

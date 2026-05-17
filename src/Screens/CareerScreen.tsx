@@ -5,13 +5,12 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
   Dimensions,
   Image,
   Pressable,
+  Alert,
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
-import Dropdown from '../../src/components/Dropdown';
 import { area, positionAppliedFor, services } from '../../src/data/Data';
 import TextArea from '../components/TextArea';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -22,6 +21,7 @@ import {
 } from 'react-native-responsive-screen';
 import FileUploadBox from '../components/FileUploadBox';
 import ClearFormIcon from '../assets/icons/contact/clear.png'
+import DropdownAdd from '../components/DropdownAdd';
 
 
 const { width, height } = Dimensions.get('window');
@@ -40,49 +40,52 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
   );
 };
 
-const CareerScreen = ({ navigation }: { navigation: any }) => {
+const CareerScreen = ({ }: { navigation: any }) => {
   const [name, setName] = useState('');
-  // const [location, setLocation] = useState('');
   const [number, setNumber] = useState('');
-  const [selectedService, setSelectedService] = useState('');
-  const [selectedShift] = useState('');
-  const [selectedArea] = useState('');
-  const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
-  const [organizationName] = useState('');
+  const [message, setMessage] = useState('');
 
   const [experience, setExperience] = useState('');
   const [policyNumber, setPolicyNumber] = useState('');
+  const [emergencyNumber, setEmergencyNumber] = useState('');
   const [coverMessage, setCoverMessage] = useState('');
 
-  const handleSubmit = () => {
-    if (
-      name.trim() &&
-      number.trim() &&
-      selectedService &&
-      selectedShift &&
-      selectedArea &&
-      email &&
-      organizationName &&
-      message
-    ) {
-      navigation.navigate('AdminOtp', {
-        name,
-        number,
-        selectedService,
-        selectedShift,
-        selectedArea,
-        message,
-        email,
-        organizationName,
-      });
-    } else {
-      Alert.alert(
-        'Incomplete Form',
-        'Please fill in all required fields.'
-      );
-    }
-  };
+  // dropdown states (FIXED)
+  const [selectedPosition, setSelectedPosition] = useState<string[]>([]);
+  const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
+  const [selectedArea, setSelectedArea] = useState<string[]>([]);
+
+  const handleClearForm = () => {
+  Alert.alert(
+    'Clear Form',
+    'Are you sure you want to clear all fields?',
+    [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'Yes, Clear',
+        style: 'destructive',
+        onPress: () => {
+          setName('');
+          setNumber('');
+          setEmail('');
+          setMessage('');
+          setExperience('');
+          setPolicyNumber('');
+          setCoverMessage('');
+
+          setSelectedPosition([]);
+          setSelectedExpertise([]);
+          setSelectedArea([]);
+          setEmergencyNumber('');
+        },
+      },
+    ]
+  );
+};
 
   return (
     <KeyboardAwareScrollView
@@ -155,19 +158,21 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
         />
 
         <Text style={styles.label}>Position Applied For<Text style={{ color: 'red' }}>*</Text></Text>
-        <Dropdown
+        <DropdownAdd
           options={positionAppliedFor}
           placeholder="Select the position you are applying for"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          value={selectedPosition}
+          onSelectOption={setSelectedPosition}
         />
 
         <Text style={styles.label}>Area of Expertise<Text style={{ color: 'red' }}>*</Text></Text>
-        <Dropdown
+        <DropdownAdd
           options={services}
           placeholder="Select the area of expertise"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          value={selectedExpertise}
+          onSelectOption={setSelectedExpertise}
         />
 
         <Text style={styles.label}>Years of Experience<Text style={{ color: 'red' }}>*</Text></Text>
@@ -188,11 +193,12 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
 
 
         <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
-        <Dropdown
+        <DropdownAdd
           options={area}
           placeholder="Select your preferred working area"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          value={selectedArea}
+          onSelectOption={setSelectedArea}
         />
 
         <Text style={styles.label}>Insurance Policy Number</Text>
@@ -218,15 +224,11 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
 
           <TextInput
             placeholder="Enter your emergency contact number"
-            value={number}
+            value={emergencyNumber}
             onChangeText={(value) => {
-              // keep only numbers
               let cleaned = value.replace(/[^0-9]/g, '');
-
-              // limit to 10 digits
               cleaned = cleaned.slice(0, 10);
 
-              // format 3-3-4
               let formatted = cleaned;
 
               if (cleaned.length > 3 && cleaned.length <= 6) {
@@ -240,11 +242,10 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
                   cleaned.slice(6);
               }
 
-              setNumber(formatted);
+              setEmergencyNumber(formatted);
             }}
             keyboardType="number-pad"
             style={styles.phoneInput}
-            placeholderTextColor={'#4B4B4B'}
           />
         </View>
 
@@ -271,7 +272,7 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
 
         <View style={styles.buttonContainer}>
 
-          <Pressable style={styles.buttonClearFlex}>
+          <Pressable style={styles.buttonClearFlex} onPress={handleClearForm}>
             <Image source={ClearFormIcon} style={styles.clearIcon} />
             <Text style={styles.buttonClear}>Clear form</Text>
           </Pressable>
@@ -279,7 +280,7 @@ const CareerScreen = ({ navigation }: { navigation: any }) => {
           <Button
             style={styles.buttonSubmit}
             textStyle={{ color: 'white', textAlign: 'center' }}
-            onPress={handleSubmit}
+          // onPress={handleSubmit}
           >
             Submit
           </Button>
@@ -320,10 +321,8 @@ const styles = StyleSheet.create({
     paddingLeft: 3,
   },
   borderWIDTH: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
-    marginBottom: height * 0.04,
-    marginTop: height * 0.02,
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01,
   },
   input: {
     borderWidth: 1,

@@ -5,10 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert,
   Dimensions,
   Image,
   Pressable,
+  Alert,
 } from 'react-native';
 import HeaderComponent from '../../src/components/HeaderComponent';
 import Dropdown from '../../src/components/Dropdown';
@@ -22,6 +22,7 @@ import {
 } from 'react-native-responsive-screen';
 import FileUploadBox from '../components/FileUploadBox';
 import ClearFormIcon from '../assets/icons/contact/clear.png'
+import DropdownAdd from '../components/DropdownAdd';
 
 
 const { width, height } = Dimensions.get('window');
@@ -40,59 +41,50 @@ const Button = ({ children, style, textStyle, onPress }: any) => {
   );
 };
 
-const PartnerScreen = ({ navigation }: { navigation: any }) => {
+const PartnerScreen = ({ }: { navigation: any }) => {
   const [name, setName] = useState('');
-  // const [location, setLocation] = useState('');
   const [number, setNumber] = useState('');
-  const [selectedService, setSelectedService] = useState('');
-  const [selectedShift] = useState('');
-  const [selectedArea, setSelectedArea] = useState('');
-  const [message, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [organizationName, setOrganizationName] = useState('');
-
-  // for preventing non-number character
+  const [message, setMessage] = useState('');
   const [employees, setEmployees] = useState('');
 
-  <TextInput
-    placeholder="Enter the number of employees"
-    style={styles.input}
-    placeholderTextColor={'#4B4B4B'}
-    keyboardType="numeric"
-    value={employees}
-    onChangeText={(text) => {
-      const onlyNumbers = text.replace(/[^0-9]/g, '');
-      setEmployees(onlyNumbers);
-    }}
-  />
+  // dropdown states (separated properly)
+  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedBusinessType, setSelectedBusinessType] = useState('');
+  const [selectedPartnership, setSelectedPartnership] = useState('');
+  const [selectedHowHeard, setSelectedHowHeard] = useState('');
+  const [selectedServicesOffered, setSelectedServicesOffered] = useState<string[]>([]);
 
-  const handleSubmit = () => {
-    if (
-      name.trim() &&
-      number.trim() &&
-      selectedService &&
-      selectedShift &&
-      selectedArea &&
-      email &&
-      organizationName &&
-      message
-    ) {
-      navigation.navigate('AdminOtp', {
-        name,
-        number,
-        selectedService,
-        selectedShift,
-        selectedArea,
-        message,
-        email,
-        organizationName,
-      });
-    } else {
-      Alert.alert(
-        'Incomplete Form',
-        'Please fill in all required fields.'
-      );
-    }
+  const handleClearForm = () => {
+    Alert.alert(
+      'Clear Form',
+      'Are you sure you want to clear all fields?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Yes, Clear',
+          style: 'destructive',
+          onPress: () => {
+            setName('');
+            setNumber('');
+            setEmail('');
+            setOrganizationName('');
+            setMessage('');
+            setEmployees('');
+
+            setSelectedCity('');
+            setSelectedBusinessType('');
+            setSelectedPartnership('');
+            setSelectedHowHeard('');
+            setSelectedServicesOffered([]);
+          },
+        },
+      ]
+    );
   };
 
   return (
@@ -183,8 +175,8 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           options={area}
           placeholder="Select your City"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedArea}
-
+          onSelectOption={setSelectedCity}
+          value={selectedCity}
         />
 
         <Text style={styles.label}>Number of Employees</Text>
@@ -205,23 +197,26 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           options={businessType}
           placeholder="Select your Business Type"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          onSelectOption={setSelectedBusinessType}
+          value={selectedBusinessType}
         />
 
         <Text style={styles.label}>Services Offered<Text style={{ color: 'red' }}>*</Text></Text>
-        <Dropdown
+        <DropdownAdd
           options={services}
           placeholder="Select the services you offer"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          onSelectOption={setSelectedServicesOffered}
+          value={selectedServicesOffered}
         />
 
         <Text style={styles.label}>Partnership Interest</Text>
         <Dropdown
           options={partnershipInterest}
-          placeholder="Select the services you offer"
+          placeholder="Select Partnership Interest"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedService}
+          onSelectOption={setSelectedPartnership}
+          value={selectedPartnership}
         />
 
         placeholder="Briefly describe why you are interested"
@@ -230,12 +225,12 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
         <FileUploadBox />
 
         <Text style={styles.label}>How did you hear about us?</Text>
-          <Dropdown
+        <Dropdown
           options={howduhear}
-          placeholder="Briefly describe how you heard about us"
+          placeholder="How did you hear about us?"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedArea}
-
+          onSelectOption={setSelectedHowHeard}
+          value={selectedHowHeard}
         />
 
         <Text style={styles.label}>Message</Text>
@@ -249,7 +244,7 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
 
         <View style={styles.buttonContainer}>
 
-          <Pressable style={styles.buttonClearFlex}>
+          <Pressable style={styles.buttonClearFlex} onPress={handleClearForm}>
             <Image source={ClearFormIcon} style={styles.clearIcon} />
             <Text style={styles.buttonClear}>Clear form</Text>
           </Pressable>
@@ -257,7 +252,7 @@ const PartnerScreen = ({ navigation }: { navigation: any }) => {
           <Button
             style={styles.buttonSubmit}
             textStyle={{ color: 'white', textAlign: 'center' }}
-            onPress={handleSubmit}
+          // onPress={handleSubmit}
           >
             Submit
           </Button>
@@ -298,10 +293,8 @@ const styles = StyleSheet.create({
     paddingLeft: 3,
   },
   borderWIDTH: {
-    borderBottomWidth: 1,
-    borderColor: '#CAD2DF',
-    marginBottom: height * 0.04,
-    marginTop: height * 0.02,
+    marginBottom: height * 0.01,
+    marginTop: height * 0.01,
   },
   input: {
     borderWidth: 1,

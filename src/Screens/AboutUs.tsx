@@ -51,7 +51,7 @@ const AboutScreen = ({ }: { navigation: any }) => {
               <Text style={styles.title}>Our Story</Text>
 
               <Text style={styles.subtitle}>
-                Tackles is an A-grade handyman service company delivering
+                TACKLES is an A-grade handyman service company delivering
                 professional solutions for plumbing, painting, air conditioning,
                 flooring, and wall repairs with consistent quality and dependable
                 service standards.

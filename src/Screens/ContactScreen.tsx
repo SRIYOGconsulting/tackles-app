@@ -58,7 +58,7 @@ const ContactScreen = ({ }: { navigation: any }) => {
           {/* COMPANY */}
           <Text style={styles.companyName}>TACKLES Pro</Text>
           <Text style={styles.companySubtitle}>
-            Professional Services in San Francisco
+            Professional Handyman Services in San Francisco
           </Text>
 
           {/* CARDS */}

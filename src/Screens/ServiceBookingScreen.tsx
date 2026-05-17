@@ -255,7 +255,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
                 textStyle={{ color: 'white', textAlign: 'center' }}
                 onPress={handleSubmit}
               >
-                Submit Booking
+                SUBMIT
               </Button>
 
             </View>
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   button1: {
-    width: width * 0.45,
+    width: width * 0.4,
     height: height * 0.06,
     justifyContent: 'center',
     alignItems: 'center',

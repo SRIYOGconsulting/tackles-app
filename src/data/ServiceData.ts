@@ -53,7 +53,7 @@ export const servicesData2 = [
       'Well-built woodwork enhances both the strength and appearance of any space. Services include custom cabinets, shelving, doors, framing, decks, furniture repair, and installation work. Every project is crafted using durable materials for long-lasting performance. Across San Francisco, carpentry solutions are tailored for residential and commercial needs. Repairs, upgrades, and new installations are completed with precision and care. Attention is given to smooth finishing and structural accuracy. The result is improved functionality, durability, and a polished look.',
     question: 'What types of carpentry work do you offer?',
     answer: 'Carpentry services include custom woodwork, furniture repair, door and window installation, framing, shelving, and other wood-based construction tasks.',
-    image: require('../assets/services/HomeRepairANDMaintenance/handyman.jpg'),
+    image: require('../assets/services/HomeRepairANDMaintenance/carpentry.jpg'),
   },
   {
     id: 6,
@@ -66,32 +66,6 @@ export const servicesData2 = [
     answer: 'Plumbing services cover leak repairs, drain cleaning, pipe installation, fixture replacement, and troubleshooting water system issues.',
     image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
   },
-  // for behind the slider page only-this below
-  {
-    id: 6.1,
-    name: 'Pumbling',
-    words: 'Pipe and leak fixing.',
-    number: 12,
-    description:
-      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
-    question: 'What does deep cleaning include?',
-    answer:
-      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
-    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
-  },
-  {
-    id: 6.2,
-    name: 'Pumbling',
-    words: 'Pipe and leak fixing.',
-    number: 12,
-    description:
-      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
-    question: 'What does deep cleaning include?',
-    answer:
-      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
-    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
-  },
-  // for behind the slider page only-this above
   {
     id: 7,
     name: 'Electrical Repairs',
@@ -114,6 +88,32 @@ export const servicesData2 = [
     answer: 'Flooring repair includes fixing cracks, replacing damaged tiles or boards, repairing scratches, and restoring uneven or worn-out floor surfaces.',
     image: require('../assets/services/HomeRepairANDMaintenance/flooring.jpg'),
   },
+   // for behind the slider page only-this below
+  {
+    id: 8.1,
+    name: 'Pumbling',
+    words: 'Pipe and leak fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
+  },
+  {
+    id: 8.2,
+    name: 'Pumbling',
+    words: 'Pipe and leak fixing.',
+    number: 12,
+    description:
+      'Looking for deep cleaning services? We ensure every corner is spotless with our thorough cleaning solutions.',
+    question: 'What does deep cleaning include?',
+    answer:
+      'Deep cleaning includes cleaning floors, walls, furniture, fixtures, and hard-to-reach spaces to ensure a completely hygienic environment.',
+    image: require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg'),
+  },
+  // for behind the slider page only-this above
   {
     id: 9,
     name: 'Washing Machine Repair',
@@ -138,7 +138,7 @@ export const servicesData2 = [
   },
   {
     id: 11,
-    name: 'EV Charger',
+    name: 'EV Charger Installation',
     words: 'EV charging install.',
     number: 12,
     description:
@@ -171,7 +171,7 @@ export const servicesData2 = [
   },
   {
     id: 14,
-    name: 'Wallpaper',
+    name: 'Wallpaper Fixing',
     words: 'Wall decoration.',
     number: 12,
     description:

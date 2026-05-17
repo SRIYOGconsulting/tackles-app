@@ -17,7 +17,11 @@ import {
 const ServicesScreen = ({ navigation }: { navigation: any }) => {
   const numberOfItemsBeforeFooter = 6;
 
-  const data = useMemo(() => servicesData2, []);
+  const data = useMemo(() => {
+    return servicesData2.filter(
+      (item) => item.id !== 1 && item.id !== 6
+    );
+  }, []);
 
   const renderItem = ({ item, index }: { item: any; index: number }) => {
     if (index === numberOfItemsBeforeFooter) {

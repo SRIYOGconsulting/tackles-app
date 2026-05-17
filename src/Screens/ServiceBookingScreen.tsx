@@ -83,125 +83,127 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.container}
-      showsVerticalScrollIndicator={false}
-    >
+    <View style={{ flex: 1 }}>
       <HeaderComponent style={styles.header} />
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
-      <View style={styles.formContainer}>
-        <Text style={styles.title}>Book a Service</Text>
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+
+        <View style={styles.formContainer}>
+          <Text style={styles.title}>Book a Service</Text>
 
 
-        <View style={styles.inputGroup}>
+          <View style={styles.inputGroup}>
 
-          <Text style={styles.label}>Full Name</Text>
-          <TextInput
-            placeholder="Enter your Full Name"
-            value={name}
-            onChangeText={setName}
-            style={styles.input}
-            placeholderTextColor={'#4B4B4B'}
-          />
-
-          <Text style={styles.label}>Phone Number</Text>
-          <View style={styles.phoneContainer}>
-            <Image
-              source={countryLogo}
-              style={styles.icon}
-              resizeMode="contain"
-            />
-
+            <Text style={styles.label}>Full Name</Text>
             <TextInput
-              placeholder="Enter your Phone Number"
-              value={number}
-              onChangeText={(value) => {
-                // keep only numbers
-                let cleaned = value.replace(/[^0-9]/g, '');
-
-                // limit to 10 digits
-                cleaned = cleaned.slice(0, 10);
-
-                // format 3-3-4
-                let formatted = cleaned;
-
-                if (cleaned.length > 3 && cleaned.length <= 6) {
-                  formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
-                } else if (cleaned.length > 6) {
-                  formatted =
-                    cleaned.slice(0, 3) +
-                    ' ' +
-                    cleaned.slice(3, 6) +
-                    ' ' +
-                    cleaned.slice(6);
-                }
-
-                setNumber(formatted);
-              }}
-              keyboardType="number-pad"
-              style={styles.phoneInput}
+              placeholder="Enter your Full Name"
+              value={name}
+              onChangeText={setName}
+              style={styles.input}
               placeholderTextColor={'#4B4B4B'}
             />
-          </View>
 
-          <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
-          <Dropdown
-            options={services}
-            placeholder="Select Services"
-            placeholderColor="#4B4B4B"
-            onSelectOption={setSelectedService}
-            borderColor='#3CB371'
-          />
-
-          <Text style={styles.label}>Choose Date</Text>
-          <View style={{ marginBottom: height * 0.025 }}>
-            <TouchableOpacity
-              onPress={() => setShow(true)}
-              style={styles.datePicker}>
-              <Text style={[styles.datePickerText, { fontSize: width * 0.035 }]}>
-                {date ? date.toDateString() : 'Pick a Date'}
-              </Text>
-              <Image source={CalenderIcon} style={{ height: 21, width: 21 }} />
-            </TouchableOpacity>
-
-            {show && (
-              <DateTimePicker
-                value={date || new Date()}
-                mode="date"
-                display="default"
-                minimumDate={new Date()}
-                onChange={(event, selectedDate) => {
-                  if (event.type === 'set' && selectedDate) {
-                    setDate(selectedDate);
-                  }
-                  setShow(Platform.OS === 'ios');
-                }}
+            <Text style={styles.label}>Phone Number</Text>
+            <View style={styles.phoneContainer}>
+              <Image
+                source={countryLogo}
+                style={styles.icon}
+                resizeMode="contain"
               />
-            )}
-          </View>
 
-          <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
-          <Dropdown
-            options={shifts}
-            placeholder="Choose a Shift"
-            placeholderColor="#4B4B4B"
-            onSelectOption={setSelectedShift}
-            dropdownType="shift"
-            borderColor='#3CB371'
-          />
+              <TextInput
+                placeholder="Enter your Phone Number"
+                value={number}
+                onChangeText={(value) => {
+                  // keep only numbers
+                  let cleaned = value.replace(/[^0-9]/g, '');
 
-          <Text style={styles.label}>Your Location</Text>
-          <Dropdown
-            options={area}
-            placeholder="Select your location"
-            placeholderColor="#4B4B4B"
-            onSelectOption={setSelectedArea}
-            borderColor='#3CB371'
+                  // limit to 10 digits
+                  cleaned = cleaned.slice(0, 10);
 
-          />
+                  // format 3-3-4
+                  let formatted = cleaned;
+
+                  if (cleaned.length > 3 && cleaned.length <= 6) {
+                    formatted = cleaned.slice(0, 3) + ' ' + cleaned.slice(3);
+                  } else if (cleaned.length > 6) {
+                    formatted =
+                      cleaned.slice(0, 3) +
+                      ' ' +
+                      cleaned.slice(3, 6) +
+                      ' ' +
+                      cleaned.slice(6);
+                  }
+
+                  setNumber(formatted);
+                }}
+                keyboardType="number-pad"
+                style={styles.phoneInput}
+                placeholderTextColor={'#4B4B4B'}
+              />
+            </View>
+
+            <Text style={styles.label}>Select Service<Text style={{ color: 'red' }}>*</Text></Text>
+            <Dropdown
+              options={services}
+              placeholder="Select Services"
+              placeholderColor="#4B4B4B"
+              onSelectOption={setSelectedService}
+              borderColor='#3CB371'
+            />
+
+            <Text style={styles.label}>Choose Date</Text>
+            <View style={{ marginBottom: height * 0.025 }}>
+              <TouchableOpacity
+                onPress={() => setShow(true)}
+                style={styles.datePicker}>
+                <Text style={[styles.datePickerText, { fontSize: width * 0.035 }]}>
+                  {date ? date.toDateString() : 'Pick a Date'}
+                </Text>
+                <Image source={CalenderIcon} style={{ height: 21, width: 21 }} />
+              </TouchableOpacity>
+
+              {show && (
+                <DateTimePicker
+                  value={date || new Date()}
+                  mode="date"
+                  display="default"
+                  minimumDate={new Date()}
+                  onChange={(event, selectedDate) => {
+                    if (event.type === 'set' && selectedDate) {
+                      setDate(selectedDate);
+                    }
+                    setShow(Platform.OS === 'ios');
+                  }}
+                />
+              )}
+            </View>
+
+            <Text style={styles.label}>Preferred Time<Text style={{ color: 'red' }}>*</Text></Text>
+            <Dropdown
+              options={shifts}
+              placeholder="Choose a Shift"
+              placeholderColor="#4B4B4B"
+              onSelectOption={setSelectedShift}
+              dropdownType="shift"
+              borderColor='#3CB371'
+            />
+
+            <Text style={styles.label}>Your Location</Text>
+            <Dropdown
+              options={area}
+              placeholder="Select your location"
+              placeholderColor="#4B4B4B"
+              onSelectOption={setSelectedArea}
+              borderColor='#3CB371'
+
+            />
 
 
-          {/* <Dropdown
+            {/* <Dropdown
             options={priority}
             placeholder="Select Priority"
             placeholderColor="#4B4B4B"
@@ -216,35 +218,36 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             showRequired
           /> */}
 
-          <Text style={styles.label}>Message</Text>
-          <TextArea
-            value={message}
-            onChangeText={setMessage}
-            placeholder=""
-            placeholderTextColor="#4B4B4B"
-            maxHeight={160}
-            borderColor='#3CB371'
-          />
-          
-          {/* Submit Button */}
-          <View style={styles.buttonPadding}>
-            <Button
-              style={styles.button1}
-              textStyle={{ color: 'white', textAlign: 'center' }}
-              onPress={handleSubmit}
-            >
-              Submit Booking
-            </Button>
+            <Text style={styles.label}>Message</Text>
+            <TextArea
+              value={message}
+              onChangeText={setMessage}
+              placeholder=""
+              placeholderTextColor="#4B4B4B"
+              maxHeight={160}
+              borderColor='#3CB371'
+            />
 
+            {/* Submit Button */}
+            <View style={styles.buttonPadding}>
+              <Button
+                style={styles.button1}
+                textStyle={{ color: 'white', textAlign: 'center' }}
+                onPress={handleSubmit}
+              >
+                Submit Booking
+              </Button>
+
+            </View>
           </View>
+
+
+
+
         </View>
 
-
-
-
-      </View>
-
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 };
 

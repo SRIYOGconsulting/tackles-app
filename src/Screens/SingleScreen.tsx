@@ -81,85 +81,88 @@ const SingleScreen = ({ route, navigation }: any) => {
   };
 
   return (
-    <ScrollView
-      style={styles.scrollView}
-      showsVerticalScrollIndicator={false}
-    >
+    <View style={{flex:1}}>
       {/* Header */}
       <HeaderComponent style={styles.header} />
 
       <View style={styles.headerline} />
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
 
-      <View style={styles.container}>
-        {/* IMAGE */}
-        <View style={styles.imageContainer}>
-          <Image
-            source={service.image}
-            style={styles.image}
-            resizeMode="cover"
-            fadeDuration={0}
-          />
-        </View>
 
-        {/* TITLE */}
-        <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
-          {service.name} Services in San Francisco
-        </Text>
-
-        {/* DESCRIPTION */}
-        <Text style={[styles.description, { fontSize: scaleFont(14) }]}>
-          {formatDescription(service.description)}
-        </Text>
-
-        {/* QUESTION */}
-        <Text style={[styles.question, { fontSize: scaleFont(15) }]}>
-          {service.question}
-        </Text>
-
-        {/* ANSWER */}
-        <Text style={[styles.answer, { fontSize: scaleFont(14) }]}>
-          {service.answer}
-        </Text>
-
-        {/* BUTTON */}
-        <View style={styles.buttonPadding}>
-          <Button
-            onPress={() => {
-              navigation.navigate('Main', {
-                screen: 'BookingTab',
-              });
-            }}
-          >
-            Book a Service
-          </Button>
-        </View>
-
-        {/* RELATED SERVICES */}
-        <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(18) }]}>
-          Related Services
-        </Text>
-
-        <View style={styles.servicesContainer}>
-          {otherServices.map(item => (
-            <ServicesDisplaycard
-              key={item.id}
-              style={{ width: '48%' }}
-              words={item.words}
-              name={item.name}
-              image={item.image}
-              question={item.question}
-              answer={item.answer}
-              description={item.description}
-              onPress={() =>
-                navigation.navigate('SingleScreen', {
-                  service: item,
-                })
-              }
+        <View style={styles.container}>
+          {/* IMAGE */}
+          <View style={styles.imageContainer}>
+            <Image
+              source={service.image}
+              style={styles.image}
+              resizeMode="cover"
+              fadeDuration={0}
             />
-          ))}
+          </View>
+
+          {/* TITLE */}
+          <Text style={[styles.subtitle, { fontSize: scaleFont(17) }]}>
+            {service.name} Services in San Francisco
+          </Text>
+
+          {/* DESCRIPTION */}
+          <Text style={[styles.description, { fontSize: scaleFont(14) }]}>
+            {formatDescription(service.description)}
+          </Text>
+
+          {/* QUESTION */}
+          <Text style={[styles.question, { fontSize: scaleFont(15) }]}>
+            {service.question}
+          </Text>
+
+          {/* ANSWER */}
+          <Text style={[styles.answer, { fontSize: scaleFont(14) }]}>
+            {service.answer}
+          </Text>
+
+          {/* BUTTON */}
+          <View style={styles.buttonPadding}>
+            <Button
+              onPress={() => {
+                navigation.navigate('Main', {
+                  screen: 'BookingTab',
+                });
+              }}
+            >
+              Book a Service
+            </Button>
+          </View>
+
+          {/* RELATED SERVICES */}
+          <Text style={[styles.otherServicesTitle, { fontSize: scaleFont(18) }]}>
+            Related Services
+          </Text>
+
+          <View style={styles.servicesContainer}>
+            {otherServices.map(item => (
+              <ServicesDisplaycard
+                key={item.id}
+                style={{ width: '48%' }}
+                words={item.words}
+                name={item.name}
+                image={item.image}
+                question={item.question}
+                answer={item.answer}
+                description={item.description}
+                onPress={() =>
+                  navigation.navigate('SingleScreen', {
+                    service: item,
+                  })
+                }
+              />
+            ))}
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 

@@ -27,38 +27,41 @@ const FaqsScreen: React.FC<Props> = () => {
   };
 
   return (
-    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+    <View style={{flex:1}}>
       <HeaderComponent style={styles.header} />
 
       <View style={styles.divider} />
 
-      <View style={styles.container}>
-        <Text style={styles.title}>Frequently Asked Questions</Text>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
 
-        {(FaqsData as FaqItem[]).map((item) => {
-          const isOpen = expandedId === item.id;
+        <View style={styles.container}>
+          <Text style={styles.title}>Frequently Asked Questions</Text>
 
-          return (
-            <TouchableOpacity
-              key={item.id}
-              activeOpacity={0.8}
-              onPress={() => toggleItem(item.id)}
-              style={styles.card}
-            >
-              <Text style={styles.cardTitle}>
-                {item.id}. {item.question}
-              </Text>
+          {(FaqsData as FaqItem[]).map((item) => {
+            const isOpen = expandedId === item.id;
 
-              {isOpen && (
-                <Text style={styles.cardSubtitle}>
-                  {item.answer}
+            return (
+              <TouchableOpacity
+                key={item.id}
+                activeOpacity={0.8}
+                onPress={() => toggleItem(item.id)}
+                style={styles.card}
+              >
+                <Text style={styles.cardTitle}>
+                  {item.id}. {item.question}
                 </Text>
-              )}
-            </TouchableOpacity>
-          );
-        })}
-      </View>
-    </ScrollView>
+
+                {isOpen && (
+                  <Text style={styles.cardSubtitle}>
+                    {item.answer}
+                  </Text>
+                )}
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: '#064E3B',
     marginBottom: hp('5%'),
-    marginTop:hp('2%')
+    marginTop: hp('2%')
   },
 
   card: {

@@ -100,12 +100,14 @@ const CareerScreen = ({ }: { navigation: any }) => {
 };
 
   return (
+    <View >
+      <HeaderComponent style={styles.header} />
+      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
     <KeyboardAwareScrollView
       contentContainerStyle={styles.container}
       showsVerticalScrollIndicator={false}
     >
-      <HeaderComponent style={styles.header} />
-      <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
+      
       <View style={styles.formContainer}>
         <Text style={styles.title}>TACKLES - Join Now</Text>
 
@@ -306,6 +308,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
       </View>
 
     </KeyboardAwareScrollView >
+    </View>
   );
 };
 

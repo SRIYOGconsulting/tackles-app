@@ -1,9 +1,5 @@
 import {View, Image, StyleSheet, Dimensions} from 'react-native';
 import React from 'react';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
 
 const {width,height} = Dimensions.get('window');
 

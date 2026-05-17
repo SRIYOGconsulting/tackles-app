@@ -27,106 +27,109 @@ const serviceMap = {
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   return (
-    <FlatList
-      data={[]}
-      keyExtractor={() => 'home'}
-      renderItem={null}
-      showsVerticalScrollIndicator={false}
-      bounces={false}
-      ListHeaderComponent={() => (
-        <View style={styles.container}>
+    <View>
+      <View style={styles.headerWrapper}>
+        <HeaderComponent />
+      </View>
+      <FlatList
+        data={[]}
+        keyExtractor={() => 'home'}
+        renderItem={null}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
+        ListHeaderComponent={() => (
+          <View style={styles.container}>
 
-          {/* Banner */}
-          <Image
-            source={require('../assets/image/homescreen/sanfrancisco.jpg')}
-            style={styles.banner}
-            resizeMode="cover"
-          />
+            {/* Banner */}
+            <Image
+              source={require('../assets/image/homescreen/sanfrancisco.jpg')}
+              style={styles.banner}
+              resizeMode="cover"
+            />
 
-          <View style={styles.headerWrapper}>
-            <HeaderComponent />
+
+
+            {/* Content */}
+            <View style={styles.content}>
+
+              <Text style={styles.title}>TACKLES | Fix it Today</Text>
+
+              <Text style={styles.subtitle}>
+                Professional Handyman Services in San Francisco
+              </Text>
+
+              {/* Top Services */}
+              <Text style={styles.sectionTitle}>Top Services</Text>
+
+              <View style={styles.row1}>
+                <ServicesCard
+                  title="Painting"
+                  image={require('../assets/services/homeImprovement/painting.jpg')}
+                  onPress={() =>
+                    navigation.navigate('SingleScreen', {
+                      service: serviceMap[13],
+                    })
+                  }
+                />
+
+                <ServicesCard
+                  title="Plumbing"
+                  image={require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg')}
+                  onPress={() =>
+                    navigation.navigate('SingleScreen', {
+                      service: serviceMap[6],
+                    })
+                  }
+                />
+
+                <ServicesCard
+                  title="Tiling"
+                  image={require('../assets/services/homeImprovement/tiling-work.jpg')}
+                  onPress={() =>
+                    navigation.navigate('SingleScreen', {
+                      service: serviceMap[16],
+                    })
+                  }
+                />
+              </View>
+
+              <View style={{ height: 15 }} />
+
+              {/* Professionals */}
+              <Text style={styles.sectionTitle}>Top Professionals</Text>
+
+              <View style={styles.row2}>
+                <ProfessionalCard
+                  image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
+                  title="James"
+                  subtitle=""
+                />
+                <ProfessionalCard
+                  image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
+                  title="Michael"
+                  subtitle=""
+                />
+                <ProfessionalCard
+                  image={require('../assets/topProfessionals/3_matthewKing.jpg')}
+                  title="Matthew"
+                  subtitle=""
+                />
+                <ProfessionalCard
+                  image={require('../assets/topProfessionals/5_joshua_adams.jpg')}
+                  title="Joshua"
+                  subtitle=""
+                />
+              </View>
+
+              <View style={styles.numberBarContainer}>
+                <NumberBar navigation={navigation} />
+              </View>
+
+            </View>
           </View>
-
-          {/* Content */}
-          <View style={styles.content}>
-
-            <Text style={styles.title}>TACKLES | Fix it Today</Text>
-
-            <Text style={styles.subtitle}>
-              Professional Handyman Services in San Francisco
-            </Text>
-
-            {/* Top Services */}
-            <Text style={styles.sectionTitle}>Top Services</Text>
-
-            <View style={styles.row1}>
-              <ServicesCard
-                title="Painting"
-                image={require('../assets/services/homeImprovement/painting.jpg')}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', {
-                    service: serviceMap[13],
-                  })
-                }
-              />
-
-              <ServicesCard
-                title="Plumbing"
-                image={require('../assets/services/HomeRepairANDMaintenance/plumbing.jpg')}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', {
-                    service: serviceMap[6],
-                  })
-                }
-              />
-
-              <ServicesCard
-                title="Tiling"
-                image={require('../assets/services/homeImprovement/tiling-work.jpg')}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', {
-                    service: serviceMap[16],
-                  })
-                }
-              />
-            </View>
-
-            <View style={{ height: 15 }} />
-
-            {/* Professionals */}
-            <Text style={styles.sectionTitle}>Top Professionals</Text>
-
-            <View style={styles.row2}>
-              <ProfessionalCard
-                image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
-                title="James"
-                subtitle=""
-              />
-              <ProfessionalCard
-                image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
-                title="Michael"
-                subtitle=""
-              />
-              <ProfessionalCard
-                image={require('../assets/topProfessionals/3_matthewKing.jpg')}
-                title="Matthew"
-                subtitle=""
-              />
-              <ProfessionalCard
-                image={require('../assets/topProfessionals/5_joshua_adams.jpg')}
-                title="Joshua"
-                subtitle=""
-              />
-            </View>
-
-            <View style={styles.numberBarContainer}>
-              <NumberBar navigation={navigation} />
-            </View>
-
-          </View>
-        </View>
-      )}
-    />
+        )}
+      />
+    </View>
   );
 };
 

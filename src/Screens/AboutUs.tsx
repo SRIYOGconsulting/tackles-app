@@ -15,88 +15,91 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const AboutScreen = ({ navigation }: { navigation: any }) => {
+const AboutScreen = ({ }: { navigation: any }) => {
   return (
-    <FlatList
-      data={[]}
-      keyExtractor={() => 'about'}
-      renderItem={null}
-      showsVerticalScrollIndicator={false}
-      bounces={false}
+    <View style={{ flex: 1 }}>
+      {/* HEADER */}
+      <View style={styles.headerWrapper}>
+        <HeaderComponent style={styles.headerPadding} />
+        <View style={styles.line} />
+      </View>
+      <FlatList
+        data={[]}
+        keyExtractor={() => 'about'}
+        renderItem={null}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
 
-      ListHeaderComponent={() => (
-        <View style={styles.container}>
+        ListHeaderComponent={() => (
+          <View style={styles.container}>
 
-          {/* HEADER */}
-          <View style={styles.headerWrapper}>
-            <HeaderComponent style={styles.headerPadding} />
-            <View style={styles.line} />
-          </View>
 
-          {/* BANNER (optimized rendering) */}
-          <View style={styles.banner}>
-            <Image
-              source={require('../assets/aboutUs/aboutUS.jpeg')}
-              style={styles.bannerImage}
-              resizeMode="cover"
-              fadeDuration={0}
-            />
-          </View>
 
-          {/* CONTENT */}
-          <View style={styles.content}>
-
-            <Text style={styles.title}>Our Story</Text>
-
-            <Text style={styles.subtitle}>
-              Tackles is an A-grade handyman service company delivering
-              professional solutions for plumbing, painting, air conditioning,
-              flooring, and wall repairs with consistent quality and dependable
-              service standards.
-            </Text>
-
-            <Text style={styles.lineheighpara}>
-              Our mission is to offer complete repair and maintenance services
-              under one trusted platform, eliminating the need to search
-              multiple providers for different household and commercial
-              requirements.
-            </Text>
-
-            <Text style={styles.lineheighpara}>
-              Our vision is to build a trusted handyman brand recognized for
-              professionalism, accessibility, and service excellence through
-              long-term client relationships and consistent work quality.
-            </Text>
-
-            {/* TEAM */}
-            <View style={{ height: 18 }} />
-
-            <Text style={styles.title}>Our Team</Text>
-
-            <View style={styles.row}>
-              <OurTeamCard
-                image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
-                title="James Walker"
-                suBTitle="Deep Cleaning Specialist"
-              />
-
-              <OurTeamCard
-                image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
-                title="Michael Turner"
-                suBTitle="Pressure Washing Technician"
-              />
-
-              <OurTeamCard
-                image={require('../assets/topProfessionals/3_matthewKing.jpg')}
-                title="Matthew King"
-                suBTitle="Smart Home Installation Engineer"
+            {/* BANNER (optimized rendering) */}
+            <View style={styles.banner}>
+              <Image
+                source={require('../assets/aboutUs/aboutUS.jpeg')}
+                style={styles.bannerImage}
+                resizeMode="cover"
+                fadeDuration={0}
               />
             </View>
 
+            {/* CONTENT */}
+            <View style={styles.content}>
+
+              <Text style={styles.title}>Our Story</Text>
+
+              <Text style={styles.subtitle}>
+                Tackles is an A-grade handyman service company delivering
+                professional solutions for plumbing, painting, air conditioning,
+                flooring, and wall repairs with consistent quality and dependable
+                service standards.
+              </Text>
+
+              <Text style={styles.lineheighpara}>
+                Our mission is to offer complete repair and maintenance services
+                under one trusted platform, eliminating the need to search
+                multiple providers for different household and commercial
+                requirements.
+              </Text>
+
+              <Text style={styles.lineheighpara}>
+                Our vision is to build a trusted handyman brand recognized for
+                professionalism, accessibility, and service excellence through
+                long-term client relationships and consistent work quality.
+              </Text>
+
+              {/* TEAM */}
+              <View style={{ height: 18 }} />
+
+              <Text style={styles.title}>Our Team</Text>
+
+              <View style={styles.row}>
+                <OurTeamCard
+                  image={require('../assets/topProfessionals/1_jamesWalker.jpg')}
+                  title="James Walker"
+                  suBTitle="Deep Cleaning Specialist"
+                />
+
+                <OurTeamCard
+                  image={require('../assets/topProfessionals/2_michaelTurner.jpg')}
+                  title="Michael Turner"
+                  suBTitle="Pressure Washing Technician"
+                />
+
+                <OurTeamCard
+                  image={require('../assets/topProfessionals/3_matthewKing.jpg')}
+                  title="Matthew King"
+                  suBTitle="Smart Home Installation Engineer"
+                />
+              </View>
+
+            </View>
           </View>
-        </View>
-      )}
-    />
+        )}
+      />
+    </View>
   );
 };
 
@@ -167,7 +170,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     marginVertical: hp('0.5%'),
-    marginBottom:'5%',
+    marginBottom: '5%',
   },
 });
 

@@ -49,64 +49,78 @@ const ServicesScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <FlatList
-      data={data}
-      keyExtractor={(item) => item.id.toString()}
-      renderItem={renderItem}
-      numColumns={2}
+    <View>
+      <HeaderComponent style={styles.headerPadding} />
 
-      //  PERFORMANCE + LAZY LOADING SETTINGS
-      initialNumToRender={6}        // first screen only
-      maxToRenderPerBatch={10}      //  lazy load next 10 items
-      windowSize={5}                // controls visible window
-      updateCellsBatchingPeriod={50}
-      removeClippedSubviews={true}
-      getItemLayout={undefined}
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
+        numColumns={2}
 
-      showsVerticalScrollIndicator={false}
+        //  PERFORMANCE + LAZY LOADING SETTINGS
+        initialNumToRender={6}        // first screen only
+        maxToRenderPerBatch={10}      //  lazy load next 10 items
+        windowSize={5}                // controls visible window
+        updateCellsBatchingPeriod={50}
+        removeClippedSubviews={true}
+        getItemLayout={undefined}
 
-      ListHeaderComponent={() => (
-        <View style={styles.headerContainer}>
-          <ImageBackground
-            source={require('../assets/image/services/bannerServices.jpg')}
-            resizeMode="cover"
-            style={styles.headerBackground}
-          >
-            <HeaderComponent style={styles.headerPadding} />
+        showsVerticalScrollIndicator={false}
 
-            <View style={styles.headerTextContainer}>
-              <Text style={styles.headerTitle}>Painting</Text>
-              <Text style={styles.headerSubtitle}>
-                Professional & Reliable Services in San Francisco
-              </Text>
+        ListHeaderComponent={() => (
+          <View style={styles.headerContainer}>
+            <ImageBackground
+              source={require('../assets/image/services/bannerServices.jpg')}
+              resizeMode="cover"
+              style={styles.headerBackground}
+            >
+
+
+              <View style={styles.headerTextContainer}>
+                <Text
+                  style={styles.headerTitle}
+                  numberOfLines={2}
+                  adjustsFontSizeToFit
+                >
+                  Painting
+                </Text>
+
+                <Text
+                  style={styles.headerSubtitle}
+                  numberOfLines={2}
+                >
+                  Professional & Reliable Services in San Francisco
+                </Text>
+              </View>
+            </ImageBackground>
+
+            <View style={styles.sectionContainer}>
+              <Text style={styles.sectionTitle1}>Top Services</Text>
+
+              {topServices.map((item) => (
+                <ServicesCards
+                  key={item.id}
+                  name={item.name}
+                  description={item.description}
+                  image={item.image}
+                  navigation={navigation}
+                  question={item.question}
+                  answer={item.answer}
+                  onPress={() =>
+                    navigation.navigate('SingleScreen', {
+                      service: item,
+                    })
+                  }
+                />
+              ))}
+
+              <Text style={styles.sectionTitle2}>More Services</Text>
             </View>
-          </ImageBackground>
-
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle1}>Top Services</Text>
-
-            {topServices.map((item) => (
-              <ServicesCards
-                key={item.id}
-                name={item.name}
-                description={item.description}
-                image={item.image}
-                navigation={navigation}
-                question={item.question}
-                answer={item.answer}
-                onPress={() =>
-                  navigation.navigate('SingleScreen', {
-                    service: item,
-                  })
-                }
-              />
-            ))}
-
-            <Text style={styles.sectionTitle2}>More Services</Text>
           </View>
-        </View>
-      )}
-    />
+        )}
+      />
+    </View>
   );
 };
 
@@ -125,23 +139,34 @@ const styles = StyleSheet.create({
   headerPadding: {
     marginTop: hp('2%'),
     paddingHorizontal: 15.7,
+    position: 'absolute',
+    zIndex: 9999,
   },
 
   headerTextContainer: {
-    paddingHorizontal: wp('5%'),
-    marginBottom: hp('4%'),
+    position: 'absolute',
+    top: hp('16%'),
+    left: wp('5%'),
+    width: wp('90%'),
+    zIndex: 99,
   },
 
   headerTitle: {
-    fontSize: wp('7.5%'),
+    fontSize: wp('7%'),
     fontWeight: '800',
     color: '#fff',
+    lineHeight: hp('5%'),
+    marginBottom: hp('1%'),
+    flexWrap: 'wrap',
   },
 
   headerSubtitle: {
-    fontSize: wp('4%'),
-    fontWeight: '800',
+    fontSize: wp('3.8%'),
+    fontWeight: '500',
     color: '#fff',
+    lineHeight: hp('2.8%'),
+    width: wp('90%'),
+    flexWrap: 'wrap',
   },
 
   sectionContainer: {
@@ -155,7 +180,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('3.2%'),
-    marginTop:hp(-1),
+    marginTop: hp(-1),
   },
 
   sectionTitle2: {
@@ -163,7 +188,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#064E3B',
     marginBottom: hp('2%'),
-    marginTop:hp(-1),
+    marginTop: hp(-1),
 
   },
 

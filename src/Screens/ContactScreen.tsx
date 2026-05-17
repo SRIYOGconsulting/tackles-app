@@ -22,7 +22,7 @@ import {
 
 const ICON_SIZE = hp('3.3%');
 
-const ContactScreen = ({}: { navigation: any }) => {
+const ContactScreen = ({ }: { navigation: any }) => {
   const openWebsite = useCallback(() => {
     Linking.openURL('https://tackles.pro/');
   }, []);
@@ -32,76 +32,79 @@ const ContactScreen = ({}: { navigation: any }) => {
   }, []);
 
   return (
-    <ScrollView
-      style={styles.scrollView}
-      showsVerticalScrollIndicator={false}
-    >
+    <View style={{ flex: 1 }}>
       <HeaderComponent style={styles.header} />
 
       <View style={styles.divider} />
 
-      <View style={styles.container}>
-        <Text style={styles.title}>Contact Us</Text>
-        <Text style={styles.subtitle}>We're always here to help you out.</Text>
+      <ScrollView
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+      >
 
-        {/* MAP */}
-        <View style={styles.imageContainer}>
-          <Image
-            source={require('../assets/image/sanfranciscomap.png')}
-            style={styles.mapImage}
-            resizeMode="cover"
-          />
-        </View>
+        <View style={styles.container}>
+          <Text style={styles.title}>Contact Us</Text>
+          <Text style={styles.subtitle}>We're always here to help you out.</Text>
 
-        {/* COMPANY */}
-        <Text style={styles.companyName}>TACKLES Pro</Text>
-        <Text style={styles.companySubtitle}>
-          Professional Services in San Francisco
-        </Text>
-
-        {/* CARDS */}
-        <View style={styles.GridBox}>
-
-          {/* LOCATION */}
-          <View style={styles.card}>
-            <Image source={Location} style={styles.icon} />
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Visit us</Text>
-              <Text style={styles.cardSubtitle}>
-                600 California St, San Francisco, CA 94108.
-              </Text>
-            </View>
+          {/* MAP */}
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('../assets/image/sanfranciscomap.png')}
+              style={styles.mapImage}
+              resizeMode="cover"
+            />
           </View>
 
-          {/* EMAIL */}
-          <View style={styles.card}>
-            <Image source={Email} style={styles.icon} />
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Email us</Text>
-              <TouchableOpacity onPress={handleEmailPress}>
+          {/* COMPANY */}
+          <Text style={styles.companyName}>TACKLES Pro</Text>
+          <Text style={styles.companySubtitle}>
+            Professional Services in San Francisco
+          </Text>
+
+          {/* CARDS */}
+          <View style={styles.GridBox}>
+
+            {/* LOCATION */}
+            <View style={styles.card}>
+              <Image source={Location} style={styles.icon} />
+              <View style={styles.cardContent}>
+                <Text style={styles.cardTitle}>Visit us</Text>
                 <Text style={styles.cardSubtitle}>
-                  support@tackles.pro
+                  600 California St, San Francisco, CA 94108.
                 </Text>
-              </TouchableOpacity>
+              </View>
             </View>
-          </View>
 
-          {/* WEBSITE */}
-          <View style={styles.card}>
-            <Image source={Website} style={styles.icon} />
-            <View style={styles.cardContent}>
-              <Text style={styles.cardTitle}>Website</Text>
-              <TouchableOpacity onPress={openWebsite}>
-                <Text style={styles.cardSubtitle}>
-                  https://tackles.pro
-                </Text>
-              </TouchableOpacity>
+            {/* EMAIL */}
+            <View style={styles.card}>
+              <Image source={Email} style={styles.icon} />
+              <View style={styles.cardContent}>
+                <Text style={styles.cardTitle}>Email us</Text>
+                <TouchableOpacity onPress={handleEmailPress}>
+                  <Text style={styles.cardSubtitle}>
+                    support@tackles.pro
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
 
+            {/* WEBSITE */}
+            <View style={styles.card}>
+              <Image source={Website} style={styles.icon} />
+              <View style={styles.cardContent}>
+                <Text style={styles.cardTitle}>Website</Text>
+                <TouchableOpacity onPress={openWebsite}>
+                  <Text style={styles.cardSubtitle}>
+                    https://tackles.pro
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -109,12 +112,12 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     backgroundColor: '#fff',
-    paddingHorizontal:'1%',
+    paddingHorizontal: '1%',
   },
 
   header: {
     marginTop: hp('2%'),
-    paddingHorizontal: wp('3.1%'),
+    paddingHorizontal: wp('4%'),
   },
 
   divider: {

@@ -16,76 +16,79 @@ import {
 } from 'react-native-responsive-screen';
 
 const alphabet: AlphabetKey[] = [
-  'A','B','C','D','E','F','G','H','I','J',
-  'K','L','M','N','O','P','Q','R','S','T',
-  'U','V','W','X','Y','Z'
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+  'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+  'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
 
 const ContactScreen = () => {
   const [selectedLetter, setSelectedLetter] = useState<AlphabetKey>('A');
 
- const filteredData = GlossaryData2[selectedLetter] || [];
+  const filteredData = GlossaryData2[selectedLetter] || [];
 
- 
+
 
   return (
-    <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+    <View style={{ flex: 1 }}>
       <HeaderComponent style={styles.header} />
 
       <View style={styles.divider} />
 
-      <View style={styles.container}>
-        <Text style={styles.subtitle}>
-          Explore common handyman, repair, maintenance, installation, and home improvement terms from A to Z.
-        </Text>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
 
-        {/* ALPHABET */}
-        <View style={styles.alphabetBox}>
-          <View style={styles.alphabetGrid}>
-            {alphabet.map(letter => (
-              <Pressable
-                key={letter}
-                onPress={() => setSelectedLetter(letter)}
-                style={[
-                  styles.letterButton,
-                  selectedLetter === letter && styles.activeLetter,
-                ]}
-              >
-                <Text
+        <View style={styles.container}>
+          <Text style={styles.subtitle}>
+            Explore common handyman, repair, maintenance, installation, and home improvement terms from A to Z.
+          </Text>
+
+          {/* ALPHABET */}
+          <View style={styles.alphabetBox}>
+            <View style={styles.alphabetGrid}>
+              {alphabet.map(letter => (
+                <Pressable
+                  key={letter}
+                  onPress={() => setSelectedLetter(letter)}
                   style={[
-                    styles.letterText,
-                    selectedLetter === letter && styles.activeLetterText,
+                    styles.letterButton,
+                    selectedLetter === letter && styles.activeLetter,
                   ]}
                 >
-                  {letter}
-                </Text>
-              </Pressable>
-            ))}
+                  <Text
+                    style={[
+                      styles.letterText,
+                      selectedLetter === letter && styles.activeLetterText,
+                    ]}
+                  >
+                    {letter}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </View>
+
+          {/* SELECTED LETTER */}
+          <View style={styles.selectedBox}>
+            <Text style={styles.selectedText}>{selectedLetter}</Text>
+          </View>
+
+          {/* RESULTS */}
+          <View style={styles.resultContainer}>
+            {filteredData.length > 0 ? (
+              filteredData.map(item => (
+                <View key={item.title} style={styles.card}>
+                  <Text style={styles.cardTitle}>{item.title}</Text>
+                  <Text style={styles.cardText}>{item.words}</Text>
+                </View>
+              ))
+            ) : (
+              <Text style={styles.noData}>
+                No items found for "{selectedLetter}"
+              </Text>
+            )}
           </View>
         </View>
-
-        {/* SELECTED LETTER */}
-        <View style={styles.selectedBox}>
-          <Text style={styles.selectedText}>{selectedLetter}</Text>
-        </View>
-
-        {/* RESULTS */}
-        <View style={styles.resultContainer}>
-          {filteredData.length > 0 ? (
-            filteredData.map(item => (
-              <View key={item.title} style={styles.card}>
-                <Text style={styles.cardTitle}>{item.title}</Text>
-                <Text style={styles.cardText}>{item.words}</Text>
-              </View>
-            ))
-          ) : (
-            <Text style={styles.noData}>
-              No items found for "{selectedLetter}"
-            </Text>
-          )}
-        </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
   alphabetBox: {
     backgroundColor: '#fff',
     padding: 10,
-    paddingVertical:20,
+    paddingVertical: 20,
     borderRadius: 15,
     borderColor: '#E5E7EB',
     borderWidth: 2,
@@ -135,7 +138,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    alignItems:'center'
+    alignItems: 'center'
   },
 
   letterButton: {

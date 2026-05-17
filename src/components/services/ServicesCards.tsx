@@ -25,8 +25,8 @@ type Props = {
 // Function to limit the text to 8 words for description
 const truncateDescription = (description: string) => {
   const words = description.split(' '); // Split the string into words
-  if (words.length > 9) {
-    return words.slice(0, 9).join(' ') + '...'; // If more than 8 words, truncate and add ellipsis
+  if (words.length > 7) {
+    return words.slice(0, 8).join(' ') + '...'; // If more than 8 words, truncate and add ellipsis
   }
   return description; // Return the full description if 8 words or less
 };
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     marginLeft: wp(3), // Add some space between the image and text
-    width: wp(42), // Text container width set to a percentage of screen width
+    width: wp(44), // Text container width set to a percentage of screen width
 
   },
   title: {
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
 
   },
   description: {
-    fontSize: wp(3.1), // Responsive description font size
+    fontSize: wp(3.7), // Responsive description font size
     fontWeight: '400',
     color: 'hsl(0, 0%, 25%)',
     letterSpacing:-0.3,

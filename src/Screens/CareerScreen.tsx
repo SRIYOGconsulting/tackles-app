@@ -200,7 +200,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           keyboardType="numeric"
         />
 
-        <Text style={styles.label}>ID Proof</Text>
+        <Text style={styles.label}>ID Proof<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox 
         value={selectedID}
         onChange={setSelectedID}
@@ -264,7 +264,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           />
         </View>
 
-        <Text style={styles.label}>Resume/CV</Text>
+        <Text style={styles.label}>Resume/CV<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox
         value={selectedCV}
         onChange={setSelectedCV}

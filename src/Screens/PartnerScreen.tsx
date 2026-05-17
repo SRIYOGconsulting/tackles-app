@@ -109,16 +109,17 @@ const PartnerScreen = ({ }: { navigation: any }) => {
 
         <Text style={styles.borderWIDTH} />
 
-        <Text style={styles.label}>Full Name</Text>
+        <Text style={styles.label}>Full Name<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter your Full Name"
           value={name}
           onChangeText={setName}
           style={styles.input}
           placeholderTextColor={'#4B4B4B'}
+          
         />
 
-        <Text style={styles.label}>Name of Organization</Text>
+        <Text style={styles.label}>Name of Organization<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter the name of your organization"
           value={organizationName}
@@ -127,7 +128,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
-        <Text style={styles.label}>Phone Number</Text>
+        <Text style={styles.label}>Phone Number<Text style={{ color: 'red' }}>*</Text></Text>
         <View style={styles.phoneContainer}>
           <Image
             source={countryLogo}
@@ -167,7 +168,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           />
         </View>
 
-        <Text style={styles.label}>Email</Text>
+        <Text style={styles.label}>Email<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter your email address"
           value={email}
@@ -176,13 +177,13 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
-        <Text style={styles.label}>Company Photos</Text>
+        <Text style={styles.label}>Company Photos<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox
           value={selectCompanyPhotos}
           onChange={setSelectCompanyPhotos}
         />
 
-        <Text style={styles.label}>City</Text>
+        <Text style={styles.label}>City<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={area}
           placeholder="Select your City"
@@ -191,7 +192,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           value={selectedCity}
         />
 
-        <Text style={styles.label}>Number of Employees</Text>
+        <Text style={styles.label}>Number of Employees<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter the number of employees"
           style={styles.input}
@@ -204,7 +205,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           }}
         />
 
-        <Text style={styles.label}>Business Type</Text>
+        <Text style={styles.label}>Business Type<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={businessType}
           placeholder="Select your Business Type"
@@ -222,7 +223,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           value={selectedServicesOffered}
         />
 
-        <Text style={styles.label}>Partnership Interest</Text>
+        <Text style={styles.label}>Partnership Interest<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={partnershipInterest}
           placeholder="Select Partnership Interest"
@@ -233,13 +234,13 @@ const PartnerScreen = ({ }: { navigation: any }) => {
 
         placeholder="Briefly describe why you are interested"
 
-        <Text style={styles.label}>Company Registration Certificates</Text>
+        <Text style={styles.label}>Company Registration Certificates<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox
           value={selectCRCphotos}
           onChange={setSelectCRCphotos}
         />
 
-        <Text style={styles.label}>How did you hear about us?</Text>
+        <Text style={styles.label}>How did you hear about us?<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={howduhear}
           placeholder="How did you hear about us?"
@@ -248,7 +249,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           value={selectedHowHeard}
         />
 
-        <Text style={styles.label}>Message</Text>
+        <Text style={styles.label}>Message<Text style={{ color: 'red' }}>*</Text></Text>
         <TextArea
           value={message}
           onChangeText={setMessage}

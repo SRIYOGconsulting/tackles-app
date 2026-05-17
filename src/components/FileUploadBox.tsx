@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#666',
     fontWeight: '600',
-    marginTop: 5,
+    marginTop: 8,
   },
 
   list: {

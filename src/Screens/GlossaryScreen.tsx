@@ -8,24 +8,25 @@ import {
 } from 'react-native';
 
 import HeaderComponent from '../components/HeaderComponent';
-import { GlossaryData } from '../data/GlossaryData';
+import { AlphabetKey, GlossaryData2 } from '../data/GlossaryData2';
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const alphabet: AlphabetKey[] = [
+  'A','B','C','D','E','F','G','H','I','J',
+  'K','L','M','N','O','P','Q','R','S','T',
+  'U','V','W','X','Y','Z'
+];
 
 const ContactScreen = () => {
-  const [selectedLetter, setSelectedLetter] = useState<string>('A');
+  const [selectedLetter, setSelectedLetter] = useState<AlphabetKey>('A');
 
-  const filteredData = GlossaryData.filter(item => {
-    if (!item?.title) return false;
+ const filteredData = GlossaryData2[selectedLetter] || [];
 
-    const firstLetter = item.title.trim().charAt(0).toUpperCase();
-    return firstLetter === selectedLetter;
-  });
+ 
 
   return (
     <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -38,7 +39,7 @@ const ContactScreen = () => {
           Explore common handyman, repair, maintenance, installation, and home improvement terms from A to Z.
         </Text>
 
-        {/* BIG ALPHABET BOX */}
+        {/* ALPHABET */}
         <View style={styles.alphabetBox}>
           <View style={styles.alphabetGrid}>
             {alphabet.map(letter => (
@@ -63,18 +64,16 @@ const ContactScreen = () => {
           </View>
         </View>
 
-        {/* SELECTED LETTER DISPLAY BOX */}
+        {/* SELECTED LETTER */}
         <View style={styles.selectedBox}>
-          <Text style={styles.selectedText}>
-            {selectedLetter}
-          </Text>
+          <Text style={styles.selectedText}>{selectedLetter}</Text>
         </View>
 
-        {/* RESULT CARDS */}
+        {/* RESULTS */}
         <View style={styles.resultContainer}>
           {filteredData.length > 0 ? (
             filteredData.map(item => (
-              <View key={item.id} style={styles.card}>
+              <View key={item.title} style={styles.card}>
                 <Text style={styles.cardTitle}>{item.title}</Text>
                 <Text style={styles.cardText}>{item.words}</Text>
               </View>
@@ -119,25 +118,22 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: hp('4%'),
     textAlign: 'center',
-    lineHeight:hp('2.5%')
+    lineHeight: hp('2.5%'),
   },
 
-  /* BIG BOX AROUND ALPHABET */
   alphabetBox: {
     backgroundColor: '#fff',
     padding: 10,
     borderRadius: 15,
-    borderColor:'#E5E7EB',
-    borderWidth:2,
-    elevation:2
+    borderColor: '#E5E7EB',
+    borderWidth: 2,
+    elevation: 2,
   },
 
-  /* GRID WRAP */
   alphabetGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    alignItems: 'center',
   },
 
   letterButton: {
@@ -164,19 +160,15 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
 
-  /* SELECTED LETTER BOX */
   selectedBox: {
     marginTop: 15,
-    padding: 5,
-    borderRadius: 10,
-    borderWidth: 0,
   },
 
   selectedText: {
     fontSize: wp('7%'),
     fontWeight: '900',
     color: '#0F766E',
-    textAlign:'center'
+    textAlign: 'center',
   },
 
   resultContainer: {
@@ -201,11 +193,12 @@ const styles = StyleSheet.create({
     marginTop: hp('1%'),
     fontSize: wp('3.5%'),
     color: '#374151',
-    lineHeight:hp('2.2%')
+    lineHeight: hp('2.2%'),
   },
 
   noData: {
     marginTop: 20,
     color: '#6B7280',
+    textAlign: 'center',
   },
 });

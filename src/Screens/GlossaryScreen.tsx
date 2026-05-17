@@ -124,6 +124,7 @@ const styles = StyleSheet.create({
   alphabetBox: {
     backgroundColor: '#fff',
     padding: 10,
+    paddingVertical:20,
     borderRadius: 15,
     borderColor: '#E5E7EB',
     borderWidth: 2,
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    alignItems:'center'
   },
 
   letterButton: {

@@ -57,7 +57,6 @@ const NumberBar = ({ navigation }: { navigation: any }) => {
             }}
             placeholder="240 345 7466"
             placeholderTextColor="#999"
-            keyboardType="number-pad"
             style={[styles.input, { fontSize }]}
           />
         </View>

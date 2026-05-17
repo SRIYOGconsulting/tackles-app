@@ -346,7 +346,7 @@ export default function DrawerNavigation({
                 style={styles.fab}
                 onPress={() => setDrawerOpen(!drawerOpen)}
             >
-                <Text style={styles.menuIcon}>☰</Text>
+                <Text style={styles.menuIcon}>{'>'}</Text>
             </TouchableOpacity>
         </View>
     );
@@ -430,15 +430,15 @@ const styles = StyleSheet.create({
     fab: {
         position: 'absolute',
 
-        top: hp('3.7%'),
-        right: wp('13%'),
+        top: hp('11%'),
+        left: wp('0%'),
 
-        width: wp('9%'),
+        width: wp('3%'),
         height: wp('9%'),
+        borderTopRightRadius:7,
+        borderBottomRightRadius:7,
 
-        borderRadius: wp('10%'),
-
-        backgroundColor: 'rgb(62, 62, 62)',
+        backgroundColor: 'rgba(217, 217, 217,0.2)',
 
         alignItems: 'center',
         justifyContent: 'center',
@@ -448,7 +448,7 @@ const styles = StyleSheet.create({
 
     menuIcon: {
         fontSize: hp('2.3%'),
-        color: '#fff',
+        color: 'rgba(255, 255, 255,0.2)',
     },
 
     buttonText: {

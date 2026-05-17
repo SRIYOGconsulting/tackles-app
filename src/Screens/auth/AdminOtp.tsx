@@ -15,7 +15,6 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../redux/store';
 import { createBooking } from '../../api/PostApi';
 import {
-  widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 

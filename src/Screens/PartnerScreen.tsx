@@ -58,10 +58,10 @@ const PartnerScreen = ({ }: { navigation: any }) => {
   const [selectCRCphotos, setSelectCRCphotos] = useState<FileItem[]>([]);
 
   // dropdown states (separated properly)
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedArea, setSelectedArea] = useState('');
   const [selectedBusinessType, setSelectedBusinessType] = useState('');
   const [selectedPartnership, setSelectedPartnership] = useState('');
-  const [selectedHowHeard, setSelectedHowHeard] = useState('');
+  const [selectedHowHeard, setSelectedHowHeard] = useState('Google Search');
   const [selectedServicesOffered, setSelectedServicesOffered] = useState<string[]>([]);
 
   const handleClearForm = () => {
@@ -85,7 +85,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
             setEmployees('');
             setSelectCompanyPhotos([]);
             setSelectCRCphotos([]);
-            setSelectedCity('');
+            setSelectedArea('');
             setSelectedBusinessType('');
             setSelectedPartnership('');
             setSelectedHowHeard('');
@@ -121,7 +121,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
 
         <Text style={styles.label}>Name of Organization<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
-          placeholder="Enter the name of your organization"
+          placeholder="Enter the name of your Organization"
           value={organizationName}
           onChangeText={setOrganizationName}
           style={styles.input}
@@ -170,7 +170,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
 
         <Text style={styles.label}>Email<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
-          placeholder="Enter your email address"
+          placeholder="Enter your Email Address"
           value={email}
           onChangeText={setEmail}
           style={styles.input}
@@ -183,18 +183,18 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           onChange={setSelectCompanyPhotos}
         />
 
-        <Text style={styles.label}>City<Text style={{ color: 'red' }}>*</Text></Text>
+        <Text style={styles.label}>Area<Text style={{ color: 'red' }}>*</Text></Text>
         <Dropdown
           options={area}
-          placeholder="Select your City"
+          placeholder="Select your Area"
           placeholderColor="#4B4B4B"
-          onSelectOption={setSelectedCity}
-          value={selectedCity}
+          onSelectOption={setSelectedArea}
+          value={selectedArea}
         />
 
         <Text style={styles.label}>Number of Employees<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
-          placeholder="Enter the number of employees"
+          placeholder="Enter the number of Employees"
           style={styles.input}
           placeholderTextColor={'#4B4B4B'}
           keyboardType="numeric"
@@ -217,7 +217,7 @@ const PartnerScreen = ({ }: { navigation: any }) => {
         <Text style={styles.label}>Services Offered<Text style={{ color: 'red' }}>*</Text></Text>
         <DropdownAdd
           options={services}
-          placeholder="Select the services you offer"
+          placeholder="Select the Services you offer"
           placeholderColor="#4B4B4B"
           onSelectOption={setSelectedServicesOffered}
           value={selectedServicesOffered}
@@ -231,8 +231,6 @@ const PartnerScreen = ({ }: { navigation: any }) => {
           onSelectOption={setSelectedPartnership}
           value={selectedPartnership}
         />
-
-        placeholder="Briefly describe why you are interested"
 
         <Text style={styles.label}>Company Registration Certificates<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox

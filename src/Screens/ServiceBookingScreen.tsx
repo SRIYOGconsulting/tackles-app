@@ -97,7 +97,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
 
           <View style={styles.inputGroup}>
 
-            <Text style={styles.label}>Full Name</Text>
+            <Text style={styles.label}>Full Name<Text style={{ color: 'red' }}>*</Text></Text>
             <TextInput
               placeholder="Enter your Full Name"
               value={name}
@@ -106,7 +106,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
               placeholderTextColor={'#4B4B4B'}
             />
 
-            <Text style={styles.label}>Phone Number</Text>
+            <Text style={styles.label}>Phone Number<Text style={{ color: 'red' }}>*</Text></Text>
             <View style={styles.phoneContainer}>
               <Image
                 source={countryLogo}
@@ -155,7 +155,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
               borderColor='#3CB371'
             />
 
-            <Text style={styles.label}>Choose Date</Text>
+            <Text style={styles.label}>Choose Date<Text style={{ color: 'red' }}>*</Text></Text>
             <View style={{ marginBottom: height * 0.025 }}>
               <TouchableOpacity
                 onPress={() => setShow(true)}
@@ -192,7 +192,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
               borderColor='#3CB371'
             />
 
-            <Text style={styles.label}>Your Location</Text>
+            <Text style={styles.label}>Your Location<Text style={{ color: 'red' }}>*</Text></Text>
             <Dropdown
               options={area}
               placeholder="Select your location"
@@ -218,7 +218,7 @@ const ServiceBookingScreen = ({ navigation }: { navigation: any }) => {
             showRequired
           /> */}
 
-            <Text style={styles.label}>Message</Text>
+            <Text style={styles.label}>Message<Text style={{ color: 'red' }}>*</Text></Text>
             <TextArea
               value={message}
               onChangeText={setMessage}

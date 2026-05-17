@@ -100,7 +100,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
 };
 
   return (
-    <View >
+    <View style={{marginBottom:hp('10%')}}>
       <HeaderComponent style={styles.header} />
       <View style={{ borderBottomWidth: 1, borderColor: '#CAD2DF', marginTop: 16 }} />
     <KeyboardAwareScrollView
@@ -113,7 +113,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
 
         <Text style={styles.borderWIDTH} />
 
-        <Text style={styles.label}>Full Name</Text>
+        <Text style={styles.label}>Full Name<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter your Full Name"
           value={name}
@@ -122,7 +122,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           placeholderTextColor={'#4B4B4B'}
         />
 
-        <Text style={styles.label}>Phone Number</Text>
+        <Text style={styles.label}>Phone Number<Text style={{ color: 'red' }}>*</Text></Text>
         <View style={styles.phoneContainer}>
           <Image
             source={countryLogo}
@@ -162,7 +162,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           />
         </View>
 
-        <Text style={styles.label}>Email</Text>
+        <Text style={styles.label}>Email<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter your email address"
           value={email}
@@ -218,7 +218,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           onSelectOption={setSelectedArea}
         />
 
-        <Text style={styles.label}>Insurance Policy Number</Text>
+        <Text style={styles.label}>Insurance Policy Number<Text style={{ color: 'red' }}>*</Text></Text>
         <TextInput
           placeholder="Enter the insurance policy number"
           value={policyNumber}
@@ -231,7 +231,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           keyboardType="numeric"
         />
 
-        <Text style={styles.label}>Emergency Contact Number</Text>
+        <Text style={styles.label}>Emergency Contact Number<Text style={{ color: 'red' }}>*</Text></Text>
         <View style={styles.phoneContainer}>
           <Image
             source={countryLogo}
@@ -266,13 +266,13 @@ const CareerScreen = ({ }: { navigation: any }) => {
           />
         </View>
 
-        <Text style={styles.label}>Resume/CV<Text style={{ color: 'red' }}>*</Text></Text>
+        <Text style={styles.label}>CV/Resume<Text style={{ color: 'red' }}>*</Text></Text>
         <FileUploadBox
         value={selectedCV}
         onChange={setSelectedCV}
         />
 
-        <Text style={styles.label}>Cover Letter</Text>
+        <Text style={styles.label}>Cover Letter<Text style={{ color: 'red' }}>*</Text></Text>
         <TextArea
           value={coverMessage}
           onChangeText={setCoverMessage}
@@ -281,7 +281,7 @@ const CareerScreen = ({ }: { navigation: any }) => {
           maxHeight={160}
         />
 
-        <Text style={styles.label}>Message</Text>
+        <Text style={styles.label}>Message<Text style={{ color: 'red' }}>*</Text></Text>
         <TextArea
           value={message}
           onChangeText={setMessage}

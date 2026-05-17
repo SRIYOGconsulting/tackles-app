@@ -51,10 +51,21 @@ const CareerScreen = ({ }: { navigation: any }) => {
   const [emergencyNumber, setEmergencyNumber] = useState('');
   const [coverMessage, setCoverMessage] = useState('');
 
+  type FileItem = {
+    uri: string;
+    fileName?: string;
+  };
+
+  //photoes
+  const [selectedCV, setSelectedCV] = useState<FileItem[]>([]);
+  const [selectedID, setSelectedID] = useState<FileItem[]>([]);
+
   // dropdown states (FIXED)
   const [selectedPosition, setSelectedPosition] = useState<string[]>([]);
   const [selectedExpertise, setSelectedExpertise] = useState<string[]>([]);
   const [selectedArea, setSelectedArea] = useState<string[]>([]);
+
+
 
   const handleClearForm = () => {
   Alert.alert(
@@ -76,7 +87,8 @@ const CareerScreen = ({ }: { navigation: any }) => {
           setExperience('');
           setPolicyNumber('');
           setCoverMessage('');
-
+          setSelectedCV([]);
+          setSelectedID([]);
           setSelectedPosition([]);
           setSelectedExpertise([]);
           setSelectedArea([]);
@@ -189,7 +201,10 @@ const CareerScreen = ({ }: { navigation: any }) => {
         />
 
         <Text style={styles.label}>ID Proof</Text>
-        <FileUploadBox />
+        <FileUploadBox 
+        value={selectedID}
+        onChange={setSelectedID}
+        />
 
 
         <Text style={styles.label}>Preferred Working Area<Text style={{ color: 'red' }}>*</Text></Text>
@@ -250,7 +265,10 @@ const CareerScreen = ({ }: { navigation: any }) => {
         </View>
 
         <Text style={styles.label}>Resume/CV</Text>
-        <FileUploadBox />
+        <FileUploadBox
+        value={selectedCV}
+        onChange={setSelectedCV}
+        />
 
         <Text style={styles.label}>Cover Letter</Text>
         <TextArea

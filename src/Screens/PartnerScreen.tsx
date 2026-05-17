@@ -49,6 +49,14 @@ const PartnerScreen = ({ }: { navigation: any }) => {
   const [message, setMessage] = useState('');
   const [employees, setEmployees] = useState('');
 
+  type FileItem = {
+    uri: string;
+    fileName?: string;
+  };
+  // photoss
+  const [selectCompanyPhotos, setSelectCompanyPhotos] = useState<FileItem[]>([]);
+  const [selectCRCphotos, setSelectCRCphotos] = useState<FileItem[]>([]);
+
   // dropdown states (separated properly)
   const [selectedCity, setSelectedCity] = useState('');
   const [selectedBusinessType, setSelectedBusinessType] = useState('');
@@ -75,7 +83,8 @@ const PartnerScreen = ({ }: { navigation: any }) => {
             setOrganizationName('');
             setMessage('');
             setEmployees('');
-
+            setSelectCompanyPhotos([]);
+            setSelectCRCphotos([]);
             setSelectedCity('');
             setSelectedBusinessType('');
             setSelectedPartnership('');
@@ -168,7 +177,10 @@ const PartnerScreen = ({ }: { navigation: any }) => {
         />
 
         <Text style={styles.label}>Company Photos</Text>
-        <FileUploadBox />
+        <FileUploadBox
+          value={selectCompanyPhotos}
+          onChange={setSelectCompanyPhotos}
+        />
 
         <Text style={styles.label}>City</Text>
         <Dropdown
@@ -222,7 +234,10 @@ const PartnerScreen = ({ }: { navigation: any }) => {
         placeholder="Briefly describe why you are interested"
 
         <Text style={styles.label}>Company Registration Certificates</Text>
-        <FileUploadBox />
+        <FileUploadBox
+          value={selectCRCphotos}
+          onChange={setSelectCRCphotos}
+        />
 
         <Text style={styles.label}>How did you hear about us?</Text>
         <Dropdown

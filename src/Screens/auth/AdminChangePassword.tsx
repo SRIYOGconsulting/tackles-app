@@ -158,14 +158,6 @@ const AdminChangePassword = ({ navigation }: { navigation: any }) => {
                                 )}
                             </TouchableOpacity>
                         </View>
-                        <View style={styles.btnContainer}>
-                            <TouchableOpacity>
-                                <Text style={styles.btnText}>Forgot Password?</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <Text style={styles.btnText}>Create new account</Text>
-                            </TouchableOpacity>
-                        </View>
 
                         <View style={styles.mainBtn}>
                             <TouchableOpacity style={styles.CancelButton} onPress={handleSubmit}>
@@ -240,7 +232,7 @@ const styles = StyleSheet.create({
 
     },
     welcomeText: {
-        marginTop: height * 0.03,
+        marginTop: height * 0.04,
         fontSize: scaleFont(15),
         fontWeight: '600',
         width: '100%',
@@ -290,7 +282,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: "space-between",
         flexDirection: 'row',
-        paddingTop: height * 0.1, // Adjusted button margin based on screen height
+        paddingTop: height * 0.13, // Adjusted button margin based on screen height
         marginBottom: hp('3%'),
         paddingHorizontal: wp('2%')
     },

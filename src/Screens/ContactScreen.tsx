@@ -95,7 +95,7 @@ const ContactScreen = ({ }: { navigation: any }) => {
                 <Text style={styles.cardTitle}>Website</Text>
                 <TouchableOpacity onPress={openWebsite}>
                   <Text style={styles.cardSubtitle}>
-                    https://tackles.pro
+                    tackles.pro
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
   },
 
   cardSubtitle: {
-    fontSize: wp('3.4%'),
+    fontSize: wp('3.3%'),
   },
 });
 

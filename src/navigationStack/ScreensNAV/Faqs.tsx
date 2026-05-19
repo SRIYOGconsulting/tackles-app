@@ -1,6 +1,6 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import FaqsScreen from '../Screens/FaqsScreen';
+import FaqsScreen from '../../Screens/FaqsScreen';
 
 type Props = {};
 

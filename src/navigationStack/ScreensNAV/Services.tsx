@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import ServicesScreen from '../Screens/ServicesScreen';
-import SingleScreen from '../Screens/SingleScreen';
+import ServicesScreen from '../../Screens/ServicesScreen';
+import SingleScreen from '../../Screens/SingleScreen';
 
 type Props = {};
 

@@ -3,15 +3,16 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Image, StyleSheet, Platform } from 'react-native';
 
 import Booking from './Booking';
-import Home from './Home';
-import Services from './Services';
-import About from './About';
-import Contact from './Contact';
+import Home from './ScreensNAV/Home';
+import Services from './ScreensNAV/Services';
+import About from './ScreensNAV/About';
+import Contact from './ScreensNAV/Contact';
 
-import Career from './Career';
-import Glossary from './Glossary'
-import Partner from './Partner';
-import Faqs from './Faqs';
+import Career from './ScreensNAV/Career';
+import Glossary from './ScreensNAV/Glossary'
+import Partner from './ScreensNAV/Partner';
+import Faqs from './ScreensNAV/Faqs';
+import AdminNavigation from './authNAV/AdminNavigation'
 
 import HomeIcon from '../assets/icons/Home.png';
 import HomeActiveIcon from '../assets/icons/HomeActive.png';
@@ -152,6 +153,16 @@ const Tabs = () => {
         options={{
           tabBarButton: () => null,
           tabBarItemStyle: { display: 'none' },
+        }}
+      />
+
+      <Tab.Screen
+        name="AdminLogin"
+        component={AdminNavigation}
+        options={{
+          tabBarButton: () => null,
+          tabBarItemStyle: { display: 'none' },
+            tabBarStyle: { display: 'none' },
         }}
       />
 

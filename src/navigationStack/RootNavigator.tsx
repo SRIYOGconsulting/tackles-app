@@ -9,6 +9,8 @@ import OnBoarding3 from '../Screens/onBoarding/OnBoarding3';
 import Booking from './Booking';
 import DrawerNavigation from './DrawerNavigation';
 
+import SingleBooking from '../SingleBooking';
+
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
@@ -73,6 +75,13 @@ const RootNavigator = () => {
         name="Booking"
         component={Booking}
       />
+
+      <Stack.Screen
+        name="SingleBooking"
+        component={SingleBooking}
+      />
+
+
     </Stack.Navigator>
   );
 };

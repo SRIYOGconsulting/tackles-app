@@ -42,13 +42,20 @@ export default function DrawerNavigation({
                 <TouchableOpacity
                     style={styles.overlay}
                     activeOpacity={1}
-                    onPress={() => setDrawerOpen(false)}
                 />
             )}
 
             {/* Drawer */}
             {drawerOpen && (
                 <View style={styles.drawer}>
+
+                    {/* CLOSE BUTTON */}
+                    <TouchableOpacity
+                        style={styles.closeBtn}
+                        onPress={() => setDrawerOpen(false)}
+                    >
+                        <Text style={styles.closeText}>✕</Text>
+                    </TouchableOpacity>
                     {/* Logo */}
                     <View style={styles.imageContainer}>
                         <Image
@@ -333,7 +340,15 @@ export default function DrawerNavigation({
                     </TouchableOpacity>
 
                     {/* Admin Login */}
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => {
+                             navigation.navigate('Main', {
+                                screen: 'AdminLogin',
+                            });
+
+                            setDrawerOpen(false);
+                        }}
+                    >
                         <Text style={styles.ADMINbuttoncontainer}>
                             Admin Login
                         </Text>
@@ -364,15 +379,15 @@ const styles = StyleSheet.create({
     drawer: {
         position: 'absolute',
         left: wp('3%'),
-        width: wp('65%'),
+        width: wp('75%'),
 
-        top: hp('15%'),
-        bottom: hp('15%'),
+        top: hp('8%'),
+        bottom: hp('8%'),
 
-        backgroundColor: 'hsl(0, 0%, 85%)',
+        backgroundColor: '#d3d3d3',
+        padding: wp('5%'),
 
-        padding: wp('4%'),
-        borderRadius: wp('4%'),
+        borderRadius: wp('6%'),
 
         zIndex: 10,
     },
@@ -380,27 +395,25 @@ const styles = StyleSheet.create({
     imageContainer: {
         width: '100%',
         height: hp('7%'),
-
-        marginBottom: hp('2%'),
+        marginBottom: hp('2.5%'),
 
         alignItems: 'flex-start',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
 
         borderBottomWidth: 1,
-        borderColor: 'hsl(0, 0%, 82%)',
+        borderColor: 'hsl(0, 0%, 80%)',
+        paddingBottom: hp('1.5%'),
     },
 
     drawerTitle: {
-        width: wp('35%'),
-        height: hp('7%'),
-
+        width: wp('38%'),
+        height: hp('6.5%'),
         resizeMode: 'contain',
     },
 
     buttoncontainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-start',
     },
 
     ADMINbuttoncontainer: {
@@ -410,8 +423,8 @@ const styles = StyleSheet.create({
         fontWeight: '500',
 
         textAlign: 'center',
-
-        marginTop: hp('1.5%'),
+        marginTop: hp('5%'),
+        marginLeft: hp('1%'),
 
         borderWidth: 1,
         borderColor: 'hsl(0, 0%, 30%)',
@@ -424,7 +437,9 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     item: {
-        paddingVertical: hp('1.4%'),
+        paddingVertical: hp('1.6%'),
+        paddingHorizontal: wp('2%'),
+        borderRadius: wp('2.5%'),
     },
 
     fab: {
@@ -435,10 +450,10 @@ const styles = StyleSheet.create({
 
         width: wp('8.5%'),
         height: wp('8.5%'),
-        borderRadius: wp('10%'),
-        borderWidth:2,
-        backgroundColor: 'trasnparent',
-        borderColor:'#73977c',
+        borderRadius: wp('5%'),
+        borderWidth: 1.5,
+        backgroundColor: 'transparent',
+        borderColor: '#73977c',
         alignItems: 'center',
         justifyContent: 'center',
 
@@ -447,21 +462,20 @@ const styles = StyleSheet.create({
     menuIcon: {
         fontSize: hp('2.3%'),
         color: '#73977c',
+        fontWeight: '700',
     },
 
     buttonText: {
-        fontSize: hp('1.7%'),
-
+        fontSize: hp('1.75%'),
         color: 'hsl(0, 0%, 30%)',
-
         fontWeight: '500',
+        letterSpacing: 0.2,
     },
 
     iconSize: {
-        width: wp('4.5%'),
-        height: wp('4.5%'),
-
-        marginRight: wp('2.5%'),
+        width: wp('4.8%'),
+        height: wp('4.8%'),
+        marginRight: wp('3%'),
 
         tintColor: '#404040',
     },
@@ -469,8 +483,7 @@ const styles = StyleSheet.create({
     overlay: {
         ...StyleSheet.absoluteFillObject,
 
-        backgroundColor: '#fff',
-
+        backgroundColor: 'rgba(0, 0, 0,0.75)',
         zIndex: 5,
     },
 
@@ -482,12 +495,9 @@ const styles = StyleSheet.create({
     },
 
     activeItem: {
-        backgroundColor: 'rgba(0, 180, 0, 0.15)',
-
-        borderRadius: wp('2.5%'),
-
-        paddingHorizontal: wp('2%'),
+        backgroundColor: 'rgba(47, 111, 94, 0.08)',
     },
+
 
     activeText: {
         color: 'green',
@@ -496,5 +506,25 @@ const styles = StyleSheet.create({
 
     activeIcon: {
         tintColor: 'green',
+    },
+
+    closeBtn: {
+        position: 'absolute',
+        top: hp('1.2%'),
+        right: wp('3%'),
+
+        width: wp('8%'),
+        height: wp('8%'),
+        borderRadius: wp('4%'),
+
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 11,
+    },
+
+    closeText: {
+        fontSize: hp('1.8%'),
+        color: 'hsl(0, 0%, 25%)',
+        fontWeight: '800',
     },
 });
